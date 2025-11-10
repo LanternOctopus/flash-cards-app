@@ -18,7 +18,11 @@ const Deck: React.FC<DeckProps> = ({ category }) => {
         setShuffledDeck(shuffle(deck));
     }, []);
     const [index, setIndex] = useState(0);
-
+    const handlePrev = () => {
+    setIndex((prev) =>
+        prev === 0 ? shuffledDeck.length - 1 : prev - 1
+    );
+    };
     const handleNext = () => {
         setIndex((prev) => (prev + 1) % shuffledDeck.length);
     };
@@ -31,7 +35,10 @@ const Deck: React.FC<DeckProps> = ({ category }) => {
                 card= {currentCard}
                 allCards={shuffledDeck}
             />
-            <button onClick={handleNext} className="next">Next Card →</button>
+            <div className='nav-buttons'>
+                <button onClick={handlePrev} className="previous nav-button">← Previous Card</button>
+                <button onClick={handleNext} className="next nav-button">Next Card →</button>
+            </div>
         </div>
     );
 };

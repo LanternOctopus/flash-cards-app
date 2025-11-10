@@ -1,80 +1,186 @@
+body{
+  background-color: #FFFDF7;
+}
+/* Layout container */
 .flashcard {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    width: 80vw;
-    height: 80vh;
-    vertical-align: middle;
-    margin:0 auto;
-    box-shadow: grey 4px 4px 3px;
-    font-size: xx-large;
-    position:relative;
-  }
-.flashcard:hover{
-  box-shadow: grey 8px 6px 3px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem 1rem;
+  width: 90%;
+  margin: 0 auto;
+  color: #2E2D2B;
+  font-family: "Poppins", "Baloo 2", sans-serif;
 }
-.playButton{
-  position: absolute;
-  right: 0;
-  top: 0;
+
+/* Image */
+.card-image {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 16px;
+  margin-bottom: 1.5rem;
+  object-fit: contain;
 }
+
+/* Question text */
+.card-question {
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #2E2D2B;
+}
+
+/* Options */
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+/* Answer buttons */
 .answer {
-  background-color: #FFB84C; /* warm flat amber tone */
-  color: #2E2D2B; /* dark neutral for strong contrast */
-  font-size: x-large;
+  background-color: #4FC3F7; /* sky blue */
+  color: #2E2D2B;
+  font-size: 1.2rem;
   font-weight: 600;
-  cursor: pointer;
   border: none;
   border-radius: 12px;
   padding: 1rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease;
 }
 
 .answer:hover {
-  background-color: #E89A2C; 
+  background-color: #FFB84C; /* yellow hover */
   transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
 }
 
 .answer:active {
   transform: scale(0.98);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.options {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  max-width: 400px;
+/* Navigation buttons */
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
   margin: 0 auto;
 }
 
-.next {
-  position: fixed;          /* stays on the right even when scrolling */
-  right: 2rem;              /* distance from right edge */
-  bottom: 2rem;             /* distance from bottom */
-  background-color: #0078D7; /* accessible flat blue */
-  color: #FFFFFF;           /* white text for high contrast */
-  font-size: 1.25rem;       /* larger text */
-  font-weight: 600;
-  padding: 1rem 1.5rem;
+.nav-button {
+  flex: 1;
+  background-color: #FF7043; /* coral */
+  color: #FFFFFF;
+  font-size: 1.1rem;
+  font-weight: 700;
   border: none;
   border-radius: 12px;
+  padding: 0.8rem 1rem;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  margin: 0 0.5rem;
+  transition: background-color 0.2s ease, transform 0.15s ease;
 }
 
-.next:hover {
-  background-color: #005fa3; /* darker blue on hover */
-  transform: translateX(3px); /* subtle rightward movement */
+.nav-button:hover {
+  background-color: #E45A2A;
+  transform: scale(1.03);
 }
 
-.next:active {
-  transform: scale(0.98);
+.nav-button:active {
+  transform: scale(0.97);
+}
+
+/* Desktop layout */
+@media (min-width: 768px) {
+  .flashcard {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .left-column {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .right-column {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width:50%;
+  }
+
+  .card-question {
+    text-align: left;
+  }
+
+  .nav-buttons {
+    max-width: none;
+    justify-content: space-between;
+  }
+}
+.popup {
+  position: fixed;                 /* center in viewport */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+
+  background-color: #ffffff;       /* clean white background */
+  padding: 1rem 1.5rem;           /* nice spacing */
+  border-radius: 12px;             /* smooth rounded corners */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* soft shadow */
+  
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #2E2D2B;                  /* dark neutral text */
+  text-align: center;
+  
+  pointer-events: none;            /* let clicks pass through */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;                     /* space between emoji and text */
+}
+
+.popup.success {
+  border-left: 5px solid #2E7D32; /* subtle green accent */
+}
+
+.popup.fail {
+  border-left: 5px solid #C62828; /* subtle red accent */
+}
+
+/* Emoji animations */
+.emoji.happy {
+  display: inline-block;
+  animation: bounce 0.8s ease-out;
+}
+
+.emoji.sad {
+  display: inline-block;
+  animation: droop 0.8s ease-out;
+}
+
+/* Bounce for happy emoji */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-15px); }
+  50% { transform: translateY(0); }
+  75% { transform: translateY(-8px); }
+}
+
+/* Droop for sad emoji */
+@keyframes droop {
+  0% { transform: rotate(0) translateY(0); }
+  50% { transform: rotate(10deg) translateY(5px); }
+  100% { transform: rotate(0) translateY(0); }
 }

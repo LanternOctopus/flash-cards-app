@@ -1,79 +1,99 @@
 import React, { useEffect, useState } from 'react';
-// import { playSound } from '../utils/audio.ts';
 import './Flashcard.css';
-// import { Consonant } from '../types';
 import { Phrase } from '../types';
-// type FlashcardProps = {
-//   key:string;
-//   card: Consonant;
-//   allCards: Consonant[];
-// };
+
 type FlashcardProps = {
-  key:string;
+  key: string;
   card: Phrase;
   allCards: Phrase[];
 };
- const Flashcard: React.FC<FlashcardProps> = ({ key,card, allCards }) => {
+
+const Flashcard: React.FC<FlashcardProps> = ({ key, card, allCards }) => {
   const [isFlipped, setIsFlipped] = useState(false);
-  const handleFlip = () => {
-    setIsFlipped((prev)=>!prev);
-  };
-  const [options, setOptions] = useState<string[]>([]);
+  const [options, setOptions] = useState<[string, string][]>([]);
   const [selected, setSelected] = useState<string | null>(null);
-  useEffect(()=>{
+  const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
+  const [showPopup, setShowPopup] = useState(false);
+
+  const handleFlip = () => setIsFlipped((prev) => !prev);
+
+  useEffect(() => {
     const incorrect = allCards
-      .filter(c => c.English !== card.English)
+      .filter((c) => c.English !== card.English)
       .sort(() => Math.random() - 0.5)
       .slice(0, 3)
-      .map(c => c.English);
+      .map((c) => [c.Malayalam, c.Transliteration]);
 
-      const allOptions = [...incorrect, card.English].sort(() => Math.random() - 0.5);
-      setOptions(allOptions);
-      setSelected(null);
-  }, [card, allCards])
+    const allOptions = [...incorrect, [card.Malayalam, card.Transliteration]].sort(
+      () => Math.random() - 0.5
+    );
+
+    setOptions(allOptions);
+    setSelected(null);
+    setIsCorrect(null);
+    setShowPopup(false);
+  }, [card, allCards]);
+
   const handleSelect = (option: string) => {
+    if (selected) return;
+    console.log('hi')
     setSelected(option);
+    const correct = option === card.Malayalam;
+    setIsCorrect(correct);
+    setShowPopup(true);
+        console.log(option)
+    console.log(card.Malayalam)
   };
 
   return (
     <div className="flashcard" onClick={handleFlip} key={key}>
-      <>
-      {/* <button onClick={(e) => { e.stopPropagation(); playSound(card.audio)}} className='playButton'>Play Sound</button> */}
-      {!isFlipped ? (
-        <div className="card-front"><h1>{card.Malayalam}</h1><h2>{card.Transliteration}</h2></div>
-      ) : (
-        <div className="card-back"><h2>{card.English}</h2>
-      
-        </div>
-      )}
-        <div className="options">
-        {options.map((option) => (
-          <button
-            key={option}
-            onClick={() => handleSelect(option)}
-            disabled={!!selected}
-            className={ `answer ${
-              selected
-                ? option === card.English
-                  ? 'correct'
-                  : option === selected
-                    ? 'incorrect'
-                    : ''
-                : ''
-            }`}
-          >
-            {option}
-          </button>
-        ))}
+      <div className="left-column">
+        {!isFlipped ? (
+          <div className="card-front">
+            <h1>{card.English}</h1>
+          </div>
+        ) : (
+          <div className="card-back">
+            <h1>{card.Malayalam}</h1>
+            <h2>{card.Transliteration}</h2>
+          </div>
+        )}
       </div>
 
-      {selected && (
-        <div className="result">
-          {selected === card.English ? '✅ Correct!' : '❌ Wrong'}
+      <div className="right-column">
+        <div className="options">
+          {options.map((option) => {
+            return (
+              <button
+                key={option[0]}
+                onClick={() => handleSelect(option[0])}
+                disabled={!!selected}
+              >
+                <div className="option-text">
+                  <p className="malayalam">{option[0]}</p>
+                  <p className="translit">{option[1]}</p>
+                </div>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {showPopup && (
+        <div className={`popup ${isCorrect ? 'correct' : 'incorrect'}`}>
+          {isCorrect ? (
+            <>
+              <span className="emoji happy">😊</span> Great job!
+            </>
+          ) : (
+            <>
+              <span className="emoji sad">😞</span> Try again!
+            </>
+          )}
         </div>
       )}
-      </>
     </div>
   );
 };
+
 export default Flashcard;
