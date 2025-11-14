@@ -2,11 +2,11 @@ import React, { FC, useState, useEffect } from "react";
 import ShowFeedback from "./ShowFeedback";
 import TypingView from "../views/TypingView";
 import ActivityController from "../controllers/ActivityController";
-// import PartofSpeechView from "../views/PartofSpeechView";
+import PartofSpeechView from "../views/PartofSpeechView";
 import FlashcardView from "../views/FlashcardView";
 import LoadingError from "../views/LoadingError";
 const viewMap = {
-  // partsofspeech: PartofSpeechView,
+  partsofspeech: PartofSpeechView,
   typing: TypingView,
   flashcard: FlashcardView,
 };
