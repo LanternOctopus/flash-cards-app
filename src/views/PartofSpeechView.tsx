@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 const normalizeWord = (word: string) => {
   if (word === "'d") return "had";
   if (word === "'ll") return "will";
@@ -58,9 +58,15 @@ type PassageProps = {
 
 const Passage: React.FC<PassageProps>=({passage, answers, handleWordsSelected, updateSuccess})=>{
     const [wrongAnsCount, setWrongAnsCount ] = useState(0);
+    const [keyStart,setKeyStart] = useState(0)
+    
+        useEffect(() => {
+        setKeyStart(Math.random());
+        }, [passage, answers]);
     const incrementWrongAnsCount = ()=>{
         setWrongAnsCount(wrongAnsCount+1)
     }
+
     useEffect(()=>{
         if(wrongAnsCount>= 3){
             updateSuccess(false)
@@ -74,7 +80,7 @@ const Passage: React.FC<PassageProps>=({passage, answers, handleWordsSelected, u
     return(
         <div role="group" aria-label="Select options">
         {words.map((word, i) => (
-        <WordSpan word={word} isCorrect={answers.includes(normalizeWord(stripPunctuation(word)))} key={i} handleWordsSelected={handleWordsSelected} incrementWrongAnsCount={incrementWrongAnsCount} />
+        <WordSpan word={word} isCorrect={answers.includes(normalizeWord(stripPunctuation(word)))} key={keyStart+i} handleWordsSelected={handleWordsSelected} incrementWrongAnsCount={incrementWrongAnsCount} />
         ))}
         </div>
 
@@ -92,8 +98,12 @@ type PartsOfSpeechProps = {
     updateSuccess: (success: boolean) => void;
 };
 const PartofSpeechView: React.FC<PartsOfSpeechProps> = ({ data, updateSuccess }) => {
-    console.log(data.answer)
     const [wordsSelected, setWordsSelected] = useState<string[]>([]);
+    console.log(data.answer)
+    useEffect(()=>{
+        setWordsSelected([])
+    },[data])
+    
     useEffect(() => {
         console.log('useEffect is running')
         if(data.answer.length === wordsSelected.length && data.answer.slice().sort().every((v, i) => v === wordsSelected.slice().sort()[i])){
