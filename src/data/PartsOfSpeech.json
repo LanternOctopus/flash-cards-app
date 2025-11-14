@@ -1,0 +1,62 @@
+[
+    {
+      "tense": "Simple Present",
+      "text": "Lila walks to school every morning. She carries her books in a blue bag and waves to her friends. The bell rings at eight, and classes begin.",
+      "answer": ["walks", "carries", "waves", "rings", "begin"],
+      "learningHint":""
+    },
+    {
+      "tense": "Present Continuous",
+      "text": "Tom is reading a mystery novel right now. He’s sitting by the window, sipping tea, and turning each page slowly as rain falls outside.",
+      "answer": ["is", "reading", "sitting", "sipping", "turning", "falls"],
+      "learningHint":""
+    },
+    {
+      "tense": "Present Perfect",
+      "text": "I’ve visited that museum three times. Every visit feels different. The paintings have always fascinated me.",
+      "answer": ["have", "visited", "feels", "have", "fascinated"],
+      "learningHint":""
+    },
+    {
+      "tense": "Present Perfect Continuous",
+      "text": "They’ve been studying English for two years. Their pronunciation has improved a lot, and they’re finally confident speaking with others.",
+      "answer": ["have", "been", "studying", "has", "improved", "are", "speaking"],
+      "learningHint":""
+    },
+    {
+      "tense": "Simple Past",
+      "text": "We watched the fireworks last night. The sky lit up with colors, and everyone cheered.",
+      "answer": ["watched", "lit", "cheered"],
+      "learningHint":""
+    },
+    {
+      "tense": "Past Continuous",
+      "text": "I was cooking dinner when the phone rang. The soup was boiling, and I almost forgot to turn off the stove.",
+      "answer": ["was", "cooking", "rang", "was", "boiling", "forgot", "turn"],
+      "learningHint":""
+    },
+    {
+      "tense": "Past Perfect",
+      "text": "By the time the train arrived, he had already left. She stood there, holding the letter he’d written.",
+      "answer": ["arrived", "had", "left", "stood", "holding", "written"],
+      "learningHint":""
+    },
+    {
+      "tense": "Past Perfect Continuous",
+      "text": "He had been running for an hour before he finally reached the cabin. Sweat dripped down his face, but he smiled in relief.",
+      "answer": ["had", "been", "running", "reached", "dripped", "smiled"],
+      "learningHint":""
+    },
+    {
+      "tense": "Simple Future",
+      "text": "Tomorrow, we’ll visit Grandma. She’ll bake her special pie, and we’ll play cards all afternoon.",
+      "answer": ["will", "visit", "will", "bake", "will", "play"],
+      "learningHint":""
+    },
+    {
+      "tense": "Future Perfect",
+      "text": "By next summer, I’ll have finished my degree. Then, I’ll travel and finally rest for a while.",
+      "answer": ["will", "have", "finished", "will", "travel", "rest"],
+      "learningHint":""
+    }
+]
