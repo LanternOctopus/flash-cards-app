@@ -1,0 +1,65 @@
+/* Wrapper */
+.pos-wrapper {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #fff9f2; /* warm neutral, accessible */
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Title */
+.pos-title {
+  font-size: 26px;
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
+  color: #ff7b00; /* bright orange - kid friendly and accessible */
+  text-shadow: 1px 1px 0 #ffffff;
+}
+
+/* Passage container */
+.pos-wrapper [role="group"] {
+  margin-top: 16px;
+  line-height: 2.2;
+}
+
+/* Word buttons (spans that look tappable) */
+.pos-word {
+  display: inline-block;
+  padding: 4px 10px;
+  margin: 4px;
+  border-radius: 8px;
+  border: 3px solid white;
+  background: #ffffff;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.18s ease;
+  user-select: none;
+}
+
+.pos-word:hover {
+  transform: translateY(-3px);
+}
+
+/* After click: feedback */
+.pos-word.correct {
+  border-color: #00b34a !important; /* accessible green */
+  background: #e8ffe8;
+}
+
+.pos-word.incorrect {
+  border-color: #ff2e2e !important; /* accessible red */
+  background: #ffeaea;
+}
+
+/* Subtle bounce effect */
+.pos-word.clicked {
+  animation: pop 0.25s ease;
+}
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}

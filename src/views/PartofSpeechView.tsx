@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import './PartofSpeech.css';
 const normalizeWord = (word: string) => {
   if (word === "'d") return "had";
   if (word === "'ll") return "will";
@@ -45,7 +46,7 @@ const WordSpan: React.FC<WordSpanProps> = ({ word, isCorrect, handleWordsSelecte
         marginLeft: marginLeft,
     };
 
-    return <span onClick={()=>wasClicked()} style={style}>{word}{icon}</span>;
+    return <span className={"pos-word"} onClick={()=>wasClicked()} style={style}>{word}{icon}</span>;
 };
 
 
@@ -118,9 +119,9 @@ const PartofSpeechView: React.FC<PartsOfSpeechProps> = ({ data, updateSuccess })
         );
     };
     return (
-        <section aria-live="polite" style={{ maxWidth: 680, margin: "0 auto", padding: 16 }}>
-            <header style={{ marginBottom: 12 }}>
-                <h2 style={{ margin: 0, fontSize: 20 }}>Find The Verbs</h2>
+        <section aria-live="polite" className="pos-wrapper">
+            <header className="pos-header">
+                <h2 className="pos-title">Find The Verbs</h2>
             </header>
             <Passage passage={data.text} answers={data.answer} handleWordsSelected={handleWordsSelected} updateSuccess={updateSuccess} />
         </section>

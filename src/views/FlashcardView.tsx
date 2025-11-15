@@ -22,7 +22,6 @@ const FlashcardView: React.FC<FlashcardViewProps> = ({ data, updateSuccess }) =>
   const [isFlipped, setIsFlipped] = useState(false);
 
   useEffect(() => {
-    // setIsFlipped(false)
     handleFlip()
     const shuffled = [...data.wrongAnswers, data.english].sort(() => Math.random() - 0.5);
     setOptions(shuffled);
@@ -42,35 +41,38 @@ const FlashcardView: React.FC<FlashcardViewProps> = ({ data, updateSuccess }) =>
 
   return (
     <div className="flashcard" >
-      <div className="left-column">
+            <div className="">
         {!isFlipped ? (
           <div className="card-front">
+            <div className='card-question'>
             <h1>{data.malayalam}</h1>
             <p>{data.transliteration}</p>
-            
+            </div>
           </div>
         ) : (
           <div className="card-back">
-            <h1>{data.english}</h1>
-            <h2>{data.subject}</h2>
-            <p>{data.tense}</p>
+            <div className='card-question'>
+            <h1 >{data.english}</h1>
+            <h2>Subject: {data.subject}</h2>
+            <p>Tense: {data.tense}</p>
+            </div>
           </div>
         )}
       </div>
-
-      <div className="right-column">
+        <div className='options'>
         {options.map((option) => (
           <button
             key={option}
             onClick={() => handleSelect(option)}
             disabled={!!selected}
-            className={selected === option ? 'selected' : ''}
+            className={(selected === option ? 'selected' : '') + ' answer'}
           >
             {option}
           </button>
         ))}
         <button onClick={()=>handleFlip()} >Flip</button>
       </div>
+
     </div>
   );
 };

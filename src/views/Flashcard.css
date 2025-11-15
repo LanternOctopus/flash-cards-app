@@ -26,10 +26,8 @@ body{
 
 /* Question text */
 .card-question {
-  font-size: 1.8rem;
-  font-weight: 700;
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 5rem;
   color: #2E2D2B;
 }
 
@@ -43,8 +41,8 @@ body{
 
 /* Answer buttons */
 .answer {
-  background-color: #4FC3F7; /* sky blue */
-  color: #2E2D2B;
+  background-color: #ffd770; /* sky blue */
+  color: #000000;
   font-size: 1.2rem;
   font-weight: 600;
   border: none;
@@ -71,116 +69,20 @@ body{
   margin: 0 auto;
 }
 
-.nav-button {
-  flex: 1;
-  background-color: #FF7043; /* coral */
-  color: #FFFFFF;
-  font-size: 1.1rem;
-  font-weight: 700;
-  border: none;
-  border-radius: 12px;
-  padding: 0.8rem 1rem;
-  cursor: pointer;
-  margin: 0 0.5rem;
-  transition: background-color 0.2s ease, transform 0.15s ease;
-}
-
-.nav-button:hover {
-  background-color: #E45A2A;
-  transform: scale(1.03);
-}
-
-.nav-button:active {
-  transform: scale(0.97);
-}
 
 /* Desktop layout */
 @media (min-width: 768px) {
-  .flashcard {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
+
+
+
+}
+@media (min-width: 1024px){
+  .flashcard{
+    width: 800px;
   }
-
-  .left-column {
-    flex: 1 1 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .options{
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
   }
-
-  .right-column {
-    flex: 0 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-width:50%;
-  }
-
-  .card-question {
-    text-align: left;
-  }
-
-  .nav-buttons {
-    max-width: none;
-    justify-content: space-between;
-  }
-}
-.popup {
-  position: fixed;                 /* center in viewport */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 9999;
-
-  background-color: #ffffff;       /* clean white background */
-  padding: 1rem 1.5rem;           /* nice spacing */
-  border-radius: 12px;             /* smooth rounded corners */
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* soft shadow */
-  
-  font-size: 1.8rem;
-  font-weight: 600;
-  color: #2E2D2B;                  /* dark neutral text */
-  text-align: center;
-  
-  pointer-events: none;            /* let clicks pass through */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;                     /* space between emoji and text */
-}
-
-.popup.success {
-  border-left: 5px solid #2E7D32; /* subtle green accent */
-}
-
-.popup.fail {
-  border-left: 5px solid #C62828; /* subtle red accent */
-}
-
-/* Emoji animations */
-.emoji.happy {
-  display: inline-block;
-  animation: bounce 0.8s ease-out;
-}
-
-.emoji.sad {
-  display: inline-block;
-  animation: droop 0.8s ease-out;
-}
-
-/* Bounce for happy emoji */
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  25% { transform: translateY(-15px); }
-  50% { transform: translateY(0); }
-  75% { transform: translateY(-8px); }
-}
-
-/* Droop for sad emoji */
-@keyframes droop {
-  0% { transform: rotate(0) translateY(0); }
-  50% { transform: rotate(10deg) translateY(5px); }
-  100% { transform: rotate(0) translateY(0); }
 }
