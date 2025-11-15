@@ -14,14 +14,13 @@ const viewMap = {
 const Game: FC = () => {
   const [activityIndex, setActivityIndex] = useState(0);
   const [currentActivity, setCurrentActivity] = useState<any>(null);
-  const [score, setScore] = useState<number>(0);
   const [success, setSuccess] = useState<boolean | null>(null);
 
   const controller = ActivityController;
 
   useEffect(() => {
     setCurrentActivity(controller.getActivity(activityIndex));
-  }, [activityIndex]);
+  }, [activityIndex, controller]);
 
   const handleNext = () => {
     if (success) setScore((prev) => prev + 1);

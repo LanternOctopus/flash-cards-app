@@ -1,5 +1,4 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 
 const container: React.CSSProperties = {
     maxWidth: 960,
@@ -28,19 +27,7 @@ const grid: React.CSSProperties = {
     marginTop: "1rem",
 };
 
-const cardBase: React.CSSProperties = {
-    display: "flex",
-    flexDirection: "column",
-    padding: "1rem",
-    borderRadius: 8,
-    background: "#f8fafc",
-    textDecoration: "none",
-    color: "#111",
-    boxShadow: "0 1px 2px rgba(0,0,0,0.04)",
-    minHeight: 96,
-    justifyContent: "center",
-    alignItems: "flex-start",
-};
+
 
 
 
@@ -56,24 +43,7 @@ const Home: React.FC = () => {
                 </div>
             </header>
 
-            <section aria-label="Primary actions">
-                <div style={grid}>
-                    {/* <Link to="/cards" style={cardBase} aria-label="Browse flash cards">
-                        <strong>Browse Cards</strong>
-                        <span style={small}>View all cards and decks</span>
-                    </Link>
-
-                    <Link to="/create" style={cardBase} aria-label="Create new card">
-                        <strong>Create Card</strong>
-                        <span style={small}>Add new vocabulary or phrases</span>
-                    </Link>
-
-                    <Link to="/about" style={cardBase} aria-label="About this app">
-                        <strong>About</strong>
-                        <span style={small}>App info and credits</span>
-                    </Link> */}
-                </div>
-            </section>
+            
         </main>
     );
 };
