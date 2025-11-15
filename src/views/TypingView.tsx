@@ -10,142 +10,144 @@ interface TypingViewProps {
 
 const TypingView: React.FC<TypingViewProps> = ({ data, updateSuccess }) => {
   const answer = data.answer;
-  const letters = answer.split('');
+  const letters = answer.split("");
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [statuses, setStatuses] = useState<(null | 'correct' | 'wrong')[]>(
+  const [statuses, setStatuses] = useState<(null | "correct" | "wrong")[]>(
     Array(letters.length).fill(null)
   );
 
-  // Ref to the container for manual scrolling
-  const containerRef = useRef<HTMLDivElement>(null);
-  // Ref to hidden input
-  const inputRef = useRef<HTMLInputElement>(null);
-
+  // Focus the hidden input on mount
   useEffect(() => {
-    // Focus the hidden input on mount
     inputRef.current?.focus();
   }, []);
 
-  useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => {
-      const expected = letters[currentIndex]?.toLowerCase();
-      const pressed = e.key.toLowerCase();
+  const handleKey = (key: string) => {
+    const expected = letters[currentIndex]?.toLowerCase();
+    const pressed = key.toLowerCase();
 
-      if (pressed.length !== 1) return;
+    if (pressed.length !== 1) return;
 
-      setStatuses((prev) => {
-        const updated = [...prev];
-        updated[currentIndex] = pressed === expected ? 'correct' : 'wrong';
-        return updated;
-      });
+    setStatuses((prev) => {
+      const updated = [...prev];
+      updated[currentIndex] = pressed === expected ? "correct" : "wrong";
+      return updated;
+    });
 
-      if (pressed === expected) {
-        const nextIndex = currentIndex + 1;
-        setCurrentIndex(nextIndex);
+    if (pressed === expected) {
+      const nextIndex = currentIndex + 1;
+      setCurrentIndex(nextIndex);
 
-        if (nextIndex === letters.length) {
-          updateSuccess(true);
-        }
+      if (nextIndex === letters.length) {
+        updateSuccess(true);
       }
+    }
+  };
 
-      // Keep container in view (prevents mobile jump)
-      containerRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    };
-
-    window.addEventListener('keydown', handleKey);
-    return () => window.removeEventListener('keydown', handleKey);
-  }, [currentIndex, letters, updateSuccess]);
+  // Listen to real keyboard events on desktop
+  useEffect(() => {
+    const listener = (e: KeyboardEvent) => handleKey(e.key);
+    window.addEventListener("keydown", listener);
+    return () => window.removeEventListener("keydown", listener);
+  }, [currentIndex, letters]);
 
   return (
     <div
-      ref={containerRef}
       style={{
         maxWidth: 700,
-        margin: '0 auto',
-        textAlign: 'center',
-        padding: '20px',
+        margin: "0 auto",
+        textAlign: "center",
+        padding: "20px",
       }}
-      onClick={() => inputRef.current?.focus()} // tap anywhere to focus input
+      onClick={() => inputRef.current?.focus()} // tap to focus on mobile
     >
+      {/* Hidden input to trigger mobile keyboard */}
+      <input
+        ref={inputRef}
+        type="text"
+        value=""
+        onChange={(e) => handleKey(e.target.value.slice(-1))}
+        style={{
+          position: "absolute",
+          opacity: 0,
+          width: 0,
+          height: 0,
+        }}
+        autoFocus
+      />
+
       <h2
         style={{
-          fontSize: '28px',
-          marginBottom: '20px',
-          color: '#444',
+          fontSize: "28px",
+          marginBottom: "20px",
+          color: "#444",
           fontWeight: 700,
         }}
       >
         Type This!
       </h2>
 
-      {/* Hidden input for mobile keyboard */}
-      <input
-        ref={inputRef}
-        style={{
-          position: 'absolute',
-          opacity: 0,
-          width: 1,
-          height: 1,
-          top: 0,
-          left: 0,
-        }}
-        autoFocus
-        autoCorrect="off"
-        autoCapitalize="off"
-        spellCheck={false}
-      />
-
       <div
         style={{
-          display: 'inline-block',
-          padding: '20px 30px',
-          borderRadius: '14px',
-          boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-          marginBottom: '30px',
+          display: "inline-block",
+          padding: "20px 30px",
+          borderRadius: "14px",
+          boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+          marginBottom: "30px",
         }}
       >
         {letters.map((char, idx) => {
           const status = statuses[idx];
           const baseStyle: React.CSSProperties = {
-            fontSize: '40px',
-            fontWeight: 700,
-            margin: '0 4px',
-            marginBottom: '10px',
-            padding: '4px 6px',
-            minWidth: '30px',
-            display: 'inline-block',
-            borderRadius: '8px',
-            userSelect: 'none',
-            transition: 'all 150ms ease',
+            fontSize: "40px",
+            fontWeight: "700",
+            margin: "0 4px",
+            marginBottom: "10px",
+            padding: "4px 6px",
+            minWidth: "30px",
+            display: "inline-block",
+            borderRadius: "8px",
+            userSelect: "none",
+            transition: "all 150ms ease",
           };
 
           let style = { ...baseStyle };
 
-          if (status === 'correct') {
-            style.background = '#d4ffd4';
-            style.color = '#0a7a0a';
-            style.boxShadow = '0 0 10px rgba(0,255,0,0.3)';
-          } else if (status === 'wrong') {
-            style.background = '#ffe0e0';
-            style.color = '#b30000';
-            style.boxShadow = '0 0 10px rgba(255,0,0,0.3)';
+          if (status === "correct") {
+            style.background = "#d4ffd4";
+            style.color = "#0a7a0a";
+            style.boxShadow = "0 0 10px rgba(0,255,0,0.3)";
+          } else if (status === "wrong") {
+            style.background = "#ffe0e0";
+            style.color = "#b30000";
+            style.boxShadow = "0 0 10px rgba(255,0,0,0.3)";
           } else {
-            style.background = '#eee';
-            style.color = '#777';
+            style.background = "#eee";
+            style.color = "#777";
           }
 
           if (idx === currentIndex) {
-            style.outline = '3px solid #8ab6ff';
-            style.background = '#e8f0ff';
-            style.boxShadow = '0 0 12px rgba(100,150,255,0.5)';
+            style.outline = "3px solid #8ab6ff";
+            style.background = "#e8f0ff";
+            style.boxShadow = "0 0 12px rgba(100,150,255,0.5)";
           }
 
-          return <span key={idx} style={style}>{char === ' ' ? '\u00A0' : char}</span>;
+          return (
+            <span key={idx} style={style}>
+              {char === " " ? "\u00A0" : char}
+            </span>
+          );
         })}
       </div>
 
-      <p style={{ marginTop: '10px', fontSize: '18px', color: '#666' }}>
+      <p
+        style={{
+          marginTop: "10px",
+          fontSize: "18px",
+          color: "#666",
+        }}
+      >
         Start typing — each letter will light up!
       </p>
     </div>
