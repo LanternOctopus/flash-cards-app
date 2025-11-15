@@ -30,12 +30,14 @@ class ActivityController {
 }
 
   private loadAllActivities() {
-    const sources = [
-      { type: "typing", data: typingData },
-      { type: "flashcard", data: flashcardData },
-      { type: "partsofspeech", data: posData },
-    ];
-
+const sources: { type: string; data: any[] }[] = [
+  { type: "flashcard", data: flashcardData },
+  { type: "partsofspeech", data: posData },
+];
+    const isDesktop = typeof window !== "undefined" ? window.innerWidth >= 768 : true;
+    if(isDesktop){
+      sources.push({ type: "typing", data: typingData })
+    }
     sources.forEach((source) => {
       if (!Array.isArray(source.data) || source.data.length < 2) return;
       const type = source.type;
