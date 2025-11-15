@@ -23,7 +23,6 @@ const Game: FC = () => {
   }, [activityIndex, controller]);
 
   const handleNext = () => {
-    if (success) setScore((prev) => prev + 1);
     if (activityIndex + 1 < controller.activities.length) {
       setActivityIndex(activityIndex + 1);
     } else {
