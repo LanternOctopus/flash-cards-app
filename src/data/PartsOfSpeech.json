@@ -81,7 +81,7 @@
       ]
     },
     {
-      "text": "Mom can't find the blue cup.",
+      "text": "Mom can not find the blue cup.",
       "answer": [
         "can",
         "find"
@@ -101,7 +101,7 @@
       ]
     },
     {
-      "text": "I didn't see the small frog.",
+      "text": "I did not see the small frog.",
       "answer": [
         "did",
         "see"
@@ -176,7 +176,7 @@
       ]
     },
     {
-      "text": "We can't open the heavy door.",
+      "text": "We can not open the heavy door.",
       "answer": [
         "can",
         "open"
@@ -276,7 +276,7 @@
       ]
     },
     {
-      "text": "We didn't hear the bell ring.",
+      "text": "We did not hear the bell ring.",
       "answer": [
         "did",
         "hear",
@@ -345,7 +345,7 @@
       ]
     },
     {
-      "text": "Dad won't forget the map.",
+      "text": "Dad will not  forget the map.",
       "answer": [
         "will",
         "forget"
@@ -372,7 +372,7 @@
       ]
     },
     {
-      "text": "You don't need to shout.",
+      "text": "You do not need to shout.",
       "answer": [
         "do",
         "need"
@@ -399,7 +399,7 @@
       ]
     },
     {
-      "text": "I couldn't open the jar lid.",
+      "text": "I could not open the jar lid.",
       "answer": [
         "could",
         "open"
@@ -486,7 +486,7 @@
       ]
     },
     {
-      "text": "We shouldn't run on the stairs.",
+      "text": "We should not run on the stairs.",
       "answer": [
         "should",
         "run"
@@ -553,7 +553,7 @@
       ]
     },
     {
-      "text": "I didn't forget my lunch box.",
+      "text": "I did not forget my lunch box.",
       "answer": [
         "did",
         "forget"
@@ -607,7 +607,7 @@
       ]
     },
     {
-      "text": "They didn't tell a single lie.",
+      "text": "They did not tell a single lie.",
       "answer": [
         "did",
         "tell"
@@ -682,7 +682,7 @@
       ]
     },
     {
-      "text": "We couldn't find the purple crayon.",
+      "text": "We could not find the purple crayon.",
       "answer": [
         "could",
         "find"
@@ -747,7 +747,7 @@
       ]
     },
     {
-      "text": "You shouldn't drop the eggs.",
+      "text": "You should not drop the eggs.",
       "answer": [
         "should",
         "drop"
@@ -789,7 +789,7 @@
       ]
     },
     {
-      "text": "You don't like spicy food.",
+      "text": "You do not like spicy food.",
       "answer": [
         "do",
         "like"
@@ -829,7 +829,7 @@
       ]
     },
     {
-      "text": "He can't swim in deep water.",
+      "text": "He can not swim in deep water.",
       "answer": [
         "can",
         "swim"
@@ -869,7 +869,7 @@
       ]
     },
     {
-      "text": "I didn't break the glass bowl.",
+      "text": "I did not break the glass bowl.",
       "answer": [
         "did",
         "break"
@@ -945,7 +945,7 @@
       ]
     },
     {
-      "text": "They don't want any more candy.",
+      "text": "They do not want any more candy.",
       "answer": [
         "do",
         "want"
@@ -987,7 +987,7 @@
       ]
     },
     {
-      "text": "I couldn't lift the heavy box.",
+      "text": "I could not lift the heavy box.",
       "answer": [
         "could",
         "lift"
@@ -1097,7 +1097,7 @@
       ]
     },
     {
-      "text": "She wasn't feeling well today.",
+      "text": "She was not feeling well today.",
       "answer": [
         "was",
         "feeling"
@@ -1130,7 +1130,7 @@
       ]
     },
     {
-      "text": "They couldn't hear the music.",
+      "text": "They could not hear the music.",
       "answer": [
         "could",
         "hear"
@@ -1178,7 +1178,7 @@
       ]
     },
     {
-      "text": "You shouldn't touch the cactus.",
+      "text": "You should not touch the cactus.",
       "answer": [
         "should",
         "touch"
@@ -1220,7 +1220,7 @@
       ]
     },
     {
-      "text": "I didn't lose my small coin.",
+      "text": "I did not lose my small coin.",
       "answer": [
         "did",
         "lose"
