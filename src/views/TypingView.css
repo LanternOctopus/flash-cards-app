@@ -32,3 +32,12 @@
   background-color: #e0e0e0; /* light gray */
   color: #555;
 }
+.hidden-input {
+  position: absolute;
+  opacity: 0;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
