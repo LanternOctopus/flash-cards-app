@@ -9,8 +9,8 @@ interface ShowFeedbackProps {
 
 const ShowFeedback: React.FC<ShowFeedbackProps> = ({ success, handleNext, learningHint }) => {
     const images = {
-        success: '../correct.png',
-        fail: '../wrong.png',
+        success: process.env.PUBLIC_URL+'/correct.png',
+        fail: process.env.PUBLIC_URL+'/wrong.png',
     };
     return (
 <div className="feedback-container">

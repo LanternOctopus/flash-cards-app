@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 interface TypingViewProps {
   data: {
@@ -11,39 +11,46 @@ interface TypingViewProps {
 const TypingView: React.FC<TypingViewProps> = ({ data, updateSuccess }) => {
   const answer = data.answer;
   const letters = answer.split("");
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [statuses, setStatuses] = useState<(null | "correct" | "wrong")[]>(
     Array(letters.length).fill(null)
   );
 
+  // Focus the hidden input on mount
   useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => {
-      const expected = letters[currentIndex]?.toLowerCase();
-      const pressed = e.key.toLowerCase();
+    inputRef.current?.focus();
+  }, []);
 
-      if (pressed.length !== 1) return;
+  const handleKey = (key: string) => {
+    const expected = letters[currentIndex]?.toLowerCase();
+    const pressed = key.toLowerCase();
 
-      setStatuses((prev) => {
-        const updated = [...prev];
-        updated[currentIndex] =
-          pressed === expected ? "correct" : "wrong";
-        return updated;
-      });
+    if (pressed.length !== 1) return;
 
-      if (pressed === expected) {
-        const nextIndex = currentIndex + 1;
-        setCurrentIndex(nextIndex);
+    setStatuses((prev) => {
+      const updated = [...prev];
+      updated[currentIndex] = pressed === expected ? "correct" : "wrong";
+      return updated;
+    });
 
-        if (nextIndex === letters.length) {
-          updateSuccess(true);
-        }
+    if (pressed === expected) {
+      const nextIndex = currentIndex + 1;
+      setCurrentIndex(nextIndex);
+
+      if (nextIndex === letters.length) {
+        updateSuccess(true);
       }
-    };
+    }
+  };
 
-    window.addEventListener("keydown", handleKey);
-    return () => window.removeEventListener("keydown", handleKey);
-  }, [currentIndex, letters, updateSuccess]);
+  // Listen to real keyboard events on desktop
+  useEffect(() => {
+    const listener = (e: KeyboardEvent) => handleKey(e.key);
+    window.addEventListener("keydown", listener);
+    return () => window.removeEventListener("keydown", listener);
+  }, [currentIndex, letters]);
 
   return (
     <div
@@ -53,7 +60,23 @@ const TypingView: React.FC<TypingViewProps> = ({ data, updateSuccess }) => {
         textAlign: "center",
         padding: "20px",
       }}
+      onClick={() => inputRef.current?.focus()} // tap to focus on mobile
     >
+      {/* Hidden input to trigger mobile keyboard */}
+      <input
+        ref={inputRef}
+        type="text"
+        value=""
+        onChange={(e) => handleKey(e.target.value.slice(-1))}
+        style={{
+          position: "absolute",
+          opacity: 0,
+          width: 0,
+          height: 0,
+        }}
+        autoFocus
+      />
+
       <h2
         style={{
           fontSize: "28px",
@@ -104,7 +127,6 @@ const TypingView: React.FC<TypingViewProps> = ({ data, updateSuccess }) => {
             style.color = "#777";
           }
 
-          // Highlight the active letter
           if (idx === currentIndex) {
             style.outline = "3px solid #8ab6ff";
             style.background = "#e8f0ff";
