@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './Flashcard.css';
-
+function capitalizeFirstLetter(str: string): string {
+  if (!str || str.length === 0) {
+    return str;
+  }
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
 interface FlashcardData {
   subject: string;
   tense: string;
@@ -66,7 +71,7 @@ const FlashcardView: React.FC<FlashcardViewProps> = ({ data, updateSuccess }) =>
             disabled={!!selected}
             className={(selected === option ? 'selected' : '') + ' answer'}
           >
-            {option}
+            {capitalizeFirstLetter(option)}
           </button>
         ))}
       </div>
