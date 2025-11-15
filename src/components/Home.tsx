@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const container: React.CSSProperties = {
     maxWidth: 960,
@@ -42,19 +42,10 @@ const cardBase: React.CSSProperties = {
     alignItems: "flex-start",
 };
 
-const buttonStyle: React.CSSProperties = {
-    ...cardBase,
-    cursor: "pointer",
-    border: "none",
-    background: "#0366d6",
-    color: "white",
-    textAlign: "center",
-};
 
-const small: React.CSSProperties = { fontSize: "0.85rem", color: "#444" };
+
 
 const Home: React.FC = () => {
-    const navigate = useNavigate();
 
     return (
         <main style={container}>

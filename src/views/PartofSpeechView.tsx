@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import './PartofSpeech.css';
 const normalizeWord = (word: string) => {
   if (word === "'d") return "had";
@@ -72,7 +72,7 @@ const Passage: React.FC<PassageProps>=({passage, answers, handleWordsSelected, u
         if(wrongAnsCount>= 3){
             updateSuccess(false)
         }
-    },[wrongAnsCount])
+    },[wrongAnsCount, updateSuccess])
     const normalizedText = passage.replace(/’/g, "'");
     let temp = normalizedText.replace(/'/g, " '")
     console.log(temp)
@@ -111,7 +111,7 @@ const PartofSpeechView: React.FC<PartsOfSpeechProps> = ({ data, updateSuccess })
             console.log('conditional is tripping')
             updateSuccess(true);
         }
-    }, [wordsSelected]);
+    }, [wordsSelected, updateSuccess, data.answer]);
 
     const handleWordsSelected = (word: string) => {
         word = normalizeWord(stripPunctuation(word));
