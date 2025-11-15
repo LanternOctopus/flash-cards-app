@@ -8,6 +8,7 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
   max-width: 700px;
   margin: 0 auto;
+  flex-direction: column;
 }
 
 /* IMAGE */
@@ -60,4 +61,10 @@
 
 .feedback-next-btn:active {
   transform: scale(0.95);
+}
+
+@media (min-width: 1024px){
+  .feedback-container {
+  flex-direction: row;
+  }
 }

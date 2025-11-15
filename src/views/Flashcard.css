@@ -26,6 +26,7 @@ body{
 
 /* Question text */
 .card-question {
+  word-break: break-word;
   text-align: center;
   margin-bottom: 5rem;
   color: #2E2D2B;
