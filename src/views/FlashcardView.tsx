@@ -70,7 +70,6 @@ const FlashcardView: React.FC<FlashcardViewProps> = ({ data, updateSuccess }) =>
             {option}
           </button>
         ))}
-        <button onClick={()=>handleFlip()} >Flip</button>
       </div>
 
     </div>
