@@ -5,6 +5,7 @@ const normalizeWord = (word: string) => {
   if (word === "'ll") return "will";
   if (word === "'ve") return "have";
   if (word === "'re") return "are";
+  if (word === "'m") return "am";
   if (word === "n't") return "not";
   // add more contractions as needed
   return word;
