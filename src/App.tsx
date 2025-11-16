@@ -8,7 +8,7 @@ const App: React.FC = () => {
   return (
     <div>
       <nav>
-        <Link to="/">Home</Link> |{' '}
+        {/* <Link to="/">Home</Link> |{' '} */}
         <Link to="/game">Game</Link> |{' '}
         {/* 
         <Link to="/contact">Contact</Link> */}
