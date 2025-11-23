@@ -6,6 +6,7 @@
   "dependencies": {
     "cra-template": "1.2.0",
     "fs": "^0.0.1-security",
+    "kaplay": "^4000.0.0-alpha.4",
     "path": "^0.12.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -19,7 +20,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-"deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
