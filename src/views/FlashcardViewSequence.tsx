@@ -7,12 +7,10 @@ function capitalizeFirstLetter(str: string): string {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 interface FlashcardData {
-  subject: string;
-  tense: string;
-  english: string;
+  challenge: string;
   malayalam: string;
   transliteration: string;
-  wrongAnswers: string[];
+  distractors: string[];
 }
 
 interface FlashcardViewProps {
@@ -20,14 +18,14 @@ interface FlashcardViewProps {
   updateSuccess: (success: boolean) => void;
 }
 
-const FlashcardView: React.FC<FlashcardViewProps> = ({ data, updateSuccess }) => {
+const FlashcardViewSequence: React.FC<FlashcardViewProps> = ({ data, updateSuccess }) => {
   const [options, setOptions] = useState<string[]>([]);
   const [selected, setSelected] = useState<string | null>(null);
   const [isFlipped, setIsFlipped] = useState(false);
 
   // Reset card when data changes
   useEffect(() => {
-    const shuffled = [...data.wrongAnswers, data.english].sort(() => Math.random() - 0.5);
+    const shuffled = [...data.distractors, data.challenge].sort(() => Math.random() - 0.5);
     setOptions(shuffled);
     setSelected(null);
     setIsFlipped(false); // always show front
@@ -39,7 +37,7 @@ const FlashcardView: React.FC<FlashcardViewProps> = ({ data, updateSuccess }) =>
     if (selected) return; // prevent multiple selections
     setSelected(option);
     handleFlip(); // flip after selecting
-    updateSuccess(option === data.english);
+    updateSuccess(option === data.challenge);
   };
 
   return (
@@ -55,11 +53,7 @@ const FlashcardView: React.FC<FlashcardViewProps> = ({ data, updateSuccess }) =>
         ) : (
           <div className="card-back">
             <div className='card-question'>
-              <h1>{data.english}</h1>
-              <h3>{data.malayalam}</h3>
-              <p>{data.transliteration}</p>
-              <h2>Subject: {data.subject}</h2>
-              <p>Tense: {data.tense}</p>
+              <h1>{data.challenge}</h1>
             </div>
           </div>
         )}
@@ -71,7 +65,7 @@ const FlashcardView: React.FC<FlashcardViewProps> = ({ data, updateSuccess }) =>
             key={option}
             onClick={() => handleSelect(option)}
             disabled={!!selected}
-            className={(selected === option ? 'selected' : '') + ' answer ' + (option==data.english ? 'correct' : "wrong")}
+            className={(selected === option ? 'selected' : '') + ' answer'}
           >
             {capitalizeFirstLetter(option)}
           </button>
@@ -81,4 +75,4 @@ const FlashcardView: React.FC<FlashcardViewProps> = ({ data, updateSuccess }) =>
   );
 };
 
-export default FlashcardView;
+export default FlashcardViewSequence;

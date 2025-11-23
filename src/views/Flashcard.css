@@ -14,7 +14,12 @@ body{
   color: #2E2D2B;
   font-family: "Poppins", "Baloo 2", sans-serif;
 }
-
+.selected.wrong{
+  border: 3px solid red;
+}
+.selected.correct{
+  border: 3px solid green;
+}
 /* Image */
 .card-image {
   width: 100%;

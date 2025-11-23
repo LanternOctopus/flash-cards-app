@@ -24,8 +24,8 @@ const ShowFeedback: React.FC<ShowFeedbackProps> = ({ success, handleNext, learni
 
   <div className={`feedback-text ${success ? "success" : "fail"}`}>
     {success
-      ? learningHint || "Wow, you rock! ⭐"
-      : learningHint || "Try again! You’ve got this."}
+      ? "Wow, you rock! ⭐"
+      : "Try again! You’ve got this."}
   </div>
 
   <button className="feedback-next-btn" onClick={() => handleNext()}>
