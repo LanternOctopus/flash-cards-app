@@ -1,5 +1,8 @@
 {
   "start": "intro",
+  "defaultSpeakerName": "Traveler",
+  "defaultSpeakerRole": "Traveler",
+  "defaultSpeakerImage": "/npc/npc1.png",
   "passages": {
     "intro": {
       "text": "Welcome, traveler!",

@@ -1,5 +1,3 @@
-import { read } from "fs";
-
 export type FlashcardItem = {
   subject?: string;
   tense?: string;
@@ -29,16 +27,21 @@ export interface BaseChoice {
 
 export interface BasePassage {
   text: string;
-  choices?:readonly BaseChoice[];
+  choices?: BaseChoice[];
+  speakerName?: string;
+  speakerRole?: string;
+  speakerImage?: string;
 }
 
 export interface BaseConversation {
   start: string;
+  defaultSpeakerName?: string;
+  defaultSpeakerRole?: string;
+  defaultSpeakerImage?: string;
   passages: Record<string, BasePassage>;
 }
 
 export type Activity =
 | {type: "flashcard"; data:FlashcardItem}
 | {type: "partsofspeech"; data:PartsofSpeechItem}
-| {type: "typing"; data: TypingItem}
-| {type: "conversation"; data: BaseConversation};
+| {type: "typing"; data: TypingItem};

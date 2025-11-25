@@ -4,24 +4,32 @@ export class ConversationController<
   Conv extends BaseConversation,
   ChoiceExt extends BaseChoice = BaseChoice
 > {
-  public conversation: {
+  public conversation: Conv & {
     start: keyof Conv["passages"] & string;
     passages: {
       [K in keyof Conv["passages"]]: BasePassage & {
-        choices?: (ChoiceExt & { next: keyof Conv["passages"] & string })[];
+        readonly choices?: (ChoiceExt & {
+          next: keyof Conv["passages"] & string;
+        })[];
       };
     };
   };
 
-  constructor(conversation: {
-    start: keyof Conv["passages"] & string;
-    passages: {
-      [K in keyof Conv["passages"]]: BasePassage & {
-        choices?: (ChoiceExt & { next: keyof Conv["passages"] & string })[];
-      };
-    };
-  }) {
+  constructor(
+    conversation: ConversationController<Conv, ChoiceExt>["conversation"]
+  ) {
     this.conversation = conversation;
+  }
+  getSpeaker() {
+    const name = this.conversation.defaultSpeakerName;
+    const role = this.conversation.defaultSpeakerRole;
+    const image = this.conversation.defaultSpeakerImage;
+
+    return {
+      ...(name && { name }),
+      ...(role && { role }),
+      ...(image && { image }),
+    };
   }
 
   /**
@@ -31,12 +39,17 @@ export class ConversationController<
   *getPassagesInteractive(
     startId?: keyof Conv["passages"] & string
   ): Generator<
-    BasePassage & { choices?: (ChoiceExt & { next: keyof Conv["passages"] & string })[] },
+    BasePassage & {
+      readonly choices?: (ChoiceExt & {
+        next: keyof Conv["passages"] & string;
+      })[];
+    },
     keyof Conv["passages"] | undefined,
     keyof Conv["passages"] | undefined
   > {
     type PassageId = keyof Conv["passages"] & string;
-    let currentId : PassageId = startId ?? (this.conversation.start as PassageId);
+    let currentId: PassageId =
+      startId ?? (this.conversation.start as PassageId);
 
     while (true) {
       const passage = this.conversation.passages[currentId];
@@ -51,9 +64,11 @@ export class ConversationController<
       // If the user provides a next choice, follow it
       if (selectedNext) {
         const nextId = selectedNext as PassageId;
-        if (!passage.choices.some(c => c.next === selectedNext)) {
+        if (!passage.choices.some((c) => c.next === selectedNext)) {
           throw new Error(
-            `Invalid choice: ${String(selectedNext)} is not a valid next passage from "${currentId}"`
+            `Invalid choice: ${String(
+              selectedNext
+            )} is not a valid next passage from "${currentId}"`
           );
         }
         currentId = nextId;
