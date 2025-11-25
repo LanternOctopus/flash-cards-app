@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './PartofSpeech.css';
+import {PartsofSpeechItem} from "../types"
 const normalizeWord = (word: string) => {
   if (word === "'d") return "had";
   if (word === "'ll") return "will";
@@ -89,14 +90,8 @@ const Passage: React.FC<PassageProps>=({passage, answers, handleWordsSelected, u
     )
 }
 
-type Data = {
-    tense: string;
-    text: string;
-    answer: string[];
-    learningHint?: string;
-};
 type PartsOfSpeechProps = {
-    data: Data;
+    data: PartsofSpeechItem;
     updateSuccess: (success: boolean) => void;
 };
 const PartofSpeechView: React.FC<PartsOfSpeechProps> = ({ data, updateSuccess }) => {
@@ -122,7 +117,7 @@ const PartofSpeechView: React.FC<PartsOfSpeechProps> = ({ data, updateSuccess })
     return (
         <section aria-live="polite" className="pos-wrapper">
             <header className="pos-header">
-                <h2 className="pos-title">Find The Verbs</h2>
+                <h2 className="pos-title">Find {data.answer.length} Verb(s)</h2>
             </header>
             <Passage passage={data.text} answers={data.answer} handleWordsSelected={handleWordsSelected} updateSuccess={updateSuccess} />
         </section>

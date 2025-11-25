@@ -1,22 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import './Flashcard.css';
+import { FlashcardItem } from "../types"
 function capitalizeFirstLetter(str: string): string {
   if (!str || str.length === 0) {
     return str;
   }
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
-interface FlashcardData {
-  subject: string;
-  tense: string;
-  english: string;
-  malayalam: string;
-  transliteration: string;
-  wrongAnswers: string[];
-}
 
-interface FlashcardViewProps {
-  data: FlashcardData;
+type FlashcardViewProps = {
+  data: FlashcardItem;
   updateSuccess: (success: boolean) => void;
 }
 

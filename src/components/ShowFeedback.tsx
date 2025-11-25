@@ -4,7 +4,7 @@ import "./ShowFeedback.css";
 interface ShowFeedbackProps {
     success: boolean;
     handleNext: () => void;
-    learningHint: string; 
+    learningHint?: string; 
 }
 
 const ShowFeedback: React.FC<ShowFeedbackProps> = ({ success, handleNext, learningHint }) => {
