@@ -1110,7 +1110,7 @@
           "malayalam": "കളി",
           "transliteration": "kali",
           "distractors": [
-            "play",
+            "ball",
             "match",
             "tournament"
           ],
@@ -1251,12 +1251,12 @@
         },
         {
           "challenge": "will",
-          "malayalam": "ഇച്ഛാശക്തി",
-          "transliteration": "ichchhaashakthi",
+          "malayalam": "ചെയ്യും",
+          "transliteration": "cheyyum",
           "distractors": [
-            "testament",
-            "intention",
-            "consent"
+            "did",
+            "was",
+            "being"
           ],
           "malayalamDistractors": {
             "1": [
@@ -1303,7 +1303,7 @@
           "transliteration": "ath",
           "distractors": [
             "Their",
-            "Theirs",
+            "It's",
             "They"
           ],
           "malayalamDistractors": {
@@ -1374,9 +1374,9 @@
           "malayalam": "ഉള്ള",
           "transliteration": "uḷḷa",
           "distractors": [
-            "hating",
-            "lacking",
-            "sharing"
+            "am having",
+            "will have",
+            "will be having"
           ],
           "malayalamDistractors": {
             "1": [
