@@ -1,0 +1,23 @@
+{
+  "start": "intro",
+  "passages": {
+    "intro": {
+      "text": "Welcome, traveler!",
+      "choices": [
+        { "text": "Look around", "next": "look" },
+        { "text": "Call out", "next": "call" }
+      ]
+    },
+    "look": {
+      "text": "You see flickering lights.",
+      "choices": [{ "text": "Go forward", "next": "hallway" }]
+    },
+    "call": {
+      "text": "A distant voice answers.",
+      "choices": [{ "text": "Approach", "next": "hallway" }]
+    },
+    "hallway": {
+      "text": "A long corridor stretches ahead."
+    }
+  }
+}
