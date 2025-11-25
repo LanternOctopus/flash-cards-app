@@ -1,205 +1,57 @@
-import React, { useEffect, useRef, useState } from "react";
-
+import React, { useEffect, useState } from "react";
+import SVGKeyboard from "../components/Keyboard";
+import { TypingItem } from "../types";
 interface TypingViewProps {
-  data: {
-    answer: string;
-    [key: string]: any;
-  };
+  data: TypingItem
   updateSuccess: (success: boolean) => void;
 }
 
-const KEY_ROWS: string[][] = [
-  ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"],
-  ["a", "s", "d", "f", "g", "h", "j", "k", "l"],
-  ["z", "x", "c", "v", "b", "n", "m"],
-  ["Space"],
-];
-
 const TypingView: React.FC<TypingViewProps> = ({ data, updateSuccess }) => {
-  const answer = data.answer || "";
+  const answer = data.answer || "The quick brown fox jumps over the lazy dog";
   const letters = answer.split("");
-  const inputRef = useRef<HTMLInputElement>(null);
+  useEffect(() => {
+    const letters = data.answer.split(""); // update letters if data changes
+    setStatuses(Array(letters.length).fill(null)); // reset statuses
+    setCurrentIndex(0); // reset the typing index
+  }, [data]);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [statuses, setStatuses] = useState<(null | "correct" | "wrong")[]>(
     Array(letters.length).fill(null)
   );
 
-  // which key was just pressed (for brief flash)
-  const [pressedKey, setPressedKey] = useState<string | null>(null);
 
-  // Focus hidden input on mount (mobile)
-  useEffect(() => {
-    inputRef.current?.focus();
-  }, []);
-
-  // normalize a char to the key label used in keyboard
-  const charToKeyLabel = (c: string) => {
-    if (!c) return "";
-    if (c === " ") return "Space";
-    return c.toLowerCase();
-  };
-
-  // handle a key press (both physical and svg taps)
-  const handleKey = (key: string) => {
-    if (currentIndex >= letters.length) return;
-    if (!key) return;
-
-    // normalize pressed char
-    const pressed = key.length === 1 ? key.toLowerCase() : key;
-
-    setPressedKey(pressed);
-    // flash pressed key briefly
-    window.setTimeout(() => setPressedKey(null), 180);
-
-    const expected = (letters[currentIndex] || "").toLowerCase();
-    // treat space equivalently
-    const pressedNormalized = pressed === " " ? " " : pressed;
-    const expectedNormalized = expected === " " ? " " : expected;
-
-    // only single character or "Space" label allowed
-    const pressedChar = pressed === "Space" ? " " : pressedNormalized;
-
-    if (pressedChar.length !== 1) return;
-
-    setStatuses((prev) => {
-      const updated = [...prev];
-      updated[currentIndex] =
-        pressedChar === expectedNormalized ? "correct" : "wrong";
-      return updated;
-    });
-
-    if (pressedChar === expectedNormalized) {
-      const nextIndex = currentIndex + 1;
-      setCurrentIndex(nextIndex);
-      if (nextIndex === letters.length) {
-        // small timeout so last key flash visible
-        setTimeout(() => updateSuccess(true), 150);
-      }
-    }
-  };
-
+  const handleKey = (key:string)=>{
+      if (currentIndex >= letters.length) return;
+      if (!key) return;
+      if( key.length !== 1) return;
+      //do not delete the space
+      if (!"abcdefghijklmnopqrstuvwxyz .,".includes(key.toLowerCase())) return;
+      if(!letters[currentIndex]) return;
+      
+      const expected = (letters[currentIndex]).toLowerCase();
+      
+      setStatuses((prev)=>{
+          const updated = [...prev];
+          updated[currentIndex]= 
+          key === expected ? "correct" : "wrong";
+          return updated;
+      })
+      if( key !== expected ) return;
+      if(currentIndex+1 === letters.length) setTimeout(()=>updateSuccess(true),150)
+      setCurrentIndex(currentIndex+1);
+  }
   // Listen to real keyboard events
   useEffect(() => {
     const listener = (e: KeyboardEvent) => {
-      // ignore modifier keys
-      if (e.key.length > 1 && e.key !== " ") return;
-      handleKey(e.key === " " ? "Space" : e.key);
+      handleKey(e.key);
     };
     window.addEventListener("keydown", listener);
     return () => window.removeEventListener("keydown", listener);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentIndex, letters]);
 
-  // current expected key label (Space or single char)
-  const expectedChar = letters[currentIndex] || "";
-  const expectedKeyLabel = charToKeyLabel(expectedChar);
 
-  // ---------- SVG keyboard rendering ----------
-  // Layout math
-  const svgWidth = 800;
-  const rowHeights = 64;
-  const keyGap = 8;
-  const sidePadding = 12;
-
-  // helper to create key rect + label
-  const renderKey = (
-    keyLabel: string,
-    x: number,
-    y: number,
-    w: number,
-    h: number,
-    index: number
-  ) => {
-    const isExpected =
-      keyLabel.toLowerCase() === expectedKeyLabel.toLowerCase();
-    const isPressed =
-      pressedKey &&
-      (pressedKey.toLowerCase() === keyLabel.toLowerCase() ||
-        (pressedKey === "Space" && keyLabel === "Space"));
-
-    const baseFill = isExpected ? "#e8f4ff" : "#ffffff";
-    const stroke = isExpected ? "#2f80ed" : "#cfcfcf";
-    const strokeWidth = isExpected ? 3 : 1;
-    const rx = 8;
-
-    // pressed overlay color
-    const overlayFill = isPressed ? "rgba(47,128,237,0.14)" : "transparent";
-
-    const label =
-      keyLabel === "Space" ? "Space" : keyLabel.toUpperCase();
-
-    return (
-      <g
-        key={keyLabel + index}
-        transform={`translate(${x}, ${y})`}
-        style={{ cursor: "pointer" }}
-        onClick={() => {
-          // Tap triggers same handler as keyboard
-          handleKey(keyLabel === "Space" ? "Space" : keyLabel);
-        }}
-      >
-        <rect
-          x={0}
-          y={0}
-          rx={rx}
-          ry={rx}
-          width={w}
-          height={h}
-          fill={baseFill}
-          stroke={stroke}
-          strokeWidth={strokeWidth}
-        />
-        <rect x={0} y={0} width={w} height={h} fill={overlayFill} rx={rx} ry={rx} />
-        <text
-          x={w / 2}
-          y={h / 2 + 6}
-          fontSize={18}
-          fontFamily="system-ui, Arial, sans-serif"
-          fill={isExpected ? "#0b57b9" : "#111"}
-          textAnchor="middle"
-        >
-          {label}
-        </text>
-      </g>
-    );
-  };
-
-  // Compute keys positions row-by-row
-  const rows = KEY_ROWS;
-  const svgRows: React.ReactNode[] = [];
-  let yCursor = 10;
-
-  rows.forEach((row, rowIndex) => {
-    // compute widths: last row "Space" wider
-    const totalGaps = (row.length - 1) * keyGap;
-    const availableWidth = svgWidth - sidePadding * 2 - totalGaps;
-    let keyWidth = (availableWidth / row.length) | 0;
-
-    // If row contains Space make it big
-    let keyWidths: number[] = row.map((k) =>
-      k === "Space" ? keyWidth * 3 + keyGap * 2 : keyWidth
-    );
-
-    // If Space present adjust others to fit
-    if (row.includes("Space")) {
-      const nonSpaceCount = row.filter((k) => k !== "Space").length;
-      const usedBySpace = keyWidths[row.indexOf("Space")];
-      const remainingWidth = svgWidth - sidePadding * 2 - usedBySpace - (nonSpaceCount - 1) * keyGap;
-      const normalKeyW = Math.max(40, (remainingWidth / Math.max(1, nonSpaceCount)) | 0);
-      keyWidths = row.map((k) => (k === "Space" ? usedBySpace : normalKeyW));
-    }
-
-    let xCursor = sidePadding;
-
-    row.forEach((keyLabel, keyIndex) => {
-      const w = keyWidths[keyIndex];
-      svgRows.push(renderKey(keyLabel, xCursor, yCursor, w, rowHeights - 10, rowIndex * 10 + keyIndex));
-      xCursor += w + keyGap;
-    });
-
-    yCursor += rowHeights;
-  });
 
   return (
     <div
@@ -210,30 +62,8 @@ const TypingView: React.FC<TypingViewProps> = ({ data, updateSuccess }) => {
         padding: 20,
         userSelect: "none",
       }}
-      onClick={() => inputRef.current?.focus()}
     >
-      {/* Hidden input to open mobile keyboard */}
-      <input
-        ref={inputRef}
-        type="text"
-        value={""}
-        onChange={(e) => {
-          // take last char typed by mobile keyboard
-          const v = e.target.value;
-          const last = v.slice(-1);
-          if (!last) return;
-          handleKey(last === " " ? "Space" : last);
-          // clear value so next onChange yields single char
-          if (inputRef.current) inputRef.current.value = "";
-        }}
-        style={{
-          position: "absolute",
-          opacity: 0,
-          width: 0,
-          height: 0,
-        }}
-        autoFocus
-      />
+
 
       <h2 style={{ fontSize: 22, marginBottom: 8 }}>Type this:</h2>
 
@@ -262,7 +92,9 @@ const TypingView: React.FC<TypingViewProps> = ({ data, updateSuccess }) => {
           };
 
           let style = { ...baseStyle };
-
+          style.background = "#fff";
+          style.color = "#222";
+          style.border = "1px solid #eee";
           if (status === "correct") {
             style.background = "#d4ffd4";
             style.color = "#0a7a0a";
@@ -271,10 +103,6 @@ const TypingView: React.FC<TypingViewProps> = ({ data, updateSuccess }) => {
             style.background = "#ffecec";
             style.color = "#b30000";
             style.boxShadow = "0 0 8px rgba(255,0,0,0.12)";
-          } else {
-            style.background = "#fff";
-            style.color = "#222";
-            style.border = "1px solid #eee";
           }
 
           if (idx === currentIndex) {
@@ -283,30 +111,13 @@ const TypingView: React.FC<TypingViewProps> = ({ data, updateSuccess }) => {
           }
 
           return (
-            <span key={idx} style={style}>
+            <span key={idx+char} style={style}>
               {char === " " ? "\u00A0" : char}
             </span>
           );
         })}
       </div>
-
-      <div style={{ marginTop: 14 }}>
-        <svg
-          width="100%"
-          height={260}
-          viewBox={`0 0 ${svgWidth} ${yCursor + 8}`}
-          preserveAspectRatio="xMidYMid meet"
-        >
-          {svgRows}
-        </svg>
-      </div>
-
-      <p style={{ marginTop: 12, color: "#666" }}>
-        Expected:{" "}
-        <strong style={{ color: "#2f80ed" }}>
-          {expectedChar === " " ? "[space]" : expectedChar}
-        </strong>
-      </p>
+      <SVGKeyboard letter={letters[currentIndex]} />
     </div>
   );
 };
