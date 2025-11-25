@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/flash-cards-app/static/css/main.08625a59.css",
-    "main.js": "/flash-cards-app/static/js/main.b9790182.js",
+    "main.css": "/flash-cards-app/static/css/main.47f77638.css",
+    "main.js": "/flash-cards-app/static/js/main.215fe50f.js",
     "index.html": "/flash-cards-app/index.html",
-    "main.08625a59.css.map": "/flash-cards-app/static/css/main.08625a59.css.map",
-    "main.b9790182.js.map": "/flash-cards-app/static/js/main.b9790182.js.map"
+    "main.47f77638.css.map": "/flash-cards-app/static/css/main.47f77638.css.map",
+    "main.215fe50f.js.map": "/flash-cards-app/static/js/main.215fe50f.js.map"
   },
   "entrypoints": [
-    "static/css/main.08625a59.css",
-    "static/js/main.b9790182.js"
+    "static/css/main.47f77638.css",
+    "static/js/main.215fe50f.js"
   ]
 }
