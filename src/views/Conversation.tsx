@@ -60,7 +60,7 @@ export default function ConversationView({ conversation }: Props) {
                   {currentPassage.choices?.map((choice) => (
                     <button
                       className="db-choice"
-                      onClick={() => handleClick()}
+                      onClick={() => handleClick(choice.next)}
                       data-next={choice.next}
                       key={choice.next}
                       role="listitem"

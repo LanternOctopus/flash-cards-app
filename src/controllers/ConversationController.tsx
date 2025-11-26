@@ -70,13 +70,7 @@ export class ConversationController<
       // If the user provides a next choice, follow it
       if (selectedNext) {
         const nextId = selectedNext as PassageId;
-        if (!passage.choices.some((c) => c.next === selectedNext)) {
-          throw new Error(
-            `Invalid choice: ${String(
-              selectedNext
-            )} is not a valid next passage from "${currentId}"`
-          );
-        }
+
         currentId = nextId;
       } else {
         // Default to first choice
