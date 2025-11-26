@@ -61,7 +61,7 @@ const FlashcardView: React.FC<FlashcardViewProps> = ({ data, updateSuccess }) =>
       <div className='options'>
         {options.map((option) => (
           <button
-            key={option}
+            key={data.english+option}
             onClick={() => handleSelect(option)}
             disabled={!!selected}
             className={(selected === option ? 'selected' : '') + ' answer ' + (option==data.english ? 'correct' : "wrong")}
