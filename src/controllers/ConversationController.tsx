@@ -53,6 +53,12 @@ export class ConversationController<
 
     while (true) {
       const passage = this.conversation.passages[currentId];
+      if (!passage) {
+        throw new Error(
+          `Conversation is missing passage "${currentId}". ` +
+            "Check 'start' and all 'next' pointers."
+        );
+      }
       // Yield the current passage and wait for the user's next choice
       const selectedNext = yield passage;
 
