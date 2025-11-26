@@ -6,12 +6,27 @@ interface Props {
   conversation: BaseConversation;
 }
 
+import React, { useState, useRef, useMemo } from "react";
+import { ConversationController } from "../controllers/ConversationController";
+import { BaseConversation, BasePassage } from "../types";
+import "./Conversation.css";
+
+interface Props {
+  conversation: BaseConversation;
+}
+
 export default function ConversationView({ conversation }: Props) {
-  const controller = new ConversationController(
-    conversation
-  );
-  const generator = controller.getPassagesInteractive();
-  const firstValue = generator.next();
+  const controllerRef = useRef<ConversationController<BaseConversation> | null>(null);
+  const generatorRef = useRef<ReturnType<ConversationController<BaseConversation>["getPassagesInteractive"]> | null>(null);
+
+  if (!controllerRef.current) {
+    controllerRef.current = new ConversationController(conversation);
+    generatorRef.current = controllerRef.current.getPassagesInteractive();
+  }
+
+  const controller = controllerRef.current;
+  const generator = generatorRef.current!;
+  const firstValue = useMemo(() => generator.next(), []);
   const speaker = controller.getSpeaker();
   const [currentPassage, setCurrentPassage] = useState<BasePassage | null>(
     firstValue.done ? null : firstValue.value
