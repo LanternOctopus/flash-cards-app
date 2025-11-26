@@ -1,12 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { ConversationController } from "../controllers/ConversationController";
-import { BaseConversation, BasePassage } from "../types";
-import "./Conversation.css";
-interface Props {
-  conversation: BaseConversation;
-}
 
-import React, { useState, useRef, useMemo } from "react";
+import { useState, useRef, useMemo } from "react";
 import { ConversationController } from "../controllers/ConversationController";
 import { BaseConversation, BasePassage } from "../types";
 import "./Conversation.css";
