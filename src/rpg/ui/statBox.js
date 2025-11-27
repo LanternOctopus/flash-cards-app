@@ -1,6 +1,4 @@
-import k from "../kaplayCtx";
-
-export default function makeStatBox(){
+export default function makeStatBox(k){
     const statBox = k.add([
         k.rect(350,500, {radius:4}),
         k.color(0,0,0),

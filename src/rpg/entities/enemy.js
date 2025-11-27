@@ -1,5 +1,4 @@
-import k from "../kaplayCtx"
-export function makeEnemy(pos, name, sprite, stats, items, mapSprite=null){
+export function makeEnemy(k,pos, name, sprite, stats, items, mapSprite=null){
     return k.add([
         k.sprite(mapSprite ? mapSprite : sprite,{width:150, height:150}),
         k.anchor("center"),

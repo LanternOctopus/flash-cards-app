@@ -1,4 +1,4 @@
-import k from "../kaplayCtx";
+import kaplay from "kaplay";
 
 function reduceHealth(damageDealt, target){
     if(damageDealt < target.stats.health){
@@ -48,7 +48,7 @@ export async function applyItemHealEffect(textBox, target, item){
     return;
 }
 export async function applyItemIllnessEffect(textBox, target, item){
-    const isIll = k.rand(0,1) < item.rate;
+    const isIll = kaplay.rand(0,1) < item.rate;
     if(isIll){
         target.stats.illness.type = item.type;
         target.stats.illness.recurringDamage = item.value;
