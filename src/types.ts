@@ -20,6 +20,27 @@ export type TypingItem = {
   answer: string;
 }
 
+export interface BaseChoice {
+  text: string;
+  next: string;
+}
+
+export interface BasePassage {
+  text: string;
+  choices?: BaseChoice[];
+  speakerName?: string;
+  speakerRole?: string;
+  speakerImage?: string;
+}
+
+export interface BaseConversation {
+  start: string;
+  defaultSpeakerName?: string;
+  defaultSpeakerRole?: string;
+  defaultSpeakerImage?: string;
+  passages: Record<string, BasePassage>;
+}
+
 export type Activity =
 | {type: "flashcard"; data:FlashcardItem}
 | {type: "partsofspeech"; data:PartsofSpeechItem}

@@ -6,6 +6,7 @@ import AllActivities from './components/AllActivities';
 import FlashCards from './components/FlashCards';
 import Typing from './components/Typing';
 import PartsOfSpeech from './components/PartsOfSpeech';
+import Conversations from './components/Conversations';
 const App: React.FC = () => {
   return (
     <div>
@@ -15,7 +16,7 @@ const App: React.FC = () => {
         <Link to="/flashcards">Flash Cards</Link> |{' '}
         <Link to="/typing">Typing</Link> |{' '}
         <Link to="/partsofspeech">Parts Of Speech</Link> |{' '}
-
+        <Link to="/conversations">Conversations</Link> |{' '}
 
         {/* 
         <Link to="/contact">Contact</Link> */}
@@ -27,6 +28,7 @@ const App: React.FC = () => {
         <Route path="/flashcards" element={<FlashCards />} />
         <Route path="/typing" element={<Typing />} />
         <Route path="/partsofspeech" element={<PartsOfSpeech />} />
+        <Route path="/conversations" element={<Conversations />} />
         {/* 
         <Route path="/contact" element={<Contact />} /> */}
       </Routes>
