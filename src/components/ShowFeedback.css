@@ -6,7 +6,7 @@
   background: #f9f9ff;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-  max-width: 700px;
+  max-width: 90%;
   margin: 0 auto;
   flex-direction: column;
 }
@@ -30,8 +30,8 @@
 .feedback-text {
   flex: 1;
   padding: 10px;
-  font-size: 22px;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 300;
   line-height: 1.4;
 }
 
@@ -67,4 +67,7 @@
   .feedback-container {
   flex-direction: row;
   }
+  .feedback-text {
+  font-size: 18px;
+}
 }

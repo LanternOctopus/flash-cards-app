@@ -45,7 +45,6 @@ const Typing: FC = () => {
         <ShowFeedback
           success={success}
           handleNext={handleNext}
-          learningHint = {currentActivity.data.learningHint}
         />
       )}
     </div>

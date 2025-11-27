@@ -41,7 +41,15 @@ export interface BaseConversation {
   passages: Record<string, BasePassage>;
 }
 
+export type ScramblerItem = {
+  sentence: string;
+  number?: number;
+  malayalam?: string;
+  transliteration?: string;
+};
+
 export type Activity =
 | {type: "flashcard"; data:FlashcardItem}
 | {type: "partsofspeech"; data:PartsofSpeechItem}
-| {type: "typing"; data: TypingItem};
+| {type: "typing"; data: TypingItem}
+| { type: "scrambler"; data: ScramblerItem };

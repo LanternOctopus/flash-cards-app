@@ -4,10 +4,10 @@ import "./ShowFeedback.css";
 interface ShowFeedbackProps {
     success: boolean;
     handleNext: () => void;
-    learningHint?: string; 
+    LearningHint?: any;
 }
 
-const ShowFeedback: React.FC<ShowFeedbackProps> = ({ success, handleNext, learningHint }) => {
+const ShowFeedback: React.FC<ShowFeedbackProps> = ({ success, handleNext, LearningHint }) => {
     const images = {
         success: process.env.PUBLIC_URL+'/correct.png',
         fail: process.env.PUBLIC_URL+'/wrong.png',
@@ -24,8 +24,9 @@ const ShowFeedback: React.FC<ShowFeedbackProps> = ({ success, handleNext, learni
 
   <div className={`feedback-text ${success ? "success" : "fail"}`}>
     {success
-      ? "Wow, you rock! ⭐"
+      ?  "Wow, you rock! ⭐"
       : "Try again! You’ve got this."}
+      {LearningHint && <div className="learning-hint"><LearningHint/></div>}
   </div>
 
   <button className="feedback-next-btn" onClick={() => handleNext()}>
