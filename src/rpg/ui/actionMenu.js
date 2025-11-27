@@ -1,4 +1,6 @@
-export default function makeActionMenu(k){
+import k from "../kaplayCtx";
+
+export default function makeActionMenu(){
     const actionMenu = k.add(
         [
             k.rect(300,300, {radius:4}),

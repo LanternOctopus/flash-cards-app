@@ -1,4 +1,6 @@
-export default function makeBattleField(k, enemyName, 
+import k from "../kaplayCtx";
+
+export default function makeBattleField(enemyName, 
     enemySprite, 
     backgroundShader = null
 ){

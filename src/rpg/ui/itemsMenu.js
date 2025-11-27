@@ -1,4 +1,6 @@
-export default function makeItemsMenu(k,inventory){
+import k from "../kaplayCtx";
+
+export default function makeItemsMenu(inventory){
     const slotStates = []
 
     for( let i = 0; i < inventory.length; i++ ){

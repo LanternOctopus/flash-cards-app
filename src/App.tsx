@@ -9,7 +9,6 @@ import PartsOfSpeech from './components/PartsOfSpeech';
 import Conversations from './components/Conversations';
 import Scrambler from './components/Scrambler';
 import Sequences from './components/Sequences';
-import RPG from './rpg/RPG';
 const App: React.FC = () => {
   return (
     <div>
@@ -22,7 +21,6 @@ const App: React.FC = () => {
         <Link to="/conversations">Conversations</Link> |{' '}
         <Link to="/scrambler">Scrambler</Link> |{' '}
         <Link to="/sequences">Sequences</Link> |{' '}
-        <Link to="/rpg">RPG</Link> |{' '}
         {/* 
         <Link to="/contact">Contact</Link> */}
       </nav>
@@ -36,7 +34,6 @@ const App: React.FC = () => {
         <Route path="/conversations" element={<Conversations />} />
         <Route path="/scrambler" element={<Scrambler />} />
         <Route path="/sequences" element={<Sequences />} />
-        <Route path="/rpg" element={<RPG />} />
         {/* 
         <Route path="/contact" element={<Contact />} /> */}
       </Routes>

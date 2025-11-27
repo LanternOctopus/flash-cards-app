@@ -1,4 +1,5 @@
 import gameStateManager from "../state/gameStateManager"
+import k from "../kaplayCtx"
 import makeTextBox from "../ui/textBox"
 import makeActionMenu from "../ui/actionMenu"
 import makeItemsMenu from "../ui/itemsMenu"
@@ -6,7 +7,7 @@ import { applyAttackEffect, applyIllnessDamageEffect, applyItemBuffEffect, apply
 import makeStatBox from "../ui/statBox"
 import playerStatsManager from "../state/playerStatsManager"
 import makeBattleField from "../ui/battleField"
-export default function makeBattleSystem(k,player, enemy){
+export default function makeBattleSystem(player, enemy){
     gameStateManager.set("isInBattle", true)
 
     const battleState = k.add(
@@ -27,12 +28,12 @@ export default function makeBattleSystem(k,player, enemy){
             )
         ]
     )
-    const battleField = makeBattleField(k, enemy.name, enemy.sprite);
-    const textBox = makeTextBox(k);
-    const statBox = makeStatBox(k);
-    const actionMenu = makeActionMenu(k)
+    const battleField = makeBattleField(enemy.name, enemy.sprite);
+    const textBox = makeTextBox();
+    const statBox = makeStatBox();
+    const actionMenu = makeActionMenu()
     actionMenu.setControls()
-    let itemsMenu = makeItemsMenu(k, gameStateManager.current().inventory)
+    let itemsMenu = makeItemsMenu(gameStateManager.current().inventory)
     battleState.onStateEnter("battle-start",()=>{
         battleField.activate();
         statBox.activate();
@@ -107,7 +108,7 @@ export default function makeBattleSystem(k,player, enemy){
 
         if(k.isButtonPressed("left")){
             itemsMenu.deactivate();
-            itemsMenu = makeItemsMenu(k, gameStateManager.current().inventory)
+            itemsMenu = makeItemsMenu(gameStateManager.current().inventory)
             
             actionMenu.enterState("items"); 
             battleState.enterState("player-turn", {cancelIllnessEffect:true});
@@ -117,7 +118,7 @@ export default function makeBattleSystem(k,player, enemy){
             const selectItem = inventory.splice(itemsMenu.currentItemIndex,1)[0]
             gameStateManager.set("inventory", [...inventory]);
             itemsMenu.deactivate()
-            itemsMenu = makeItemsMenu(k,inventory);
+            itemsMenu = makeItemsMenu(inventory);
             actionMenu.deactivate()
             await textBox.displayLine(`${player.name} used ${selectItem.name}!`)
             //TODO item effect logic

@@ -1,4 +1,5 @@
-export default function makeTextBox(k){
+import k from "../kaplayCtx";
+export default function makeTextBox(){
     const textBox = k.add(
         [k.rect(1300,300, {radius:4}), k.color(0,0,0), 
             k.outline(5, new k.Color(230,230,230)),

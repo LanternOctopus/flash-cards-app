@@ -1,9 +1,12 @@
 // import { DIAGONAL_FACTOR } from "../constant";
+import k from "../kaplayCtx";
 import gameStateManager from "../state/gameStateManager";
 import playerStatsManager from "../state/playerStatsManager";
 
-export function makePlayer(k, pos, name) {
+export function makePlayer(pos, name) {
   const playerStats = playerStatsManager.current();
+  
+
   return k.add([
     k.rect(64, 64),
     k.anchor("center"),
