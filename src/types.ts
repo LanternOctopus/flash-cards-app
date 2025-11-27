@@ -3,8 +3,8 @@ export type FlashcardItem = {
   tense?: string;
   partofspeech?: string;
   english: string;
-  malayalam: string;
-  transliteration: string;
+  malayalam?: string;
+  transliteration?: string;
   wrongAnswers: string[];
 }
 
@@ -47,9 +47,22 @@ export type ScramblerItem = {
   malayalam?: string;
   transliteration?: string;
 };
+export type BaseChallenge = {
+  english: string;
+  malayalam?: string;
+  transliteration?: string;
+  wrongAnswers: string[];
+  malayalamDistractors?: Record<string, string[]>;
+};
+export type SequenceItem = {
+  verb: string;
+  conjugations: string[];
+  challenges: BaseChallenge[];
+};
 
 export type Activity =
 | {type: "flashcard"; data:FlashcardItem}
 | {type: "partsofspeech"; data:PartsofSpeechItem}
 | {type: "typing"; data: TypingItem}
-| { type: "scrambler"; data: ScramblerItem };
+| { type: "scrambler"; data: ScramblerItem }
+| { type: "sequence"; data: SequenceItem };

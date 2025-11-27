@@ -8,6 +8,7 @@ import Typing from './components/Typing';
 import PartsOfSpeech from './components/PartsOfSpeech';
 import Conversations from './components/Conversations';
 import Scrambler from './components/Scrambler';
+import Sequences from './components/Sequences';
 const App: React.FC = () => {
   return (
     <div>
@@ -19,7 +20,7 @@ const App: React.FC = () => {
         <Link to="/partsofspeech">Parts Of Speech</Link> |{' '}
         <Link to="/conversations">Conversations</Link> |{' '}
         <Link to="/scrambler">Scrambler</Link> |{' '}
-
+        <Link to="/sequences">Sequences</Link> |{' '}
         {/* 
         <Link to="/contact">Contact</Link> */}
       </nav>
@@ -32,6 +33,7 @@ const App: React.FC = () => {
         <Route path="/partsofspeech" element={<PartsOfSpeech />} />
         <Route path="/conversations" element={<Conversations />} />
         <Route path="/scrambler" element={<Scrambler />} />
+        <Route path="/sequences" element={<Sequences />} />
         {/* 
         <Route path="/contact" element={<Contact />} /> */}
       </Routes>
