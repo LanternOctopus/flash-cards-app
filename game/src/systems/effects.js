@@ -1,5 +1,5 @@
 import k from "../kaplayCtx";
-
+import triggerInteraction from "../utils/message";
 function reduceHealth(damageDealt, target){
     if(damageDealt < target.stats.health){
         target.stats.health -= damageDealt
@@ -8,6 +8,7 @@ function reduceHealth(damageDealt, target){
     }
 }
 export async function applyAttackEffect(textBox, attacker, target){
+    await triggerInteraction("attack-action", attacker.name);
     if(target.stats.defense < attacker.stats.attack){
         console.log(`${target.name} health before attack`)
         console.log(target.stats.health)

@@ -7,7 +7,8 @@ import { applyAttackEffect, applyIllnessDamageEffect, applyItemBuffEffect, apply
 import makeStatBox from "../ui/statBox"
 import playerStatsManager from "../state/playerStatsManager"
 import makeBattleField from "../ui/battleField"
-export default function makeBattleSystem(player, enemy){
+import triggerInteraction from "../utils/message";
+export default async function makeBattleSystem(player, enemy){
     gameStateManager.set("isInBattle", true)
 
     const battleState = k.add(
@@ -69,6 +70,7 @@ export default function makeBattleSystem(player, enemy){
         if (!k.isButtonPressed("confirm")) return;
 
         if(actionMenu.state === "attack"){
+            await triggerInteraction("attack-action-started", enemy.name);
             battleState.enterState("attack-action")
         }
         if(actionMenu.state ==="items" && 
