@@ -48,14 +48,15 @@ const ScramblerView = ({ data, updateSuccess }: Props) => {
     const newChallenge = [...challengeSentence];
     newChallenge[slotIndex] = dragged.textContent || "";
     setChallengeSentence(newChallenge);
-
+    console.log(dragged.dataset.index)
     dragged.classList.add("hide");
     dragged.classList.remove("dragging");
-
     setDragged(null);
-
     const attempt = newChallenge.join(" ");
-    updateSuccess(attempt === data.sentence);
+    const newArr = [... missingWords];
+    newArr.splice(Number(dragged.dataset.index), 1);
+    if(newArr.length === 0) updateSuccess(attempt === data.sentence);
+    setMissingWords( newArr );
   };
 
   return (
@@ -99,11 +100,12 @@ const ScramblerView = ({ data, updateSuccess }: Props) => {
       </div>
 
       <div>
-        {missingWords.map(([word, idx]) => (
+        {missingWords.map(([word, idx], index) => (
           <button
             key={idx}
             draggable
             onDragStart={handleDragStart}
+            data-index={index}
             style={{
               padding: "6px 12px",
               margin: 6,

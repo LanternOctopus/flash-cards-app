@@ -4,14 +4,17 @@
   "private": true,
   "homepage": "https://LanternOctopus.github.io/flash-cards-app",
   "dependencies": {
+    "@tailwindcss/postcss": "^4.1.17",
     "cra-template": "1.2.0",
     "fs": "^0.0.1-security",
     "kaplay": "^4000.0.0-alpha.4",
     "path": "^0.12.7",
+    "postcss": "^8.5.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.9.5",
     "react-scripts": "5.0.1",
+    "tailwindcss": "^4.1.17",
     "web-vitals": "^4.2.4"
   },
   "scripts": {
@@ -20,7 +23,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "tailwind:init": "npx tailwindcss init -p",
+    "tailwind:build": "tailwindcss -i ./src/index.css -o ./src/dist/index.css --watch"
   },
   "eslintConfig": {
     "extends": [
@@ -44,12 +49,14 @@
     ]
   },
   "devDependencies": {
+    "@tailwindcss/cli": "^4.1.17",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
     "@types/jest": "^29.5.14",
     "@types/react": "^19.2.4",
     "@types/react-dom": "^19.2.3",
+    "autoprefixer": "^10.4.22",
     "gh-pages": "^6.3.0",
     "jest": "^29.7.0",
     "ts-jest": "^29.3.2",
