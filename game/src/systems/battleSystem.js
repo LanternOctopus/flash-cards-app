@@ -70,7 +70,6 @@ export default async function makeBattleSystem(player, enemy){
         if (!k.isButtonPressed("confirm")) return;
 
         if(actionMenu.state === "attack"){
-            await triggerInteraction("scrambler", enemy.name);
             battleState.enterState("attack-action")
         }
         if(actionMenu.state ==="items" && 

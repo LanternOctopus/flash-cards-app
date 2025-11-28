@@ -1,5 +1,6 @@
 import k from "../kaplayCtx";
 import triggerInteraction from "../utils/message";
+import resolveCheck from "../utils/resolveCheck";
 function reduceHealth(damageDealt, target){
     if(damageDealt < target.stats.health){
         target.stats.health -= damageDealt
@@ -8,8 +9,9 @@ function reduceHealth(damageDealt, target){
     }
 }
 export async function applyAttackEffect(textBox, attacker, target){
-    await triggerInteraction("attack-action", attacker.name);
-    if(target.stats.defense < attacker.stats.attack){
+    const result = await triggerInteraction("scrambler", attacker.name);
+    const modifier = resolveCheck(result.score);
+    if(target.stats.defense < attacker.stats.attack* modifier){
         console.log(`${target.name} health before attack`)
         console.log(target.stats.health)
         const damageDealt = attacker.stats.attack-target.stats.defense;

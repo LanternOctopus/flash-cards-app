@@ -17,7 +17,6 @@ export default function QuizGameBridge() {
       switch (interactionType) {
         case "scrambler":
             setCurrentQuiz(()=>()=>{
-              console.log('currentQuiz')
                 return <ScramblerView data={controllersRef.current.scrambler.next().value.data} updateSuccess={handleQuizComplete}/> 
       })
             break;
@@ -34,8 +33,6 @@ export default function QuizGameBridge() {
   }, []);
   function handleQuizComplete(result:any){
     if(result === null) return;
-    console.log('result')
-    console.log(result)
      if (iframeRef.current) {
       iframeRef.current.contentWindow.postMessage({ score: result }, "*");
     }

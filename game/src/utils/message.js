@@ -1,8 +1,6 @@
 async function triggerInteraction(interactionType, interactionId) {
     window.parent.postMessage({ interactionType, interactionId }, "*");
-    console.log('Sent message:', { interactionType, interactionId });
-    const response = await waitForMessage('interactionResult');
-    console.log('Got response:', response);
+    return response;
 }
 
 export default triggerInteraction;
@@ -12,7 +10,7 @@ function waitForMessage(expectedType) {
   return new Promise((resolve) => {
     function handler(event) {
       const data = event.data;
-      if (data?.type === expectedType) {
+      if (data?.score !== null) {
         window.removeEventListener('message', handler);
         console.log('Received message:', data);
         resolve(data);
