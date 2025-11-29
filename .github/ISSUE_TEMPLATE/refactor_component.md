@@ -1,11 +1,3 @@
----
-name: "Refactor Component Into Model → Controller → View"
-about: "Refactor an existing component into the MCV pattern"
-title: "Refactor {component name} into MCV"
-labels: ["refactor", "architecture"]
-assignees: []
----
-
 # Refactor `{component name}` into Model → Controller → View
 
 ## Description
@@ -22,12 +14,12 @@ Include current pain points, complexity issues, or clarity improvements expected
 - Identify pure data logic: calculations, transforms, validation.
 - Move all functions that do **not** touch React, DOM, or JSX.
 
-**Example:**
 
 ````js
 // Model.js
 export function calculateSomething(data) { ... }
 export function validateInput(input) { ... }
+````
 
 ### 2️⃣ Create the **Controller** (hook)
 
@@ -81,6 +73,7 @@ export default function MyComponent() {
 ## Folder Structure Recommendations
 
 For each feature:
+```
 /FeatureName/
 FeatureNameModel.js # pure data logic, rules, validation
 FeatureNameController.js # hooks, state, event handlers
@@ -94,8 +87,8 @@ ModalController.js
 Toast/
 ToastView.jsx
 ToastController.js
-
+```
 Benefits:
-Side-by-side editing: open Controller & View together
-Minimal jumping around
-Each feature self-contained
+- Side-by-side editing: open Controller & View together
+- Minimal jumping around
+- Each feature self-contained
