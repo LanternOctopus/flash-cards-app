@@ -76,8 +76,8 @@ export type Activity =
 export type Interaction = {
   type: "handshake";
   challenge?: string; // What challenge should be solved?
-  success: boolean; // Did it work?
-};
+  abilityCheck?: boolean; // Did it work?
+};//TODO: make a second type for InteractionResult
 export type possibleInteractionChallenges = [
   "Scrambler",
   "Flashcard"
