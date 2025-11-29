@@ -137,3 +137,4 @@ dist
 /build
 notes*
 /.vscode
+.prettierrc

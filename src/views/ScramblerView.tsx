@@ -7,13 +7,19 @@ interface Props {
 }
 
 const ScramblerView = ({ data, updateSuccess }: Props) => {
-  const [challengeSentence, setChallengeSentence] = useState<string[]>([]);
-  const [missingWords, setMissingWords] = useState<[string, number][]>([]);
-  const [dragged, setDragged] = useState<HTMLButtonElement | null>(null);
+  const [challengeSentence, setChallengeSentence] =
+    useState<string[]>([]);
+  const [missingWords, setMissingWords] = useState<
+    [string, number][]
+  >([]);
+  const [dragged, setDragged] =
+    useState<HTMLButtonElement | null>(null);
 
   useEffect(() => {
     const correctSentence = data.sentence.split(" ");
-    const indexed = correctSentence.map((w, i) => [w, i] as [string, number]);
+    const indexed = correctSentence.map(
+      (w, i) => [w, i] as [string, number]
+    );
 
     // pick 2 random words
     const removed = [...indexed]
@@ -33,16 +39,23 @@ const ScramblerView = ({ data, updateSuccess }: Props) => {
     updateSuccess(null);
   }, [data, updateSuccess]);
 
-  const handleDragStart = (e: React.DragEvent<HTMLButtonElement>) => {
+  const handleDragStart = (
+    e: React.DragEvent<HTMLButtonElement>
+  ) => {
     setDragged(e.currentTarget);
     e.currentTarget.classList.add("dragging");
   };
 
-  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
+  const handleDragOver = (
+    e: React.DragEvent<HTMLDivElement>
+  ) => {
     e.preventDefault();
   };
 
-  const handleDrop = (e: React.DragEvent<HTMLDivElement>, slotIndex: number) => {
+  const handleDrop = (
+    e: React.DragEvent<HTMLDivElement>,
+    slotIndex: number
+  ) => {
     if (!dragged) return;
 
     const newChallenge = [...challengeSentence];
@@ -55,7 +68,11 @@ const ScramblerView = ({ data, updateSuccess }: Props) => {
     setDragged(null);
 
     const attempt = newChallenge.join(" ");
-    updateSuccess(attempt === data.sentence);
+    const newArr = [...missingWords];
+    newArr.splice(Number(dragged.dataset.index), 1);
+    if (newArr.length === 0)
+      updateSuccess(attempt === data.sentence);
+    setMissingWords(newArr);
   };
 
   return (
@@ -99,11 +116,12 @@ const ScramblerView = ({ data, updateSuccess }: Props) => {
       </div>
 
       <div>
-        {missingWords.map(([word, idx]) => (
+        {missingWords.map(([word, idx], index) => (
           <button
             key={idx}
             draggable
             onDragStart={handleDragStart}
+            data-index={index}
             style={{
               padding: "6px 12px",
               margin: 6,

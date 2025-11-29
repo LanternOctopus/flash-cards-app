@@ -1,22 +1,26 @@
-function resolveCheck(rawScore, maxValue) {
-  let score;
+/**
+ * @typedef {Object} Interaction
+ * @property {string} [challenge]      - What challenge should be solved?
+ * @property {boolean} [success]       - Did it work?
+ */
 
-  if (rawScore === true) score = 100;
-  else if (rawScore === false) score = 0;
-  else score = rawScore; // assume 0–100
+/**
+ * @typedef {Object} InteractionOutcome
+ * @property {number}   [rate]
+ * @property {boolean}  [abilityCheck]- True if this outcome represents an ability/skill check (optional).
+ */
 
-  const pct = score / 100;
-  const success = Math.random() < pct;
+/**
+ * Normalizes an interaction object to ensure a consistent structure.
+ * @param {Interaction} interaction
+ * @returns {InteractionOutcome}
+ */
+export default function resolveCheck(interaction) {
+  //ToDo: Do error checks for if the rate is not a number.
+  const interactionOutcome = {
+    rate: interaction.success ? 1 : 0,
+    abilityCheck: interaction.success,
+  };
 
-  // If no maxValue (like doors, dialogue, persuasion), just return success
-  if (maxValue == null) {
-    return { success };
-  }
-
-  // Otherwise calculate amount (damage, mitigation, etc.)
-  const amount = Math.floor(maxValue * pct);
-
-  return { success };
+  return interactionOutcome;
 }
-
-export default resolveCheck;

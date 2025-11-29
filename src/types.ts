@@ -6,19 +6,25 @@ export type FlashcardItem = {
   malayalam?: string;
   transliteration?: string;
   wrongAnswers: string[];
-}
+};
 
-type PartsOfSpeech = readonly ['verb','noun','adverb','preposition','adjective']
+type PartsOfSpeech = readonly [
+  "verb",
+  "noun",
+  "adverb",
+  "preposition",
+  "adjective"
+];
 export type PartsofSpeechItem = {
-    pos?:PartsOfSpeech[number];
-    text: string;
-    answer: string[];
-    learningHint?: string;
+  pos?: PartsOfSpeech[number];
+  text: string;
+  answer: string[];
+  learningHint?: string;
 };
 
 export type TypingItem = {
   answer: string;
-}
+};
 
 export interface BaseChoice {
   text: string;
@@ -61,8 +67,18 @@ export type SequenceItem = {
 };
 
 export type Activity =
-| {type: "flashcard"; data:FlashcardItem}
-| {type: "partsofspeech"; data:PartsofSpeechItem}
-| {type: "typing"; data: TypingItem}
-| { type: "scrambler"; data: ScramblerItem }
-| { type: "sequence"; data: SequenceItem };
+  | { type: "flashcard"; data: FlashcardItem }
+  | { type: "partsofspeech"; data: PartsofSpeechItem }
+  | { type: "typing"; data: TypingItem }
+  | { type: "scrambler"; data: ScramblerItem }
+  | { type: "sequence"; data: SequenceItem };
+
+export type Interaction = {
+  type: "handshake";
+  challenge?: string; // What challenge should be solved?
+  success: boolean; // Did it work?
+};
+export type possibleInteractionChallenges = [
+  "Scrambler",
+  "Flashcard"
+];

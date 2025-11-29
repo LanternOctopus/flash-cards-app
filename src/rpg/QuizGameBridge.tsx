@@ -2,26 +2,41 @@ import { useState, useEffect, useRef } from "react";
 import { ScramblerController } from "../controllers/ScramblerController";
 import ScramblerView from "../views/ScramblerView";
 import Modal from "../components/Modal";
+import { Interaction } from "../types";
 export default function QuizGameBridge() {
   const iframeRef = useRef<any>(null);
   const [Interaction, setCurrentQuiz] = useState<any>(null);
   const controllersRef = useRef({
-   'scrambler': new ScramblerController().getActivities()
-})
+    scrambler: new ScramblerController().getActivities(),
+  });
   useEffect(() => {
-    const handleMessage = (event:any) => {
-      event.preventDefault();
-      const { interactionType, interactionId } = event.data;
-      if (!interactionType) return;
+    console.log("useeffect");
+    const handleMessage = (
+      event: MessageEvent<Interaction>
+    ) => {
       if (Interaction) return;
-      switch (interactionType) {
-        case "scrambler":
-            setCurrentQuiz(()=>()=>{
-                return <ScramblerView data={controllersRef.current.scrambler.next().value.data} updateSuccess={handleQuizComplete}/> 
-      })
-            break;
+      if (event.data.type !== "handshake") return;
+
+      event.preventDefault();
+
+      if (!event.data.challenge) return;
+
+      switch (event.data.challenge) {
+        case "Scrambler":
+          setCurrentQuiz(() => () => {
+            return (
+              <ScramblerView
+                data={
+                  controllersRef.current.scrambler.next()
+                    .value.data
+                }
+                updateSuccess={handleQuizComplete}
+              />
+            );
+          });
+          break;
         default:
-            break;
+          break;
       }
     };
 
@@ -31,10 +46,17 @@ export default function QuizGameBridge() {
       window.removeEventListener("message", handleMessage);
     };
   }, []);
-  function handleQuizComplete(result:any){
-    if(result === null) return;
-     if (iframeRef.current) {
-      iframeRef.current.contentWindow.postMessage({ score: result }, "*");
+  function handleQuizComplete(result: boolean | null) {
+    if (result === null) return;
+    if (iframeRef.current) {
+      iframeRef.current.contentWindow.postMessage(
+        {
+          type: "handshake",
+          success: result,
+          score: result ? 100 : 0,
+        } as Interaction,
+        "*"
+      );
     }
     // Unmount the quiz
     setCurrentQuiz(null);
@@ -44,11 +66,21 @@ export default function QuizGameBridge() {
       <iframe
         ref={iframeRef}
         src={"http://localhost:5173/"}
-        style={{ width: "90%", height: "80vh", margin: "0 auto" }}
+        style={{
+          width: "90%",
+          height: "80vh",
+          margin: "0 auto",
+        }}
       />
-      {Interaction && <Modal isOpen={true} onClose={()=>setCurrentQuiz(null)} title="Quiz Game">
-        {Interaction()}
-      </Modal>}
+      {Interaction && (
+        <Modal
+          isOpen={true}
+          onClose={() => setCurrentQuiz(null)}
+          title="Quiz Game"
+        >
+          {Interaction()}
+        </Modal>
+      )}
     </div>
   );
 }
