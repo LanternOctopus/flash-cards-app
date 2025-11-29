@@ -1,3 +1,11 @@
+---
+name: "Refactor Component Into Model → Controller → View"
+about: "Refactor an existing component into the MCV pattern"
+title: "Refactor {component name} into MCV"
+labels: ["refactor", "architecture"]
+assignees: []
+---
+
 # Refactor `{component name}` into Model → Controller → View
 
 ## Description
