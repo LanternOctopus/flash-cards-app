@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { ScramblerItem } from "../types";
+import { useSearchParams } from "react-router-dom";
 
+function isNumberString(str: string | null) {
+  if(str === null) return false;
+  return !isNaN(Number(str)) && !isNaN(parseFloat(str));
+}
 interface Props {
   data: ScramblerItem;
   updateSuccess: (success: boolean | null) => void;
@@ -10,15 +15,15 @@ const ScramblerView = ({ data, updateSuccess }: Props) => {
   const [challengeSentence, setChallengeSentence] = useState<string[]>([]);
   const [missingWords, setMissingWords] = useState<[string, number][]>([]);
   const [dragged, setDragged] = useState<HTMLButtonElement | null>(null);
-
+  const [searchParams] = useSearchParams();
+  const [numToRemove] = useState(isNumberString(searchParams.get("remove")) ? Number(searchParams.get("remove")) : 2);
   useEffect(() => {
     const correctSentence = data.sentence.split(" ");
     const indexed = correctSentence.map((w, i) => [w, i] as [string, number]);
 
-    // pick 2 random words
     const removed = [...indexed]
       .sort(() => Math.random() - 0.5)
-      .slice(-2);
+      .slice(-numToRemove);
 
     setMissingWords(removed);
 
