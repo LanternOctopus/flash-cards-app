@@ -1,26 +1,287 @@
 {
-  "start": "intro",
-  "defaultSpeakerName": "Traveler",
-  "defaultSpeakerRole": "Traveler",
-  "defaultSpeakerImage": "/npc/npc1.png",
-  "passages": {
-    "intro": {
-      "text": "Welcome, traveler!",
-      "choices": [
-        { "text": "Look around", "next": "look" },
-        { "text": "Call out", "next": "call" }
-      ]
-    },
-    "look": {
-      "text": "You see flickering lights.",
-      "choices": [{ "text": "Go forward", "next": "hallway" }]
-    },
-    "call": {
-      "text": "A distant voice answers.",
-      "choices": [{ "text": "Approach", "next": "hallway" }]
-    },
-    "hallway": {
-      "text": "A long corridor stretches ahead."
+    "start": "intro",
+    "defaultSpeakerName": "Naruto Uzumaki",
+    "defaultSpeakerRole": "Ninja",
+    "defaultSpeakerImage": "/npc/narutobust.png",
+    "passages": {
+        "intro": {
+            "text": "You're finally in the Hidden Leaf Village. The air smells like fresh ramen and adventure.",
+            "sceneImage": "/scene/intro.png",
+            "choices": [
+                {
+                    "text": "Wander the streets",
+                    "next": "look"
+                },
+                {
+                    "text": "Call out for Naruto",
+                    "next": "call"
+                }
+            ]
+        },
+
+        "look": {
+            "text": "You scan the bustling street. Ninja dart across rooftops.",
+            "sceneImage": "/scene/villagestreet.png",
+            "choices": [
+                {
+                    "text": "Head toward the Hokage faces",
+                    "next": "faces"
+                }
+            ]
+        },
+
+        "call": {
+            "text": "You shout Naruto’s name. Someone shouts back, 'HEY! WHO’S CALLING FOR ME?!'",
+            "sceneImage": "/scene/hokage.png",
+            "choices": [
+                {
+                    "text": "Run toward the voice",
+                    "next": "faces"
+                }
+            ]
+        },
+
+        "faces": {
+            "text": "You stand beneath the massive Hokage rock faces. Footsteps rush up behind you.",
+            "sceneImage": "/scene/hokagecloser.png",
+            "choices": [
+                {
+                    "text": "Turn around slowly",
+                    "next": "meet"
+                },
+                {
+                    "text": "Spin fast like a wannabe ninja",
+                    "next": "meet"
+                }
+            ]
+        },
+
+        "meet": {
+            "text": "It's Naruto Uzumaki himself—grinning like he owns the place.",
+            "sceneImage": "/scene/hokage.png",
+            "characterImage": "/npc/narutogrin.png",
+            "choices": [
+                {
+                    "text": "Tell him he's your hero",
+                    "next": "hero"
+                },
+                { "text": "Awkwardly wave", "next": "wave" }
+            ]
+        },
+
+        "hero": {
+            "text": "Naruto scratches the back of his head. 'Heh… I get that a lot now.' His smile softens.",
+            "sceneImage": "/scene/hokage.png",
+            "characterImage": "/npc/narutobashful.png",
+            "choices": [
+                {
+                    "text": "Ask how he became so strong",
+                    "next": "training"
+                }
+            ]
+        },
+
+        "wave": {
+            "text": "Naruto laughs. 'You're kinda weird, y’know that?'",
+            "sceneImage": "/scene/hokage.png",
+            "characterImage": "/npc/narutolaugh.png",
+            "choices": [
+                {
+                    "text": "Laugh with him",
+                    "next": "training"
+                }
+            ]
+        },
+
+        "training": {
+            "text": "He motions for you to follow. 'C’mon, I’ll show ya something cool.'",
+            "sceneImage": "/scene/hokage.png",
+            "characterImage": "/npc/narutobeckoning.png",
+            "choices": [
+                { "text": "Follow him", "next": "field" },
+                {
+                    "text": "Ask where you're going first",
+                    "next": "field"
+                }
+            ]
+        },
+
+        "field": {
+            "text": "You arrive at a quiet training field. Wind rustles the grass.",
+            "sceneImage": "/scene/trainingground.png",
+            "characterImage": "/npc/narutogrin.png",
+            "choices": [
+                {
+                    "text": "Ask for a demonstration",
+                    "next": "demo"
+                },
+                {
+                    "text": "Try copying a jutsu pose",
+                    "next": "pose"
+                }
+            ]
+        },
+
+        "demo": {
+            "text": "Naruto forms hand signs. A massive clone poofs into existence beside him.",
+            "sceneImage": "/scene/narutoclone.png",
+            "choices": [
+                { "text": "Cheer loudly", "next": "cheer" }
+            ]
+        },
+
+        "pose": {
+            "text": "Your hands move in awkward shapes. Naruto snorts. 'That’s… something.'",
+            "sceneImage": "/scene/trainingground.png",
+            "characterImage": "/npc/narutolaugh.png",
+            "choices": [
+                { "text": "Laugh it off", "next": "cheer" }
+            ]
+        },
+
+        "cheer": {
+            "text": "Naruto beams. 'Alright! Your turn to try something!'",
+            "sceneImage": "/scene/trainingground.png",
+            "characterImage": "/npc/narutobeckoning.png",
+            "choices": [
+                {
+                    "text": "Try Shadow Clone Jutsu",
+                    "next": "failclone"
+                },
+                {
+                    "text": "Ask for something safer",
+                    "next": "safe"
+                }
+            ]
+        },
+
+        "failclone": {
+            "text": "You focus… and produce a puff of smoke that smells like burnt toast.",
+            "sceneImage": "/scene/trainingground.png",
+            "characterImage": "/npc/narutocurious.png",
+            "choices": [
+                {
+                    "text": "Pretend that was intentional",
+                    "next": "intentional"
+                }
+            ]
+        },
+
+        "intentional": {
+            "text": "Naruto bursts out laughing. 'Yeah, yeah, sure you meant to do that.'",
+            "sceneImage": "/scene/trainingground.png",
+            "characterImage": "/npc/narutolaugh.png",
+            "choices": [
+                {
+                    "text": "Naruto offers to teach you a trick",
+                    "next": "safe"
+                }
+            ]
+        },
+
+        "safe": {
+            "text": "Naruto teaches you a basic chakra-control trick. It works—you feel the energy buzzing.",
+            "sceneImage": "/scene/trainingground.png",
+            "characterImage": "/npc/narutoleaf.png",
+            "choices": [
+                {
+                    "text": "Show off your success",
+                    "next": "showoff"
+                }
+            ]
+        },
+
+        "showoff": {
+            "text": "You steady your breath and balance a leaf with chakra. Naruto whistles. 'Not bad!'",
+            "sceneImage": "/scene/trainingground.png",
+            "characterImage": "/npc/narutoleaf.png",
+            "choices": [
+                {
+                    "text": "Something is flying towards you",
+                    "next": "mission"
+                }
+            ]
+        },
+
+        "mission": {
+            "text": "A messenger hawk swoops down. Naruto reads a scroll. 'Looks like trouble nearby.'",
+            "sceneImage": "/scene/trainingground.png",
+            "characterImage": "/npc/narutoreading.png",
+            "choices": [
+                {
+                    "text": "Offer to help",
+                    "next": "offer"
+                },
+                {
+                    "text": "Ask if it's safe",
+                    "next": "safeask"
+                }
+            ]
+        },
+
+        "offer": {
+            "text": "Naruto nods with approval. 'Alright, you're with me.'",
+            "sceneImage": "/scene/trainingground.png",
+            "characterImage": "/npc/narutobeckoning.png",
+            "choices": [
+                {
+                    "text": "Run after him",
+                    "next": "forest"
+                }
+            ]
+        },
+
+        "safeask": {
+            "text": "Naruto smirks. 'Safe? With me around? Yep.'",
+            "sceneImage": "/scene/trainingground.png",
+            "characterImage": "/npc/narutoconfident.png",
+            "choices": [
+                {
+                    "text": "Follow him anyway",
+                    "next": "forest"
+                }
+            ]
+        },
+
+        "forest": {
+            "text": "You reach a forest edge. Rustling sounds ahead.",
+            "sceneImage": "/scene/forest.png",
+            "characterImage": "/npc/narutolistening.png",
+            "choices": [
+                {
+                    "text": "Charge forward",
+                    "next": "charge"
+                },
+                {
+                    "text": "Stay behind Naruto",
+                    "next": "behind"
+                }
+            ]
+        },
+
+        "charge": {
+            "text": "A small wild boar bursts out. Naruto tackles it instantly. 'That’s it? Lame.'",
+            "sceneImage": "/scene/boar.png",
+            "choices": [
+                {
+                    "text": "Celebrate with him",
+                    "next": "end"
+                }
+            ]
+        },
+
+        "behind": {
+            "text": "The boar sprints out. Naruto handles it easily. 'You okay back there?'",
+            "sceneImage": "/scene/boarend.png",
+            "choices": [
+                { "text": "Nod confidently", "next": "end" }
+            ]
+        },
+
+        "end": {
+            "text": "Naruto grins. 'Today was fun. Come back anytime—you fit right in here.'",
+            "sceneImage": "/scene/forest.png",
+            "characterImage": "/npc/narutogrin.png"
+        }
     }
-  }
 }

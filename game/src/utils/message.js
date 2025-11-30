@@ -3,6 +3,7 @@
  * @property {string} [type]           - Will always be handshake
  * @property {string} [challenge]      - What challenge should be solved?
  * @property {boolean} [abilityCheck]       - Did it work?
+ * @property {string} [modalString]    - What should be displayed in the modal?
  */
 
 /**
@@ -11,7 +12,11 @@
  * @returns {Interaction}
  */
 function normalizeInteraction(interaction) {
-    const possibleChallenges = ["Scrambler", "Flashcard"];
+    const possibleChallenges = [
+        "Scrambler",
+        "Flashcard",
+        "Typing",
+    ];
     return {
         type: "handshake",
         challenge: possibleChallenges.includes(
@@ -22,6 +27,9 @@ function normalizeInteraction(interaction) {
         abilityCheck: interaction.abilityCheck
             ? true
             : false,
+        modalString: interaction.modalString
+            ? interaction.modalString
+            : "Solve this challenge to successfully perform this action!",
     };
 }
 

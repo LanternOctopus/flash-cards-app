@@ -14,14 +14,14 @@ k.scene("playground", () => {
         makeBattleSystem(player, enemy);
     });
 
-    const spider = makeEnemy(
-        k.vec2(600, 300),
+    makeEnemy(
+        k.vec2(200, 600),
         "Officer",
         "officer",
 
         {
-            attack: 6,
-            defense: 1,
+            attack: 3,
+            defense: 3,
             health: 10,
             maxHealth: 10,
             illness: {
@@ -45,6 +45,54 @@ k.scene("playground", () => {
         defense: 1,
         health: 6,
         maxHealth: 6,
+        illness: {
+            type: null,
+            recurringDamage: 0,
+        },
+        exp: 10,
+        items: [
+            {
+                name: "apple",
+                target: "self",
+                effect: "heal",
+                value: 2,
+            },
+            {
+                name: "poison bottle",
+                target: "player",
+                effect: "illness",
+                type: "poison",
+                value: 2,
+                rate: 0.8,
+            },
+            {
+                name: "antidote",
+                target: "self",
+                effect: "cure",
+                type: "poison",
+            },
+            {
+                name: "strong herb",
+                target: "self",
+                effect: "buff",
+                targetStat: "attack",
+                value: 2,
+            },
+            {
+                name: "leg hold trap",
+                target: "enemy",
+                effect: "debuff",
+                targetStat: "attack",
+                value: 2,
+            },
+        ],
+    });
+
+    makeEnemy(k.vec2(1500, 100), "Naruto", "naruto", {
+        attack: 2,
+        defense: 4,
+        health: 12,
+        maxHealth: 12,
         illness: {
             type: null,
             recurringDamage: 0,

@@ -3,6 +3,10 @@ import { ScramblerController } from "../controllers/ScramblerController";
 import ScramblerView from "../views/ScramblerView";
 import Modal from "../components/Modal";
 import { Interaction } from "../types";
+import { FlashcardController } from "../controllers/FlashCardController";
+import FlashcardView from "../views/FlashcardView";
+import { TypingController } from "../controllers/TypingController";
+import TypingView from "../views/TypingView";
 export default function QuizGameBridge() {
     const iframeRef = useRef<any>(null);
     const [Interaction, setCurrentQuiz] =
@@ -10,6 +14,9 @@ export default function QuizGameBridge() {
     const controllersRef = useRef({
         scrambler:
             new ScramblerController().getActivities(),
+        flashcard:
+            new FlashcardController().getActivities(),
+        typing: new TypingController().getActivities(),
     });
     useEffect(() => {
         console.log("useeffect");
@@ -27,15 +34,60 @@ export default function QuizGameBridge() {
                 case "Scrambler":
                     setCurrentQuiz(() => () => {
                         return (
-                            <ScramblerView
-                                data={
-                                    controllersRef.current.scrambler.next()
-                                        .value.data
-                                }
-                                updateSuccess={
-                                    handleQuizComplete
-                                }
-                            />
+                            <>
+                                <p>
+                                    {event.data.modalString}
+                                </p>
+                                <ScramblerView
+                                    data={
+                                        controllersRef.current.scrambler.next()
+                                            .value.data
+                                    }
+                                    updateSuccess={
+                                        handleQuizComplete
+                                    }
+                                />
+                            </>
+                        );
+                    });
+                    break;
+                case "Flashcard":
+                    setCurrentQuiz(() => () => {
+                        return (
+                            <>
+                                <p>
+                                    {event.data.modalString}
+                                </p>
+                                <FlashcardView
+                                    data={
+                                        controllersRef.current.flashcard.next()
+                                            .value.data
+                                    }
+                                    updateSuccess={
+                                        handleQuizComplete
+                                    }
+                                />
+                            </>
+                        );
+                    });
+                    break;
+                case "Typing":
+                    setCurrentQuiz(() => () => {
+                        return (
+                            <>
+                                <p>
+                                    {event.data.modalString}
+                                </p>
+                                <TypingView
+                                    data={
+                                        controllersRef.current.typing.next()
+                                            .value.data
+                                    }
+                                    updateSuccess={
+                                        handleQuizComplete
+                                    }
+                                />
+                            </>
                         );
                     });
                     break;
@@ -85,7 +137,7 @@ export default function QuizGameBridge() {
                 <Modal
                     isOpen={true}
                     onClose={() => setCurrentQuiz(null)}
-                    title="Quiz Game"
+                    title="Ability Check"
                 >
                     {Interaction()}
                 </Modal>

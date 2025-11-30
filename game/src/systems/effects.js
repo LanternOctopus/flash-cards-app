@@ -4,7 +4,7 @@ import k from "../kaplayCtx";
 //TODO: move this to ui folder
 async function displayAndWait(textBox, message) {
     await textBox.displayLine(message);
-    await k.wait(5);
+    await k.wait(2);
 }
 
 function reduceHealth(damageDealt, target) {
@@ -22,9 +22,11 @@ export async function applyAttackEffect(
     var rate = 1;
     if (attacker.tags.includes("player")) {
         const result = await runInteractionCheck({
-            challenge: "Scrambler",
+            challenge: "Typing",
             abilityCheck: null,
             score: null,
+            modalString:
+                "Solve this challege to successfully attack!",
         });
         if (result.abilityCheck === false) {
             await displayAndWait(
@@ -70,6 +72,7 @@ export async function applyItemHarmEffect(
             challenge: "Scrambler",
             abilityCheck: null,
             score: null,
+            modalString: `Solve this challenge to successfully use ${item.name}!`,
         });
         if (result.abilityCheck === false) {
             await displayAndWait(
@@ -126,9 +129,10 @@ export async function applyItemIllnessEffect(
     var isIll = true;
     if (target.tags[1] === "player") {
         var result = await runInteractionCheck({
-            challenge: "Scrambler",
+            challenge: "Flashcard",
             abilityCheck: null,
             score: null,
+            modalString: `Solve this challenge to successfully avoid illness through contact with ${item.name}!`,
         });
         if (result.abilityCheck === false) {
             await displayAndWait(
@@ -214,9 +218,10 @@ export async function applyItemBuffEffect(
     var rate = 1;
     if (target.tags.includes("player")) {
         const result = await runInteractionCheck({
-            challenge: "Scrambler",
+            challenge: "Typing",
             abilityCheck: null,
             score: null,
+            modalString: `Solve this challenge to successfully use ${item.name}!`,
         });
 
         if (result.abilityCheck === false) {
@@ -259,6 +264,7 @@ export async function applyItemDebuffEffect(
             challenge: "Scrambler",
             abilityCheck: null,
             score: null,
+            modalString: `Solve this challenge to successfully avoid a debuff from ${item.name}!`,
         });
         if (result.abilityCheck === false) {
             await textBox.displayLine(
