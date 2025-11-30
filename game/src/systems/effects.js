@@ -22,7 +22,7 @@ export async function applyAttackEffect(
     var rate = 1;
     if (attacker.tags.includes("player")) {
         const result = await runInteractionCheck({
-            challenge: "Typing",
+            challenge: "Scrambler",
             abilityCheck: null,
             score: null,
             modalString:
@@ -69,7 +69,7 @@ export async function applyItemHarmEffect(
     var rate = 1;
     if (target.tags.includes("enemy")) {
         const result = await runInteractionCheck({
-            challenge: "Scrambler",
+            challenge: "Flashcard",
             abilityCheck: null,
             score: null,
             modalString: `Solve this challenge to successfully use ${item.name}!`,
