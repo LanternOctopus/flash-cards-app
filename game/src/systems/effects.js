@@ -1,5 +1,12 @@
 import runInteractionCheck from "../utils/resolveCheck";
 import k from "../kaplayCtx";
+
+//TODO: move this to ui folder
+async function displayAndWait(textBox, message) {
+    await textBox.displayLine(message);
+    await k.wait(5);
+}
+
 function reduceHealth(damageDealt, target) {
     if (damageDealt < target.stats.health) {
         target.stats.health -= damageDealt;
@@ -19,8 +26,17 @@ export async function applyAttackEffect(
             abilityCheck: null,
             score: null,
         });
-        console.log("result");
-        console.log(result);
+        if (result.abilityCheck === false) {
+            await displayAndWait(
+                textBox,
+                `That's the wrong answer  😞!`
+            );
+            return;
+        }
+        await displayAndWait(
+            textBox,
+            `That's the right answer 😄`
+        );
         rate = result.rate;
     }
 
@@ -55,7 +71,17 @@ export async function applyItemHarmEffect(
             abilityCheck: null,
             score: null,
         });
-
+        if (result.abilityCheck === false) {
+            await displayAndWait(
+                textBox,
+                `That's the wrong answer  😞!`
+            );
+            return;
+        }
+        await displayAndWait(
+            textBox,
+            `That's the right answer 😄`
+        );
         rate = result.rate;
     }
 
@@ -104,8 +130,17 @@ export async function applyItemIllnessEffect(
             abilityCheck: null,
             score: null,
         });
-        console.log("result");
-        console.log(result);
+        if (result.abilityCheck === false) {
+            await displayAndWait(
+                textBox,
+                `That's the wrong answer  😞!`
+            );
+            return;
+        }
+        await displayAndWait(
+            textBox,
+            `That's the right answer 😄`
+        );
         isIll = !result.abilityCheck;
     } else {
         isIll = k.rand(0, 1) < item.rate;
@@ -190,6 +225,17 @@ export async function applyItemBuffEffect(
             );
             return;
         }
+        if (result.abilityCheck === false) {
+            await displayAndWait(
+                textBox,
+                `That's the wrong answer  😞!`
+            );
+            return;
+        }
+        await displayAndWait(
+            textBox,
+            `That's the right answer 😄`
+        );
         rate = result.rate;
     }
 
@@ -220,6 +266,17 @@ export async function applyItemDebuffEffect(
             );
             return;
         }
+        if (result.abilityCheck === false) {
+            await displayAndWait(
+                textBox,
+                `That's the wrong answer  😞!`
+            );
+            return;
+        }
+        await displayAndWait(
+            textBox,
+            `That's the right answer 😄`
+        );
         rate = result.rate;
     }
     const resultingStatValue =

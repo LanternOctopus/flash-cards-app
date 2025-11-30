@@ -24,7 +24,7 @@ const ScramblerView = ({ data, updateSuccess }: Props) => {
         // pick 2 random words
         const removed = [...indexed]
             .sort(() => Math.random() - 0.5)
-            .slice(-2);
+            .slice(-(Math.random() >= 0.5 ? 2 : 3));
 
         setMissingWords(removed);
 
