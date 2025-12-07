@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>Tone.js Interactive Musical Trainer</title>
+        <!-- Load Tailwind CSS -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <!-- Load Tone.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+        <style>
+            /* Custom CSS for a better interactive experience */
+            body {
+                font-family: "Inter", sans-serif;
+                background-color: #0d1117; /* Dark background */
+                background: linear-gradient(
+                    #0d1117,
+                    #10231a
+                );
+                position: relative;
+                overflow-x: hidden;
+            }
+            .snowflake {
+                position: fixed;
+                top: -10px;
+                color: white;
+                font-size: 1rem;
+                opacity: 0.8;
+                animation: fall linear infinite;
+                user-select: none;
+                pointer-events: none;
+            }
+            @keyframes fall {
+                0% {
+                    transform: translateY(-10px);
+                }
+                100% {
+                    transform: translateY(110vh);
+                }
+            }
+            .key-button {
+                transition: all 0.1s ease-out;
+                box-shadow: 0 4px 0 #1b283d;
+                transform: translateY(0);
+                background-color: #2d3f2f;
+                border: 2px solid #3f5e3f;
+            }
+            .key-button:hover {
+                background-color: #3f5e3f;
+            }
+            .key-button:active,
+            .key-pressed {
+                box-shadow: 0 1px 0 #1b283d;
+                transform: translateY(3px);
+                background-color: #1e5a34;
+                color: white !important;
+            }
+            .key-button.active {
+                animation: pulse-ring 0.6s infinite
+                    alternate;
+                border: 3px solid #d33;
+            }
+            .key-button.correct-match {
+                background-color: #10b981; /* Green for correct match */
+            }
+            .key-button.error-match {
+                background-color: #ef4444; /* Red for wrong key */
+            }
+            @keyframes pulse-ring {
+                from {
+                    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
+                }
+                to {
+                    box-shadow: 0 0 0 8px
+                        rgba(99, 102, 241, 0);
+                }
+            }
+        </style>
+    </head>
+    <body
+        class="min-h-screen flex flex-col items-center justify-center p-4"
+    >
+        <div
+            class="w-full max-w-2xl bg-gray-800 p-8 rounded-xl shadow-2xl border border-gray-700"
+        >
+            <h1
+                class="text-3xl font-bold text-white text-center mb-6"
+            >
+                Interactive Musical Trainer
+            </h1>
+
+            <!-- Main Display Area -->
+            <div
+                id="display-container"
+                class="mb-8 p-10 bg-gray-900 rounded-lg flex flex-col items-center justify-center h-48"
+            >
+                <div
+                    id="current-letter"
+                    class="text-9xl font-extrabold text-indigo-400 transition-opacity duration-300"
+                >
+                    &mdash;
+                </div>
+                <p
+                    id="message"
+                    class="text-gray-400 mt-4 text-lg"
+                >
+                    Click START to begin. Press the
+                    displayed key to advance.
+                </p>
+            </div>
+
+            <!-- Controls -->
+            <div class="flex justify-center space-x-4 mb-8">
+                <button
+                    id="start-button"
+                    class="px-8 py-3 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-500 transition duration-150 shadow-lg"
+                >
+                    Start Trainer
+                </button>
+                <button
+                    id="reset-button"
+                    class="px-8 py-3 bg-gray-600 text-white font-semibold rounded-lg hover:bg-gray-500 transition duration-150 shadow-lg"
+                    disabled
+                >
+                    Reset
+                </button>
+            </div>
+
+            <!-- Keyboard Key Visualizer -->
+            <div id="keyboard-map" class="mt-8">
+                <h2
+                    class="text-xl font-semibold text-gray-300 mb-4 text-center"
+                >
+                    Interactive Keys
+                </h2>
+                <div
+                    id="key-container"
+                    class="flex flex-wrap justify-center gap-2"
+                >
+                    <!-- Keys will be dynamically generated here -->
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // --- Data Setup ---
+            // Array of [letter, note duration]
+            const sequenceData = [
+                ["q", 1 / 4],
+                ["y", 1 / 4],
+                ["t", 1 / 4],
+                ["r", 1 / 4],
+                ["q", 3 / 4],
+                ["q", 1 / 8],
+                ["q", 1 / 8],
+                ["q", 1 / 4],
+                ["y", 1 / 4],
+                ["t", 1 / 4],
+                ["r", 1 / 4],
+                ["w", 1],
+                ["w", 1 / 4],
+                ["u", 1 / 4],
+                ["y", 1 / 4],
+                ["t", 1 / 4],
+                ["4", 1],
+                ["4", 1 / 4],
+                ["i", 1],
+                ["i", 1],
+                ["u", 1 / 4],
+                ["t", 1 / 4],
+                ["y", 1],
+                ["q", 1 / 4],
+                ["y", 1 / 4],
+                ["t", 1 / 4],
+                ["r", 1 / 4],
+                ["q", 1],
+                ["q", 1 / 4],
+                ["y", 1 / 4],
+                ["t", 1 / 4],
+                ["r", 1 / 4],
+                ["w", 1 / 2],
+                ["w", 1 / 4],
+                ["w", 1 / 4],
+                ["u", 1 / 4],
+                ["y", 1 / 4],
+                ["t", 1 / 4],
+                ["i", 1 / 4],
+                ["i", 1 / 4],
+                ["i", 1 / 4],
+                ["i", 1 / 4],
+                ["o", 1 / 4],
+                ["i", 1 / 4],
+                ["i", 1 / 4],
+                ["t", 1 / 4],
+                ["r", 1 / 4],
+                ["i", 1 / 2],
+                ["y", 1 / 4],
+                ["y", 1 / 4],
+                ["y", 1 / 4],
+                ["y", 1 / 4],
+                ["y", 1 / 4],
+                ["y", 1 / 4],
+                ["y", 1 / 8],
+                ["i", 1 / 4],
+                ["r", 1 / 4],
+                ["t", 1 / 4],
+                ["y", 1 / 4],
+                ["u", 1 / 4],
+                ["u", 1 / 4],
+                ["u", 1 / 4],
+                ["u", 1 / 4],
+                ["u", 1 / 8],
+                ["y", 1 / 4],
+                ["y", 1 / 4],
+                ["y", 1 / 4],
+                ["y", 1 / 4],
+                ["t", 1 / 4],
+                ["t", 1 / 4],
+                ["y", 1 / 4],
+                ["t", 1 / 4],
+                ["i", 1 / 2],
+                ["y", 1 / 4],
+                ["y", 1 / 4],
+                ["y", 1 / 4],
+                ["y", 1 / 4],
+                ["y", 1 / 4],
+                ["y", 1 / 4],
+                ["y", 1 / 8],
+                ["i", 1 / 2],
+                ["r", 1 / 4],
+                ["t", 1 / 4],
+                ["y", 1 / 2],
+                ["y", 1 / 8],
+                ["u", 1 / 4],
+                ["u", 1 / 4],
+                ["u", 1 / 4],
+                ["u", 1 / 4],
+                ["u", 1 / 8],
+                ["y", 1 / 4],
+                ["y", 1 / 4],
+                ["y", 1 / 4],
+                ["y", 1 / 4],
+                ["i", 1 / 4],
+                ["i", 1 / 4],
+                ["u", 1 / 4],
+                ["t", 1 / 4],
+                ["r", 1 / 4],
+            ];
+
+            // Array of [letter, musicalnote]
+            const noteMapData = [
+                ["q", "D3"],
+                ["y", "B3"],
+                ["t", "A3"],
+                ["r", "G3"],
+                ["w", "E3"],
+                ["u", "C4"],
+                ["4", "F#3"],
+                ["i", "D4"],
+                ["o", "E4"],
+            ];
+            const noteMap = new Map(noteMapData);
+
+            // --- State and Tone.js Setup ---
+            let synth;
+            let currentSequenceIndex = 0;
+            let isWaitingForInput = false;
+            let isPlayingNote = false;
+
+            // DOM Elements
+            const startButton =
+                document.getElementById("start-button");
+            const resetButton =
+                document.getElementById("reset-button");
+            const currentLetterDiv =
+                document.getElementById("current-letter");
+            const messageP =
+                document.getElementById("message");
+            const keyContainer =
+                document.getElementById("key-container");
+
+            // Tone.js Initialization
+            function initializeAudio() {
+                if (synth) return;
+                synth = new Tone.PolySynth(Tone.Synth, {
+                    oscillator: { type: "triangle" },
+                    envelope: {
+                        attack: 0.005,
+                        decay: 0.1,
+                        sustain: 0.3,
+                        release: 1,
+                    },
+                }).toDestination();
+
+                // Setting BPM back to 120 (4 beats per second / 0.5s per beat)
+                Tone.Transport.bpm.value = 120;
+            }
+
+            // --- Core Logic ---
+
+            function displayNextLetter() {
+                // Reset visual feedback on all keys
+                document
+                    .querySelectorAll(".key-button")
+                    .forEach((btn) =>
+                        btn.classList.remove(
+                            "active",
+                            "correct-match",
+                            "error-match"
+                        )
+                    );
+
+                if (
+                    currentSequenceIndex >=
+                    sequenceData.length
+                ) {
+                    // Sequence finished
+                    currentLetterDiv.textContent = "DONE!";
+                    currentLetterDiv.classList.remove(
+                        "text-indigo-400"
+                    );
+                    currentLetterDiv.classList.add(
+                        "text-green-500"
+                    );
+                    messageP.textContent =
+                        "Sequence complete! Press RESET to start over.";
+                    isWaitingForInput = false;
+                    startButton.disabled = true;
+                    resetButton.disabled = false;
+                    return;
+                }
+
+                const [letter] =
+                    sequenceData[currentSequenceIndex];
+                currentLetterDiv.textContent =
+                    letter.toUpperCase();
+
+                // Add 'active' pulse to the target key
+                const activeKey = document.getElementById(
+                    `key-${letter}`
+                );
+                if (activeKey) {
+                    activeKey.classList.add("active");
+                }
+
+                messageP.textContent = `Now playing: ${
+                    currentSequenceIndex + 1
+                } of ${
+                    sequenceData.length
+                }. Press the key for ${letter.toUpperCase()}.`;
+                isWaitingForInput = true;
+            }
+
+            // Function to handle the correct key press, play the note, and advance
+            function handleCorrectPress(key) {
+                isWaitingForInput = false;
+                isPlayingNote = true;
+
+                const [targetLetter, durationFraction] =
+                    sequenceData[currentSequenceIndex];
+                const musicalNote =
+                    noteMap.get(targetLetter);
+
+                // Calculate note duration in Tone.js beats (where 1 = quarter note)
+                // Multiply fraction (relative to 1, a whole note) by 4
+                const beatDuration = (
+                    durationFraction * 4
+                ).toString();
+
+                // Visual feedback: green for correct match
+                const keyElement = document.getElementById(
+                    `key-${key}`
+                );
+                if (keyElement) {
+                    keyElement.classList.add(
+                        "correct-match",
+                        "key-pressed"
+                    );
+                }
+
+                // Play the note and sustain it for the calculated beat duration
+                if (synth && musicalNote) {
+                    synth.triggerAttackRelease(
+                        musicalNote,
+                        beatDuration,
+                        Tone.Transport.immediate()
+                    );
+                }
+
+                // Calculate the actual time in milliseconds to wait before advancing.
+                // (durationFraction * 4) * (60 / BPM) * 1000 ms/beat
+                const waitTimeMs =
+                    durationFraction *
+                    4 *
+                    (60 / Tone.Transport.bpm.value) *
+                    1000;
+
+                // Wait for the note to sustain, then advance
+                setTimeout(() => {
+                    isPlayingNote = false;
+                    currentSequenceIndex++;
+                    if (keyElement) {
+                        keyElement.classList.remove(
+                            "key-pressed",
+                            "correct-match"
+                        );
+                    }
+                    displayNextLetter();
+                }, waitTimeMs);
+            }
+
+            // --- UI Setup ---
+
+            function generateKeyButtons() {
+                keyContainer.innerHTML = "";
+                noteMapData.forEach(([letter, note]) => {
+                    const button =
+                        document.createElement("div");
+                    button.id = `key-${letter}`;
+                    button.className = `key-button cursor-pointer flex flex-col items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gray-700 text-white rounded-lg select-none hover:bg-gray-600 transition duration-150`;
+
+                    const letterSpan =
+                        document.createElement("span");
+                    letterSpan.className =
+                        "text-3xl font-mono";
+                    letterSpan.textContent =
+                        letter.toUpperCase();
+
+                    const noteSpan =
+                        document.createElement("span");
+                    noteSpan.className =
+                        "text-xs text-indigo-400 font-bold mt-1";
+                    noteSpan.textContent = note;
+
+                    button.appendChild(letterSpan);
+                    button.appendChild(noteSpan);
+                    keyContainer.appendChild(button);
+                });
+            }
+            generateKeyButtons();
+
+            // --- Event Listeners ---
+
+            document.addEventListener(
+                "keydown",
+                (event) => {
+                    const pressedKey =
+                        event.key.toLowerCase();
+
+                    // Ignore input if we are currently waiting for the note to sustain or not started
+                    if (
+                        !isWaitingForInput ||
+                        isPlayingNote
+                    ) {
+                        // Still provide visual feedback for any key press if notes are mapped
+                        if (noteMap.has(pressedKey)) {
+                            const keyElement =
+                                document.getElementById(
+                                    `key-${pressedKey}`
+                                );
+                            if (keyElement) {
+                                keyElement.classList.add(
+                                    "key-pressed"
+                                );
+                                setTimeout(() => {
+                                    keyElement.classList.remove(
+                                        "key-pressed"
+                                    );
+                                }, 100);
+                            }
+                        }
+                        return;
+                    }
+
+                    const [targetLetter] =
+                        sequenceData[currentSequenceIndex];
+
+                    if (pressedKey === targetLetter) {
+                        event.preventDefault(); // Stop default browser action
+                        handleCorrectPress(pressedKey);
+                    } else if (noteMap.has(pressedKey)) {
+                        // Incorrect key was pressed
+                        event.preventDefault();
+                        messageP.textContent = `Wrong key! You pressed ${pressedKey.toUpperCase()}, but need to press ${targetLetter.toUpperCase()}.`;
+
+                        // Flash red on the incorrect key
+                        const keyElement =
+                            document.getElementById(
+                                `key-${pressedKey}`
+                            );
+                        if (keyElement) {
+                            keyElement.classList.add(
+                                "error-match",
+                                "key-pressed"
+                            );
+                            setTimeout(() => {
+                                keyElement.classList.remove(
+                                    "error-match",
+                                    "key-pressed"
+                                );
+                            }, 300);
+                        }
+                    }
+                }
+            );
+
+            startButton.addEventListener(
+                "click",
+                async () => {
+                    await Tone.start();
+                    initializeAudio();
+                    currentSequenceIndex = 0;
+                    startButton.disabled = true;
+                    resetButton.disabled = false;
+                    currentLetterDiv.classList.remove(
+                        "text-green-500"
+                    );
+                    currentLetterDiv.classList.add(
+                        "text-indigo-400"
+                    );
+                    displayNextLetter();
+                }
+            );
+
+            resetButton.addEventListener("click", () => {
+                currentSequenceIndex = 0;
+                startButton.disabled = false;
+                resetButton.disabled = true;
+                isWaitingForInput = false;
+                currentLetterDiv.classList.remove(
+                    "text-green-500"
+                );
+                currentLetterDiv.classList.add(
+                    "text-indigo-400"
+                );
+                currentLetterDiv.textContent = "—";
+                messageP.textContent =
+                    "Click START to begin. Press the displayed key to advance.";
+                document
+                    .querySelectorAll(".key-button")
+                    .forEach((btn) =>
+                        btn.classList.remove(
+                            "active",
+                            "correct-match",
+                            "error-match"
+                        )
+                    );
+            });
+        </script>
+        <script>
+            // Generate falling snowflakes
+            for (let i = 0; i < 60; i++) {
+                const s = document.createElement("div");
+                s.className = "snowflake";
+                s.textContent = "❄";
+                s.style.left = Math.random() * 100 + "vw";
+                s.style.animationDuration =
+                    4 + Math.random() * 6 + "s";
+                s.style.animationDelay =
+                    Math.random() * 5 + "s";
+                s.style.fontSize =
+                    10 + Math.random() * 20 + "px";
+                document.body.appendChild(s);
+            }
+        </script>
+    </body>
+</html>
