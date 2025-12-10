@@ -1,17 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { HashRouter } from 'react-router-dom';
-import './index.css';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { HashRouter } from "react-router-dom";
+import "./index.css";
+import App from "./App";
+// import { ParentScreen } from "./activities/Models";
 
-const container = document.getElementById('root');
+const container = document.getElementById("root");
 if (!container) throw new Error("Root container not found");
 
-const root = ReactDOM.createRoot(container);;
+const root = ReactDOM.createRoot(container);
 root.render(
-  <React.StrictMode>
-    <HashRouter>
-      <App />
-    </HashRouter>
-  </React.StrictMode>
+    <React.StrictMode>
+        <HashRouter>
+            <App />
+        </HashRouter>
+    </React.StrictMode>
 );

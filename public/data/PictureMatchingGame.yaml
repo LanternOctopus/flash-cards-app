@@ -1,0 +1,46 @@
+verbs:
+    - picture: verb1.png
+      answer: answer1
+      translation: translation1
+      transliteration: transliteration1
+      meta:
+          tense: past
+          subject: he
+
+    - picture: verb2.png
+      answer: answer2
+      translation: translation2
+      transliteration: transliteration2
+      meta:
+          tense: future
+          subject: you
+
+    - picture: verb3.png
+      answer: answer3
+      translation: translation3
+      transliteration: transliteration3
+      meta:
+          tense: present
+          subject: they
+
+nouns:
+    - picture: noun1.png
+      answer: answer1
+      translation: translation1
+      transliteration: transliteration1
+      meta:
+          type: pronoun
+
+    - picture: noun2.png
+      answer: answer2
+      translation: translation2
+      transliteration: transliteration2
+      meta:
+          type: object
+
+    - picture: noun3.png
+      answer: answer3
+      translation: translation3
+      transliteration: transliteration3
+      meta:
+          type: place
