@@ -1,0 +1,31 @@
+fields:
+    picture: { type: image }
+    answer: { type: text }
+    translation: { type: text }
+    transliteration: { type: text }
+    tense: { type: text }
+    subject: { type: text }
+
+frontDefault:
+    question:
+        - picture
+        - translation
+        - transliteration
+
+    choices:
+        - choices
+        - translations
+        - transliterations
+backDefault:
+    - answer
+    - translation
+    - transliteration
+    - tense
+    - subject
+
+choice_categories:
+    - choices
+    - translations
+    - transliterations
+    - tenses
+    - subjects

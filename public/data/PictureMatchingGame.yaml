@@ -1,46 +1,86 @@
 verbs:
     - picture: verb1.png
+      question: answer1
       answer: answer1
       translation: translation1
       transliteration: transliteration1
       meta:
-          tense: past
-          subject: he
-
+          tense:
+              value: present
+          subject:
+              value: he
+      ansOptions:
+          choices:
+              - distractor1
+              - answer1
+              - distractor2
+              - distractor3
+          translations:
+              - translation1
+              - translation2
+              - translation3
+              - translation4
+          transliterations:
+              - transliteration1
+              - transliteration2
+              - transliteration3
+              - transliteration4
+          tenses:
+              - past
+              - present
+              - future
+              - n/a
+          subjects:
+              - he
+              - she
+              - they
+              - you
     - picture: verb2.png
+      question: answer2
       answer: answer2
       translation: translation2
       transliteration: transliteration2
       meta:
-          tense: future
-          subject: you
+          tense:
+              value: future
+          subject:
+              value: you
 
     - picture: verb3.png
       answer: answer3
+      question: answer3
       translation: translation3
       transliteration: transliteration3
       meta:
-          tense: present
-          subject: they
+          tense:
+              value: present
+          subject:
+              value: they
 
 nouns:
     - picture: noun1.png
       answer: answer1
+      question: answer1
       translation: translation1
       transliteration: transliteration1
       meta:
-          type: pronoun
+          type:
+              value: pronoun
 
     - picture: noun2.png
       answer: answer2
+      question: answer2
       translation: translation2
       transliteration: transliteration2
       meta:
-          type: object
+          type:
+              value: object
 
     - picture: noun3.png
       answer: answer3
+      question: answer3
       translation: translation3
       transliteration: transliteration3
       meta:
-          type: place
+          type:
+              value: place

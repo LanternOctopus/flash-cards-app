@@ -6,7 +6,32 @@ verbs:
       meta:
           tense: past
           subject: he
-
+      ansOptions:
+          choices:
+              - distractor1
+              - answer1
+              - distractor2
+              - distractor3
+          translations:
+              - translation1
+              - translation2
+              - translation3
+              - translation4
+          transliterations:
+              - transliteration1
+              - transliteration2
+              - transliteration3
+              - transliteration4
+          tenses:
+              - past
+              - present
+              - future
+              - n/a
+          subjects:
+              - he
+              - she
+              - they
+              - you
     - picture: verb2.png
       answer: answer2
       translation: translation2

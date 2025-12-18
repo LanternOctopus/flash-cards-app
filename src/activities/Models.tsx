@@ -1,33 +1,3 @@
-import yaml from "js-yaml";
-import React, {
-    useState,
-    useEffect,
-    useMemo,
-    use,
-} from "react";
-import {
-    ToggleBoxController,
-    FaceConfig,
-} from "../components/ToggleBox";
-async function fetchWithTimeout(url: string, ms = 5000) {
-    const controller = new AbortController();
-    const timeout = setTimeout(
-        () => controller.abort(),
-        ms
-    );
-
-    try {
-        const res = await fetch(url, {
-            signal: controller.signal,
-        });
-        clearTimeout(timeout);
-        return res;
-    } catch (err) {
-        clearTimeout(timeout);
-        throw err;
-    }
-}
-
 export interface ActivityN {
     type: string;
     data: any;
@@ -41,17 +11,19 @@ export interface PictureMatchingGameSetAll
     type: "picturematchinggame";
     data: PictureMatchingGameDataRaw;
 }
+type AnswerOptions = Record<string, string[]>;
+
 type PictureItem = {
     picture: string;
     answer: string;
+    question: string;
     translation?: string;
     transliteration?: string;
     meta?: Record<
         string,
         { value: any; canToggle?: boolean }
     >;
-    ansOptions?: { key: string; label: string }[];
-    nativeOptions?: string[];
+    ansOptions?: AnswerOptions;
 };
 
 type PictureMatchingGameDataRaw = {
@@ -59,40 +31,64 @@ type PictureMatchingGameDataRaw = {
 };
 export class PictureMatchingGameModel {
     private rawData!: PictureMatchingGameDataRaw;
-    initDone: Promise<void>;
-    constructor(
-        filePath: string = process.env.PUBLIC_URL +
-            "/data/PictureMatchingGame.yaml"
-    ) {
-        this.initDone = this.init(filePath);
-    }
-    private async init(filePath: string) {
-        try {
-            this.rawData = await this.loadSource(filePath);
-        } catch (e) {
-            console.error(e);
+
+    constructor(raw: unknown) {
+        console.log(
+            "PictureMatchingGameModel constructor",
+            raw
+        );
+        if (!this.isPictureMatchingGameData(raw)) {
+            throw new Error(
+                "Invalid PictureMatchingGame data"
+            );
         }
+        this.rawData = raw;
     }
-    private async loadSource(
-        filePath: string
-    ): Promise<PictureMatchingGameDataRaw> {
-        try {
-            const res = await fetchWithTimeout(filePath);
-            if (!res.ok) {
-                throw new Error(
-                    `Failed to fetch data from ${filePath}`
-                );
-            }
-            const raw = await res.text();
-            const parsed = yaml.load(
-                raw
-            ) as PictureMatchingGameDataRaw;
-            return parsed as PictureMatchingGameDataRaw;
-        } catch (e) {
-            console.error(e);
-            throw e;
+
+    private isPictureMatchingGameData(
+        data: unknown
+    ): data is PictureMatchingGameDataRaw {
+        console.log("isPictureMatchingGameData", data);
+        if (typeof data !== "object" || data === null)
+            return false;
+
+        return Object.values(data).every(
+            (set) =>
+                Array.isArray(set) &&
+                set.every((item) =>
+                    this.isPictureItem(item)
+                )
+        );
+    }
+    private isPictureItem(
+        item: unknown
+    ): item is PictureItem {
+        if (typeof item !== "object" || item === null)
+            return false;
+
+        const it = item as any;
+
+        if (typeof it.picture !== "string") return false;
+        if (typeof it.answer !== "string") return false;
+
+        if (it.ansOptions) {
+            if (typeof it.ansOptions !== "object")
+                return false;
+            if (
+                !Object.values(it.ansOptions).every(
+                    (v) =>
+                        Array.isArray(v) &&
+                        v.every(
+                            (s) => typeof s === "string"
+                        )
+                )
+            )
+                return false;
         }
+
+        return true;
     }
+
     private getFirstSetName(): string {
         return Object.keys(this.rawData)[0];
     }
@@ -144,306 +140,4 @@ export class PictureMatchingGameModel {
             data: this.getAllSets(),
         };
     }
-}
-
-export interface AnswerOption {
-    key: string;
-    label: string;
-}
-export interface PictureMatchControllerProps {
-    item: PictureItem;
-    faceConfig: FaceConfig;
-    ansOptions?: { key: string; label: string }[];
-    onAnswer: (userAnswer: string) => void;
-    onFeedBack: (msg: string) => void;
-}
-export function PictureMatchController({
-    item,
-    faceConfig,
-    ansOptions,
-    onAnswer,
-    onFeedBack,
-}: PictureMatchControllerProps) {
-    const [input, setInput] = React.useState("");
-    const handleSubmit = (raw: string) => {
-        const userAnswer = raw.trim().toLowerCase();
-        const correct = userAnswer;
-        onAnswer(correct);
-        if (correct) onFeedBack("Super!");
-        else onFeedBack("Nallath alla!");
-        setInput("");
-    };
-
-    return (
-        <PictureMatch
-            item={item}
-            faceConfig={faceConfig}
-            ansOptions={ansOptions}
-            inputValue={input}
-            onSubmit={handleSubmit}
-            onInputChange={setInput}
-        />
-    );
-}
-
-export interface PictureMatchProps {
-    item: PictureItem;
-    faceConfig: FaceConfig;
-    ansOptions?: { key: string; label: string }[];
-    inputValue: string;
-    onInputChange: (value: string) => void;
-    onSubmit: (userAnswer: string) => void;
-}
-
-export function PictureMatch({
-    item,
-    faceConfig,
-    ansOptions,
-    inputValue,
-    onInputChange,
-    onSubmit,
-}: PictureMatchProps) {
-    const getFaceContent = (
-        face: "question" | "answer"
-    ) => {
-        const keys = faceConfig[face];
-        const fields: Record<string, string | undefined> = {
-            piture: item.picture,
-            answer: item.answer,
-            translation: item.translation,
-            transliteration: item.transliteration,
-        };
-        if (item.meta) {
-            for (const [key, obj] of Object.entries(
-                item.meta
-            )) {
-                fields[key] = obj.value;
-            }
-        }
-        return keys.map((k) => ({
-            key: k,
-            value: fields[k],
-        }));
-    };
-    const questionFace = getFaceContent("question");
-    const answerFace = getFaceContent("answer");
-
-    return (
-        <div>
-            <div>
-                {questionFace.map((f) => (
-                    <div key={f.key}>
-                        <label>{f.value}</label>
-                    </div>
-                ))}
-            </div>
-            {!ansOptions ? (
-                <div>
-                    <input
-                        value={inputValue}
-                        onChange={(e) =>
-                            onInputChange(e.target.value)
-                        }
-                        onKeyDown={(e) => {
-                            if (e.key === "Enter") {
-                                onSubmit(inputValue);
-                            }
-                        }}
-                    />
-                    <button
-                        type="button"
-                        onClick={() => onSubmit(inputValue)}
-                    >
-                        OK
-                    </button>
-                </div>
-            ) : (
-                <div>
-                    {ansOptions.map((option) => (
-                        <button
-                            key={option.key}
-                            onClick={() =>
-                                onSubmit(option.key)
-                            }
-                        >
-                            {option.label}
-                        </button>
-                    ))}
-                </div>
-            )}
-            <div>
-                {answerFace.map((f) => (
-                    <div key={f.key}>
-                        <label>{f.value}</label>
-                    </div>
-                ))}
-            </div>
-        </div>
-    );
-}
-type PictureMatchCarouselProps = {
-    item: PictureItem;
-    index: number;
-    total: number;
-    ok: boolean;
-    onNext: () => void;
-    onBack: () => void;
-    renderCurrent: (item: PictureItem) => React.ReactNode;
-};
-export function PictureMatchCarousel({
-    item,
-    index,
-    total,
-    ok,
-    onNext,
-    onBack,
-    renderCurrent,
-}: PictureMatchCarouselProps) {
-    return (
-        <div>
-            {renderCurrent(item)}
-            <div>
-                {index > 0 && (
-                    <button onClick={onBack}>Back</button>
-                )}
-                {ok && index < total - 1 && (
-                    <button onClick={onNext}>Next</button>
-                )}
-                {ok && index === total - 1 && (
-                    <div>Finished!</div>
-                )}
-            </div>
-        </div>
-    );
-}
-type PictureMatchCarouselControllerProps = {
-    items: PictureItem[];
-};
-export function PictureMatchCarouselController({
-    items,
-}: PictureMatchCarouselControllerProps) {
-    const [index, setIndex] = useState(0);
-    const [ok, setOk] = useState(false);
-    const item = items[index];
-    const onAnswer = (ans: string) => {
-        const correct =
-            ans.trim().toLowerCase() ===
-            item.answer.toLowerCase();
-        if (!correct) setOk(false);
-        setOk(true);
-        return;
-    };
-    const onFeedback = (msg: string) => {
-        console.log("feedback:", msg);
-    };
-
-    const onNext = () => {
-        if (!ok) return;
-        setOk(false);
-        setIndex((i) => Math.min(i + 1, items.length - 1));
-    };
-    const onBack = () => {
-        setOk(false);
-        setIndex((i) => Math.max(i - 1, 0));
-    };
-    const [faceConfig, setFaceConfig] =
-        useState<FaceConfig>({
-            question: [],
-            answer: [],
-        });
-    const handleFaceConfigChange = (cfg: FaceConfig) => {
-        setFaceConfig(cfg);
-    };
-    const toggleOptions = useMemo(() => {
-        const set = new Set<string>();
-        for (const item of items) {
-            set.add("picture");
-            set.add("answer");
-            if (item.translation) set.add("translation");
-            if (item.transliteration)
-                set.add("transliteration");
-            if (item.meta) {
-                for (const [key, obj] of Object.entries(
-                    item.meta
-                )) {
-                    if (obj.canToggle) set.add(key);
-                }
-            }
-        }
-        return Array.from(set).map((k) => ({
-            label: k,
-            key: k,
-            canToggle: true,
-        }));
-    }, [items]);
-    return (
-        <div>
-            <ToggleBoxController
-                options={toggleOptions}
-                storageKey="faceConfig"
-                value={faceConfig}
-                onChange={handleFaceConfigChange}
-            />
-
-            <PictureMatchCarousel
-                item={item}
-                index={index}
-                total={items.length}
-                ok={ok}
-                onNext={onNext}
-                onBack={onBack}
-                renderCurrent={(item) => (
-                    <PictureMatchController
-                        item={item}
-                        faceConfig={faceConfig}
-                        ansOptions={item.ansOptions}
-                        onAnswer={onAnswer}
-                        onFeedBack={onFeedback}
-                    />
-                )}
-            />
-        </div>
-    );
-}
-
-export function ParentScreen({
-    setName,
-}: {
-    setName?: string;
-}) {
-    const gameModel = useMemo(
-        () => new PictureMatchingGameModel(),
-        []
-    );
-    const [items, setItems] = useState<
-        PictureItem[] | null
-    >(null);
-
-    useEffect(() => {
-        let isMounted = true;
-
-        const load = async () => {
-            await gameModel.initDone;
-            const data = gameModel.getSetData(setName);
-            if (isMounted) setItems(data);
-        };
-
-        load();
-
-        return () => {
-            isMounted = false;
-        };
-    }, [gameModel, setName]);
-
-    return (
-        <div>
-            {!items ? (
-                <div>Loading...</div>
-            ) : (
-                <PictureMatchCarouselController
-                    items={items}
-                />
-            )}
-        </div>
-    );
 }
