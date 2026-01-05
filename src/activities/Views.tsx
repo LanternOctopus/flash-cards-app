@@ -106,6 +106,7 @@ type PictureItem = {
     >;
 };
 export function PictureMatch() {
+    console.log("PictureMatch render");
     const builder = usePageBuilder();
     const {
         answer,
@@ -115,15 +116,9 @@ export function PictureMatch() {
         showBack,
     } = useAnswer();
     const item = { ...useQuestion<PictureItem>() };
-    console.log(
-        "PictureMatch render useQuestion",
-        useQuestion<PictureItem>()
-    );
     if (!item) return <div>No question</div>;
 
-    console.log("PictureMatch render Item", item);
-    console.log("type of item:", typeof item);
-    const slots = builder.getSlots();
+    const slots = builder.slots;
     slots.picture = <img src={item.picture} />;
     slots.translation = <div>{item.translation}</div>;
     slots.transliteration = (
@@ -134,36 +129,34 @@ export function PictureMatch() {
     );
     const front = builder.buildFront();
     const back = builder.buildBack();
-    console.log(
-        "from PictureMatch, ansOptions:",
-        item.ansOptions
-    );
     const choices = builder.buildChoices(
         item.ansOptions,
         (value, i) => (
-            <>
-                <button
-                    onClick={() => {
-                        if (!checkCorrectness) return;
-                        const correct = checkCorrectness(
-                            value[0]
-                        );
-                        onComplete(correct);
-                    }}
-                >
-                    {value.map((v, idx) => (
-                        <span key={idx}>{v}</span>
-                    ))}
-                </button>
-            </>
+            <button
+                key={i}
+                onClick={() => {
+                    if (!checkCorrectness) return;
+                    const correct = checkCorrectness(
+                        value[0]
+                    );
+                    onComplete(correct);
+                }}
+            >
+                {value.map((v, idx) => (
+                    <span key={idx}>{v}</span>
+                ))}
+            </button>
         ),
-        (children) => {
-            return <div>{children}</div>;
-        }
+        (children) => <div>{children}</div>
     );
     return (
         <>
-            {!showBack && <div>{front}</div>}
+            {!showBack && (
+                <>
+                    <div>{front}</div>
+                    <div>{choices}</div>
+                </>
+            )}
             {showBack && <div>{back}</div>}
         </>
     );

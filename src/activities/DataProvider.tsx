@@ -41,6 +41,7 @@ type DataContextType<TConfig, TQuestions> = {
     questions: TQuestions | null;
     storedConfig: any | null;
     updateConfig: (patch: Partial<TConfig>) => void;
+    loaded: boolean;
 };
 
 export const DataContext =
@@ -65,6 +66,7 @@ export function DataProvider<TConfig, TQuestions>({
     const [storedConfig, setStoredConfig] = React.useState<
         any | null
     >(null);
+    const [loaded, setLoaded] = React.useState(false);
     console.log("DataProvider render");
     console.log("Config path:", configPath);
     console.log("Question path:", questionPath);
@@ -103,6 +105,7 @@ export function DataProvider<TConfig, TQuestions>({
                 console.log("Stored config:", userConfig);
                 setQuestions(rawQuestions);
                 setStoredConfig(userConfig);
+                setLoaded(true);
             } catch (e) {
                 console.error(e);
             }
@@ -130,6 +133,7 @@ export function DataProvider<TConfig, TQuestions>({
                 storedConfig,
                 questions,
                 updateConfig,
+                loaded,
             }}
         >
             {children}

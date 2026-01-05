@@ -8,15 +8,14 @@ fields:
     subject: { type: text }
 
 frontDefault:
-    question:
-        - picture
-        - translation
-        - transliteration
+    - picture
+    - translation
+    - transliteration
 
-    choices:
-        - choices
-        - translations
-        - transliterations
+choicesDefault:
+    - choices
+    - translations
+    - transliterations
 backDefault:
     - answer
     - translation

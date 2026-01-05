@@ -1,4 +1,4 @@
-import React, { createContext, useMemo } from "react";
+import React, { createContext } from "react";
 import { PageBuilder } from "../activities/PageBuilder";
 import { useData } from "../activities/DataProvider";
 
@@ -14,16 +14,15 @@ export function PageBuilderProvider({
 }: {
     children: React.ReactNode;
 }) {
-    const data = useData(); // 👈 DataContext
-
-    const builder = React.useMemo(
-        () =>
-            new PageBuilder({
-                config: data.config,
-                storedConfig: data.storedConfig,
-            }),
-        [data.config, data.storedConfig]
-    );
+    const data = useData();
+    console.log(data);
+    const builder = React.useMemo(() => {
+        if (!data.loaded) return null;
+        return new PageBuilder(
+            data.config,
+            data.storedConfig
+        );
+    }, [data.config, data.storedConfig]);
 
     return (
         <PageBuilderContext.Provider value={builder}>

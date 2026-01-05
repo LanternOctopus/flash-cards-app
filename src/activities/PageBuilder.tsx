@@ -1,28 +1,54 @@
-const configLookup = {
-    pictureMatchingGame: "PictureMatchingGameConfig.yaml",
-};
+class SlotBuilder {
+    private slots: Record<string, any> = {};
+    constructor(private rawConfig: any) {
+        this.slots = Object.fromEntries(
+            Object.keys(this.rawConfig).map((k) => [k, ""])
+        );
 
-export class PageBuilder {
-    private rawConfig: any;
-    private storedConfig: any;
+        this.slots["advance"] = null;
 
-    slots: Record<string, any> = {};
-    choicesView!: React.ReactNode;
-
-    constructor({
-        config,
-        storedConfig,
-    }: {
-        config: any;
-        storedConfig: any;
-    }) {
-        this.rawConfig = config;
-        this.storedConfig = storedConfig;
-
-        this.buildSlots();
+        Object.seal(this.slots);
     }
 
-    buildChoices(
+    get_slots() {
+        return this.slots;
+    }
+}
+
+class FrontBuilder {
+    build(keys: string[], slots: Record<string, any>) {
+        return (
+            <>{keys.map((k) => slots[k]).filter(Boolean)}</>
+        );
+    }
+}
+
+class BackBuilder {
+    build(keys: string[], slots: Record<string, any>) {
+        return (
+            <>{keys.map((k) => slots[k]).filter(Boolean)}</>
+        );
+    }
+}
+
+export class ChoicesRenderer {
+    constructor(private storedConfig: any) {}
+    mergeChoicesArrays(choices: Record<string, any[]>) {
+        const selected =
+            this.storedConfig.choice_categories;
+        const arrays = selected
+            // @ts-expect-error
+            .map((key) => choices[key])
+            .filter(Boolean);
+
+        if (arrays.length === 0) return [];
+        //@ts-expect-errors
+        return arrays[0].map((_, i) =>
+            //@ts-expect-error
+            arrays.map((arr) => arr[i])
+        );
+    }
+    render(
         choices: any,
         onChoice?: (
             value: any[],
@@ -32,7 +58,6 @@ export class PageBuilder {
             children: React.ReactNode
         ) => React.ReactNode
     ) {
-        console.log("buildChoices", choices);
         const mergedChoices =
             this.mergeChoicesArrays(choices);
         const renderChoice =
@@ -46,81 +71,94 @@ export class PageBuilder {
                 <div className="btn-group">{children}</div>
             ));
 
-        this.choicesView = wrap(
+        return wrap(
             mergedChoices.map(
                 (choiceArray: any, i: number) => {
                     return renderChoice(choiceArray, i);
                 }
             )
         );
-
-        return <>{this.choicesView}</>;
     }
-    mergeChoicesArrays(choices: Record<string, any[]>) {
-        // Pull only the arrays the config wants
-        console.log("mergeChoicesArrays", choices);
-        const selected =
-            this.storedConfig.choice_categories;
-        console.log(
-            "selected categories storedConfig",
-            selected
+}
+
+export class PageBuilder {
+    slots: Record<string, any>;
+    frontKeys: string[];
+    backKeys: string[];
+    choices: ChoicesRenderer;
+
+    frontBuilder = new FrontBuilder();
+    backBuilder = new BackBuilder();
+
+    constructor(rawConfig: any, storedConfig: any) {
+        console.log("pagebuilder constructor", rawConfig);
+        this.slots = new SlotBuilder(rawConfig.fields);
+        this.slots.advance = null;
+
+        this.frontKeys = resolveFrontKeys(
+            rawConfig,
+            storedConfig
         );
-        const arrays = selected
-            // @ts-expect-error
-            .map((key) => choices[key])
-            .filter(Boolean);
-
-        if (arrays.length === 0) return [];
-
-        const length = arrays[0].length;
-        const merged: any[][] = [];
-
-        for (let i = 0; i < length; i++) {
-            const row: any[] = [];
-            for (const arr of arrays) {
-                row.push(arr[i]);
-            }
-            merged.push(row);
-        }
-
-        return merged;
-    }
-    buildSlots() {
-        if (this.slots) return this.slots;
-
-        this.slots = Object.fromEntries(
-            Object.keys(this.storedConfig.fields).map(
-                (k) => [k, ""]
-            )
+        this.backKeys = resolveBackKeys(
+            rawConfig,
+            storedConfig
         );
-        this.slots["advance"] = null;
-        return this.slots;
+        this.choices = new ChoicesRenderer(storedConfig);
     }
-
+    buildChoices(
+        choices: any,
+        onChoice?: (
+            value: any[],
+            i: number
+        ) => React.ReactNode,
+        wrapper?: (
+            children: React.ReactNode
+        ) => React.ReactNode
+    ) {
+        return this.choices.render(
+            choices,
+            onChoice,
+            wrapper
+        );
+    }
     buildFront() {
-        console.log("buildFront", this.rawConfig);
-        const elements =
-            this.rawConfig.frontDefault.question
-                .map((k: string) => this.slots[k])
-                .filter(Boolean);
-
-        return (
-            <>
-                {elements}
-                {this.choicesView}
-            </>
+        console.log("buildfront", this.frontKeys);
+        return this.frontBuilder.build(
+            this.frontKeys,
+            this.slots
         );
     }
+
     buildBack() {
-        const elements = this.rawConfig.backDefault
-            .map((k: string) => this.slots[k])
-            .filter(Boolean);
-        return <>{elements}</>;
+        return this.backBuilder.build(
+            this.backKeys,
+            this.slots
+        );
     }
-    getSlots() {
-        return this.buildSlots();
-    }
-    getChoiceCategories() {
-        return this.rawConfig.choice_categories;
-    }
+}
+
+function resolveFrontKeys(
+    rawConfig: any,
+    storedConfig: any
+) {
+    console.log(
+        "resolveFrontKeys",
+        rawConfig,
+        storedConfig,
+        storedConfig?.front?.length
+            ? storedConfig.front
+            : rawConfig.frontDefault.question
+    );
+    return storedConfig?.front?.length
+        ? storedConfig.front
+        : rawConfig.frontDefault;
+}
+
+function resolveBackKeys(
+    rawConfig: any,
+    storedConfig: any
+) {
+    return storedConfig?.back?.length
+        ? storedConfig.back
+        : rawConfig.backDefault;
 }
