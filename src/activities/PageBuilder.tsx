@@ -24,7 +24,7 @@ class Builder {
 }
 
 export class ChoicesRenderer {
-    constructor(private storedConfig: any) {}
+    constructor(private uiSelections: any) {}
 
     render(
         choices: Record<string, any[]>,
@@ -36,10 +36,10 @@ export class ChoicesRenderer {
             children: React.ReactNode
         ) => React.ReactNode
     ) {
-        // only use the keys in storedConfig.choices that are true
+        // only use the keys in uiSelections.choices that are true
         const selectedKeys = Object.keys(
-            this.storedConfig.choices
-        ).filter((key) => this.storedConfig.choices[key]);
+            this.uiSelections.choices
+        ).filter((key) => this.uiSelections.choices[key]);
 
         // pick from the choices object
         const selectedChoices = selectedKeys
@@ -75,27 +75,27 @@ export class PageBuilder {
     backKeys: string[];
 
     constructor(
-        private storedConfig: any,
+        private uiSelections: any,
         public slots: Record<string, any>
     ) {
         console.log("PageBuilder constructor", this.slots);
-        this.frontKeys = storedConfig.front;
-        this.backKeys = storedConfig.back;
-        this.choices = new ChoicesRenderer(storedConfig);
+        this.frontKeys = uiSelections.front;
+        this.backKeys = uiSelections.back;
+        this.choices = new ChoicesRenderer(uiSelections);
     }
 
     buildFront() {
-        console.log("buildFront", this.storedConfig.front);
+        console.log("buildFront", this.uiSelections.front);
         console.log(this.slots);
         return this.frontBuilder.build(
-            this.storedConfig.front,
+            this.uiSelections.front,
             this.slots
         );
     }
 
     buildBack() {
         return this.backBuilder.build(
-            this.storedConfig.back,
+            this.uiSelections.back,
             this.slots
         );
     }

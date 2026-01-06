@@ -39,7 +39,6 @@ async function loadSource<T>(filePath: string) {
 type DataContextType<TConfig, TQuestions> = {
     config: TConfig | null;
     questions: TQuestions | null;
-    storedConfig: any | null;
     updateConfig: (patch: Partial<TConfig>) => void;
     loaded: boolean;
     uiSelections: Record<string, object>;
@@ -65,9 +64,6 @@ export function DataProvider<TConfig, TQuestions>({
         React.useState<TConfig | null>(null);
     const [questions, setQuestions] =
         React.useState<TQuestions | null>(null);
-    const [storedConfig, setStoredConfig] = React.useState<
-        any | null
-    >(null);
     const [loaded, setLoaded] = React.useState(false);
     const [uiSelections, setUiSelections] = React.useState<
         Record<string, object>
@@ -189,7 +185,6 @@ export function DataProvider<TConfig, TQuestions>({
                 );
                 console.log("Stored config:", userConfig);
                 setQuestions(rawQuestions);
-                setStoredConfig(userConfig);
                 setLoaded(true);
             } catch (e) {
                 console.error(e);
@@ -215,7 +210,6 @@ export function DataProvider<TConfig, TQuestions>({
         <DataContext.Provider
             value={{
                 config,
-                storedConfig,
                 questions,
                 updateConfig,
                 loaded,
