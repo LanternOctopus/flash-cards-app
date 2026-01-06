@@ -11,7 +11,7 @@ import { SequenceController } from "./SequenceController";
 export function PictureMatchingGameScreen() {
     return (
         <DataProvider
-            questionPath="PictureMatchingGame.yaml"
+            itemPath="PictureMatchingGame.yaml"
             configPath="PictureMatchingGameConfig.yaml"
             storageKey="pictureMatchingGame"
         >

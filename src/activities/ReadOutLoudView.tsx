@@ -11,7 +11,7 @@ import { SequenceController } from "./SequenceController";
 export function ReadOutLoudScreen() {
     return (
         <DataProvider
-            questionPath="ReadOutLoud.yaml"
+            itemPath="ReadOutLoud.yaml"
             configPath="ReadOutLoudConfig.yaml"
             storageKey="readOutLoud"
         >
