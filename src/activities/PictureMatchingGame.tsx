@@ -1,21 +1,14 @@
-import React, { useEffect, useState, useRef } from "react";
-import { PictureMatchingGameModel } from "../activities/Models";
+import { PictureMatchingGameModel } from "./PictureMatchingGameModel";
 import {
     PageBuilderProvider,
     usePageBuilder,
 } from "../components/PageBuilderCTX";
 import { ToggleBoxController } from "../components/ToggleBox";
-import { DataProvider, useData } from "./DataProvider";
-import {
-    AnswerProvider,
-    useAnswer,
-} from "./AnswerProvider";
-import {
-    QuestionProvider,
-    useQuestion,
-} from "./QuestionContext";
-export function ParentScreen() {
-    console.log("ParentScreen render");
+import { DataProvider } from "./DataProvider";
+import { useAnswer } from "./AnswerProvider";
+import { useQuestion } from "./QuestionContext";
+import { SequenceController } from "./SequenceController";
+export function PictureMatchingGameScreen() {
     return (
         <DataProvider
             questionPath="PictureMatchingGame.yaml"
@@ -34,65 +27,6 @@ export function ParentScreen() {
     );
 }
 
-export function SequenceController({
-    modelClass,
-    children,
-}: {
-    modelClass: new (raw: unknown) => any;
-    children: React.ReactNode;
-}) {
-    const [current, setCurrent] = useState<any | null>(
-        null
-    );
-    const [question, setQuestion] =
-        //TODO: Fix any
-        useState<any | null>(null);
-    const generatorRef = useRef<Generator<any> | null>(
-        null
-    );
-    const [showBack, setShowBack] = useState(false);
-    const data = useData();
-    useEffect(() => {
-        if (!data?.questions) return;
-        console.log("SequenceController useEffect", data);
-        const model = new modelClass(data.questions);
-        generatorRef.current = model.getGenerator();
-        //@ts-expect-error
-        const first = generatorRef.current.next();
-        if (!first.done) {
-            console.log("Setting first question", first);
-            setCurrent(first.value);
-        }
-    }, [data?.questions]);
-
-    const handleComplete = (isCorrect: boolean) => {
-        setShowBack(true);
-    };
-    const handleNext = () => {
-        //@ts-expect-error
-        const { value, done } = generatorRef.current.next();
-        if (done) return;
-        setCurrent(value);
-        setShowBack(false); // reset for next card
-    };
-    if (!current) {
-        console.log(current);
-        return <div>No more questions</div>;
-    }
-    console.log("SequenceController render", current);
-    return (
-        <QuestionProvider value={current}>
-            <AnswerProvider
-                answer={current.answer}
-                onComplete={handleComplete}
-                handleNext={handleNext}
-                showBack={showBack}
-            >
-                {children}
-            </AnswerProvider>
-        </QuestionProvider>
-    );
-}
 type PictureItem = {
     picture: string;
     question: string;
