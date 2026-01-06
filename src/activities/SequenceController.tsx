@@ -21,9 +21,9 @@ export function SequenceController({
     const [showBack, setShowBack] = useState(false);
     const data = useData();
     useEffect(() => {
-        if (!data?.items) return;
+        if (!data?.questions) return;
         console.log("SequenceController useEffect", data);
-        const model = new modelClass(data.items);
+        const model = new modelClass(data.questions);
         generatorRef.current = model.getGenerator();
         //@ts-expect-error
         const first = generatorRef.current.next();
@@ -31,7 +31,7 @@ export function SequenceController({
             console.log("Setting first question", first);
             setCurrent(first.value);
         }
-    }, [data?.items]);
+    }, [data?.questions]);
 
     const handleComplete = (isCorrect: boolean) => {
         setShowBack(true);
