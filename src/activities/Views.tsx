@@ -18,7 +18,7 @@ export function ParentScreen() {
     console.log("ParentScreen render");
     return (
         <DataProvider
-            questionPath="PictureMatchingGame.yaml"
+            itemPath="PictureMatchingGame.yaml"
             configPath="PictureMatchingGameConfig.yaml"
             storageKey="pictureMatchingGame"
         >
@@ -44,18 +44,15 @@ export function SequenceController({
     const [current, setCurrent] = useState<any | null>(
         null
     );
-    const [question, setQuestion] =
-        //TODO: Fix any
-        useState<any | null>(null);
     const generatorRef = useRef<Generator<any> | null>(
         null
     );
     const [showBack, setShowBack] = useState(false);
     const data = useData();
+
     useEffect(() => {
-        if (!data?.questions) return;
-        console.log("SequenceController useEffect", data);
-        const model = new modelClass(data.questions);
+        if (!data.loaded) return;
+        const model = new modelClass(data.items);
         generatorRef.current = model.getGenerator();
         //@ts-expect-error
         const first = generatorRef.current.next();
@@ -63,8 +60,7 @@ export function SequenceController({
             console.log("Setting first question", first);
             setCurrent(first.value);
         }
-    }, [data?.questions]);
-
+    }, [data?.items]);
     const handleComplete = (isCorrect: boolean) => {
         setShowBack(true);
     };
@@ -77,7 +73,7 @@ export function SequenceController({
     };
     if (!current) {
         console.log(current);
-        return <div>No more questions</div>;
+        return <div>No more Items</div>;
     }
     console.log("SequenceController render", current);
     return (
@@ -108,7 +104,6 @@ type PictureItem = {
     >;
 };
 export function PictureMatch() {
-    console.log("PictureMatch render");
     const builder = usePageBuilder();
     const {
         answer,
@@ -118,10 +113,10 @@ export function PictureMatch() {
         showBack,
     } = useAnswer();
     const item = { ...useQuestion<PictureItem>() };
+    if (!item || !builder) return <div>Loading...</div>;
     if (!item) return <div>No question</div>;
 
     const slots = builder.slots;
-    console.log("PictureMatch render", item);
     slots.question = <div>{item.question}</div>;
     slots.answer = <div>{item.answer}</div>;
     slots.picture = <img src={item.picture} />;
