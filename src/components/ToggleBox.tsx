@@ -1,23 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { useData } from "../activities/DataProvider";
-const ToggleBoxController = () => {
-    const { config, storedConfig, updateConfig } =
-        useData();
-    const [uiSelections, setUiSelections] = useState(
-        storedConfig || {}
-    );
-
-    // Sync with storedConfig when it first loads
-    useEffect(() => {
-        if (storedConfig) setUiSelections(storedConfig);
-    }, [storedConfig]);
-
-    const updateStorage = (next: typeof uiSelections) => {
-        setUiSelections(next); // Update local state immediately
-        updateConfig(next); // Persist to DataProvider / localStorage
-    };
-
+export const ToggleBoxController = () => {
+    const {
+        config,
+        storedConfig,
+        updateConfig,
+        uiSelections,
+    } = useData();
     if (!config) return null;
+
+    console.log("ToggleBoxController render");
+    console.log(config);
+    console.log(storedConfig);
+    console.log(updateConfig);
+    console.log(uiSelections);
 
     return (
         <ToggleBox
@@ -25,33 +21,49 @@ const ToggleBoxController = () => {
             slots={config.fields}
             //@ts-expect-error
             categories={config.choice_categories}
-            uiSelections={uiSelections} // <-- controlled by local state
-            updateStorage={updateStorage}
+            uiSelections={uiSelections}
+            updateStorage={updateConfig}
         />
     );
 };
+interface ToggleBoxProps {
+    slots: Record<string, any>;
+    categories: string[];
+    uiSelections: Record<string, object>;
+    updateStorage: (
+        newSelections: Record<string, object>
+    ) => void;
+}
 
-function ToggleBox({
-    //@ts-expect-error
+export function ToggleBox({
     slots,
-    //@ts-expect-error
     categories,
-    //@ts-expect-error
     uiSelections,
-    //@ts-expect-error
     updateStorage,
-}) {
-    const renderToggle = (key: string) => (
-        <div key={key}>
+}: ToggleBoxProps) {
+    const handleToggle = (key: string, group: string) => {
+        let newSelections: Record<string, object>;
+        newSelections = { ...uiSelections };
+        //@ts-expect-error
+        newSelections[group][key] =
+            //@ts-expect-error
+            !newSelections[group][key];
+        updateStorage(newSelections);
+    };
+
+    const renderToggle = (
+        key: string,
+        checked: boolean,
+        group: string
+    ) => (
+        <div key={`${group}-${key}`}>
             <label>
                 <input
                     type="checkbox"
-                    checked={!!uiSelections[key]}
+                    name={group + "-" + key}
+                    checked={checked}
                     onChange={() =>
-                        updateStorage({
-                            ...uiSelections,
-                            [key]: !uiSelections[key],
-                        })
+                        handleToggle(key, group)
                     }
                 />
                 {key}
@@ -60,12 +72,36 @@ function ToggleBox({
     );
 
     return (
-        <>
-            {Object.keys(slots).map(renderToggle)}
+        <div className="toggle-box">
+            <h3>Front</h3>
+            {Object.keys(uiSelections.front).map((key) =>
+                renderToggle(
+                    key,
+                    //@ts-expect-error
+                    uiSelections.front[key],
+                    "front"
+                )
+            )}
+            <hr />
+            <h3>Back</h3>
+            {Object.keys(uiSelections.back).map((key) =>
+                renderToggle(
+                    key,
+                    //@ts-expect-error
+                    uiSelections.back[key],
+                    "back"
+                )
+            )}
             <hr />
             <h3>Categories</h3>
-            {categories.map(renderToggle)}
-        </>
+            {Object.keys(uiSelections.choices).map((key) =>
+                renderToggle(
+                    key,
+                    //@ts-expect-error
+                    uiSelections.choices[key],
+                    "choices"
+                )
+            )}
+        </div>
     );
 }
-export { ToggleBoxController };

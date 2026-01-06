@@ -4,6 +4,8 @@ verbs:
       answer: answer1
       translation: translation1
       transliteration: transliteration1
+      tense: present
+      subject: he
       meta:
           tense:
               value: present

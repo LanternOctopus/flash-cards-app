@@ -19,8 +19,8 @@ export function PageBuilderProvider({
     const builder = React.useMemo(() => {
         if (!data.loaded) return null;
         return new PageBuilder(
-            data.config,
-            data.storedConfig
+            data.storedConfig,
+            data.slots
         );
     }, [data.config, data.storedConfig]);
 

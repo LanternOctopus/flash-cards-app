@@ -100,6 +100,8 @@ type PictureItem = {
     translation?: string;
     transliteration?: string;
     ansOptions: Record<string, string[]>;
+    tense?: string;
+    subject?: string;
     meta?: Record<
         string,
         { value: any; canToggle?: boolean }
@@ -119,8 +121,13 @@ export function PictureMatch() {
     if (!item) return <div>No question</div>;
 
     const slots = builder.slots;
+    console.log("PictureMatch render", item);
+    slots.question = <div>{item.question}</div>;
+    slots.answer = <div>{item.answer}</div>;
     slots.picture = <img src={item.picture} />;
     slots.translation = <div>{item.translation}</div>;
+    slots.tense = <div>{item.tense}</div>;
+    slots.subject = <div>{item.subject}</div>;
     slots.transliteration = (
         <div>{item.transliteration}</div>
     );

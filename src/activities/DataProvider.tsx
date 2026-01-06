@@ -42,6 +42,8 @@ type DataContextType<TConfig, TQuestions> = {
     storedConfig: any | null;
     updateConfig: (patch: Partial<TConfig>) => void;
     loaded: boolean;
+    uiSelections: Record<string, object>;
+    slots: Record<string, any>;
 };
 
 export const DataContext =
@@ -67,6 +69,16 @@ export function DataProvider<TConfig, TQuestions>({
         any | null
     >(null);
     const [loaded, setLoaded] = React.useState(false);
+    const [uiSelections, setUiSelections] = React.useState<
+        Record<string, object>
+    >({
+        front: {},
+        back: {},
+        choices: {},
+    });
+    const [slots, setSlots] = React.useState<
+        Record<string, object>
+    >({});
     console.log("DataProvider render");
     console.log("Config path:", configPath);
     console.log("Question path:", questionPath);
@@ -75,6 +87,7 @@ export function DataProvider<TConfig, TQuestions>({
         console.log("useEffect registered");
         async function load() {
             console.log("Loading data...");
+
             try {
                 const rawConfig = await loadSource<TConfig>(
                     configPath
@@ -84,6 +97,66 @@ export function DataProvider<TConfig, TQuestions>({
                     configPath
                 );
                 console.log("Loaded config:", rawConfig);
+                const storing = {
+                    front: {},
+                    back: {},
+                    choices: {},
+                };
+                //@ts-expect-error
+                if (rawConfig.fields) {
+                    //@ts-expect-error
+                    Object.keys(rawConfig.fields).forEach(
+                        (key) => {
+                            //@ts-expect-error
+                            storing.front[key] = false;
+                            //@ts-expect-error
+                            storing.back[key] = false;
+                        }
+                    );
+                }
+                //@ts-expect-error
+                if (rawConfig.choice_categories) {
+                    //@ts-expect-error
+                    rawConfig.choice_categories.forEach(
+                        //@ts-expect-error
+                        (key) => {
+                            //@ts-expect-error
+                            storing.choices[key] = false;
+                        }
+                    );
+                }
+                //@ts-expect-error
+                if (rawConfig.frontDefault) {
+                    //@ts-expect-error
+                    rawConfig.frontDefault.forEach(
+                        //@ts-expect-error
+                        (key) => {
+                            //@ts-expect-error
+                            storing.front[key] = true;
+                        }
+                    );
+                }
+                //@ts-expect-error
+                if (rawConfig.backDefault) {
+                    //@ts-expect-error
+                    rawConfig.backDefault.forEach((key) => {
+                        //@ts-expect-error
+                        storing.back[key] = true;
+                    });
+                }
+                //@ts-expect-error
+                if (rawConfig.choicesDefault) {
+                    //@ts-expect-error
+                    rawConfig.choicesDefault.forEach(
+                        //@ts-expect-error
+                        (key) => {
+                            //@ts-expect-error
+                            storing.choices[key] = true;
+                        }
+                    );
+                }
+
+                setUiSelections(storing);
                 const rawQuestions =
                     await loadSource<TQuestions>(
                         questionPath
@@ -93,11 +166,23 @@ export function DataProvider<TConfig, TQuestions>({
                     localStorage.getItem(storageKey);
                 const userConfig = stored
                     ? JSON.parse(stored)
-                    : {};
+                    : false;
+                if (userConfig) {
+                    setUiSelections(userConfig);
+                }
                 // @ts-expect-error
                 setConfig({
                     ...(rawConfig as object),
                 });
+                const custSlots = {};
+                // @ts-expect-error
+                Object.keys(rawConfig.fields).forEach(
+                    (key) => {
+                        //@ts-expect-error
+                        custSlots[key] = <></>;
+                    }
+                );
+                setSlots(custSlots);
                 console.log(
                     "Loaded questions:",
                     rawQuestions
@@ -115,7 +200,7 @@ export function DataProvider<TConfig, TQuestions>({
     }, [configPath, questionPath, storageKey]);
 
     const updateConfig = (patch: Partial<TConfig>) => {
-        setConfig((prev) => {
+        setUiSelections((prev) => {
             if (!prev) return prev;
             const next = { ...prev, ...patch };
             localStorage.setItem(
@@ -134,6 +219,8 @@ export function DataProvider<TConfig, TQuestions>({
                 questions,
                 updateConfig,
                 loaded,
+                uiSelections,
+                slots,
             }}
         >
             {children}
