@@ -36,9 +36,10 @@ async function loadSource<T>(filePath: string) {
     return data;
 }
 
-type DataContextType<TConfig, TItems> = {
+type DataContextType<TConfig, TQuestions> = {
     config: TConfig | null;
-    items: TItems | null;
+    questions: TQuestions | null;
+    storedConfig: any | null;
     updateConfig: (patch: Partial<TConfig>) => void;
     loaded: boolean;
     uiSelections: Record<string, object>;
@@ -49,24 +50,25 @@ export const DataContext =
     React.createContext<DataContextType<any, any> | null>(
         null
     );
-export function DataProvider<TConfig, TItems>({
+export function DataProvider<TConfig, TQuestions>({
     configPath,
-    itemPath,
+    questionPath,
     storageKey,
     children,
 }: {
     configPath: string;
-    itemPath: string;
+    questionPath: string;
     storageKey: string;
     children: React.ReactNode;
 }) {
     const [config, setConfig] =
         React.useState<TConfig | null>(null);
-    // const [questions, setQuestions] =
-    //     React.useState<TQuestions | null>(null);
-    const [items, setItems] = React.useState<TItems | null>(
-        null
-    );
+    const [questions, setQuestions] =
+        React.useState<TQuestions | null>(null);
+    const [storedConfig, setStoredConfig] = React.useState<
+        any | null
+    >(null);
+    const [loaded, setLoaded] = React.useState(false);
     const [uiSelections, setUiSelections] = React.useState<
         Record<string, object>
     >({
@@ -74,18 +76,27 @@ export function DataProvider<TConfig, TItems>({
         back: {},
         choices: {},
     });
-    const [loaded, setLoaded] = React.useState(false);
     const [slots, setSlots] = React.useState<
         Record<string, object>
     >({});
-
+    console.log("DataProvider render");
+    console.log("Config path:", configPath);
+    console.log("Question path:", questionPath);
+    console.log("Storage key:", storageKey);
     React.useEffect(() => {
+        console.log("useEffect registered");
         async function load() {
+            console.log("Loading data...");
+
             try {
                 const rawConfig = await loadSource<TConfig>(
                     configPath
                 );
-
+                console.log(
+                    "Loading config from:",
+                    configPath
+                );
+                console.log("Loaded config:", rawConfig);
                 const storing = {
                     front: {},
                     back: {},
@@ -144,7 +155,13 @@ export function DataProvider<TConfig, TItems>({
                         }
                     );
                 }
+
                 setUiSelections(storing);
+                const rawQuestions =
+                    await loadSource<TQuestions>(
+                        questionPath
+                    );
+
                 const stored =
                     localStorage.getItem(storageKey);
                 const userConfig = stored
@@ -153,7 +170,6 @@ export function DataProvider<TConfig, TItems>({
                 if (userConfig) {
                     setUiSelections(userConfig);
                 }
-
                 // @ts-expect-error
                 setConfig({
                     ...(rawConfig as object),
@@ -167,19 +183,13 @@ export function DataProvider<TConfig, TItems>({
                     }
                 );
                 setSlots(custSlots);
-                // rawConfig.fields.forEach((field) => {
-                //     //@ts-expect-error
-                //     custSlots[field] = <></>;
-                // });
-                // const rawQuestions =
-                //     await loadSource<TQuestions>(
-                //         questionPath
-                //     );
-                const rawItems = await loadSource<TItems>(
-                    itemPath
+                console.log(
+                    "Loaded questions:",
+                    rawQuestions
                 );
-                // setQuestions(rawQuestions);
-                setItems(rawItems);
+                console.log("Stored config:", userConfig);
+                setQuestions(rawQuestions);
+                setStoredConfig(userConfig);
                 setLoaded(true);
             } catch (e) {
                 console.error(e);
@@ -187,7 +197,7 @@ export function DataProvider<TConfig, TItems>({
         }
 
         load();
-    }, [configPath, itemPath, storageKey]);
+    }, [configPath, questionPath, storageKey]);
 
     const updateConfig = (patch: Partial<TConfig>) => {
         setUiSelections((prev) => {
@@ -205,7 +215,8 @@ export function DataProvider<TConfig, TItems>({
         <DataContext.Provider
             value={{
                 config,
-                items,
+                storedConfig,
+                questions,
                 updateConfig,
                 loaded,
                 uiSelections,

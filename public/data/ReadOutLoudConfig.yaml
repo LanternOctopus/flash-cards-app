@@ -1,4 +1,0 @@
-fields:
-    text: { type: text }
-frontDefault:
-    - text
