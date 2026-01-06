@@ -1,17 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useData } from "../activities/DataProvider";
 export const ToggleBoxController = () => {
-    const {
-        config,
-        storedConfig,
-        updateConfig,
-        uiSelections,
-    } = useData();
+    const { config, updateConfig, uiSelections } =
+        useData();
     if (!config) return null;
 
     console.log("ToggleBoxController render");
     console.log(config);
-    console.log(storedConfig);
     console.log(updateConfig);
     console.log(uiSelections);
 

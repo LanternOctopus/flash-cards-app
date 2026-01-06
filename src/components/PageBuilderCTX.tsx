@@ -19,10 +19,10 @@ export function PageBuilderProvider({
     const builder = React.useMemo(() => {
         if (!data.loaded) return null;
         return new PageBuilder(
-            data.storedConfig,
+            data.uiSelections,
             data.slots
         );
-    }, [data.config, data.storedConfig]);
+    }, [data.config]);
 
     return (
         <PageBuilderContext.Provider value={builder}>
