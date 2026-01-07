@@ -1,3 +1,4 @@
+import { zipByIndex } from "../utils/shuffle";
 class Builder {
     build(
         storedGroup: Record<string, boolean>,
@@ -6,9 +7,6 @@ class Builder {
         //@ts-expect-error
         let output = [];
         Object.keys(storedGroup).forEach((k) => {
-            console.log("Builder build", k);
-            console.log(storedGroup[k]);
-            console.log(slots[k]);
             if (!storedGroup[k]) return;
             output.push(slots[k]);
         });
@@ -45,7 +43,7 @@ export class ChoicesRenderer {
         const selectedChoices = selectedKeys
             .map((key) => choices[key])
             .filter(Boolean);
-
+        const zipped = zipByIndex(...selectedChoices);
         const renderChoice =
             onChoice ??
             ((c: React.ReactNode, i: number) => (
@@ -59,9 +57,8 @@ export class ChoicesRenderer {
             ));
 
         return wrap(
-            selectedChoices.map(
-                (choiceArray: any, i: number) =>
-                    renderChoice(choiceArray, i)
+            zipped.map((choiceArray: any, i: number) =>
+                renderChoice(choiceArray, i)
             )
         );
     }
