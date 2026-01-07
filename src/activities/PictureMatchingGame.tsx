@@ -1,29 +1,18 @@
 import { PictureMatchingGameModel } from "./PictureMatchingGameModel";
-import {
-    PageBuilderProvider,
-    usePageBuilder,
-} from "../components/PageBuilderCTX";
-import { ToggleBoxController } from "../components/ToggleBox";
-import { DataProvider } from "./DataProvider";
+import { usePageBuilder } from "../components/PageBuilderCTX";
 import { useAnswer } from "./AnswerProvider";
 import { useQuestion } from "./QuestionContext";
-import { SequenceController } from "./SequenceController";
+import { ParentScreen } from "./ParentScreen";
 export function PictureMatchingGameScreen() {
     return (
-        <DataProvider
+        <ParentScreen
             itemPath="PictureMatchingGame.yaml"
             configPath="PictureMatchingGameConfig.yaml"
             storageKey="pictureMatchingGame"
+            modelClass={PictureMatchingGameModel}
         >
-            <PageBuilderProvider>
-                <ToggleBoxController />
-                <SequenceController
-                    modelClass={PictureMatchingGameModel}
-                >
-                    <PictureMatch />
-                </SequenceController>
-            </PageBuilderProvider>
-        </DataProvider>
+            <PictureMatch />
+        </ParentScreen>
     );
 }
 
