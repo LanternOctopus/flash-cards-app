@@ -1,20 +1,23 @@
 import partofspeechDataRaw from "../data/PartsOfSpeech.json";
-import {Activity, PartsofSpeechItem} from "../types"
-import { shuffle } from "../utils/shuffle";
+import { Activity, PartsofSpeechItem } from "../types";
+import { shuffle } from "../utils/utils";
 
-const partsofspeechData = partofspeechDataRaw as readonly PartsofSpeechItem[];
+const partsofspeechData =
+    partofspeechDataRaw as readonly PartsofSpeechItem[];
 
 export class PartsofSpeechController {
     private shuffled: readonly PartsofSpeechItem[];
-    constructor(){
+    constructor() {
         this.shuffled = shuffle(partsofspeechData.slice(1));
     }
-    *getActivities(): Generator<Extract<Activity,{type:"partsofspeech"}>>{
-        for(const entry of this.shuffled){
-            yield{
-                type:"partsofspeech" as const,
-                data:entry
-            }
+    *getActivities(): Generator<
+        Extract<Activity, { type: "partsofspeech" }>
+    > {
+        for (const entry of this.shuffled) {
+            yield {
+                type: "partsofspeech" as const,
+                data: entry,
+            };
         }
     }
 }

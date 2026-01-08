@@ -14,3 +14,11 @@ export function zipByIndex<T>(...arrays: T[][]): T[][] {
         arrays.map((a) => a[i])
     );
 }
+export function normalizeStr(str: string) {
+    return str
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+}
+export function stripPunctuation(word: string) {
+    return word.replace(/[^a-zA-Z']/g, "");
+}

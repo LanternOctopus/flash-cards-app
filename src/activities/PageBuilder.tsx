@@ -1,4 +1,4 @@
-import { zipByIndex } from "../utils/shuffle";
+import { zipByIndex } from "../utils/utils";
 class Builder {
     build(
         storedGroup: Record<string, boolean>,
