@@ -1,4 +1,4 @@
-import normalizeStr from "./utils";
+import { normalizeStr } from "./utils";
 export default function expandContractions(
     contraction: string
 ) {

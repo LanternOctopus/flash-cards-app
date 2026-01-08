@@ -31,20 +31,13 @@ type PictureItem = {
     >;
 };
 export function PictureMatch() {
-    console.log("PictureMatch render");
     const builder = usePageBuilder();
-    const {
-        answer,
-        checkCorrectness,
-        onComplete,
-        handleNext,
-        showBack,
-    } = useAnswer();
+    const { answer, checkCorrectness, handleNext } =
+        useAnswer();
     const item = { ...useQuestion<PictureItem>() };
     if (!item) return <div>No question</div>;
-
+    const showBack = false;
     const slots = builder.slots;
-    console.log("PictureMatch render", item);
     slots.question = <div>{item.question}</div>;
     slots.answer = <div>{item.answer}</div>;
     slots.picture = <img src={item.picture} />;
@@ -59,6 +52,9 @@ export function PictureMatch() {
     );
     const front = builder.buildFront();
     const back = builder.buildBack();
+    const onComplete = (isCorrect: boolean) => {
+        return;
+    };
     const choices = builder.buildChoices(
         item.ansOptions,
         (value, i) => (
@@ -68,7 +64,7 @@ export function PictureMatch() {
                     if (!checkCorrectness) return;
                     const correct = checkCorrectness(
                         value[0]
-                    );
+                    ).correct;
                     onComplete(correct);
                 }}
             >

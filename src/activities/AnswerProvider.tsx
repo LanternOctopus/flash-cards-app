@@ -3,41 +3,42 @@ import React from "react";
 type AnswerValue = string | string[] | boolean;
 type AnswerContextType = {
     answer: AnswerValue;
-    checkCorrectness?: (input: unknown) => boolean;
-    onComplete: (isCorrect: boolean) => void;
+    checkCorrectness: (input: unknown) => {
+        correct: boolean;
+        done?: boolean;
+    };
     handleNext?: () => void;
-    showBack: boolean;
 };
 
 export const AnswerContext =
     React.createContext<AnswerContextType | null>(null);
 type AnswerProviderProps = {
     answer: AnswerValue;
-    checkCorrectness?: (input: unknown) => boolean;
-    onComplete: (isCorrect: boolean) => void;
+    checkCorrectness?: (input: unknown) => {
+        correct: boolean;
+        done?: boolean;
+    };
     handleNext?: () => void;
-    showBack: boolean;
     children: React.ReactNode;
 };
 
 export function AnswerProvider({
     answer,
     checkCorrectness,
-    onComplete,
     handleNext,
-    showBack,
     children,
 }: AnswerProviderProps) {
     const defaultCheckCorrectness = (input: unknown) => {
         if (Array.isArray(answer)) {
-            return (
-                Array.isArray(input) &&
-                input.length === answer.length &&
-                input.every((v, i) => v === answer[i])
-            );
+            return {
+                correct:
+                    Array.isArray(input) &&
+                    input.length === answer.length &&
+                    input.every((v, i) => v === answer[i]),
+            };
         }
 
-        return input === answer;
+        return { correct: input === answer };
     };
 
     return (
@@ -47,9 +48,7 @@ export function AnswerProvider({
                 checkCorrectness:
                     checkCorrectness ??
                     defaultCheckCorrectness,
-                onComplete,
                 handleNext,
-                showBack,
             }}
         >
             {children}

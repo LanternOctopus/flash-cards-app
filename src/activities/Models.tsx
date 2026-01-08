@@ -4,7 +4,7 @@ export type ActivityModelClass<TItem> = new (
 
 export abstract class ActivityModel<TItem> {
     protected rawData!: Record<string, TItem[]>;
-
+    protected _generator: Generator<any> | null = null;
     constructor(raw: unknown) {
         if (!this.isValidSet(raw)) {
             throw new Error("Invalid activity data");
@@ -41,5 +41,14 @@ export abstract class ActivityModel<TItem> {
     *getGenerator(setName?: string): Generator<TItem> {
         const set = this.getSet(setName);
         for (const item of set) yield item;
+    }
+    initializeGenerator() {
+        this._generator = this.getGenerator();
+    }
+    nextItem() {
+        if (!this._generator)
+            return { item: null, done: true };
+
+        return this._generator.next();
     }
 }

@@ -12,47 +12,35 @@ export function SequenceController({
     const [current, setCurrent] = useState<any | null>(
         null
     );
-
-    const generatorRef = useRef<Generator<any> | null>(
-        null
-    );
-    const [showBack, setShowBack] = useState(false);
     const data = useData();
+    const modelRef = useRef<any>(null);
     useEffect(() => {
         if (!data?.items) return;
-        console.log("SequenceController useEffect", data);
-        const model = new modelClass(data.items);
-        generatorRef.current = model.getGenerator();
-        //@ts-expect-error
-        const first = generatorRef.current.next();
+        modelRef.current = new modelClass(data.items);
+        modelRef.current.initializeGenerator();
+
+        const first = modelRef.current.nextItem();
         if (!first.done) {
-            console.log("Setting first item", first);
             setCurrent(first.value);
         }
     }, [data?.items]);
 
-    const handleComplete = (isCorrect: boolean) => {
-        setShowBack(true);
-    };
     const handleNext = () => {
-        //@ts-expect-error
-        const { value, done } = generatorRef.current.next();
+        const { value, done } = modelRef.current.nextItem();
         if (done) return;
         setCurrent(value);
-        setShowBack(false); // reset for next card
     };
     if (!current) {
-        console.log(current);
         return <div>No more Items</div>;
     }
-    console.log("SequenceController render", current);
     return (
         <QuestionProvider value={current}>
             <AnswerProvider
                 answer={current.answer}
-                onComplete={handleComplete}
                 handleNext={handleNext}
-                showBack={showBack}
+                checkCorrectness={
+                    modelRef.current.checkCorrectness
+                }
             >
                 {children}
             </AnswerProvider>

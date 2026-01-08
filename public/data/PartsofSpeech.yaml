@@ -1,0 +1,744 @@
+Verbs:
+    - text: "Lila walks to school every morning. She carries her books in a blue bag and waves to her friends. The bell rings at eight, and classes begin."
+      answer:
+          - walks
+          - carries
+          - waves
+          - rings
+          - begin
+    - text: "Tom is reading a mystery novel right now. He's sitting by the window, sipping tea, and turning each page slowly as rain falls outside."
+      answer:
+          - is
+          - reading
+          - sitting
+          - sipping
+          - turning
+          - falls
+    - text: "I've visited that museum three times. Every visit feels different. The paintings have always fascinated me."
+      answer:
+          - have
+          - visited
+          - feels
+          - have
+          - fascinated
+    - text: "They've been studying English for two years. Their pronunciation has improved a lot, and they're finally confident speaking with others."
+      answer:
+          - have
+          - been
+          - studying
+          - has
+          - improved
+          - are
+          - speaking
+    - text: "We watched the fireworks last night. The sky lit up with colors, and everyone cheered."
+      answer:
+          - watched
+          - lit
+          - cheered
+    - text: "I was cooking dinner when the phone rang. The soup was boiling, and I almost forgot to turn off the stove."
+      answer:
+          - was
+          - cooking
+          - rang
+          - was
+          - boiling
+          - forgot
+          - turn
+    - text: "By the time the train arrived, he had already left. She stood there, holding the letter he'd written."
+      answer:
+          - arrived
+          - had
+          - left
+          - stood
+          - holding
+          - written
+    - text: "He had been running for an hour before he finally reached the cabin. Sweat dripped down his face, but he smiled in relief."
+      answer:
+          - had
+          - been
+          - running
+          - reached
+          - dripped
+          - smiled
+    - text: "Tomorrow, we'll visit Grandma. She'll bake her special pie, and we'll play cards all afternoon."
+      answer:
+          - will
+          - visit
+          - will
+          - bake
+          - will
+          - play
+    - text: "By next summer, I'll have finished my degree. Then, I'll travel and finally rest for a while."
+      answer:
+          - will
+          - have
+          - finished
+          - will
+          - travel
+          - rest
+    - text: "I'm baking cookies for the class."
+      answer:
+          - am
+          - baking
+    - text: "He'll ride his bike to the park."
+      answer:
+          - will
+          - ride
+    - text: "They were singing a happy song."
+      answer:
+          - were
+          - singing
+    - text: "Mom can not find the blue cup."
+      answer:
+          - can
+          - find
+    - text: "We played soccer after school."
+      answer:
+          - played
+    - text: "She is reading a big picture book."
+      answer:
+          - is
+          - reading
+    - text: "I did not see the small frog."
+      answer:
+          - did
+          - see
+    - text: "You'll help me paint the fence."
+      answer:
+          - will
+          - help
+    - text: "The dog was sleeping on the mat."
+      answer:
+          - was
+          - sleeping
+    - text: "Dad fixed the broken toy."
+      answer:
+          - fixed
+    - text: "We're building a tall block tower."
+      answer:
+          - are
+          - building
+    - text: "They'll eat lunch at noon."
+      answer:
+          - will
+          - eat
+    - text: "He had finished his homework."
+      answer:
+          - had
+          - finished
+    - text: "I am drawing a red apple."
+      answer:
+          - am
+          - drawing
+    - text: "She danced at the school show."
+      answer:
+          - danced
+    - text: "You should call your friend."
+      answer:
+          - should
+          - call
+    - text: "The birds were flying in a V."
+      answer:
+          - were
+          - flying
+    - text: "We can not open the heavy door."
+      answer:
+          - can
+          - open
+    - text: "Grandpa told a funny story."
+      answer:
+          - told
+    - text: "I'm watering the small plant."
+      answer:
+          - am
+          - watering
+    - text: "They ran fast to the bus stop."
+      answer:
+          - ran
+    - text: "He'll come to my birthday party."
+      answer:
+          - will
+          - come
+    - text: "She loves the yellow dress."
+      answer:
+          - loves
+    - text: "I had found my lost hat."
+      answer:
+          - had
+          - found
+    - text: "We're watching a movie tonight."
+      answer:
+          - are
+          - watching
+    - text: "The cat caught a little mouse."
+      answer:
+          - caught
+    - text: "You must clean your room today."
+      answer:
+          - must
+          - clean
+    - text: "She was painting a green tree."
+      answer:
+          - was
+          - painting
+    - text: "They've finished their snack."
+      answer:
+          - have
+          - finished
+    - text: "I'll help you tie your shoe."
+      answer:
+          - will
+          - help
+    - text: "He drew a picture of the sun."
+      answer:
+          - drew
+    - text: "Mom is cooking spaghetti now."
+      answer:
+          - is
+          - cooking
+    - text: "We did not hear the bell ring."
+      answer:
+          - did
+          - hear
+          - ring
+    - text: "The kids are climbing the hill."
+      answer:
+          - are
+          - climbing
+    - text: "I rode the pony at the fair."
+      answer:
+          - rode
+    - text: "She's hiding behind the door."
+      answer:
+          - is
+          - hiding
+    - text: "They were laughing all day."
+      answer:
+          - were
+          - laughing
+    - text: "You can carry the small box."
+      answer:
+          - can
+          - carry
+    - text: "He will call when he arrives."
+      answer:
+          - will
+          - call
+          - arrives
+    - text: "I washed the muddy shoes."
+      answer:
+          - washed
+    - text: "We are making a paper boat."
+      answer:
+          - are
+          - making
+    - text: "The puppy slept by the fire."
+      answer:
+          - slept
+    - text: "Dad will not forget the map."
+      answer:
+          - will
+          - forget
+    - text: "She painted the blue house."
+      answer:
+          - painted
+    - text: "I'm reading under the blanket."
+      answer:
+          - am
+          - reading
+    - text: "They were studying for the test."
+      answer:
+          - were
+          - studying
+    - text: "You do not need to shout."
+      answer:
+          - do
+          - need
+    - text: "He broke the cookie in half."
+      answer:
+          - broke
+    - text: "We'll visit the zoo tomorrow."
+      answer:
+          - will
+          - visit
+    - text: "The sun was shining on my face."
+      answer:
+          - was
+          - shining
+    - text: "I could not open the jar lid."
+      answer:
+          - could
+          - open
+    - text: "She helped me carry the bag."
+      answer:
+          - helped
+          - carry
+    - text: "They're planting seeds in the pot."
+      answer:
+          - are
+          - planting
+    - text: "He has to finish his chores."
+      answer:
+          - has
+          - finish
+    - text: "I am packing my snack box."
+      answer:
+          - am
+          - packing
+    - text: "We found a bright red leaf."
+      answer:
+          - found
+    - text: "Mom will read a bedtime story."
+      answer:
+          - will
+          - read
+    - text: "The fish were swimming slowly."
+      answer:
+          - were
+          - swimming
+    - text: "You did your best at practice."
+      answer:
+          - did
+    - text: "She sings in the morning class."
+      answer:
+          - sings
+    - text: "I'm tying a ribbon on the gift."
+      answer:
+          - am
+          - tying
+    - text: "They played games in the yard."
+      answer:
+          - played
+    - text: "He is fixing the broken chair."
+      answer:
+          - is
+          - fixing
+    - text: "We should not run on the stairs."
+      answer:
+          - should
+          - run
+    - text: "I baked a cake for dinner."
+      answer:
+          - baked
+    - text: "She had said the poem well."
+      answer:
+          - had
+          - said
+    - text: "They will bring cookies to school."
+      answer:
+          - will
+          - bring
+    - text: "I am learning a new song."
+      answer:
+          - am
+          - learning
+    - text: "The baby smiled at the puppy."
+      answer:
+          - smiled
+    - text: "You can sit beside me."
+      answer:
+          - can
+          - sit
+    - text: "He was counting his coins."
+      answer:
+          - was
+          - counting
+    - text: "We're saving our pennies for toys."
+      answer:
+          - are
+          - saving
+    - text: "She wrote a note to her friend."
+      answer:
+          - wrote
+    - text: "I did not forget my lunch box."
+      answer:
+          - did
+          - forget
+    - text: "They may join our picnic tomorrow."
+      answer:
+          - may
+          - join
+    - text: "He is carrying a heavy bag."
+      answer:
+          - is
+          - carrying
+    - text: "We loved the story last night."
+      answer:
+          - loved
+    - text: "You will grow taller each year."
+      answer:
+          - will
+          - grow
+    - text: "The teacher asked a hard question."
+      answer:
+          - asked
+    - text: "I'm feeding the little chick."
+      answer:
+          - am
+          - feeding
+    - text: "She was jumping over the rope."
+      answer:
+          - was
+          - jumping
+    - text: "They did not tell a single lie."
+      answer:
+          - did
+          - tell
+    - text: "He can ride without training wheels."
+      answer:
+          - can
+          - ride
+    - text: "We're saving seats for Grandma."
+      answer:
+          - are
+          - saving
+    - text: "I painted a bright yellow sun."
+      answer:
+          - painted
+    - text: "The kitten is chasing a ball."
+      answer:
+          - is
+          - chasing
+    - text: "You must wear your coat today."
+      answer:
+          - must
+          - wear
+    - text: "She had closed the window."
+      answer:
+          - had
+          - closed
+    - text: "I'll call you after school."
+      answer:
+          - will
+          - call
+    - text: "They were clapping their hands."
+      answer:
+          - were
+          - clapping
+    - text: "He fixed the bike tire yesterday."
+      answer:
+          - fixed
+    - text: "I'm listening to my teacher."
+      answer:
+          - am
+          - listening
+    - text: "We could not find the purple crayon."
+      answer:
+          - could
+          - find
+    - text: "She dances with a smile."
+      answer:
+          - dances
+    - text: "I drew stars on the paper."
+      answer:
+          - drew
+    - text: "You are being very kind today."
+      answer:
+          - are
+          - being
+    - text: "They will clean up the toys later."
+      answer:
+          - will
+          - clean
+    - text: "He hid the present under the bed."
+      answer:
+          - hid
+    - text: "We're opening the new book now."
+      answer:
+          - are
+          - opening
+    - text: "She has a pet rabbit at home."
+      answer:
+          - has
+    - text: "I am choosing my best shirt."
+      answer:
+          - am
+          - choosing
+    - text: "They laughed at the silly clown."
+      answer:
+          - laughed
+    - text: "You should not drop the eggs."
+      answer:
+          - should
+          - drop
+    - text: "He was watering the garden plants."
+      answer:
+          - was
+          - watering
+    - text: "I'll help scoop the ice cream."
+      answer:
+          - will
+          - help
+          - scoop
+    - text: "She is folding the folded napkins."
+      answer:
+          - is
+          - folding
+    - text: "I fed the fish in the bowl."
+      answer:
+          - fed
+    - text: "They were rowing the small boat."
+      answer:
+          - were
+          - rowing
+    - text: "You do not like spicy food."
+      answer:
+          - do
+          - like
+    - text: "He wrote his name on the card."
+      answer:
+          - wrote
+    - text: "I'm making a list for the store."
+      answer:
+          - am
+          - making
+    - text: "We drove to the lake last weekend."
+      answer:
+          - drove
+    - text: "She'll draw a map for us."
+      answer:
+          - will
+          - draw
+    - text: "The children were quiet in class."
+      answer:
+          - were
+          - quiet
+    - text: "He can not swim in deep water."
+      answer:
+          - can
+          - swim
+    - text: "I'm carrying the tray of cups."
+      answer:
+          - am
+          - carrying
+    - text: "They planted a tall sunflower."
+      answer:
+          - planted
+    - text: "You had answered all the questions."
+      answer:
+          - had
+          - answered
+    - text: "She sings softly in the car."
+      answer:
+          - sings
+    - text: "We are saving a seat for you."
+      answer:
+          - are
+          - saving
+    - text: "I did not break the glass bowl."
+      answer:
+          - did
+          - break
+    - text: "He will show us his new toy."
+      answer:
+          - will
+          - show
+    - text: "The moon was shining at night."
+      answer:
+          - was
+          - shining
+    - text: "I'm writing a note to my mom."
+      answer:
+          - am
+          - writing
+    - text: "They were whispering a secret."
+      answer:
+          - were
+          - whispering
+    - text: "You can open the treasure box."
+      answer:
+          - can
+          - open
+    - text: "She baked muffins this morning."
+      answer:
+          - baked
+    - text: "We are listening to the story."
+      answer:
+          - are
+          - listening
+    - text: "I will pack my backpack tonight."
+      answer:
+          - will
+          - pack
+    - text: "He had lost his red mitten."
+      answer:
+          - had
+          - lost
+    - text: "She was feeding the stray cat."
+      answer:
+          - was
+          - feeding
+    - text: "They do not want any more candy."
+      answer:
+          - do
+          - want
+    - text: "I'm planting a small tree today."
+      answer:
+          - am
+          - planting
+    - text: "You should be proud of yourself."
+      answer:
+          - should
+          - be
+    - text: "He told me a secret yesterday."
+      answer:
+          - told
+    - text: "We were chasing butterflies."
+      answer:
+          - were
+          - chasing
+    - text: "She'll help bake the cookies."
+      answer:
+          - will
+          - help
+          - bake
+    - text: "I could not lift the heavy box."
+      answer:
+          - could
+          - lift
+    - text: "They are playing a new game."
+      answer:
+          - are
+          - playing
+    - text: "He watched the ants march by."
+      answer:
+          - watched
+    - text: "I'm folding a paper airplane."
+      answer:
+          - am
+          - folding
+    - text: "She had painted her room pink."
+      answer:
+          - had
+          - painted
+    - text: "We will walk to the library."
+      answer:
+          - will
+          - walk
+    - text: "You must finish the puzzle now."
+      answer:
+          - must
+          - finish
+    - text: "He is holding a bright balloon."
+      answer:
+          - is
+          - holding
+    - text: "They danced until the sun set."
+      answer:
+          - danced
+    - text: "I'm sweeping the kitchen floor."
+      answer:
+          - am
+          - sweeping
+    - text: "She said she would come early."
+      answer:
+          - said
+          - would
+          - come
+    - text: "We were reading on the couch."
+      answer:
+          - were
+          - reading
+    - text: "He fixed the leaky faucet today."
+      answer:
+          - fixed
+    - text: "I'm sharing my snack with you."
+      answer:
+          - am
+          - sharing
+    - text: "They will return the library book."
+      answer:
+          - will
+          - return
+    - text: "You had practiced the song well."
+      answer:
+          - had
+          - practiced
+    - text: "She was not feeling well today."
+      answer:
+          - was
+          - feeling
+    - text: "I helped my friend with math."
+      answer:
+          - helped
+    - text: "We're tasting the new ice cream."
+      answer:
+          - are
+          - tasting
+    - text: "He built a small wooden boat."
+      answer:
+          - built
+    - text: "I'm feeding the hungry birds."
+      answer:
+          - am
+          - feeding
+    - text: "They could not hear the music."
+      answer:
+          - could
+          - hear
+    - text: "She will wear her blue hat."
+      answer:
+          - will
+          - wear
+    - text: "We are finding shells on the beach."
+      answer:
+          - are
+          - finding
+    - text: "He kept his promise to help."
+      answer:
+          - kept
+    - text: "I'm calling Grandma on the phone."
+      answer:
+          - am
+          - calling
+    - text: "She had sewn a tiny button."
+      answer:
+          - had
+          - sewn
+    - text: "They were learning to skate slowly."
+      answer:
+          - were
+          - learning
+    - text: "You should not touch the cactus."
+      answer:
+          - should
+          - touch
+    - text: "He is drawing a long river."
+      answer:
+          - is
+          - drawing
+    - text: "We're saving the last slice for you."
+      answer:
+          - are
+          - saving
+    - text: "I laughed at the silly joke."
+      answer:
+          - laughed
+    - text: "She will be reading in the chair."
+      answer:
+          - will
+          - be
+          - reading
+    - text: "They are keeping the window closed."
+      answer:
+          - are
+          - keeping
+    - text: "I did not lose my small coin."
+      answer:
+          - did
+          - lose
+    - text: "He rides the school bus each day."
+      answer:
+          - rides
+    - text: "We're collecting pine cones now."
+      answer:
+          - are
+          - collecting
+    - text: "She had baked bread yesterday."
+      answer:
+          - had
+          - baked
+    - text: "You can touch the soft kitten."
+      answer:
+          - can
+          - touch
