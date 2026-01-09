@@ -13,7 +13,6 @@ export function QuestionProvider<T>({
     value: QuestionContextType<T>;
     children: React.ReactNode;
 }) {
-    console.log("QuestionProvider render", value);
     return (
         <QuestionContext.Provider value={value}>
             {children}

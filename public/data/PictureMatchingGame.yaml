@@ -47,7 +47,32 @@ verbs:
               value: future
           subject:
               value: you
-
+      ansOptions:
+          choices:
+              - distractor1
+              - answer1
+              - distractor2
+              - distractor3
+          translations:
+              - translation1
+              - translation2
+              - translation3
+              - translation4
+          transliterations:
+              - transliteration1
+              - transliteration2
+              - transliteration3
+              - transliteration4
+          tenses:
+              - past
+              - present
+              - future
+              - n/a
+          subjects:
+              - he
+              - she
+              - they
+              - you
     - picture: verb3.png
       answer: answer3
       question: answer3
@@ -58,7 +83,32 @@ verbs:
               value: present
           subject:
               value: they
-
+      ansOptions:
+          choices:
+              - distractor1
+              - answer1
+              - distractor2
+              - distractor3
+          translations:
+              - translation1
+              - translation2
+              - translation3
+              - translation4
+          transliterations:
+              - transliteration1
+              - transliteration2
+              - transliteration3
+              - transliteration4
+          tenses:
+              - past
+              - present
+              - future
+              - n/a
+          subjects:
+              - he
+              - she
+              - they
+              - you
 nouns:
     - picture: noun1.png
       answer: answer1
@@ -68,7 +118,32 @@ nouns:
       meta:
           type:
               value: pronoun
-
+      ansOptions:
+          choices:
+              - distractor1
+              - answer1
+              - distractor2
+              - distractor3
+          translations:
+              - translation1
+              - translation2
+              - translation3
+              - translation4
+          transliterations:
+              - transliteration1
+              - transliteration2
+              - transliteration3
+              - transliteration4
+          tenses:
+              - past
+              - present
+              - future
+              - n/a
+          subjects:
+              - he
+              - she
+              - they
+              - you
     - picture: noun2.png
       answer: answer2
       question: answer2
@@ -77,7 +152,32 @@ nouns:
       meta:
           type:
               value: object
-
+      ansOptions:
+          choices:
+              - distractor1
+              - answer1
+              - distractor2
+              - distractor3
+          translations:
+              - translation1
+              - translation2
+              - translation3
+              - translation4
+          transliterations:
+              - transliteration1
+              - transliteration2
+              - transliteration3
+              - transliteration4
+          tenses:
+              - past
+              - present
+              - future
+              - n/a
+          subjects:
+              - he
+              - she
+              - they
+              - you
     - picture: noun3.png
       answer: answer3
       question: answer3
@@ -86,3 +186,29 @@ nouns:
       meta:
           type:
               value: place
+      ansOptions:
+          choices:
+              - distractor1
+              - answer1
+              - distractor2
+              - distractor3
+          translations:
+              - translation1
+              - translation2
+              - translation3
+              - translation4
+          transliterations:
+              - transliteration1
+              - transliteration2
+              - transliteration3
+              - transliteration4
+          tenses:
+              - past
+              - present
+              - future
+              - n/a
+          subjects:
+              - he
+              - she
+              - they
+              - you

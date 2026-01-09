@@ -1,4 +1,4 @@
-import React from "react";
+import React, { JSX } from "react";
 import yaml from "js-yaml";
 async function fetchWithTimeout(url: string, ms = 5000) {
     const controller = new AbortController();
@@ -170,14 +170,18 @@ export function DataProvider<TConfig, TItems>({
                 setConfig({
                     ...(rawConfig as object),
                 });
-                const custSlots = {};
+                const custSlots: Record<
+                    string,
+                    JSX.Element
+                > = {};
                 // @ts-expect-error
                 Object.keys(rawConfig.fields).forEach(
                     (key) => {
-                        //@ts-expect-error
                         custSlots[key] = <></>;
                     }
                 );
+                custSlots.advance = <></>;
+                custSlots.feedback = <></>;
                 setSlots(custSlots);
                 console.log("Loaded items:", rawItems);
                 console.log("Stored config:", userConfig);

@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { PictureMatchingGameModel } from "./PictureMatchingGameModel";
 import { usePageBuilder } from "../components/PageBuilderCTX";
 import { useAnswer } from "./AnswerProvider";
@@ -29,47 +30,65 @@ type PictureItem = {
         string,
         { value: any; canToggle?: boolean }
     >;
+    id: string;
 };
 export function PictureMatch() {
     const builder = usePageBuilder();
     const { answer, checkCorrectness, handleNext } =
         useAnswer();
+    const [showBack, setShowBack] = useState(false);
+    const [correct, setCorrect] = useState(false);
     const item = { ...useQuestion<PictureItem>() };
+    useEffect(() => {
+        setShowBack(false);
+        setCorrect(false);
+    }, [item.id]);
     if (!item) return <div>No question</div>;
-    const showBack = false;
-    const slots = builder.slots;
-    slots.question = <div>{item.question}</div>;
-    slots.answer = <div>{item.answer}</div>;
-    slots.picture = <img src={item.picture} />;
-    slots.translation = <div>{item.translation}</div>;
-    slots.tense = <div>{item.tense}</div>;
-    slots.subject = <div>{item.subject}</div>;
-    slots.transliteration = (
+    builder.fillSlot(
+        "question",
+        <div>{item.question}</div>
+    );
+    builder.fillSlot("answer", <div>{item.answer}</div>);
+    builder.fillSlot("picture", <img src={item.picture} />);
+    builder.fillSlot(
+        "translation",
+        <div>{item.translation}</div>
+    );
+    builder.fillSlot("tense", <div>{item.tense}</div>);
+    builder.fillSlot("subject", <div>{item.subject}</div>);
+    builder.fillSlot(
+        "transliteration",
         <div>{item.transliteration}</div>
     );
-    slots.advance = (
+    builder.fillSlot(
+        "advance",
         <button onClick={handleNext}>Next</button>
+    );
+    builder.fillSlot(
+        "feedback",
+        correct ? "Correct" : "Incorrect"
     );
     const front = builder.buildFront();
     const back = builder.buildBack();
     const onComplete = (isCorrect: boolean) => {
+        setShowBack(true);
+        setCorrect(isCorrect);
         return;
     };
     const choices = builder.buildChoices(
         item.ansOptions,
         (value, i) => (
             <button
-                key={i}
+                key={`${item.id}-choice-${i}`}
                 onClick={() => {
-                    if (!checkCorrectness) return;
-                    const correct = checkCorrectness(
+                    const result = checkCorrectness(
                         value[0]
-                    ).correct;
-                    onComplete(correct);
+                    );
+                    onComplete(result.correct);
                 }}
             >
                 {value.map((v, idx) => (
-                    <span key={idx}>{v}</span>
+                    <span key={`${i}-${idx}`}>{v}</span>
                 ))}
             </button>
         ),

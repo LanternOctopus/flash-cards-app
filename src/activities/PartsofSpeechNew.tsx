@@ -6,6 +6,7 @@ import { useAnswer } from "./AnswerProvider";
 import { useQuestion } from "./QuestionContext";
 import { ParentScreen } from "./ParentScreen";
 import expandContractions from "../utils/expandContractions";
+import { stripPunctuation } from "../utils/utils";
 export function PartsOfSpeechScreen() {
     return (
         <ParentScreen
@@ -75,73 +76,97 @@ const WordSpan: React.FC<WordSpanProps> = ({
 type PartsofSpeechItemNew = {
     text: string;
     answer: string[];
+    words: string[];
+    id: string;
 };
 export function PartsOfSpeechNew() {
     const item = useQuestion<PartsofSpeechItemNew>();
     const builder = usePageBuilder();
-    const slots = builder.slots;
     const { checkCorrectness, handleNext } = useAnswer();
 
-    const [words, setWords] = useState<string[]>([]);
     const [guessedWords, setGuessedWords] = useState<
         Record<string, string>
     >({});
-    const [success, setSuccess] = useState<boolean | null>(
-        null
-    );
+    const [showBack, setShowBack] = useState(false);
+    const [correct, setCorrect] = useState(false);
 
-    // Initialize words and reset guessed state whenever the item changes
     useEffect(() => {
         if (!item?.text) return;
-        const splitWords = item.text.split(" ");
-        setWords(splitWords);
-        // Initialize guessedWords as 'not guessed'
         const initialGuesses: Record<string, string> = {};
-        splitWords.forEach(
+        item.words.forEach(
             (w) => (initialGuesses[w] = "not guessed")
         );
         setGuessedWords(initialGuesses);
-        setSuccess(null); // reset success per item
-    }, [item]);
+        setCorrect(false);
+        setShowBack(false);
+    }, [item.id]);
 
     const onComplete = (isCorrect: boolean) => {
-        setSuccess(isCorrect);
+        setShowBack(true);
+        setCorrect(isCorrect);
+        return;
     };
-
     const checkWord = (rawWord: string) => {
-        if (!words.includes(rawWord)) return;
+        if (guessedWords[rawWord] !== "not guessed") return;
+
+        const expanded = expandContractions(rawWord)
+            .split(" ")
+            .map(stripPunctuation);
 
         const result = checkCorrectness(rawWord);
 
-        setGuessedWords((prev) => ({
-            ...prev,
-            [rawWord]: result.correct
-                ? "correct"
-                : "incorrect",
-        }));
+        setGuessedWords((prev) => {
+            const updated: Record<string, string> = {
+                ...prev,
+            };
 
-        if (result.done) onComplete(true);
+            updated[rawWord] = result.correct
+                ? "correct"
+                : "incorrect";
+
+            expanded.forEach((w) => {
+                if (prev[w] !== undefined) {
+                    updated[w] = result.correct
+                        ? "correct"
+                        : "incorrect";
+                }
+            });
+
+            return updated;
+        });
+
+        if (result.done) onComplete(result.correct);
     };
 
-    slots.text = words.map((word, i) => (
-        <WordSpan
-            key={i}
-            word={word}
-            guessState={guessedWords[word] ?? "not guessed"}
-            onClick={() => {
-                if (
-                    (guessedWords[word] ??
-                        "not guessed") !== "not guessed"
-                )
-                    return;
-                checkWord(word);
-            }}
-        />
-    ));
-
-    slots.advance = (
+    builder.fillSlot(
+        "text",
+        item.words.map((word, i) => (
+            <WordSpan
+                key={i}
+                word={word}
+                guessState={
+                    guessedWords[word] ?? "not guessed"
+                }
+                onClick={() => {
+                    checkWord(word);
+                }}
+            />
+        ))
+    );
+    builder.fillSlot(
+        "advance",
         <button onClick={handleNext}>Next</button>
     );
     const front = builder.buildFront();
-    return <div>{front}</div>;
+    return (
+        <div>
+            {front}
+            {showBack && (
+                <div>
+                    {correct ? "Correct" : "Incorrect"}
+                </div>
+            )}
+            {showBack && builder.slots.advance}
+        </div>
+    );
 }

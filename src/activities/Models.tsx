@@ -1,14 +1,21 @@
-export type ActivityModelClass<TItem> = new (
+export interface WithId {
+    id: string;
+}
+
+export type ActivityModelClass<TItem extends WithId> = new (
     raw: unknown
 ) => ActivityModel<TItem>;
 
-export abstract class ActivityModel<TItem> {
+export abstract class ActivityModel<TItem extends WithId> {
     protected rawData!: Record<string, TItem[]>;
     protected _generator: Generator<any> | null = null;
     constructor(raw: unknown) {
         if (!this.isValidSet(raw)) {
             throw new Error("Invalid activity data");
         }
+        Object.values(raw).every((set) =>
+            set.every((item) => this.addId(item))
+        );
         this.rawData = raw;
     }
 
@@ -24,7 +31,10 @@ export abstract class ActivityModel<TItem> {
                 set.every((item) => this.isValidItem(item))
         );
     }
-
+    protected addId(item: TItem) {
+        item.id = crypto.randomUUID();
+        return item;
+    }
     protected abstract isValidItem(
         item: unknown
     ): item is TItem;

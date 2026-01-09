@@ -1,23 +1,18 @@
+import React, { ReactNode, Fragment } from "react";
 import { zipByIndex } from "../utils/utils";
 class Builder {
     build(
         storedGroup: Record<string, boolean>,
-        slots: Record<string, any>
+        slots: Record<string, any>,
+        additional?: React.ReactNode[]
     ) {
-        //@ts-expect-error
         let output = [];
         Object.keys(storedGroup).forEach((k) => {
             if (!storedGroup[k]) return;
             output.push(slots[k]);
         });
-        return (
-            <>
-                {
-                    //@ts-expect-error
-                    output
-                }
-            </>
-        );
+        if (additional) output.push(...additional);
+        return <>{output}</>;
     }
 }
 
@@ -93,7 +88,15 @@ export class PageBuilder {
     buildBack() {
         return this.backBuilder.build(
             this.uiSelections.back,
-            this.slots
+            this.slots,
+            [this.slots.feedback, this.slots.advance]
+        );
+    }
+    fillSlot(name: string, node: ReactNode) {
+        this.slots[name] = (
+            <React.Fragment key={name}>
+                {node}
+            </React.Fragment>
         );
     }
 

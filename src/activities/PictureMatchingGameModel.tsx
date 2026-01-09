@@ -1,5 +1,6 @@
 import { ActivityModel } from "./Models";
 type PictureItem = {
+    id: string;
     picture: string;
     answer: string;
     question: string;
@@ -18,9 +19,33 @@ export class PictureMatchingGameModel extends ActivityModel<PictureItem> {
 
         const it = item as any;
 
-        if (typeof it.picture !== "string") return false;
-        if (typeof it.answer !== "string") return false;
+        if (typeof it.picture !== "string") {
+            console.log("picture is not a string");
+            return false;
+        }
 
+        if (typeof it.answer !== "string") {
+            console.log("answer is not a string");
+            return false;
+        }
+        if (typeof it.question !== "string") {
+            console.log("question is not a string");
+            return false;
+        }
+        if (typeof it.ansOptions !== "object") {
+            console.log("ansOptions is not an object");
+            return false;
+        }
+        if (!Array.isArray(it.ansOptions.choices)) {
+            console.log(
+                "ansOptions.choices is not an array"
+            );
+            return false;
+        }
+        if (it.ansOptions.choices.length === 0) {
+            console.log("ansOptions.choices is empty");
+            return false;
+        }
         if (it.ansOptions) {
             if (
                 typeof it.ansOptions !== "object" ||

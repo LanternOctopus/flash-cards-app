@@ -20,5 +20,5 @@ export function normalizeStr(str: string) {
         .replace(/[\u0300-\u036f]/g, "");
 }
 export function stripPunctuation(word: string) {
-    return word.replace(/[^a-zA-Z']/g, "");
+    return word.replace(/[^a-zA-Z\s']/g, "");
 }
