@@ -77,20 +77,14 @@ export class PartsofSpeechModel extends ActivityModel<PartsofSpeechItemNew> {
         if (!this._generator)
             return { item: null, done: true };
         const iteratorResult = this._generator.next();
-        console.log("iteratorResult", iteratorResult);
         const { value, done } = iteratorResult;
 
         if (!done && value) {
-            console.log("value", value);
             this.remainingAnswers = Array.isArray(
                 value.answer
             )
                 ? [...value.answer]
                 : [value.answer];
-            console.log(
-                "this.remainingAnswers",
-                this.remainingAnswers
-            );
             this.wrongAnswerCount = 0;
             this.currentItem = value;
         }

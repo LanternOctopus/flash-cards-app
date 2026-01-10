@@ -1,0 +1,15 @@
+span[data-state="active"] {
+    color: blue;
+}
+
+span[data-state="error"] {
+    color: red;
+}
+
+span[data-state="done"] {
+    color: green;
+}
+
+span[data-state="future"] {
+    color: gray;
+}

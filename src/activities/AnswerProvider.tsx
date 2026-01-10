@@ -1,23 +1,36 @@
 import React from "react";
-
 type AnswerValue = string | string[] | boolean;
-type AnswerContextType = {
-    answer: AnswerValue;
-    checkCorrectness: (input: unknown) => {
-        correct: boolean;
-        done?: boolean;
-    };
+
+type BaseAnswerSchema = {
+    checkCorrectness: (...args: any[]) => any;
     handleNext?: () => void;
 };
 
 export const AnswerContext =
-    React.createContext<AnswerContextType | null>(null);
+    React.createContext<AnswerContextType<any> | null>(
+        null
+    );
+
+export type AnswerContextType<T extends BaseAnswerSchema> =
+    T & {
+        answer: AnswerValue;
+    };
+
+export function useAnswer<
+    T extends BaseAnswerSchema
+>(): AnswerContextType<T> {
+    const ctx = React.useContext(AnswerContext);
+    if (!ctx) {
+        throw new Error(
+            "useAnswer must be used inside AnswerProvider"
+        );
+    }
+    return ctx;
+}
+
 type AnswerProviderProps = {
     answer: AnswerValue;
-    checkCorrectness?: (input: unknown) => {
-        correct: boolean;
-        done?: boolean;
-    };
+    checkCorrectness?: Function;
     handleNext?: () => void;
     children: React.ReactNode;
 };
@@ -54,14 +67,4 @@ export function AnswerProvider({
             {children}
         </AnswerContext.Provider>
     );
-}
-
-export function useAnswer() {
-    const ctx = React.useContext(AnswerContext);
-    if (!ctx) {
-        throw new Error(
-            "useAnswer must be used inside AnswerProvider"
-        );
-    }
-    return ctx;
 }
