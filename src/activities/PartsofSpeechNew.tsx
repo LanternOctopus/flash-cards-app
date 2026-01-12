@@ -7,6 +7,7 @@ import { useQuestion } from "./QuestionContext";
 import { ParentScreen } from "./ParentScreen";
 import expandContractions from "../utils/expandContractions";
 import { stripPunctuation } from "../utils/utils";
+import { PartialTranslation } from "./PartialTranslation";
 export function PartsOfSpeechScreen() {
     return (
         <ParentScreen
@@ -62,14 +63,16 @@ const WordSpan: React.FC<WordSpanProps> = ({
     };
 
     return (
-        <span
-            className={"pos-word"}
-            onClick={() => onClick()}
-            style={style}
-        >
-            {displayWord}
-            {icon}
-        </span>
+        <PartialTranslation>
+            <span
+                className={"pos-word"}
+                onClick={() => onClick()}
+                style={style}
+            >
+                {displayWord}
+                {icon}
+            </span>
+        </PartialTranslation>
     );
 };
 

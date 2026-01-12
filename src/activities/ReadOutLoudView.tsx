@@ -5,6 +5,7 @@ import { useAnswer } from "./AnswerProvider";
 import { useQuestion } from "./QuestionContext";
 import { ParentScreen } from "./ParentScreen";
 import { SpeechRecognitionController } from "../controllers/SpeechRecognition";
+import { PartialTranslation } from "./PartialTranslation";
 import "./ReadOutLoud.css";
 export function ReadOutLoudScreen() {
     return (
@@ -132,7 +133,9 @@ export function ReadOutLoud() {
                         : "future"
                 }
             >
-                {chunk + " "}
+                <PartialTranslation>
+                    {chunk + " "}
+                </PartialTranslation>
             </span>
         ))
     );

@@ -22,3 +22,10 @@ export function normalizeStr(str: string) {
 export function stripPunctuation(word: string) {
     return word.replace(/[^a-zA-Z\s']/g, "");
 }
+
+export function tokenize(text: string): string[] {
+    return text
+        .split(/\b/)
+        .map((t) => t.trim())
+        .filter(Boolean);
+}

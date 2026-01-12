@@ -4,6 +4,7 @@ import { usePageBuilder } from "../components/PageBuilderCTX";
 import { useAnswer } from "./AnswerProvider";
 import { useQuestion } from "./QuestionContext";
 import { ParentScreen } from "./ParentScreen";
+import { PartialTranslation } from "./PartialTranslation";
 export function PictureMatchingGameScreen() {
     return (
         <ParentScreen
@@ -46,7 +47,11 @@ export function PictureMatch() {
     if (!item) return <div>No question</div>;
     builder.fillSlot(
         "question",
-        <div>{item.question}</div>
+        <div>
+            <PartialTranslation>
+                {item.question}
+            </PartialTranslation>
+        </div>
     );
     builder.fillSlot("answer", <div>{item.answer}</div>);
     builder.fillSlot("picture", <img src={item.picture} />);
@@ -88,7 +93,9 @@ export function PictureMatch() {
                 }}
             >
                 {value.map((v, idx) => (
-                    <span key={`${i}-${idx}`}>{v}</span>
+                    <PartialTranslation>
+                        <span key={`${i}-${idx}`}>{v}</span>
+                    </PartialTranslation>
                 ))}
             </button>
         ),
