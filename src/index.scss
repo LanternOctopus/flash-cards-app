@@ -1,0 +1,55 @@
+@import "@picocss/pico/css/pico.lime.min.css";
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont,
+        "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+        "Cantarell", "Fira Sans", "Droid Sans",
+        "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    user-select: none;
+}
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas,
+        "Courier New", monospace;
+}
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+main {
+    margin: 0 auto;
+    width: 95%;
+    max-width: 100%;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+nav details > summary {
+    line-height: 1;
+    padding: var(--nav-element-spacing-vertical)
+        var(--nav-element-spacing-horizontal);
+}
+
+@media (min-width: 1024px) {
+    main {
+        width: 85%;
+        max-width: 1240px;
+    }
+}

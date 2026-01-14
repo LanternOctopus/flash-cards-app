@@ -1,44 +1,143 @@
 // App.js
-import React from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
-import Home from './components/Home';
-import AllActivities from './components/AllActivities';
-import FlashCards from './components/FlashCards';
-import Typing from './components/Typing';
-import PartsOfSpeech from './components/PartsOfSpeech';
-import Conversations from './components/Conversations';
-import Scrambler from './components/Scrambler';
-import Sequences from './components/Sequences';
+import React from "react";
+import { Routes, Route, Link } from "react-router-dom";
+import Home from "./components/Home";
+import AllActivities from "./components/AllActivities";
+import FlashCards from "./components/FlashCards";
+import Typing from "./components/Typing";
+import Conversations from "./components/Conversations";
+import Scrambler from "./components/Scrambler";
+import Sequences from "./components/Sequences";
+import { PictureMatchingGameScreen } from "./activities/PictureMatchingGame";
+import { ReadOutLoudScreen } from "./activities/ReadOutLoudView";
+import { PartsOfSpeechScreen } from "./activities/PartsofSpeechNew";
 const App: React.FC = () => {
-  return (
-    <div>
-      <nav>
-        {/* <Link to="/">Home</Link> |{' '} */}
-        <Link to="/allactivities">All Activities</Link> |{' '}
-        <Link to="/flashcards">Flash Cards</Link> |{' '}
-        <Link to="/typing">Typing</Link> |{' '}
-        <Link to="/partsofspeech">Parts Of Speech</Link> |{' '}
-        <Link to="/conversations">Conversations</Link> |{' '}
-        <Link to="/scrambler">Scrambler</Link> |{' '}
-        <Link to="/sequences">Sequences</Link> |{' '}
-        {/* 
-        <Link to="/contact">Contact</Link> */}
-      </nav>
+    return (
+        <>
+            <header
+                style={{ width: "90%", margin: "0 auto" }}
+            >
+                <nav>
+                    <ul>
+                        <li>
+                            <Link to="/allactivities">
+                                Blog
+                            </Link>
+                        </li>
+                        <li>
+                            <details className="dropdown">
+                                <summary>
+                                    Activities
+                                </summary>
+                                <ul dir="rtl">
+                                    <li>
+                                        <Link to="/allactivities">
+                                            Combined
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/flashcards">
+                                            Flash Cards
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/typing">
+                                            Typing
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/conversations">
+                                            Conversations
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/scrambler">
+                                            Scrambler
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/sequences">
+                                            Sequences
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/picturematchinggame">
+                                            Picture Matching
+                                            Game
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/readoutloud">
+                                            Read Out Loud
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/partsofspeech">
+                                            Parts Of Speech
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </details>
+                        </li>
+                    </ul>
+                </nav>
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/allactivities" element={<AllActivities />} />
-        <Route path="/flashcards" element={<FlashCards />} />
-        <Route path="/typing" element={<Typing />} />
-        <Route path="/partsofspeech" element={<PartsOfSpeech />} />
-        <Route path="/conversations" element={<Conversations />} />
-        <Route path="/scrambler" element={<Scrambler />} />
-        <Route path="/sequences" element={<Sequences />} />
-        {/* 
-        <Route path="/contact" element={<Contact />} /> */}
-      </Routes>
-    </div>
-  );
-}
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route
+                        path="/allactivities"
+                        element={<AllActivities />}
+                    />
+                    <Route
+                        path="/flashcards"
+                        element={<FlashCards />}
+                    />
+                    <Route
+                        path="/typing"
+                        element={<Typing />}
+                    />
+                    <Route
+                        path="/partsofspeech"
+                        element={<PartsOfSpeechScreen />}
+                    />
+                    <Route
+                        path="/conversations"
+                        element={<Conversations />}
+                    />
+                    <Route
+                        path="/scrambler"
+                        element={<Scrambler />}
+                    />
+                    <Route
+                        path="/sequences"
+                        element={<Sequences />}
+                    />
+                    <Route
+                        path="/picturematchinggame"
+                        element={
+                            <PictureMatchingGameScreen />
+                        }
+                    />
+                    <Route
+                        path="/readoutloud"
+                        element={<ReadOutLoudScreen />}
+                    />
+                </Routes>
+            </header>
+            <footer
+                style={{
+                    display: "flex",
+                    justifyContent: "center",
+                }}
+            >
+                <small>
+                    May this offering contribute to the
+                    freedom of all sentient beings.
+                </small>
+                <small>© 2026 All Rights Reserved.</small>
+            </footer>
+        </>
+    );
+};
 
 export default App;

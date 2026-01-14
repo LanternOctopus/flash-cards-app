@@ -36,7 +36,7 @@ const WordSpan: React.FC<WordSpanProps> = ({
     if (word.includes("'")) {
         marginLeft = 0;
     }
-    const borderColor =
+    const outline =
         guessState === "not guessed"
             ? "none"
             : guessState === "correct"
@@ -53,25 +53,29 @@ const WordSpan: React.FC<WordSpanProps> = ({
             ? word
             : expandContractions(word);
     const style: React.CSSProperties = {
-        display: "inline-block",
-        padding: "0",
-        border: borderColor,
-        borderRadius: 3,
-        cursor: "default",
-        userSelect: "none",
-        marginLeft: marginLeft,
+        outline: outline,
+        cursor: "pointer",
     };
 
     return (
         <PartialTranslation>
-            <span
-                className={"pos-word"}
-                onClick={() => onClick()}
-                style={style}
-            >
+            <label style={style}>
+                <input
+                    type="checkbox"
+                    name="pos"
+                    style={{ display: "none" }} // Hides the actual box, but the label remains clickable
+                    onClick={onClick}
+                    aria-invalid={
+                        guessState === "correct"
+                            ? "false"
+                            : guessState === "wrong"
+                            ? "true"
+                            : undefined
+                    }
+                />
                 {displayWord}
                 {icon}
-            </span>
+            </label>
         </PartialTranslation>
     );
 };
@@ -160,16 +164,31 @@ export function PartsOfSpeechNew() {
         "advance",
         <button onClick={handleNext}>Next</button>
     );
+    const style = {
+        display: "flex",
+        gap: ".3rem",
+        flexFlow: "row wrap",
+    };
     const front = builder.buildFront();
     return (
-        <div>
-            {front}
-            {showBack && (
-                <div>
-                    {correct ? "Correct" : "Incorrect"}
-                </div>
-            )}
-            {showBack && builder.slots.advance}
-        </div>
+        <article>
+            <form>
+                <fieldset style={style}>
+                    <legend>
+                        <h2>
+                            Find {item.answer.length}{" "}
+                            verb(s)
+                        </h2>
+                    </legend>
+                    {front}
+                </fieldset>
+                {showBack && (
+                    <div>
+                        {correct ? "Correct" : "Incorrect"}
+                    </div>
+                )}
+                {showBack && builder.slots.advance}
+            </form>
+        </article>
     );
 }

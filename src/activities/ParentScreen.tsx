@@ -23,9 +23,13 @@ export function ParentScreen({
         >
             <PageBuilderProvider>
                 <ToggleBoxController />
-                <SequenceController modelClass={modelClass}>
-                    {children}
-                </SequenceController>
+                <main>
+                    <SequenceController
+                        modelClass={modelClass}
+                    >
+                        {children}
+                    </SequenceController>
+                </main>
             </PageBuilderProvider>
         </DataProvider>
     );

@@ -13,6 +13,16 @@ import { Lexicon } from "./LexiconModel";
 type PartialTranslationProps = {
     children: ReactNode;
 };
+function isElementWithChildren(
+    el: unknown
+): el is React.ReactElement<PropsWithChildren<any>> {
+    const element = el as ReactElement<
+        PropsWithChildren<any>
+    >;
+
+    return isValidElement(el) && !!element.props?.children;
+}
+
 export function PartialTranslation({
     children,
 }: PartialTranslationProps): JSX.Element {
@@ -31,7 +41,7 @@ export function PartialTranslation({
                             word + " "
                         )
                     );
-                } else if (isValidElement(child)) {
+                } else if (isElementWithChildren(child)) {
                     const element =
                         child as ReactElement<PropsWithChildren>;
 

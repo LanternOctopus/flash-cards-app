@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useRef } from "react";
 import { useData } from "../activities/DataProvider";
 export const ToggleBoxController = () => {
     const { config, updateConfig, uiSelections } =
@@ -36,6 +36,7 @@ export function ToggleBox({
     uiSelections,
     updateStorage,
 }: ToggleBoxProps) {
+    const dialogRef = useRef<HTMLDialogElement>(null);
     const handleToggle = (key: string, group: string) => {
         let newSelections: Record<string, object>;
         newSelections = { ...uiSelections };
@@ -46,6 +47,11 @@ export function ToggleBox({
         updateStorage(newSelections);
     };
 
+    const closeDialog = () => {
+        if (dialogRef.current?.open) {
+            dialogRef.current.close();
+        }
+    };
     const renderToggle = (
         key: string,
         checked: boolean,
@@ -54,6 +60,7 @@ export function ToggleBox({
         <div key={`${group}-${key}`}>
             <label>
                 <input
+                    role="switch"
                     type="checkbox"
                     name={group + "-" + key}
                     checked={checked}
@@ -65,38 +72,80 @@ export function ToggleBox({
             </label>
         </div>
     );
-
+    const openDialog = () => {
+        const dialog = dialogRef.current;
+        if (!dialog || dialog.open) return;
+        dialog.showModal();
+    };
     return (
-        <div className="toggle-box">
-            <h3>Front</h3>
-            {Object.keys(uiSelections.front).map((key) =>
-                renderToggle(
-                    key,
-                    //@ts-expect-error
-                    uiSelections.front[key],
-                    "front"
-                )
-            )}
-            <hr />
-            <h3>Back</h3>
-            {Object.keys(uiSelections.back).map((key) =>
-                renderToggle(
-                    key,
-                    //@ts-expect-error
-                    uiSelections.back[key],
-                    "back"
-                )
-            )}
-            <hr />
-            <h3>Categories</h3>
-            {Object.keys(uiSelections.choices).map((key) =>
-                renderToggle(
-                    key,
-                    //@ts-expect-error
-                    uiSelections.choices[key],
-                    "choices"
-                )
-            )}
-        </div>
+        <>
+            <button
+                onClick={openDialog}
+                data-tooltip="Open configuration"
+                data-placement="left"
+                style={{
+                    position: "fixed",
+                    top: "50%",
+                    right: "1rem",
+                    transform: "translateY(-50%)",
+                }}
+                aria-label="Open configuration"
+            >
+                ⚙️
+            </button>
+            <dialog className="toggle-box" ref={dialogRef}>
+                <article
+                    style={{
+                        position: "relative",
+                    }}
+                >
+                    <button
+                        aria-label="Close"
+                        rel="prev"
+                        onClick={closeDialog}
+                        style={{
+                            position: "absolute",
+                            right: "0",
+                            top: "1rem",
+                        }}
+                    ></button>
+                    <header>
+                        Change the Configuration
+                    </header>
+                    <h3>Front</h3>
+
+                    {Object.keys(uiSelections.front).map(
+                        (key) =>
+                            renderToggle(
+                                key,
+                                //@ts-expect-error
+                                uiSelections.front[key],
+                                "front"
+                            )
+                    )}
+                    <h3>Back</h3>
+                    {Object.keys(uiSelections.back).map(
+                        (key) =>
+                            renderToggle(
+                                key,
+                                //@ts-expect-error
+                                uiSelections.back[key],
+                                "back"
+                            )
+                    )}
+                    {Object.keys(uiSelections.choices)
+                        .length > 0 && <h3>Categories</h3>}
+                    {Object.keys(uiSelections.choices).map(
+                        (key) =>
+                            renderToggle(
+                                key,
+                                //@ts-expect-error
+                                uiSelections.choices[key],
+                                "choices"
+                            )
+                    )}
+                </article>
+            </dialog>
+        </>
     );
 }
