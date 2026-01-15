@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { PictureMatchingGameModel } from "./PictureMatchingGameModel";
-import { usePageBuilder } from "../components/PageBuilderCTX";
+import { useVisibilityGate } from "../components/VisibilityGateContext";
 import { useAnswer } from "./AnswerProvider";
 import { useQuestion } from "./QuestionContext";
 import { ParentScreen } from "./ParentScreen";
@@ -34,9 +34,13 @@ type PictureItem = {
     id: string;
 };
 export function PictureMatch() {
-    const builder = usePageBuilder();
-    const { answer, checkCorrectness, handleNext } =
-        useAnswer();
+    const builder = useVisibilityGate();
+    const {
+        answer,
+        checkCorrectness,
+        handleNext,
+        getImageUrl,
+    } = useAnswer();
     const [showBack, setShowBack] = useState(false);
     const [correct, setCorrect] = useState(false);
     const item = { ...useQuestion<PictureItem>() };
@@ -45,71 +49,127 @@ export function PictureMatch() {
         setCorrect(false);
     }, [item.id]);
     if (!item) return <div>No question</div>;
-    builder.fillSlot(
-        "question",
-        <div>
-            <PartialTranslation>
-                {item.question}
-            </PartialTranslation>
-        </div>
-    );
-    builder.fillSlot("answer", <div>{item.answer}</div>);
-    builder.fillSlot("picture", <img src={item.picture} />);
-    builder.fillSlot(
-        "translation",
-        <div>{item.translation}</div>
-    );
-    builder.fillSlot("tense", <div>{item.tense}</div>);
-    builder.fillSlot("subject", <div>{item.subject}</div>);
-    builder.fillSlot(
-        "transliteration",
-        <div>{item.transliteration}</div>
-    );
-    builder.fillSlot(
-        "advance",
-        <button onClick={handleNext}>Next</button>
-    );
-    builder.fillSlot(
-        "feedback",
-        correct ? "Correct" : "Incorrect"
-    );
-    const front = builder.buildFront();
-    const back = builder.buildBack();
+
     const onComplete = (isCorrect: boolean) => {
         setShowBack(true);
         setCorrect(isCorrect);
         return;
     };
-    const choices = builder.buildChoices(
-        item.ansOptions,
-        (value, i) => (
-            <button
-                key={`${item.id}-choice-${i}`}
-                onClick={() => {
-                    const result = checkCorrectness(
-                        value[0]
-                    );
-                    onComplete(result.correct);
-                }}
-            >
-                {value.map((v, idx) => (
-                    <PartialTranslation>
-                        <span key={`${i}-${idx}`}>{v}</span>
-                    </PartialTranslation>
-                ))}
-            </button>
-        ),
-        (children) => <div>{children}</div>
+    const question = builder.showSlot("question", {
+        front: <div className="">{item.question}</div>,
+        back: <div className="">{item.question}</div>,
+    });
+    const answerView = builder.showSlot("answer", {
+        front: <div className="">{item.answer}</div>,
+        back: <div className="">{item.answer}</div>,
+    });
+
+    const picture = builder.showSlot("picture", {
+        front: <img src={getImageUrl(item.picture)} />,
+        back: <img src={getImageUrl(item.picture)} />,
+    });
+    const translation = builder.showSlot("translation", {
+        front: <div className="">{item.translation}</div>,
+        back: <div className="">{item.translation}</div>,
+    });
+
+    const tense = builder.showSlot("tense", {
+        front: <div className="">{item.tense}</div>,
+        back: <div className="">{item.tense}</div>,
+    });
+
+    const subject = builder.showSlot("subject", {
+        front: <div className="">{item.subject}</div>,
+        back: <div className="">{item.subject}</div>,
+    });
+
+    const transliteration = builder.showSlot(
+        "transliteration",
+        {
+            front: (
+                <div className="">
+                    {item.transliteration}
+                </div>
+            ),
+            back: (
+                <div className="">
+                    {item.transliteration}
+                </div>
+            ),
+        }
     );
+    const zippedChoices = builder.getZippedChoices(
+        item.ansOptions
+    );
+
     return (
         <>
             {!showBack && (
                 <>
-                    <div>{front}</div>
-                    <div>{choices}</div>
+                    {question.front}
+                    {answerView.front}
+                    {translation.front}
+                    {tense.front}
+                    {subject.front}
+                    {transliteration.front}
+                    <div>
+                        {zippedChoices.map(
+                            (choiceArray, i) => (
+                                <button
+                                    key={`${item.id}-choice-${i}`}
+                                    onClick={() => {
+                                        const result =
+                                            checkCorrectness(
+                                                choiceArray[0]
+                                            );
+                                        onComplete(
+                                            result.correct
+                                        );
+                                    }}
+                                >
+                                    {choiceArray.map(
+                                        (v, idx) => {
+                                            if (idx > 0) {
+                                                return (
+                                                    <small
+                                                        key={`${i}-${idx}`}
+                                                    >
+                                                        {v}
+                                                    </small>
+                                                );
+                                            }
+                                            return (
+                                                <PartialTranslation
+                                                    key={`${i}-${idx}`}
+                                                >
+                                                    <p>
+                                                        {v}
+                                                    </p>
+                                                </PartialTranslation>
+                                            );
+                                        }
+                                    )}
+                                </button>
+                            )
+                        )}
+                    </div>
+                    {picture.front}
                 </>
             )}
-            {showBack && <div>{back}</div>}
+            {showBack && (
+                <div>
+                    {question.back}
+                    {answerView.back}
+                    {picture.back}
+                    {translation.back}
+                    {tense.back}
+                    {subject.back}
+                    {transliteration.back}
+                    <button onClick={handleNext}>
+                        Next
+                    </button>
+                </div>
+            )}
         </>
     );
 }

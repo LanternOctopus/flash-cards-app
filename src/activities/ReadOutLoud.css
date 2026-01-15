@@ -1,15 +1,16 @@
-span[data-state="active"] {
+*[data-state="active"] {
     color: blue;
+    font-size: 2rem;
 }
 
-span[data-state="error"] {
+*[data-state="error"] {
     color: red;
 }
 
-span[data-state="done"] {
+*[data-state="done"] {
     color: green;
 }
 
-span[data-state="future"] {
+*[data-state="future"] {
     color: gray;
 }

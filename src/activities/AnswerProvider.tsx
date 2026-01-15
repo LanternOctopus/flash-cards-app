@@ -3,6 +3,7 @@ type AnswerValue = string | string[] | boolean;
 
 type BaseAnswerSchema = {
     checkCorrectness: (...args: any[]) => any;
+    getImageUrl: (image: string) => string;
     handleNext?: () => void;
 };
 
@@ -31,6 +32,7 @@ export function useAnswer<
 type AnswerProviderProps = {
     answer: AnswerValue;
     checkCorrectness?: Function;
+    getImageUrl?: Function;
     handleNext?: () => void;
     children: React.ReactNode;
 };
@@ -39,6 +41,7 @@ export function AnswerProvider({
     answer,
     checkCorrectness,
     handleNext,
+    getImageUrl,
     children,
 }: AnswerProviderProps) {
     const defaultCheckCorrectness = (input: unknown) => {
@@ -53,6 +56,9 @@ export function AnswerProvider({
 
         return { correct: input === answer };
     };
+    const defaultGetImageUrl = (image: string) => {
+        return `${process.env.PUBLIC_URL}/images/${image}`;
+    };
 
     return (
         <AnswerContext.Provider
@@ -61,6 +67,8 @@ export function AnswerProvider({
                 checkCorrectness:
                     checkCorrectness ??
                     defaultCheckCorrectness,
+                getImageUrl:
+                    getImageUrl ?? defaultGetImageUrl,
                 handleNext,
             }}
         >

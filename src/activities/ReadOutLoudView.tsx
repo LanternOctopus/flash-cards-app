@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import { ReadOutLoudModel } from "./ReadOutLoudModel";
-import { usePageBuilder } from "../components/PageBuilderCTX";
+import { useVisibilityGate } from "../components/VisibilityGateContext";
 import { useAnswer } from "./AnswerProvider";
 import { useQuestion } from "./QuestionContext";
 import { ParentScreen } from "./ParentScreen";
@@ -38,11 +38,12 @@ type ReadOutLoudAnswer = {
         correct: boolean;
         done?: boolean;
     };
+    getImageUrl: (image: string) => string;
     handleNext: () => void;
 };
 
 export function ReadOutLoud() {
-    const builder = usePageBuilder();
+    const builder = useVisibilityGate();
     const controllerRef = useRef<any>(null);
     const itemRef = useRef<ReadOutLoudItem>(null);
     const [listening, setListening] = useState(false);
@@ -118,10 +119,9 @@ export function ReadOutLoud() {
         controllerRef.current.start();
     }, [item.id]);
 
-    builder.fillSlot(
-        "text",
-        item.chunks.map((chunk: string, i: number) => (
-            <span
+    const textChunkJSX = item.chunks.map(
+        (chunk: string, i: number) => (
+            <p
                 key={i}
                 data-state={
                     i === lastErrorIndex
@@ -136,30 +136,49 @@ export function ReadOutLoud() {
                 <PartialTranslation>
                     {chunk + " "}
                 </PartialTranslation>
-            </span>
-        ))
+            </p>
+        )
     );
 
-    const front = builder.buildFront();
-    const handleListeningToggle = () => {
-        if (listening) {
-            console.log("stopping");
-            controllerRef.current.stop();
-            setListening(false);
-        } else {
-            console.log("starting");
-            controllerRef.current.start();
-            setListening(true);
-        }
-    };
+    // Use showSlot to handle visibility for front/back
+    const textSlots = builder.showSlot("text", {
+        front: textChunkJSX,
+        back: textChunkJSX,
+    });
+
     return (
         <>
-            <div>
-                <button onClick={handleListeningToggle}>
-                    {listening ? "Stop" : "Start"}
-                </button>
-                {front}
-            </div>
+            <article>
+                {textSlots.front}
+                <label
+                    aria-checked={listening}
+                    style={{ cursor: "pointer" }}
+                >
+                    <input
+                        role="switch"
+                        type="checkbox"
+                        checked={listening}
+                        onChange={() => {
+                            if (listening) {
+                                console.log("stopping");
+                                controllerRef.current.stop();
+                                setListening(false);
+                            } else {
+                                console.log("starting");
+                                controllerRef.current.start();
+                                setListening(true);
+                            }
+                        }}
+                    />
+                    {listening
+                        ? "Stop Listening"
+                        : "Start Listening"}
+                </label>
+                <img
+                    src={"storyCover.png"}
+                    alt="storyCover"
+                />
+            </article>
             <div>{spokenPhones}</div>
         </>
     );

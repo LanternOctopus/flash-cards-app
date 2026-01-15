@@ -40,10 +40,7 @@ export function DataProvider<TConfig, TItems>({
     const [slots, setSlots] = React.useState<
         Record<string, object>
     >({});
-    console.log("DataProvider render");
-    console.log("Config path:", configPath);
-    console.log("Item path:", itemPath);
-    console.log("Storage key:", storageKey);
+
     React.useEffect(() => {
         console.log("useEffect registered");
         async function load() {

@@ -1,17 +1,15 @@
 fields:
-    picture: { type: image }
     question: { type: text }
     answer: { type: text }
     translation: { type: text }
     transliteration: { type: text }
     tense: { type: text }
     subject: { type: text }
-
+    picture: { type: image }
 frontDefault:
-    - picture
     - translation
     - transliteration
-
+    - picture
 choicesDefault:
     - choices
     - translations

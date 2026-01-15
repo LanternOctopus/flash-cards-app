@@ -1,5 +1,5 @@
 verbs:
-    - picture: verb1.png
+    - picture: picturematchinggame\verbs\verb.png
       question: answer1
       answer: answer1
       translation: translation1

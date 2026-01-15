@@ -1,4 +1,4 @@
-import { PageBuilderProvider } from "../components/PageBuilderCTX";
+import { VisibilityGateProvider } from "../components/VisibilityGateContext";
 import { ToggleBoxController } from "../components/ToggleBox";
 import { DataProvider } from "./DataProvider";
 import { SequenceController } from "./SequenceController";
@@ -21,7 +21,7 @@ export function ParentScreen({
             configPath={configPath}
             storageKey={storageKey}
         >
-            <PageBuilderProvider>
+            <VisibilityGateProvider>
                 <ToggleBoxController />
                 <main>
                     <SequenceController
@@ -30,7 +30,7 @@ export function ParentScreen({
                         {children}
                     </SequenceController>
                 </main>
-            </PageBuilderProvider>
+            </VisibilityGateProvider>
         </DataProvider>
     );
 }

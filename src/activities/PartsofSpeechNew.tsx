@@ -1,7 +1,7 @@
 import React, { use, useEffect, useState } from "react";
 
 import { PartsofSpeechModel } from "./PartsofSpeechModel";
-import { usePageBuilder } from "../components/PageBuilderCTX";
+import { useVisibilityGate } from "../components/VisibilityGateContext";
 import { useAnswer } from "./AnswerProvider";
 import { useQuestion } from "./QuestionContext";
 import { ParentScreen } from "./ParentScreen";
@@ -88,7 +88,7 @@ type PartsofSpeechItemNew = {
 };
 export function PartsOfSpeechNew() {
     const item = useQuestion<PartsofSpeechItemNew>();
-    const builder = usePageBuilder();
+    const builder = useVisibilityGate();
     const { checkCorrectness, handleNext } = useAnswer();
 
     const [guessedWords, setGuessedWords] = useState<
@@ -144,32 +144,33 @@ export function PartsOfSpeechNew() {
 
         if (result.done) onComplete(result.correct);
     };
-
-    builder.fillSlot(
-        "text",
-        item.words.map((word, i) => (
-            <WordSpan
-                key={i}
-                word={word}
-                guessState={
-                    guessedWords[word] ?? "not guessed"
-                }
-                onClick={() => {
-                    checkWord(word);
-                }}
-            />
-        ))
-    );
-    builder.fillSlot(
-        "advance",
-        <button onClick={handleNext}>Next</button>
-    );
     const style = {
         display: "flex",
         gap: ".3rem",
         flexFlow: "row wrap",
     };
-    const front = builder.buildFront();
+
+    // Build the word JSX once
+    const wordSpans = item.words.map((word, i) => (
+        <WordSpan
+            key={i}
+            word={word}
+            guessState={guessedWords[word] ?? "not guessed"}
+            onClick={() => checkWord(word)}
+        />
+    ));
+
+    // Build the advance button JSX once
+    const advanceButton = (
+        <button onClick={handleNext}>Next</button>
+    );
+
+    // Use VisibilityGate to handle slot visibility
+    const slots = builder.showSlot("text", {
+        front: wordSpans,
+        back: wordSpans,
+    });
+
     return (
         <article>
             <form>
@@ -180,14 +181,16 @@ export function PartsOfSpeechNew() {
                             verb(s)
                         </h2>
                     </legend>
-                    {front}
+                    {slots.front}
                 </fieldset>
+
                 {showBack && (
                     <div>
                         {correct ? "Correct" : "Incorrect"}
                     </div>
                 )}
-                {showBack && builder.slots.advance}
+
+                {showBack && advanceButton}
             </form>
         </article>
     );
