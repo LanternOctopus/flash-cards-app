@@ -10,7 +10,7 @@ import "./ReadOutLoud.css";
 export function ReadOutLoudScreen() {
     return (
         <ParentScreen
-            itemPath="ReadOutLoud.yaml"
+            itemPath="whatmybodycando.yaml"
             configPath="ReadOutLoudConfig.yaml"
             storageKey="readOutLoud"
             modelClass={ReadOutLoudModel}
@@ -36,7 +36,7 @@ type ReadOutLoudAnswer = {
     checkCorrectness: (
         input: unknown,
         target: unknown,
-        setSpokenPhones: any
+        setSpokenPhones: any,
     ) => {
         correct: boolean;
         done?: boolean;
@@ -87,19 +87,19 @@ export function ReadOutLoud() {
                     itemRef.current.chunks[
                         currentIndexRef.current
                     ],
-                    setSpokenPhones
+                    setSpokenPhones,
                 ).correct;
                 if (!isCorrect) {
                     setLastErrorIndex(
-                        currentIndexRef.current
+                        currentIndexRef.current,
                     );
                     if (errorTimeoutRef.current)
                         clearTimeout(
-                            errorTimeoutRef.current
+                            errorTimeoutRef.current,
                         );
                     errorTimeoutRef.current = setTimeout(
                         () => setLastErrorIndex(-1),
-                        300
+                        300,
                     );
                     return;
                 }
@@ -144,17 +144,17 @@ export function ReadOutLoud() {
                     i === lastErrorIndex
                         ? "error"
                         : i < currentIndex
-                        ? "done"
-                        : i === currentIndex
-                        ? "active"
-                        : "future"
+                          ? "done"
+                          : i === currentIndex
+                            ? "active"
+                            : "future"
                 }
             >
                 <PartialTranslation>
                     {chunk + " "}
                 </PartialTranslation>
             </span>
-        )
+        ),
     );
 
     // Use showSlot to handle visibility for front/back

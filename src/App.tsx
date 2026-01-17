@@ -11,6 +11,11 @@ import Sequences from "./components/Sequences";
 import { PictureMatchingGameScreen } from "./activities/PictureMatchingGame";
 import { ReadOutLoudScreen } from "./activities/ReadOutLoudView";
 import { PartsOfSpeechScreen } from "./activities/PartsofSpeechNew";
+import { SentenceActivitiesIndex } from "./pages/SentenceActivitiesIndex";
+import { ParentScreen } from "./activities/ParentScreen";
+import { ReadOutLoudModel } from "./activities/ReadOutLoudModel";
+import { ReadOutLoud } from "./activities/ReadOutLoudView";
+
 const App: React.FC = () => {
     return (
         <>
@@ -20,8 +25,8 @@ const App: React.FC = () => {
                 <nav>
                     <ul>
                         <li>
-                            <Link to="/allactivities">
-                                Blog
+                            <Link to="/sentenceactivities">
+                                Sentence Activities
                             </Link>
                         </li>
                         <li>
@@ -120,7 +125,103 @@ const App: React.FC = () => {
                     path="/readoutloud"
                     element={<ReadOutLoudScreen />}
                 />
+                <Route
+                    path="/sentenceactivities"
+                    element={<SentenceActivitiesIndex />}
+                />
+                <Route
+                    path="/readoutloud/whimsicalcontractions"
+                    element={
+                        <ParentScreen
+                            itemPath="whimsicalcontractions.yaml"
+                            configPath="ReadOutLoudConfig.yaml"
+                            storageKey="readOutLoud"
+                            modelClass={ReadOutLoudModel}
+                        >
+                            <ReadOutLoud />
+                        </ParentScreen>
+                    }
+                />
+                <Route
+                    path="/readoutloud/adognamedchai"
+                    element={
+                        <ParentScreen
+                            itemPath="adognamedchai.yaml"
+                            configPath="ReadOutLoudConfig.yaml"
+                            storageKey="readOutLoud"
+                            modelClass={ReadOutLoudModel}
+                        >
+                            <ReadOutLoud />
+                        </ParentScreen>
+                    }
+                />
+                <Route
+                    path="/readoutloud/learningcanchangeus"
+                    element={
+                        <ParentScreen
+                            itemPath="learningcanchangeus.yaml"
+                            configPath="ReadOutLoudConfig.yaml"
+                            storageKey="readOutLoud"
+                            modelClass={ReadOutLoudModel}
+                        >
+                            <ReadOutLoud />
+                        </ParentScreen>
+                    }
+                />
+                <Route
+                    path="/readoutloud/thebusydayoflittlesteps"
+                    element={
+                        <ParentScreen
+                            itemPath="thebusydayoflittlesteps.yaml"
+                            configPath="ReadOutLoudConfig.yaml"
+                            storageKey="readOutLoud"
+                            modelClass={ReadOutLoudModel}
+                        >
+                            <ReadOutLoud />
+                        </ParentScreen>
+                    }
+                />
+                <Route
+                    path="/readoutloud/wordsthattravel"
+                    element={
+                        <ParentScreen
+                            itemPath="wordsthattravel.yaml"
+                            configPath="ReadOutLoudConfig.yaml"
+                            storageKey="readOutLoud"
+                            modelClass={ReadOutLoudModel}
+                        >
+                            <ReadOutLoud />
+                        </ParentScreen>
+                    }
+                />
+                <Route
+                    path="/readoutloud/wordsyoucandoatyourdesk"
+                    element={
+                        <ParentScreen
+                            itemPath="wordsyoucandoatyourdesk.yaml"
+                            configPath="ReadOutLoudConfig.yaml"
+                            storageKey="readOutLoud"
+                            modelClass={ReadOutLoudModel}
+                        >
+                            <ReadOutLoud />
+                        </ParentScreen>
+                    }
+                />
+                <Route
+                    path="/readoutloud/whatmybodycando"
+                    element={
+                        <ParentScreen
+                            itemPath="whatmybodycando.yaml"
+                            configPath="ReadOutLoudConfig.yaml"
+                            storageKey="readOutLoud"
+                            modelClass={ReadOutLoudModel}
+                        >
+                            <ReadOutLoud />
+                        </ParentScreen>
+                    }
+                />
             </Routes>
+
             <footer
                 style={{
                     display: "flex",
