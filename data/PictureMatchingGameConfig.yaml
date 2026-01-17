@@ -1,0 +1,20 @@
+fields:
+    question: { type: text }
+    answer: { type: text }
+    translation: { type: text }
+    transliteration: { type: text }
+    picture: { type: image }
+frontDefault:
+    - translation
+    - transliteration
+    - picture
+choicesDefault:
+    - choices
+backDefault:
+    - answer
+    - picture
+
+choice_categories:
+    - choices
+    - translations
+    - transliterations
