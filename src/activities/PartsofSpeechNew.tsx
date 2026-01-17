@@ -162,7 +162,9 @@ export function PartsOfSpeechNew() {
 
     // Build the advance button JSX once
     const advanceButton = (
-        <button onClick={handleNext}>Next</button>
+        <button type="button" onClick={handleNext}>
+            Next
+        </button>
     );
 
     // Use VisibilityGate to handle slot visibility

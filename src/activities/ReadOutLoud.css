@@ -1,6 +1,9 @@
 *[data-state="active"] {
-    color: blue;
     font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary);
+    transform: scale(1.05);
+    filter: blur(0);
 }
 
 *[data-state="error"] {
@@ -8,9 +11,39 @@
 }
 
 *[data-state="done"] {
-    color: green;
+    color: var(--ins-color);
+    opacity: 0.6;
+    font-size: 1.1rem;
 }
 
 *[data-state="future"] {
-    color: gray;
+    color: var(--secondary);
+    opacity: 0.3;
+    filter: blur(1.5px);
+    pointer-events: none;
+}
+
+.image-wrapper {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+.image-wrapper img {
+    max-height: 250px;
+    width: auto;
+    border: 4px solid var(--muted-border-color);
+    border-radius: 20px;
+    box-shadow: var(--box-shadow);
+}
+
+/* Center the switch */
+.switch-container {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 2rem;
+    color: var(--secondary);
 }

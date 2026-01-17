@@ -29,3 +29,7 @@ export function tokenize(text: string): string[] {
         .map((t) => t.trim())
         .filter(Boolean);
 }
+
+export const globalGetimageURL = (image: string) => {
+    return `${process.env.PUBLIC_URL}/images/${image}`;
+};

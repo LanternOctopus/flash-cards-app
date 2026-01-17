@@ -27,6 +27,9 @@ type ReadOutLoudItem = {
     answer: string;
     id: string;
     chunks: string[];
+    picture?: string;
+    caption?: string;
+    alt?: string;
 };
 
 type ReadOutLoudAnswer = {
@@ -47,16 +50,20 @@ export function ReadOutLoud() {
     const controllerRef = useRef<any>(null);
     const itemRef = useRef<ReadOutLoudItem>(null);
     const [listening, setListening] = useState(false);
-    const { checkCorrectness, handleNext } =
+    const { checkCorrectness, handleNext, getImageUrl } =
         useAnswer<ReadOutLoudAnswer>();
     const [spokenPhones, setSpokenPhones] =
         useState<any>(null);
     const item = useQuestion<ReadOutLoudItem>();
+    console.log(item);
     const [currentIndex, setCurrentIndex] = useState(0);
     const currentIndexRef = useRef(0);
     const [lastErrorIndex, setLastErrorIndex] =
         useState(-1);
     const errorTimeoutRef = useRef<any>(null);
+    const [image, setImage] = useState("");
+    const [caption, setCaption] = useState("");
+    const [alt, setAlt] = useState("");
     const advanceIndex = () => {
         if (
             itemRef.current &&
@@ -76,7 +83,9 @@ export function ReadOutLoud() {
                 if (!itemRef.current) return;
                 const isCorrect = checkCorrectness(
                     text,
-                    itemRef.current.text,
+                    itemRef.current.chunks[
+                        currentIndexRef.current
+                    ],
                     setSpokenPhones
                 ).correct;
                 if (!isCorrect) {
@@ -91,6 +100,7 @@ export function ReadOutLoud() {
                         () => setLastErrorIndex(-1),
                         300
                     );
+                    return;
                 }
                 advanceIndex();
             },
@@ -117,6 +127,9 @@ export function ReadOutLoud() {
 
         controllerRef.current.stop();
         controllerRef.current.start();
+        if (item?.picture) setImage(item.picture);
+        if (item?.caption) setCaption(item.caption);
+        if (item?.alt) setAlt(item.alt);
     }, [item.id]);
 
     const textChunkJSX = item.chunks.map(
@@ -145,41 +158,74 @@ export function ReadOutLoud() {
         front: textChunkJSX,
         back: textChunkJSX,
     });
+    const imageSlot = builder.showSlot("picture", {
+        front: (
+            <figure className="image-wrapper">
+                <img
+                    style={{
+                        border: "oldlace 5px solid",
+                        borderRadius: "40px",
+                    }}
+                    src={getImageUrl(image)}
+                    alt={alt}
+                />
+                {
+                    builder.showSlot("caption", {
+                        front: (
+                            <figcaption>
+                                {item.caption}
+                            </figcaption>
+                        ),
+                        back: (
+                            <figcaption>
+                                {item.caption}
+                            </figcaption>
+                        ),
+                    }).front
+                }
+                <figcaption className="visually-hidden">
+                    {item.caption}
+                </figcaption>
+            </figure>
+        ),
+        back: <></>,
+    });
 
     return (
         <>
-            <article>
-                {textSlots.front}
-                <label
-                    aria-checked={listening}
-                    style={{ cursor: "pointer" }}
-                >
-                    <input
-                        role="switch"
-                        type="checkbox"
-                        checked={listening}
-                        onChange={() => {
-                            if (listening) {
-                                console.log("stopping");
-                                controllerRef.current.stop();
-                                setListening(false);
-                            } else {
-                                console.log("starting");
-                                controllerRef.current.start();
-                                setListening(true);
-                            }
-                        }}
-                    />
-                    {listening
-                        ? "Stop Listening"
-                        : "Start Listening"}
-                </label>
-                <img
-                    src={"storyCover.png"}
-                    alt="storyCover"
-                />
+            <article className="reading-container">
+                <header>
+                    <label
+                        aria-checked={listening}
+                        style={{ cursor: "pointer" }}
+                        className="switch-container"
+                    >
+                        <input
+                            role="switch"
+                            type="checkbox"
+                            checked={listening}
+                            onChange={() => {
+                                if (listening) {
+                                    console.log("stopping");
+                                    controllerRef.current.stop();
+                                    setListening(false);
+                                } else {
+                                    console.log("starting");
+                                    controllerRef.current.start();
+                                    setListening(true);
+                                }
+                            }}
+                        />
+                        {listening
+                            ? "Stop Listening"
+                            : "Start Listening"}
+                    </label>
+                </header>
+                <div className="story-text">
+                    {textSlots.front}
+                </div>
+                <footer>{imageSlot.front}</footer>
             </article>
-            <div>{spokenPhones}</div>
         </>
     );
 }

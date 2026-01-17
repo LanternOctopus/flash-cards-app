@@ -1,26 +1,5 @@
 import React from "react";
-import { zipByIndex } from "../utils/utils";
-
-export class ChoicesGate {
-    constructor(private uiSelections: any) {}
-
-    getChoices(choices: Record<string, any[]>): any[][] {
-        const selectedKeys = Object.keys(
-            this.uiSelections.choices
-        ).filter((key) => this.uiSelections.choices[key]);
-
-        return selectedKeys
-            .map((key) => choices[key])
-            .filter(Boolean);
-    }
-
-    getZippedChoices(
-        choices: Record<string, any[]>
-    ): any[][] {
-        const selectedChoices = this.getChoices(choices);
-        return zipByIndex(...selectedChoices);
-    }
-}
+import { zipByIndex, shuffle } from "../utils/utils";
 
 type Placement = "front" | "back";
 
@@ -82,8 +61,21 @@ export class VisibilityGate {
             .filter(Boolean);
     }
 
-    getZippedChoices(choices: Record<string, any[]>) {
+    getZippedChoices(choices: Record<string, any[]>): {
+        shuffled: string[];
+        zipped: Record<string, string[]>;
+    } {
         const selectedChoices = this.getChoices(choices);
-        return zipByIndex(...selectedChoices);
+        if (selectedChoices.length === 0)
+            return { shuffled: [], zipped: {} };
+        const zipped = zipByIndex(...selectedChoices);
+        const zippedAndKeyed: Record<string, string[]> = {};
+        for (let i = 0; i < choices.choices.length; i++) {
+            zippedAndKeyed[choices.choices[i]] = zipped[i];
+        }
+        return {
+            shuffled: shuffle(choices.choices),
+            zipped: zippedAndKeyed,
+        };
     }
 }

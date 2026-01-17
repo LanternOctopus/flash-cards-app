@@ -1,214 +1,651 @@
 verbs:
-    - picture: picturematchinggame\verbs\verb.png
-      question: answer1
-      answer: answer1
-      translation: translation1
-      transliteration: transliteration1
-      tense: present
-      subject: he
-      meta:
-          tense:
-              value: present
-          subject:
-              value: he
+    - picture: picturematchinggame\verbs\add.png
+      question: add
+      answer: add
+      translation: ചേർക്കുക
+      transliteration: cherkuka
       ansOptions:
-          choices:
-              - distractor1
-              - answer1
-              - distractor2
-              - distractor3
-          translations:
-              - translation1
-              - translation2
-              - translation3
-              - translation4
-          transliterations:
-              - transliteration1
-              - transliteration2
-              - transliteration3
-              - transliteration4
-          tenses:
-              - past
-              - present
-              - future
-              - n/a
-          subjects:
-              - he
-              - she
-              - they
-              - you
-    - picture: verb2.png
-      question: answer2
-      answer: answer2
-      translation: translation2
-      transliteration: transliteration2
-      meta:
-          tense:
-              value: future
-          subject:
-              value: you
+          choices: [add, run, love, watch]
+          translations: [ചേർക്കുക, ഓടുക, സ്നേഹം, വാച്ച്]
+          transliterations: [cherkuka, oduka, sneham, vaach]
+
+    - picture: picturematchinggame\verbs\allow.png
+      question: allow
+      answer: allow
+      translation: സമ്മതിക്കുക
+      transliteration: sammathikkuka
       ansOptions:
-          choices:
-              - distractor1
-              - answer1
-              - distractor2
-              - distractor3
+          choices: [allow, read, win, walk]
           translations:
-              - translation1
-              - translation2
-              - translation3
-              - translation4
+              [സമ്മതിക്കുക, വായിക്കുക, ജയം, നടക്കുക]
           transliterations:
-              - transliteration1
-              - transliteration2
-              - transliteration3
-              - transliteration4
-          tenses:
-              - past
-              - present
-              - future
-              - n/a
-          subjects:
-              - he
-              - she
-              - they
-              - you
-    - picture: verb3.png
-      answer: answer3
-      question: answer3
-      translation: translation3
-      transliteration: transliteration3
-      meta:
-          tense:
-              value: present
-          subject:
-              value: they
+              [sammathikkuka, vaayikkuka, jayam, nadakkuka]
+
+    - picture: picturematchinggame\verbs\begin.png
+      question: begin
+      answer: begin
+      translation: ആരംഭിക്കുക
+      transliteration: aarambhikkuka
       ansOptions:
-          choices:
-              - distractor1
-              - answer1
-              - distractor2
-              - distractor3
+          choices: [begin, love, watch, add]
           translations:
-              - translation1
-              - translation2
-              - translation3
-              - translation4
+              [ആരംഭിക്കുക, സ്നേഹം, വാച്ച്, ചേർക്കുക]
           transliterations:
-              - transliteration1
-              - transliteration2
-              - transliteration3
-              - transliteration4
-          tenses:
-              - past
-              - present
-              - future
-              - n/a
-          subjects:
-              - he
-              - she
-              - they
-              - you
-nouns:
-    - picture: noun1.png
-      answer: answer1
-      question: answer1
-      translation: translation1
-      transliteration: transliteration1
-      meta:
-          type:
-              value: pronoun
+              [aarambhikkuka, sneham, vaach, cherkuka]
+
+    - picture: picturematchinggame\verbs\can.png
+      question: can
+      answer: can
+      translation: കഴിയുക
+      transliteration: kazhiyuka
       ansOptions:
-          choices:
-              - distractor1
-              - answer1
-              - distractor2
-              - distractor3
-          translations:
-              - translation1
-              - translation2
-              - translation3
-              - translation4
+          choices: [can, run, read, win]
+          translations: [കഴിയുക, ഓടുക, വായിക്കുക, ജയം]
           transliterations:
-              - transliteration1
-              - transliteration2
-              - transliteration3
-              - transliteration4
-          tenses:
-              - past
-              - present
-              - future
-              - n/a
-          subjects:
-              - he
-              - she
-              - they
-              - you
-    - picture: noun2.png
-      answer: answer2
-      question: answer2
-      translation: translation2
-      transliteration: transliteration2
-      meta:
-          type:
-              value: object
+              [kazhiyuka, oduka, vaayikkuka, jayam]
+
+    - picture: picturematchinggame\verbs\come.png
+      question: come
+      answer: come
+      translation: വരുക
+      transliteration: varuka
       ansOptions:
-          choices:
-              - distractor1
-              - answer1
-              - distractor2
-              - distractor3
+          choices: [come, think, watch, add]
           translations:
-              - translation1
-              - translation2
-              - translation3
-              - translation4
+              [വരുക, ചിന്തിക്കുക, വാച്ച്, ചേർക്കുക]
           transliterations:
-              - transliteration1
-              - transliteration2
-              - transliteration3
-              - transliteration4
-          tenses:
-              - past
-              - present
-              - future
-              - n/a
-          subjects:
-              - he
-              - she
-              - they
-              - you
-    - picture: noun3.png
-      answer: answer3
-      question: answer3
-      translation: translation3
-      transliteration: transliteration3
-      meta:
-          type:
-              value: place
+              [varuka, chinthikkuka, vaach, cherkuka]
+
+    - picture: picturematchinggame\verbs\could.png
+      question: could
+      answer: could
+      translation: സാധ്യമായ
+      transliteration: saadhyamaaya
       ansOptions:
-          choices:
-              - distractor1
-              - answer1
-              - distractor2
-              - distractor3
+          choices: [could, love, walk, read]
           translations:
-              - translation1
-              - translation2
-              - translation3
-              - translation4
+              [സാധ്യമായ, സ്നേഹം, നടക്കുക, വായിക്കുക]
           transliterations:
-              - transliteration1
-              - transliteration2
-              - transliteration3
-              - transliteration4
-          tenses:
-              - past
-              - present
-              - future
-              - n/a
-          subjects:
-              - he
-              - she
-              - they
-              - you
+              [saadhyamaaya, sneham, nadakkuka, vaayikkuka]
+
+    - picture: picturematchinggame\verbs\create.png
+      question: create
+      answer: create
+      translation: സൃഷ്ടിക്കുക
+      transliteration: srishtikkuka
+      ansOptions:
+          choices: [create, run, watch, win]
+          translations: [സൃഷ്ടിക്കുക, ഓടുക, വാച്ച്, ജയം]
+          transliterations:
+              [srishtikkuka, oduka, vaach, jayam]
+
+    - picture: picturematchinggame\verbs\cut.png
+      question: cut
+      answer: cut
+      translation: മുറിക്കുക
+      transliteration: murikkuka
+      ansOptions:
+          choices: [cut, love, read, walk]
+          translations:
+              [മുറിക്കുക, സ്നേഹം, വായിക്കുക, നടക്കുക]
+          transliterations:
+              [murikkuka, sneham, vaayikkuka, nadakkuka]
+
+    - picture: picturematchinggame\verbs\do.png
+      question: do
+      answer: do
+      translation: ചെയ്യുക
+      transliteration: cheyyuka
+      ansOptions:
+          choices: [do, watch, win, walk]
+          translations: [ചെയ്യുക, വാച്ച്, ജയം, നടക്കുക]
+          transliterations:
+              [cheyyuka, vaach, jayam, nadakkuka]
+
+    - picture: picturematchinggame\verbs\get.png
+      question: get
+      answer: get
+      translation: ലഭിക്കുക
+      transliteration: kittuka
+      ansOptions:
+          choices: [get, read, love, run]
+          translations: [ലഭിക്കുക, വായിക്കുക, സ്നേഹം, ഓടുക]
+          transliterations:
+              [kittuka, vaayikkuka, sneham, oduka]
+
+    - picture: picturematchinggame\verbs\go.png
+      question: go
+      answer: go
+      translation: പോകുക
+      transliteration: pokuka
+      ansOptions:
+          choices: [go, watch, win, add]
+          translations: [പോകുക, വാച്ച്, ജയം, ചേർക്കുക]
+          transliterations: [pokuka, vaach, jayam, cherkuka]
+
+    - picture: picturematchinggame\verbs\have.png
+      question: have
+      answer: have
+      translation: ഉണ്ടായിരിക്കുക
+      transliteration: undayirikkuka
+      ansOptions:
+          choices: [have, run, read, walk]
+          translations:
+              [ഉണ്ടായിരിക്കുക, ഓടുക, വായിക്കുക, നടക്കുക]
+          transliterations:
+              [undayirikkuka, oduka, vaayikkuka, nadakkuka]
+
+    - picture: picturematchinggame\verbs\love.png
+      question: love
+      answer: love
+      translation: സ്നേഹം
+      transliteration: sneham
+      ansOptions:
+          choices: [love, add, run, watch]
+          translations: [സ്നേഹം, ചേർക്കുക, ഓടുക, വാച്ച്]
+          transliterations: [sneham, cherkuka, oduka, vaach]
+
+    - picture: picturematchinggame\verbs\make.png
+      question: make
+      answer: make
+      translation: ഉണ്ടാക്കുക
+      transliteration: undakkuka
+      ansOptions:
+          choices: [make, read, win, walk]
+          translations:
+              [ഉണ്ടാക്കുക, വായിക്കുക, ജയം, നടക്കുക]
+          transliterations:
+              [undakkuka, vaayikkuka, jayam, nadakkuka]
+
+    - picture: picturematchinggame\verbs\move.png
+      question: move
+      answer: move
+      translation: ചലിക്കുക
+      transliteration: chalikkuka
+      ansOptions:
+          choices: [move, love, watch, read]
+          translations:
+              [ചലിക്കുക, സ്നേഹം, വാച്ച്, വായിക്കുക]
+          transliterations:
+              [chalikkuka, sneham, vaach, vaayikkuka]
+
+    - picture: picturematchinggame\verbs\offer.png
+      question: offer
+      answer: offer
+      translation: നൽകുക
+      transliteration: nalkuka
+      ansOptions:
+          choices: [offer, run, read, win]
+          translations: [നൽകുക, ഓടുക, വായിക്കുക, ജയം]
+          transliterations:
+              [nalkuka, oduka, vaayikkuka, jayam]
+
+    - picture: picturematchinggame\verbs\open.png
+      question: open
+      answer: open
+      translation: തുറക്കുക
+      transliteration: thurakkuka
+      ansOptions:
+          choices: [open, love, walk, watch]
+          translations: [തുറക്കുക, സ്നേഹം, നടക്കുക, വാച്ച്]
+          transliterations:
+              [thurakkuka, sneham, nadakkuka, vaach]
+
+    - picture: picturematchinggame\verbs\play.png
+      question: play
+      answer: play
+      translation: കളിക്കുക
+      transliteration: kalikkuka
+      ansOptions:
+          choices: [play, read, win, add]
+          translations: [കളിക്കുക, വായിക്കുക, ജയം, ചേർക്കുക]
+          transliterations:
+              [kalikkuka, vaayikkuka, jayam, cherkuka]
+
+    - picture: picturematchinggame\verbs\read.png
+      question: read
+      answer: read
+      translation: വായിക്കുക
+      transliteration: vaayikkuka
+      ansOptions:
+          choices: [read, run, love, watch]
+          translations: [വായിക്കുക, ഓടുക, സ്നേഹം, വാച്ച്]
+          transliterations:
+              [vaayikkuka, oduka, sneham, vaach]
+
+    - picture: picturematchinggame\verbs\remember.png
+      question: remember
+      answer: remember
+      translation: ഓർമ്മിക്കുക
+      transliteration: ormmikkuka
+      ansOptions:
+          choices: [remember, walk, win, add]
+          translations:
+              [ഓർമ്മിക്കുക, നടക്കുക, ജയം, ചേർക്കുക]
+          transliterations:
+              [ormmikkuka, nadakkuka, jayam, cherkuka]
+
+    - picture: picturematchinggame\verbs\run.png
+      question: run
+      answer: run
+      translation: ഓടുക
+      transliteration: oduka
+      ansOptions:
+          choices: [run, read, love, watch]
+          translations: [ഓടുക, വായിക്കുക, സ്നേഹം, വാച്ച്]
+          transliterations:
+              [oduka, vaayikkuka, sneham, vaach]
+
+    - picture: picturematchinggame\verbs\say.png
+      question: say
+      answer: say
+      translation: പറയുക
+      transliteration: parayuka
+      ansOptions:
+          choices: [say, walk, win, read]
+          translations: [പറയുക, നടക്കുക, ജയം, വായിക്കുക]
+          transliterations:
+              [parayuka, nadakkuka, jayam, vaayikkuka]
+
+    - picture: picturematchinggame\verbs\see.png
+      question: see
+      answer: see
+      translation: കാണുക
+      transliteration: kaanuka
+      ansOptions:
+          choices: [see, love, run, add]
+          translations: [കാണുക, സ്നേഹം, ഓടുക, ചേർക്കുക]
+          transliterations:
+              [kaanuka, sneham, oduka, cherkuka]
+
+    - picture: picturematchinggame\verbs\speak.png
+      question: speak
+      answer: speak
+      translation: സംസാരിക്കുക
+      transliteration: samsaarikkuka
+      ansOptions:
+          choices: [speak, read, win, watch]
+          translations:
+              [സംസാരിക്കുക, വായിക്കുക, ജയം, വാച്ച്]
+          transliterations:
+              [samsaarikkuka, vaayikkuka, jayam, vaach]
+
+    - picture: picturematchinggame\verbs\spend.png
+      question: spend
+      answer: spend
+      translation: ചെലവഴിക്കുക
+      transliteration: chelavazhikkuka
+      ansOptions:
+          choices: [spend, walk, love, read]
+          translations:
+              [ചെലവഴിക്കുക, നടക്കുക, സ്നേഹം, വായിക്കുക]
+          transliterations:
+              [
+                  chelavazhikkuka,
+                  nadakkuka,
+                  sneham,
+                  vaayikkuka,
+              ]
+
+    - picture: picturematchinggame\verbs\start.png
+      question: start
+      answer: start
+      translation: ആരംഭിക്കുക
+      transliteration: aarambhikkuka
+      ansOptions:
+          choices: [start, win, watch, add]
+          translations: [ആരംഭിക്കുക, ജയം, വാച്ച്, ചേർക്കുക]
+          transliterations:
+              [aarambhikkuka, jayam, vaach, cherkuka]
+
+    - picture: picturematchinggame\verbs\stop.png
+      question: stop
+      answer: stop
+      translation: നിർത്തുക
+      transliteration: nirthuka
+      ansOptions:
+          choices: [stop, read, love, walk]
+          translations:
+              [നിർത്തുക, വായിക്കുക, സ്നേഹം, നടക്കുക]
+          transliterations:
+              [nirthuka, vaayikkuka, sneham, nadakkuka]
+
+    - picture: picturematchinggame\verbs\take.png
+      question: take
+      answer: take
+      translation: എടുക്കുക
+      transliteration: edukkuka
+      ansOptions:
+          choices: [take, win, watch, read]
+          translations: [എടുക്കുക, ജയം, വാച്ച്, വായിക്കുക]
+          transliterations:
+              [edukkuka, jayam, vaach, vaayikkuka]
+
+    - picture: picturematchinggame\verbs\talk.png
+      question: talk
+      answer: talk
+      translation: സംസാരിക്കുക
+      transliteration: samsaarikkuka
+      ansOptions:
+          choices: [talk, run, love, add]
+          translations:
+              [സംസാരിക്കുക, ഓടുക, സ്നേഹം, ചേർക്കുക]
+          transliterations:
+              [samsaarikkuka, oduka, sneham, cherkuka]
+
+    - picture: picturematchinggame\verbs\think.png
+      question: think
+      answer: think
+      translation: ചിന്തിക്കുക
+      transliteration: chinthikkuka
+      ansOptions:
+          choices: [think, watch, win, walk]
+          translations: [ചിന്തിക്കുക, വാച്ച്, ജയം, നടക്കുക]
+          transliterations:
+              [chinthikkuka, vaach, jayam, nadakkuka]
+
+    - picture: picturematchinggame\verbs\turn.png
+      question: turn
+      answer: turn
+      translation: തിരിക്കുക
+      transliteration: thirikkuka
+      ansOptions:
+          choices: [turn, read, love, run]
+          translations: [തിരിക്കുക, വായിക്കുക, സ്നേഹം, ഓടുക]
+          transliterations:
+              [thirikkuka, vaayikkuka, sneham, oduka]
+
+    - picture: picturematchinggame\verbs\walk.png
+      question: walk
+      answer: walk
+      translation: നടക്കുക
+      transliteration: nadakkuka
+      ansOptions:
+          choices: [walk, watch, win, add]
+          translations: [നടക്കുക, വാച്ച്, ജയം, ചേർക്കുക]
+          transliterations:
+              [nadakkuka, vaach, jayam, cherkuka]
+
+    - picture: picturematchinggame\verbs\want.png
+      question: want
+      answer: want
+      translation: ആഗ്രഹിക്കുക
+      transliteration: aagrahikkuka
+      ansOptions:
+          choices: [want, read, love, run]
+          translations:
+              [ആഗ്രഹിക്കുക, വായിക്കുക, സ്നേഹം, ഓടുക]
+          transliterations:
+              [aagrahikkuka, vaayikkuka, sneham, oduka]
+
+    - picture: picturematchinggame\verbs\watch.png
+      question: watch
+      answer: watch
+      translation: നോക്കുക
+      transliteration: nokkuka
+      ansOptions:
+          choices: [watch, win, add, walk]
+          translations: [നോക്കുക, ജയം, ചേർക്കുക, നടക്കുക]
+          transliterations:
+              [nokkuka, jayam, cherkuka, nadakkuka]
+
+    - picture: picturematchinggame\verbs\win.png
+      question: win
+      answer: win
+      translation: വിജയം
+      transliteration: vijayam
+      ansOptions:
+          choices: [win, read, love, walk]
+          translations: [വിജയം, വായിക്കുക, സ്നേഹം, നടക്കുക]
+          transliterations:
+              [vijayam, vaayikkuka, sneham, nadakkuka]
+    - picture: picturematchinggame\verbs\look.png
+      question: look
+      answer: look
+      translation: നോക്കുക
+      transliteration: nokkuka
+      ansOptions:
+          choices: [look, buy, sit, write]
+          translations: [നോക്കുക, വാങ്ങുക, കൂടുക, എഴുതുക]
+          transliterations:
+              [nokkuka, vaanguka, kooduka, ezhuthuka]
+
+    - picture: picturematchinggame\verbs\hold.png
+      question: hold
+      answer: hold
+      translation: പിടിക്കുക
+      transliteration: pidikkuka
+      ansOptions:
+          choices: [hold, wait, appear, serve]
+          translations:
+              [
+                  പിടിക്കുക,
+                  കാത്തിരിക്കുക,
+                  കാണപ്പെടുക,
+                  സേവിക്കുക,
+              ]
+          transliterations:
+              [
+                  pidikkuka,
+                  kaathirikkuka,
+                  kanapeduka,
+                  sevikkuka,
+              ]
+
+    - picture: picturematchinggame\verbs\consider.png
+      question: consider
+      answer: consider
+      translation: വിലയിരുത്തുക
+      transliteration: vilayiruthuka
+      ansOptions:
+          choices: [consider, sit, buy, send]
+          translations:
+              [വിലയിരുത്തുക, കൂടുക, വാങ്ങുക, അയക്കുക]
+          transliterations:
+              [vilayiruthuka, kooduka, vaanguka, ayakkuka]
+
+    - picture: picturematchinggame\verbs\use.png
+      question: use
+      answer: use
+      translation: ഉപയോഗിക്കുക
+      transliteration: upayogikkuka
+      ansOptions:
+          choices: [use, appear, write, wait]
+          translations:
+              [
+                  ഉപയോഗിക്കുക,
+                  കാണപ്പെടുക,
+                  എഴുതുക,
+                  കാത്തിരിക്കുക,
+              ]
+          transliterations:
+              [
+                  upayogikkuka,
+                  kanapeduka,
+                  ezhuthuka,
+                  kaathirikkuka,
+              ]
+
+    - picture: picturematchinggame\verbs\bring.png
+      question: bring
+      answer: bring
+      translation: എടുക്കുക
+      transliteration: edukkuka
+      ansOptions:
+          choices: [bring, serve, sit, talk]
+          translations:
+              [എടുക്കുക, സേവിക്കുക, കൂടുക, സംസാരിക്കുക]
+          transliterations:
+              [edukkuka, sevikkuka, kooduka, samsaarikkuka]
+
+    - picture: picturematchinggame\verbs\appear.png
+      question: appear
+      answer: appear
+      translation: കാണപ്പെടുക
+      transliteration: kanapeduka
+      ansOptions:
+          choices: [appear, buy, hold, write]
+          translations:
+              [കാണപ്പെടുക, വാങ്ങുക, പിടിക്കുക, എഴുതുക]
+          transliterations:
+              [kanapeduka, vaanguka, pidikkuka, ezhuthuka]
+
+    - picture: picturematchinggame\verbs\find.png
+      question: find
+      answer: find
+      translation: കണ്ടുപിടിക്കുക
+      transliteration: kandupidikkuka
+      ansOptions:
+          choices: [find, wait, sit, serve]
+          translations:
+              [
+                  കണ്ടുപിടിക്കുക,
+                  കാത്തിരിക്കുക,
+                  കൂടുക,
+                  സേവിക്കുക,
+              ]
+          transliterations:
+              [
+                  kandupidikkuka,
+                  kaathirikkuka,
+                  kooduka,
+                  sevikkuka,
+              ]
+
+    - picture: picturematchinggame\verbs\buy.png
+      question: buy
+      answer: buy
+      translation: വാങ്ങുക
+      transliteration: vaanguka
+      ansOptions:
+          choices: [buy, appear, talk, hold]
+          translations:
+              [വാങ്ങുക, കാണപ്പെടുക, സംസാരിക്കുക, പിടിക്കുക]
+          transliterations:
+              [
+                  vaanguka,
+                  kanapeduka,
+                  samsaarikkuka,
+                  pidikkuka,
+              ]
+
+    - picture: picturematchinggame\verbs\give.png
+      question: give
+      answer: give
+      translation: നൽകുക
+      transliteration: nalkuka
+      ansOptions:
+          choices: [give, sit, write, wait]
+          translations:
+              [നൽകുക, കൂടുക, എഴുതുക, കാത്തിരിക്കുക]
+          transliterations:
+              [nalkuka, kooduka, ezhuthuka, kaathirikkuka]
+
+    - picture: picturematchinggame\verbs\wait.png
+      question: wait
+      answer: wait
+      translation: കാത്തിരിക്കുക
+      transliteration: kaathirikkuka
+      ansOptions:
+          choices: [wait, buy, serve, look]
+          translations:
+              [കാത്തിരിക്കുക, വാങ്ങുക, സേവിക്കുക, നോക്കുക]
+          transliterations:
+              [kaathirikkuka, vaanguka, sevikkuka, nokkuka]
+
+    - picture: picturematchinggame\verbs\talk.png
+      question: talk
+      answer: talk
+      translation: സംസാരിക്കുക
+      transliteration: samsaarikkuka
+      ansOptions:
+          choices: [talk, sit, buy, appear]
+          translations:
+              [സംസാരിക്കുക, കൂടുക, വാങ്ങുക, കാണപ്പെടുക]
+          transliterations:
+              [samsaarikkuka, kooduka, vaanguka, kanapeduka]
+
+    - picture: picturematchinggame\verbs\write.png
+      question: write
+      answer: write
+      translation: എഴുതുക
+      transliteration: ezhuthuka
+      ansOptions:
+          choices: [write, hold, wait, serve]
+          translations:
+              [എഴുതുക, പിടിക്കുക, കാത്തിരിക്കുക, സേവിക്കുക]
+          transliterations:
+              [
+                  ezhuthuka,
+                  pidikkuka,
+                  kaathirikkuka,
+                  sevikkuka,
+              ]
+
+    - picture: picturematchinggame\verbs\serve.png
+      question: serve
+      answer: serve
+      translation: സേവിക്കുക
+      transliteration: sevikkuka
+      ansOptions:
+          choices: [serve, buy, sit, look]
+          translations: [സേവിക്കുക, വാങ്ങുക, കൂടുക, നോക്കുക]
+          transliterations:
+              [sevikkuka, vaanguka, kooduka, nokkuka]
+
+    - picture: picturematchinggame\verbs\work.png
+      question: work
+      answer: work
+      translation: പ്രവൃത്തി
+      transliteration: pravrithi
+      ansOptions:
+          choices: [work, wait, appear, write]
+          translations:
+              [പ്രവൃത്തി, കാത്തിരിക്കുക, കാണപ്പെടുക, എഴുതുക]
+          transliterations:
+              [
+                  pravrithi,
+                  kaathirikkuka,
+                  kanapeduka,
+                  ezhuthuka,
+              ]
+
+    - picture: picturematchinggame\verbs\provide.png
+      question: provide
+      answer: provide
+      translation: ഉപലബ്ധമാക്കുക
+      transliteration: upalabdhamaakkuka
+      ansOptions:
+          choices: [provide, sit, buy, talk]
+          translations:
+              [ഉപലബ്ധമാക്കുക, കൂടുക, വാങ്ങുക, സംസാരിക്കുക]
+          transliterations:
+              [
+                  upalabdhamaakkuka,
+                  kooduka,
+                  vaanguka,
+                  samsaarikkuka,
+              ]
+
+    - picture: picturematchinggame\verbs\sit.png
+      question: sit
+      answer: sit
+      translation: കൂടുക
+      transliteration: kooduka
+      ansOptions:
+          choices: [sit, write, serve, buy]
+          translations: [കൂടുക, എഴുതുക, സേവിക്കുക, വാങ്ങുക]
+          transliterations:
+              [kooduka, ezhuthuka, sevikkuka, vaanguka]
+
+    - picture: picturematchinggame\verbs\send.png
+      question: send
+      answer: send
+      translation: അയക്കുക
+      transliteration: ayakkuka
+      ansOptions:
+          choices: [send, look, hold, wait]
+          translations:
+              [അയക്കുക, നോക്കുക, പിടിക്കുക, കാത്തിരിക്കുക]
+          transliterations:
+              [ayakkuka, nokkuka, pidikkuka, kaathirikkuka]

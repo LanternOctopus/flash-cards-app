@@ -41,6 +41,7 @@ export function SequenceController({
                 checkCorrectness={
                     modelRef.current.checkCorrectness
                 }
+                getImageUrl={modelRef.current.getImageUrl}
             >
                 {children}
             </AnswerProvider>

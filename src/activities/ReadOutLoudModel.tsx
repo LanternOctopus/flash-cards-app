@@ -6,6 +6,9 @@ type ReadOutLoudItem = {
     phonemes: string[];
     id: string;
     chunks: string[];
+    picture?: string;
+    caption?: string;
+    alt?: string;
 };
 
 export class ReadOutLoudModel extends ActivityModel<ReadOutLoudItem> {
@@ -61,8 +64,17 @@ export class ReadOutLoudModel extends ActivityModel<ReadOutLoudItem> {
         const targetPhones = phonemize(
             stripPunctuation(target)
         );
+
         setSpokenPhones(rawphrase);
-        return { correct: spokenPhones === targetPhones };
+        const correctans = targetPhones.split(" ");
+        const spoken = spokenPhones.split(" ");
+
+        const matches = spoken.filter((p) =>
+            correctans.includes(p)
+        ).length;
+        const ratio = matches / correctans.length;
+
+        return { correct: ratio >= 0.5 };
     }
     protected isValidItem(
         item: unknown
@@ -79,5 +91,8 @@ export class ReadOutLoudModel extends ActivityModel<ReadOutLoudItem> {
                 (p: any) => typeof p === "string"
             )
         );
+    }
+    getImageUrl(image: string) {
+        return `${process.env.PUBLIC_URL}/images/readoutloud/${image}`;
     }
 }

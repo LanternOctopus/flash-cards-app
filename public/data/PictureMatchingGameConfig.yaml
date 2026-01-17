@@ -3,8 +3,6 @@ fields:
     answer: { type: text }
     translation: { type: text }
     transliteration: { type: text }
-    tense: { type: text }
-    subject: { type: text }
     picture: { type: image }
 frontDefault:
     - translation
@@ -12,18 +10,11 @@ frontDefault:
     - picture
 choicesDefault:
     - choices
-    - translations
-    - transliterations
 backDefault:
     - answer
-    - translation
-    - transliteration
-    - tense
-    - subject
+    - picture
 
 choice_categories:
     - choices
     - translations
     - transliterations
-    - tenses
-    - subjects

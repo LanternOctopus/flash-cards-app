@@ -11,6 +11,9 @@ type PictureItem = {
 };
 
 export class PictureMatchingGameModel extends ActivityModel<PictureItem> {
+    constructor(raw: unknown) {
+        super(raw);
+    }
     protected isValidItem(
         item: unknown
     ): item is PictureItem {
