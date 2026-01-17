@@ -7,9 +7,11 @@ import {
     ReactElement,
     useState,
     JSX,
+    useRef,
 } from "react";
 import { tokenize } from "../utils/utils";
 import { Lexicon } from "./LexiconModel";
+import "./PartialTranslation.css";
 type PartialTranslationProps = {
     children: ReactNode;
 };
@@ -26,7 +28,6 @@ function isElementWithChildren(
 export function PartialTranslation({
     children,
 }: PartialTranslationProps): JSX.Element {
-    console.log("lexicon", Lexicon.getAllWords());
     return (
         <>
             {Children.map(children, (child) => {
@@ -75,63 +76,86 @@ export function PowerWord({
     if (!entries) return <>{word}</>;
 
     return (
-        <ToolTip
+        <Dictionary
             content={
                 <div>
                     {entries.map(([mal, tr], i) => (
-                        <div
-                            key={i}
-                            style={{ marginBottom: 4 }}
-                        >
-                            <div>
-                                <strong>Malayalam:</strong>{" "}
-                                {mal}
-                            </div>
-                            <div>
-                                <strong>Phonetic:</strong>{" "}
-                                {tr}
-                            </div>
+                        <div className="definition-container">
+                            <dl className="dict-group">
+                                <div>
+                                    <dt>Malayalam</dt>
+                                    <dd>{mal}</dd>
+                                </div>
+                                <div>
+                                    <dt>Phonetic</dt>
+                                    <dd>
+                                        <i>{tr}</i>
+                                    </dd>
+                                </div>
+                            </dl>
                         </div>
                     ))}
                 </div>
             }
         >
-            {word + " "}
-        </ToolTip>
+            <span className="power-word idle-wiggle">
+                {word}
+            </span>{" "}
+        </Dictionary>
     );
 }
 
-export function ToolTip({
+export function Dictionary({
     children,
     content,
 }: {
     children: React.ReactNode;
     content: React.ReactNode;
 }): JSX.Element {
-    const [show, setShow] = useState(false);
+    const dialogRef = useRef<HTMLDialogElement>(null);
+
+    const openDialog = () => {
+        dialogRef.current?.showModal();
+    };
+    const closeDialog = () => {
+        if (dialogRef.current?.open) {
+            dialogRef.current.close();
+        }
+    };
     return (
-        <span
-            style={{ position: "relative", cursor: "help" }}
-            onMouseEnter={() => setShow(true)}
-            onMouseLeave={() => setShow(false)}
-        >
-            {children}
-            {show && (
-                <div
-                    style={{
-                        position: "absolute",
-                        bottom: "100%",
-                        background: "#222",
-                        color: "#fff",
-                        padding: "4px 8px",
-                        borderRadius: "4px",
-                        whiteSpace: "nowrap",
-                        zIndex: 1000,
-                    }}
-                >
+        <>
+            <span
+                style={{ cursor: "help" }}
+                onClick={openDialog}
+            >
+                {children}
+            </span>
+
+            <dialog
+                ref={dialogRef}
+                style={{
+                    padding: "1rem",
+                    borderRadius: "0.5rem",
+                    maxWidth: "400px", // caps width
+                    width: "90%", // responsive on mobile
+                    maxHeight: "80vh", // avoid full-page
+                    overflowY: "auto", // scroll if content too tall
+                    background: "#222", // optional dark bg
+                    color: "#000",
+                }}
+            >
+                <article>
+                    <header>
+                        <button
+                            onClick={closeDialog}
+                            aria-label="Close"
+                            className="close" // Pico styles transparent
+                        ></button>
+                    </header>
+
                     {content}
-                </div>
-            )}
-        </span>
+                </article>
+            </dialog>
+        </>
     );
 }

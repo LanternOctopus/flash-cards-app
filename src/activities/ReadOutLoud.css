@@ -32,7 +32,6 @@
     align-items: center;
 }
 .image-wrapper img {
-    max-height: 250px;
     width: auto;
     border: 4px solid var(--muted-border-color);
     border-radius: 20px;

@@ -1,0 +1,97 @@
+.power-word {
+    /* Layout */
+    display: inline-block;
+    cursor: help;
+    padding: 0 4px;
+    margin: 0 -2px; /* Pulls margins back in to prevent word-gap jitter */
+    border-radius: 4px;
+
+    /* Visuals */
+    background-color: rgba(var(--primary-rgb), 0.1);
+    color: var(--pico-primary);
+    font-weight: 500;
+
+    /* Animation */
+    transition: all 0.2s
+        cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    will-change: transform;
+}
+
+.power-word:hover {
+    background-color: var(--pico-primary);
+    color: #fff; /* Contrast for the highlight */
+    transform: translateY(-4px); /* Moves the word up */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+@keyframes wiggle-periodic {
+    0% {
+        transform: translateX(0) rotate(0deg);
+    }
+    5% {
+        transform: translateX(-6px) rotate(-6deg);
+    }
+    10% {
+        transform: translateX(6px) rotate(6deg);
+    }
+    15% {
+        transform: translateX(-5px) rotate(-5deg);
+    }
+    20% {
+        transform: translateX(5px) rotate(5deg);
+    }
+    25% {
+        transform: translateX(0) rotate(0deg);
+    }
+    100% {
+        transform: translateX(0) rotate(0deg);
+    }
+}
+
+.idle-wiggle {
+    animation: wiggle-periodic 5s infinite linear;
+    animation-fill-mode: none;
+    /* transform-origin ensures it wiggles from the base/center */
+    transform-origin: bottom center;
+}
+.definition-container {
+    padding: 0.5rem;
+}
+
+.dict-group {
+    margin-bottom: 1rem;
+}
+
+/* Create a two-column row for each DT/DD pair */
+.dict-group div {
+    display: flex;
+    justify-content: 间隙; /* Distributes label and text */
+    gap: 1rem;
+    margin-bottom: 0.25rem;
+    align-items: baseline;
+}
+
+.dict-group dt {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(
+        --pico-secondary
+    ); /* Use Pico's muted color */
+    min-width: 80px; /* Keeps labels aligned */
+    margin-bottom: 0;
+}
+
+.dict-group dd {
+    font-size: 1.1rem; /* Make the actual Malayalam text larger */
+    font-weight: 500;
+    margin-left: 0;
+    margin-bottom: 0;
+    color: var(--pico-color);
+}
+
+.dict-group dd i {
+    font-size: 0.9rem;
+    color: var(
+        --pico-primary
+    ); /* Highlight phonetics in brand color */
+}

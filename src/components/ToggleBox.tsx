@@ -85,9 +85,10 @@ export function ToggleBox({
                 data-placement="left"
                 style={{
                     position: "fixed",
-                    top: "50%",
+                    top: "5%",
                     right: "1rem",
                     transform: "translateY(-50%)",
+                    zIndex: 1000,
                 }}
                 aria-label="Open configuration"
             >

@@ -80,6 +80,7 @@ export function ReadOutLoud() {
     useEffect(() => {
         const callbacks = {
             onResultCapture: (text: string) => {
+                console.log("resultCapture", text);
                 if (!itemRef.current) return;
                 const isCorrect = checkCorrectness(
                     text,
@@ -134,7 +135,10 @@ export function ReadOutLoud() {
 
     const textChunkJSX = item.chunks.map(
         (chunk: string, i: number) => (
-            <p
+            <span
+                style={{
+                    display: "block",
+                }}
                 key={i}
                 data-state={
                     i === lastErrorIndex
@@ -149,7 +153,7 @@ export function ReadOutLoud() {
                 <PartialTranslation>
                     {chunk + " "}
                 </PartialTranslation>
-            </p>
+            </span>
         )
     );
 
@@ -165,6 +169,7 @@ export function ReadOutLoud() {
                     style={{
                         border: "oldlace 5px solid",
                         borderRadius: "40px",
+                        height: "100%",
                     }}
                     src={getImageUrl(image)}
                     alt={alt}
@@ -224,7 +229,14 @@ export function ReadOutLoud() {
                 <div className="story-text">
                     {textSlots.front}
                 </div>
-                <footer>{imageSlot.front}</footer>
+                <footer
+                    style={{
+                        padding: 0,
+                    }}
+                >
+                    {spokenPhones}
+                    {imageSlot.front}
+                </footer>
             </article>
         </>
     );

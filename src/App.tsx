@@ -81,49 +81,46 @@ const App: React.FC = () => {
                         </li>
                     </ul>
                 </nav>
-
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route
-                        path="/allactivities"
-                        element={<AllActivities />}
-                    />
-                    <Route
-                        path="/flashcards"
-                        element={<FlashCards />}
-                    />
-                    <Route
-                        path="/typing"
-                        element={<Typing />}
-                    />
-                    <Route
-                        path="/partsofspeech"
-                        element={<PartsOfSpeechScreen />}
-                    />
-                    <Route
-                        path="/conversations"
-                        element={<Conversations />}
-                    />
-                    <Route
-                        path="/scrambler"
-                        element={<Scrambler />}
-                    />
-                    <Route
-                        path="/sequences"
-                        element={<Sequences />}
-                    />
-                    <Route
-                        path="/picturematchinggame"
-                        element={
-                            <PictureMatchingGameScreen />
-                        }
-                    />
-                    <Route
-                        path="/readoutloud"
-                        element={<ReadOutLoudScreen />}
-                    />
-                </Routes>
             </header>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route
+                    path="/allactivities"
+                    element={<AllActivities />}
+                />
+                <Route
+                    path="/flashcards"
+                    element={<FlashCards />}
+                />
+                <Route
+                    path="/typing"
+                    element={<Typing />}
+                />
+                <Route
+                    path="/partsofspeech"
+                    element={<PartsOfSpeechScreen />}
+                />
+                <Route
+                    path="/conversations"
+                    element={<Conversations />}
+                />
+                <Route
+                    path="/scrambler"
+                    element={<Scrambler />}
+                />
+                <Route
+                    path="/sequences"
+                    element={<Sequences />}
+                />
+                <Route
+                    path="/picturematchinggame"
+                    element={<PictureMatchingGameScreen />}
+                />
+                <Route
+                    path="/readoutloud"
+                    element={<ReadOutLoudScreen />}
+                />
+            </Routes>
             <footer
                 style={{
                     display: "flex",

@@ -7,7 +7,6 @@ import { useQuestion } from "./QuestionContext";
 import { ParentScreen } from "./ParentScreen";
 import expandContractions from "../utils/expandContractions";
 import { stripPunctuation } from "../utils/utils";
-import { PartialTranslation } from "./PartialTranslation";
 export function PartsOfSpeechScreen() {
     return (
         <ParentScreen
@@ -58,25 +57,23 @@ const WordSpan: React.FC<WordSpanProps> = ({
     };
 
     return (
-        <PartialTranslation>
-            <label style={style}>
-                <input
-                    type="checkbox"
-                    name="pos"
-                    style={{ display: "none" }} // Hides the actual box, but the label remains clickable
-                    onClick={onClick}
-                    aria-invalid={
-                        guessState === "correct"
-                            ? "false"
-                            : guessState === "wrong"
-                            ? "true"
-                            : undefined
-                    }
-                />
-                {displayWord}
-                {icon}
-            </label>
-        </PartialTranslation>
+        <label style={style}>
+            <input
+                type="checkbox"
+                name="pos"
+                style={{ display: "none" }} // Hides the actual box, but the label remains clickable
+                onClick={onClick}
+                aria-invalid={
+                    guessState === "correct"
+                        ? "false"
+                        : guessState === "wrong"
+                        ? "true"
+                        : undefined
+                }
+            />
+            {displayWord}
+            {icon}
+        </label>
     );
 };
 

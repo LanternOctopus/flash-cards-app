@@ -117,7 +117,14 @@ export function PictureMatch() {
         back: (
             <div className="frog-frame">
                 <div className="eye-pupils"></div>
-                <img src={getImageUrl(item.picture)} />
+                <img
+                    style={{
+                        width: "300px",
+                        display: "block",
+                        margin: "0 auto",
+                    }}
+                    src={getImageUrl(item.picture)}
+                />
             </div>
         ),
     });
