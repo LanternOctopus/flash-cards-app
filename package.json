@@ -4,10 +4,13 @@
   "private": true,
   "homepage": "https://LanternOctopus.github.io/flash-cards-app",
   "dependencies": {
+    "@picocss/pico": "^2.1.1",
     "cra-template": "1.2.0",
     "fs": "^0.0.1-security",
+    "js-yaml": "^4.1.1",
     "kaplay": "^4000.0.0-alpha.4",
     "path": "^0.12.7",
+    "phonemize": "^1.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.9.5",
@@ -48,11 +51,14 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
     "@types/jest": "^29.5.14",
+    "@types/js-yaml": "^4.0.9",
     "@types/react": "^19.2.4",
     "@types/react-dom": "^19.2.3",
     "gh-pages": "^6.3.0",
     "jest": "^29.7.0",
+    "sass": "^1.97.2",
     "ts-jest": "^29.3.2",
+    "tsx": "^4.21.0",
     "typescript": "4.9"
   }
 }
