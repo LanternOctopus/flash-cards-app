@@ -7,6 +7,7 @@ import { useQuestion } from "./QuestionContext";
 import { ParentScreen } from "./ParentScreen";
 import expandContractions from "../utils/expandContractions";
 import { stripPunctuation } from "../utils/utils";
+import { PartOfSpeechMagicalGirl } from "../components/decorative/PartofSpeechMagicalGirl";
 export function PartsOfSpeechScreen() {
     return (
         <ParentScreen
@@ -39,14 +40,14 @@ const WordSpan: React.FC<WordSpanProps> = ({
         guessState === "not guessed"
             ? "none"
             : guessState === "correct"
-            ? "3px solid green"
-            : "3px solid red";
+              ? "3px solid green"
+              : "3px solid red";
     const icon =
         guessState === "not guessed"
             ? ""
             : guessState === "correct"
-            ? "✅"
-            : "❌";
+              ? "✅"
+              : "❌";
     const displayWord =
         guessState === "not guessed"
             ? word
@@ -67,8 +68,8 @@ const WordSpan: React.FC<WordSpanProps> = ({
                     guessState === "correct"
                         ? "false"
                         : guessState === "wrong"
-                        ? "true"
-                        : undefined
+                          ? "true"
+                          : undefined
                 }
             />
             {displayWord}
@@ -92,13 +93,13 @@ export function PartsOfSpeechNew() {
         Record<string, string>
     >({});
     const [showBack, setShowBack] = useState(false);
-    const [correct, setCorrect] = useState(false);
-
+    const [correct, setCorrect] = useState<boolean>();
+    const [latestWord, setLatestWord] = useState<string>();
     useEffect(() => {
         if (!item?.text) return;
         const initialGuesses: Record<string, string> = {};
         item.words.forEach(
-            (w) => (initialGuesses[w] = "not guessed")
+            (w) => (initialGuesses[w] = "not guessed"),
         );
         setGuessedWords(initialGuesses);
         setCorrect(false);
@@ -112,7 +113,8 @@ export function PartsOfSpeechNew() {
     };
     const checkWord = (rawWord: string) => {
         if (guessedWords[rawWord] !== "not guessed") return;
-
+        setLatestWord(rawWord);
+        console.log("latest word", latestWord);
         const expanded = expandContractions(rawWord)
             .split(" ")
             .map(stripPunctuation);
@@ -182,13 +184,11 @@ export function PartsOfSpeechNew() {
                     </legend>
                     {slots.front}
                 </fieldset>
-
-                {showBack && (
-                    <div>
-                        {correct ? "Correct" : "Incorrect"}
-                    </div>
-                )}
-
+                <PartOfSpeechMagicalGirl
+                    correct={correct}
+                    phrase={item.text}
+                    word={latestWord}
+                />
                 {showBack && advanceButton}
             </form>
         </article>

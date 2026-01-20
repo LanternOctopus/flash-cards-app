@@ -1,127 +1,173 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { ScramblerItem } from "../types";
 import { useSearchParams } from "react-router-dom";
-
+import { TTS } from "../utils/TTS";
 function isNumberString(str: string | null) {
-  if(str === null) return false;
-  return !isNaN(Number(str)) && !isNaN(parseFloat(str));
+    if (str === null) return false;
+    return !isNaN(Number(str)) && !isNaN(parseFloat(str));
 }
 interface Props {
-  data: ScramblerItem;
-  updateSuccess: (success: boolean | null) => void;
+    data: ScramblerItem;
+    updateSuccess: (success: boolean | null) => void;
 }
-
 const ScramblerView = ({ data, updateSuccess }: Props) => {
-  const [challengeSentence, setChallengeSentence] = useState<string[]>([]);
-  const [missingWords, setMissingWords] = useState<[string, number][]>([]);
-  const [dragged, setDragged] = useState<HTMLButtonElement | null>(null);
-  const [searchParams] = useSearchParams();
-  const [numToRemove] = useState(isNumberString(searchParams.get("remove")) ? Number(searchParams.get("remove")) : 2);
-  useEffect(() => {
-    const correctSentence = data.sentence.split(" ");
-    const indexed = correctSentence.map((w, i) => [w, i] as [string, number]);
-
-    const removed = [...indexed]
-      .sort(() => Math.random() - 0.5)
-      .slice(-numToRemove);
-
-    setMissingWords(removed);
-
-    const removedIndexes = removed.map(([, idx]) => idx);
-
-    // build new sentence with "replaceme"
-    const challenge = correctSentence.map((word, i) =>
-      removedIndexes.includes(i) ? "replaceme" : word
+    const [challengeSentence, setChallengeSentence] =
+        useState<string[]>([]);
+    const [missingWords, setMissingWords] = useState<
+        [string, number][]
+    >([]);
+    const [selectedWord, setSelectedWord] = useState<
+        string | null
+    >(null);
+    const [selectedSlot, setSelectedSlot] = useState<
+        number | null
+    >(null);
+    const speakOutLoud = useRef<TTS | null>(null);
+    const [searchParams] = useSearchParams();
+    const [numToRemove] = useState(
+        isNumberString(searchParams.get("remove"))
+            ? Number(searchParams.get("remove"))
+            : 2,
     );
+    useEffect(() => {
+        speakOutLoud.current = new TTS(
+            "Microsoft Heera - English (India)",
+        );
+    }, []);
 
-    setChallengeSentence(challenge);
-    updateSuccess(null);
-  }, [data, updateSuccess]);
+    useEffect(() => {
+        const correctSentence = data.sentence.split(" ");
+        const indexed = correctSentence.map(
+            (w, i) => [w, i] as [string, number],
+        );
 
-  const handleDragStart = (e: React.DragEvent<HTMLButtonElement>) => {
-    setDragged(e.currentTarget);
-    e.currentTarget.classList.add("dragging");
-  };
+        const removed = [...indexed]
+            .sort(() => Math.random() - 0.5)
+            .slice(-numToRemove);
 
-  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
-    e.preventDefault();
-  };
+        setMissingWords(removed);
 
-  const handleDrop = (e: React.DragEvent<HTMLDivElement>, slotIndex: number) => {
-    if (!dragged) return;
+        const removedIndexes = removed.map(
+            ([, idx]) => idx,
+        );
 
-    const newChallenge = [...challengeSentence];
-    newChallenge[slotIndex] = dragged.textContent || "";
-    setChallengeSentence(newChallenge);
+        const challenge = correctSentence.map((word, i) =>
+            removedIndexes.includes(i) ? "replaceme" : word,
+        );
 
-    dragged.classList.add("hide");
-    dragged.classList.remove("dragging");
+        setChallengeSentence(challenge);
+        setSelectedWord(null);
+        setSelectedSlot(null);
+        updateSuccess(null);
+    }, [data, numToRemove, updateSuccess]);
 
-    setDragged(null);
+    const tryPlace = (word: string, slotIndex: number) => {
+        const next = [...challengeSentence];
+        next[slotIndex] = word;
 
-    const attempt = newChallenge.join(" ");
-    updateSuccess(attempt === data.sentence);
-  };
+        setChallengeSentence(next);
+        setMissingWords((prev) =>
+            prev.filter(([w]) => w !== word),
+        );
+        setSelectedWord(null);
+        setSelectedSlot(null);
 
-  return (
-    <div style={{ padding: 20 }}>
-      <h1>Scrambler</h1>
+        const attempt = next.join(" ");
+        updateSuccess(attempt === data.sentence);
+    };
 
-      <div style={{ marginBottom: 20 }}>
-        {challengeSentence.map((word, i) =>
-          word === "replaceme" ? (
-            <div
-              key={i}
-              onDragOver={handleDragOver}
-              onDrop={(e) => handleDrop(e, i)}
-              style={{
-                display: "inline-block",
-                width: 90,
-                padding: "6px 10px",
-                margin: 5,
-                border: "2px dashed #bbb",
-                textAlign: "center",
-                borderRadius: 6,
-              }}
-            >
-              Drop here
+    const handleWordClick = (word: string) => {
+        speakOutLoud.current?.speak(word);
+
+        if (selectedSlot !== null) {
+            tryPlace(word, selectedSlot);
+        } else {
+            setSelectedWord(word);
+        }
+    };
+
+    const handleSlotClick = (index: number) => {
+        if (selectedWord) {
+            tryPlace(selectedWord, index);
+        } else {
+            setSelectedSlot(index);
+        }
+    };
+
+    return (
+        <div style={{ padding: 20 }}>
+            <h1>Scrambler</h1>
+
+            <div style={{ marginBottom: 20 }}>
+                {challengeSentence.map((word, i) =>
+                    word === "replaceme" ? (
+                        <button
+                            key={i}
+                            onClick={() =>
+                                handleSlotClick(i)
+                            }
+                            style={{
+                                display: "inline-block",
+                                minWidth: 90,
+                                padding: "6px 10px",
+                                margin: 5,
+                                border:
+                                    selectedSlot === i
+                                        ? "2px solid blue"
+                                        : "2px dashed #bbb",
+                                background:
+                                    selectedSlot === i
+                                        ? "#e6edff"
+                                        : "#fafafa",
+                                borderRadius: 6,
+                            }}
+                        >
+                            Tap here
+                        </button>
+                    ) : (
+                        <span
+                            key={i}
+                            style={{
+                                display: "inline-block",
+                                padding: "6px 10px",
+                                margin: 5,
+                                background: "#eee",
+                                borderRadius: 6,
+                            }}
+                        >
+                            {word}
+                        </span>
+                    ),
+                )}
             </div>
-          ) : (
-            <span
-              key={i}
-              style={{
-                display: "inline-block",
-                padding: "6px 10px",
-                margin: 5,
-                background: "#eee",
-                borderRadius: 6,
-              }}
-            >
-              {word}
-            </span>
-          )
-        )}
-      </div>
 
-      <div>
-        {missingWords.map(([word, idx]) => (
-          <button
-            key={idx}
-            draggable
-            onDragStart={handleDragStart}
-            style={{
-              padding: "6px 12px",
-              margin: 6,
-              borderRadius: 8,
-              border: "1px solid #ccc",
-            }}
-          >
-            {word}
-          </button>
-        ))}
-      </div>
-    </div>
-  );
+            <div>
+                {missingWords.map(([word, idx]) => (
+                    <button
+                        key={idx}
+                        onClick={() =>
+                            handleWordClick(word)
+                        }
+                        style={{
+                            padding: "6px 12px",
+                            margin: 6,
+                            borderRadius: 8,
+                            border:
+                                selectedWord === word
+                                    ? "2px solid blue"
+                                    : "1px solid #ccc",
+                            background:
+                                selectedWord === word
+                                    ? "#d6e0ff"
+                                    : "#fff",
+                        }}
+                    >
+                        {word}
+                    </button>
+                ))}
+            </div>
+        </div>
+    );
 };
 
 export default ScramblerView;

@@ -41,12 +41,10 @@
     border: 2px solid var(--pico-muted-border-color);
     border-radius: 1rem;
     padding: 0.5rem 1rem;
-    margin-bottom: 15px; /* Space for the triangle */
+    margin-bottom: 15px;
     box-shadow: var(--pico-box-shadow);
     color: var(--color);
-    font-weight: bold;
     font-size: 0.9rem;
-
     transform: translateY(10px);
     transition: all 0.3s ease;
 }
@@ -55,7 +53,7 @@
 .speech-bubble::after {
     content: "";
     position: absolute;
-    bottom: -10px; /* Moves it to the bottom of the bubble */
+    bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
 

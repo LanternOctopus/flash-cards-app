@@ -5,6 +5,7 @@ import { useAnswer } from "./AnswerProvider";
 import { useQuestion } from "./QuestionContext";
 import { ParentScreen } from "./ParentScreen";
 import { playSynthRibbit } from "../utils/audio";
+import { TTS } from "../utils/TTS";
 import "./picturematchinggame.css";
 export function PictureMatchingGameScreen() {
     return (
@@ -35,6 +36,9 @@ type PictureItem = {
     id: string;
 };
 export function PictureMatch() {
+    const speakOutLoud = new TTS(
+        "Microsoft Heera - English (India)",
+    );
     const builder = useVisibilityGate();
     const {
         answer,
@@ -52,6 +56,14 @@ export function PictureMatch() {
     if (!item) return <div>No question</div>;
 
     const onComplete = (isCorrect: boolean) => {
+        const yn = isCorrect ? "yes!" : "no";
+        speakOutLoud.speak(
+            yn +
+                " " +
+                item.answer +
+                " is " +
+                item.transliteration,
+        );
         setShowBack(true);
         setCorrect(isCorrect);
         return;
@@ -167,10 +179,10 @@ export function PictureMatch() {
                     {item.transliteration}
                 </div>
             ),
-        }
+        },
     );
     const choices = builder.getZippedChoices(
-        item.ansOptions
+        item.ansOptions,
     );
     console.log("choices", choices);
 
@@ -227,62 +239,6 @@ export function PictureMatch() {
                         </section>
                         <form>
                             <fieldset>
-                                <div
-                                    className="instruction-wrapper"
-                                    style={{
-                                        position:
-                                            "relative",
-                                        height: "320px",
-                                        display: "flex",
-                                        justifyContent:
-                                            "flex-end",
-                                        overflow: "hidden",
-                                    }}
-                                >
-                                    <div
-                                        className="instruction-bubble"
-                                        style={{
-                                            position:
-                                                "absolute",
-                                            top: "0",
-                                            bottom: "60px",
-                                            fontSize:
-                                                "2rem",
-                                            display: "flex",
-                                            alignItems:
-                                                "center",
-                                            zIndex: "-1",
-                                        }}
-                                    >
-                                        <legend>
-                                            <b>
-                                                Select the
-                                                correct
-                                                answer
-                                            </b>
-                                        </legend>
-                                    </div>
-                                    <div
-                                        className="frog-mascot"
-                                        style={{}}
-                                    >
-                                        <img
-                                            style={{
-                                                width: "260px",
-                                                display:
-                                                    "block",
-                                                right: "-42px",
-                                                position:
-                                                    "relative",
-                                            }}
-                                            src={getImageUrl(
-                                                "picturematchinggame/frog-neutral.png"
-                                            )}
-                                            alt="Supportive Frog Mascot"
-                                        />
-                                    </div>
-                                </div>
-
                                 {choices.shuffled.map(
                                     (ans, i) => (
                                         <button
@@ -292,10 +248,10 @@ export function PictureMatch() {
                                                 playSynthRibbit();
                                                 const result =
                                                     checkCorrectness(
-                                                        ans
+                                                        ans,
                                                     );
                                                 onComplete(
-                                                    result.correct
+                                                    result.correct,
                                                 );
                                             }}
                                         >
@@ -305,11 +261,11 @@ export function PictureMatch() {
                                                 (v, idx) =>
                                                     renderSlot(
                                                         v,
-                                                        idx
-                                                    )
+                                                        idx,
+                                                    ),
                                             )}
                                         </button>
-                                    )
+                                    ),
                                 )}
                             </fieldset>
                         </form>
@@ -324,64 +280,6 @@ export function PictureMatch() {
                         {tense.back}
                         {subject.back}
                         {picture.back}
-
-                        <div
-                            className="instruction-wrapper"
-                            style={{
-                                position: "relative",
-                                height: "320px",
-                                display: "flex",
-                                justifyContent: "flex-end",
-                                overflow: "hidden",
-                            }}
-                        >
-                            <div
-                                className="instruction-bubble"
-                                style={{
-                                    position: "absolute",
-                                    top: "0",
-                                    bottom: "60px",
-                                    fontSize: "2rem",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    zIndex: "-1",
-                                }}
-                            >
-                                <p>
-                                    <b>
-                                        {correct
-                                            ? "Yay you got it right!"
-                                            : "Sorry, you got it wrong."}
-                                    </b>
-                                </p>
-                            </div>
-                            <div
-                                className="frog-mascot"
-                                style={{}}
-                            >
-                                <img
-                                    style={{
-                                        width: "260px",
-                                        display: "block",
-                                        right: "-42px",
-                                        position:
-                                            "relative",
-                                    }}
-                                    src={getImageUrl(
-                                        `picturematchinggame/frog-${
-                                            correct
-                                                ? "happy"
-                                                : "sad"
-                                        }.png`
-                                    )}
-                                    alt={`${
-                                        correct
-                                            ? "Happy"
-                                            : "Sad"
-                                    } Frog Mascot`}
-                                />
-                            </div>
-                        </div>
 
                         <button onClick={handleNext}>
                             Next

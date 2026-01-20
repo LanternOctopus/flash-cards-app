@@ -7,11 +7,11 @@ export function shuffle<T>(list: T[]): T[] {
 
 export function zipByIndex<T>(...arrays: T[][]): T[][] {
     const minLength = Math.min(
-        ...arrays.map((a) => a.length)
+        ...arrays.map((a) => a.length),
     );
 
     return Array.from({ length: minLength }, (_, i) =>
-        arrays.map((a) => a[i])
+        arrays.map((a) => a[i]),
     );
 }
 export function normalizeStr(str: string) {
@@ -33,3 +33,7 @@ export function tokenize(text: string): string[] {
 export const globalGetimageURL = (image: string) => {
     return `${process.env.PUBLIC_URL}/images/${image}`;
 };
+export function capitalizeFirstLetter(string: string) {
+    if (!string) return string; // Handles empty strings
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}

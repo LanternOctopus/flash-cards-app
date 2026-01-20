@@ -6,6 +6,7 @@ import { useQuestion } from "./QuestionContext";
 import { ParentScreen } from "./ParentScreen";
 import { SpeechRecognitionController } from "../controllers/SpeechRecognition";
 import { PartialTranslation } from "./PartialTranslation";
+import { WakeLockManager } from "../utils/wakeLock";
 import "./ReadOutLoud.css";
 export function ReadOutLoudScreen() {
     return (
@@ -64,6 +65,9 @@ export function ReadOutLoud() {
     const [image, setImage] = useState("");
     const [caption, setCaption] = useState("");
     const [alt, setAlt] = useState("");
+    const wakeLockManager = useRef<WakeLockManager>(
+        new WakeLockManager(),
+    );
     const advanceIndex = () => {
         if (
             itemRef.current &&
@@ -78,6 +82,7 @@ export function ReadOutLoud() {
     };
 
     useEffect(() => {
+        wakeLockManager.current.initVisibilityHandler();
         const callbacks = {
             onResultCapture: (text: string) => {
                 console.log("resultCapture", text);
@@ -113,6 +118,7 @@ export function ReadOutLoud() {
 
         return () => {
             controllerRef.current?.cleanup();
+            wakeLockManager.current.release();
             controllerRef.current = null;
         };
     }, []);
@@ -128,6 +134,7 @@ export function ReadOutLoud() {
 
         controllerRef.current.stop();
         controllerRef.current.start();
+        wakeLockManager.current.request();
         if (item?.picture) setImage(item.picture);
         if (item?.caption) setCaption(item.caption);
         if (item?.alt) setAlt(item.alt);
@@ -213,10 +220,12 @@ export function ReadOutLoud() {
                                 if (listening) {
                                     console.log("stopping");
                                     controllerRef.current.stop();
+                                    wakeLockManager.current.release();
                                     setListening(false);
                                 } else {
                                     console.log("starting");
                                     controllerRef.current.start();
+                                    wakeLockManager.current.request();
                                     setListening(true);
                                 }
                             }}

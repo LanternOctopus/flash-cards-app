@@ -3,8 +3,14 @@ export interface WithId {
 }
 
 export type ActivityModelClass<TItem extends WithId> = new (
-    raw: unknown
+    raw: unknown,
 ) => ActivityModel<TItem>;
+function genKey() {
+    return (
+        Date.now().toString(36) +
+        Math.random().toString(36).substring(2, 10)
+    );
+}
 
 export abstract class ActivityModel<TItem extends WithId> {
     protected rawData!: Record<string, TItem[]>;
@@ -14,13 +20,13 @@ export abstract class ActivityModel<TItem extends WithId> {
             throw new Error("Invalid activity data");
         }
         Object.values(raw).every((set) =>
-            set.every((item) => this.addId(item))
+            set.every((item) => this.addId(item)),
         );
         this.rawData = raw;
     }
 
     protected isValidSet(
-        data: unknown
+        data: unknown,
     ): data is Record<string, TItem[]> {
         if (typeof data !== "object" || data === null)
             return false;
@@ -28,15 +34,15 @@ export abstract class ActivityModel<TItem extends WithId> {
         return Object.values(data).every(
             (set) =>
                 Array.isArray(set) &&
-                set.every((item) => this.isValidItem(item))
+                set.every((item) => this.isValidItem(item)),
         );
     }
     protected addId(item: TItem) {
-        item.id = crypto.randomUUID();
+        item.id = genKey();
         return item;
     }
     protected abstract isValidItem(
-        item: unknown
+        item: unknown,
     ): item is TItem;
 
     protected getFirstSetName(): string {
