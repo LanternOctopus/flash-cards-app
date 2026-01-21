@@ -50,11 +50,7 @@ const App: React.FC = () => {
                                             Typing
                                         </Link>
                                     </li>
-                                    <li>
-                                        <Link to="/conversations">
-                                            Conversations
-                                        </Link>
-                                    </li>
+
                                     <li>
                                         <Link to="/scrambler">
                                             Scrambler

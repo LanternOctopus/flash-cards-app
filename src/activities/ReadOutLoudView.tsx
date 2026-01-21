@@ -195,9 +195,6 @@ export function ReadOutLoud() {
                         ),
                     }).front
                 }
-                <figcaption className="visually-hidden">
-                    {item.caption}
-                </figcaption>
             </figure>
         ),
         back: <></>,

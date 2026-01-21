@@ -16,7 +16,7 @@ type PartialTranslationProps = {
     children: ReactNode;
 };
 function isElementWithChildren(
-    el: unknown
+    el: unknown,
 ): el is React.ReactElement<PropsWithChildren<any>> {
     const element = el as ReactElement<
         PropsWithChildren<any>
@@ -40,7 +40,7 @@ export function PartialTranslation({
                             />
                         ) : (
                             word + " "
-                        )
+                        ),
                     );
                 } else if (isElementWithChildren(child)) {
                     const element =
@@ -79,6 +79,10 @@ export function PowerWord({
         <Dictionary
             content={
                 <div>
+                    <h3>
+                        <strong>{word}</strong>
+                    </h3>
+
                     {entries.map(([mal, tr], i) => (
                         <div className="definition-container">
                             <dl className="dict-group">
