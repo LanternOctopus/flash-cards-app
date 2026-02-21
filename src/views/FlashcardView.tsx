@@ -1,77 +1,114 @@
-import React, { useEffect, useState } from 'react';
-import './Flashcard.css';
-import { FlashcardItem } from "../types"
-function capitalizeFirstLetter(str: string): string {
-  if (!str || str.length === 0) {
-    return str;
-  }
-  return str.charAt(0).toUpperCase() + str.slice(1);
+import React, { useEffect, useState } from "react";
+import { FlashcardItem } from "../types";
+
+function capitalizeFirstLetter(str: string) {
+    return str
+        ? str.charAt(0).toUpperCase() + str.slice(1)
+        : "";
 }
 
 type FlashcardViewProps = {
-  data: FlashcardItem;
-  updateSuccess: (success: boolean) => void;
-}
+    data: FlashcardItem;
+    updateSuccess: (success: boolean) => void;
+};
 
-const FlashcardView: React.FC<FlashcardViewProps> = ({ data, updateSuccess }) => {
-  const [options, setOptions] = useState<string[]>([]);
-  const [selected, setSelected] = useState<string | null>(null);
-  const [isFlipped, setIsFlipped] = useState(false);
+const FlashcardView: React.FC<FlashcardViewProps> = ({
+    data,
+    updateSuccess,
+}) => {
+    const [options, setOptions] = useState<string[]>([]);
+    const [selected, setSelected] = useState<string | null>(
+        null,
+    );
+    const [isFlipped, setIsFlipped] = useState(false);
+    const [numChoices, setNumChoices] = useState<number>(4);
 
-  // Reset card when data changes
-  useEffect(() => {
-    const shuffled = [...data.wrongAnswers, data.english].sort(() => Math.random() - 0.5);
-    setOptions(shuffled);
-    setSelected(null);
-    setIsFlipped(false); // always show front
-  }, [data]);
+    useEffect(() => {
+        const wrongs = [...data.wrongAnswers];
+        for (let i = wrongs.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [wrongs[i], wrongs[j]] = [wrongs[j], wrongs[i]];
+        }
+        const choices = [
+            data.english,
+            ...wrongs.slice(0, numChoices - 1),
+        ].sort(() => Math.random() - 0.5);
+        setOptions(choices);
+        setSelected(null);
+        setIsFlipped(false);
+    }, [data, numChoices]);
 
-  const handleFlip = () => setIsFlipped((prev) => !prev);
+    const handleFlip = () => setIsFlipped((prev) => !prev);
 
-  const handleSelect = (option: string) => {
-    if (selected) return; // prevent multiple selections
-    setSelected(option);
-    handleFlip(); // flip after selecting
-    updateSuccess(option === data.english);
-  };
+    const handleSelect = (option: string) => {
+        if (selected) return;
+        setSelected(option);
+        handleFlip();
+        updateSuccess(option === data.english);
+    };
 
-  return (
-    <div className="flashcard">
-      <div className="">
-        {!isFlipped ? (
-          <div className="card-front">
-            <div className='card-question'>
-              <h1>{data.malayalam}</h1>
-              <p>{data.transliteration}</p>
+    return (
+        <article>
+            <header>
+                <h3>Find the correct translation!</h3>
+            </header>
+            <div className="container grid">
+                <div className="card">
+                    {!isFlipped ? (
+                        <div className="card-body">
+                            <h1>{data.malayalam}</h1>
+                            <p>{data.transliteration}</p>
+                        </div>
+                    ) : (
+                        <div className="card-body">
+                            <h1>{data.english}</h1>
+                            <h3>{data.malayalam}</h3>
+                            <p>{data.transliteration}</p>
+                            <p>Subject: {data.subject}</p>
+                            <p>Tense: {data.tense}</p>
+                        </div>
+                    )}
+                </div>
+
+                <div className="grid gap-2">
+                    {options.map((option) => (
+                        <button
+                            key={data.english + option}
+                            onClick={() =>
+                                handleSelect(option)
+                            }
+                            disabled={!!selected}
+                            className={`btn ${selected ? (option === data.english ? "success" : "error") : ""}`}
+                        >
+                            {capitalizeFirstLetter(option)}
+                        </button>
+                    ))}
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="numChoices">
+                        Number of choices:
+                    </label>
+                    <select
+                        id="numChoices"
+                        value={numChoices}
+                        onChange={(e) =>
+                            setNumChoices(
+                                Number(e.target.value),
+                            )
+                        }
+                        className="form-control"
+                    >
+                        {[2, 3, 4].map((n) => (
+                            <option key={n} value={n}>
+                                {n}
+                            </option>
+                        ))}
+                    </select>
+                </div>
             </div>
-          </div>
-        ) : (
-          <div className="card-back">
-            <div className='card-question'>
-              <h1>{data.english}</h1>
-              <h3>{data.malayalam}</h3>
-              <p>{data.transliteration}</p>
-              <h2>Subject: {data.subject}</h2>
-              <p>Tense: {data.tense}</p>
-            </div>
-          </div>
-        )}
-      </div>
-
-      <div className='options'>
-        {options.map((option) => (
-          <button
-            key={data.english+option}
-            onClick={() => handleSelect(option)}
-            disabled={!!selected}
-            className={(selected === option ? 'selected' : '') + ' answer ' + (option==data.english ? 'correct' : "wrong")}
-          >
-            {capitalizeFirstLetter(option)}
-          </button>
-        ))}
-      </div>
-    </div>
-  );
+        </article>
+    );
 };
 
 export default FlashcardView;

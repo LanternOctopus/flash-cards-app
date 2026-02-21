@@ -1,0 +1,74 @@
+Verbs:
+    - picture: picturematchinggame\verbs\add.png
+      question: add
+      answer: add
+      translation: जोड़ना
+      transliteration: jodna
+      ansOptions:
+          choices: [add, run, love, watch]
+          translations: [जोड़ना, दौड़ना, प्यार, देखना]
+          transliterations: [jodna, daudna, pyaar, dekhna]
+
+    - picture: picturematchinggame\verbs\allow.png
+      question: allow
+      answer: allow
+      translation: अनुमति देना
+      transliteration: anumati dena
+      ansOptions:
+          choices: [allow, read, win, walk]
+          translations: [अनुमति देना, पढ़ना, जीतना, चलना]
+          transliterations:
+              [anumati dena, padhna, jeetna, chalna]
+
+    - picture: picturematchinggame\verbs\begin.png
+      question: begin
+      answer: begin
+      translation: शुरू करना
+      transliteration: shuru karna
+      ansOptions:
+          choices: [begin, love, watch, add]
+          translations: [शुरू करना, प्यार, देखना, जोड़ना]
+          transliterations:
+              [shuru karna, pyaar, dekhna, jodna]
+
+    - picture: picturematchinggame\verbs\can.png
+      question: can
+      answer: can
+      translation: सकता है
+      transliteration: sakta hai
+      ansOptions:
+          choices: [can, run, read, win]
+          translations: [सकता है, दौड़ना, पढ़ना, जीतना]
+          transliterations:
+              [sakta hai, daudna, padhna, jeetna]
+
+    - picture: picturematchinggame\verbs\come.png
+      question: come
+      answer: come
+      translation: आना
+      transliteration: aana
+      ansOptions:
+          choices: [come, think, watch, add]
+          translations: [आना, सोचना, देखना, जोड़ना]
+          transliterations: [aana, sochna, dekhna, jodna]
+
+    - picture: picturematchinggame\verbs\could.png
+      question: could
+      answer: could
+      translation: सकता था
+      transliteration: sakta tha
+      ansOptions:
+          choices: [could, love, walk, read]
+          translations: [सकता था, प्यार, चलना, पढ़ना]
+          transliterations:
+              [sakta tha, pyaar, chalna, padhna]
+
+    - picture: picturematchinggame\verbs\create.png
+      question: create
+      answer: create
+      translation: बनाना
+      transliteration: banana
+      ansOptions:
+          choices: [create, run, watch, win]
+          translations: [बनाना, दौड़ना, देखना, जीतना]
+          transliterations: [banana, daudna, dekhna, jeetna]

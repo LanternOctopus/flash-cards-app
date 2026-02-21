@@ -26,16 +26,15 @@ function DisabledLink({
 export function SentenceActivitiesIndex() {
     return (
         <main className="container">
-            <header>
-                <h1>Sentence-Level Activities</h1>
-            </header>
-
             <article
                 style={{
                     display: "block",
                     textAlign: "left",
                 }}
             >
+                <header>
+                    <h1>Sentence-Level Activities</h1>
+                </header>
                 <section>
                     <h3>Parts of Speech</h3>
                     <ul>
@@ -135,7 +134,6 @@ export function SentenceActivitiesIndex() {
                         </li>
                     </ul>
                 </section>
-
                 <section>
                     <h3>Imperatives</h3>
                     <ul>
@@ -165,7 +163,6 @@ export function SentenceActivitiesIndex() {
                         </li>
                     </ul>
                 </section>
-
                 <section>
                     <h3>Contractions</h3>
                     <ul>
@@ -216,7 +213,6 @@ export function SentenceActivitiesIndex() {
                         </li>
                     </ul>
                 </section>
-
                 <section>
                     <h3>Feelings</h3>
                     <h4>COMING SOON</h4>
@@ -233,7 +229,6 @@ export function SentenceActivitiesIndex() {
                         </li>
                     </ul>
                 </section>
-
                 <small>
                     This site is independently developed.
                     References to textbooks are for

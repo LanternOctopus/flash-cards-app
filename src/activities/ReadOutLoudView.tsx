@@ -203,35 +203,6 @@ export function ReadOutLoud() {
     return (
         <>
             <article className="reading-container">
-                <header>
-                    <label
-                        aria-checked={listening}
-                        style={{ cursor: "pointer" }}
-                        className="switch-container"
-                    >
-                        <input
-                            role="switch"
-                            type="checkbox"
-                            checked={listening}
-                            onChange={() => {
-                                if (listening) {
-                                    console.log("stopping");
-                                    controllerRef.current.stop();
-                                    wakeLockManager.current.release();
-                                    setListening(false);
-                                } else {
-                                    console.log("starting");
-                                    controllerRef.current.start();
-                                    wakeLockManager.current.request();
-                                    setListening(true);
-                                }
-                            }}
-                        />
-                        {listening
-                            ? "Stop Listening"
-                            : "Start Listening"}
-                    </label>
-                </header>
                 <div className="story-text">
                     {textSlots.front}
                 </div>
@@ -240,7 +211,6 @@ export function ReadOutLoud() {
                         padding: 0,
                     }}
                 >
-                    {spokenPhones}
                     {imageSlot.front}
                 </footer>
             </article>

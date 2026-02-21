@@ -2,7 +2,7 @@
     "name": "flash-cards-app",
     "version": "0.1.0",
     "private": true,
-    "homepage": ".",
+    "homepage": "https://anandaenglish.com",
     "dependencies": {
         "@picocss/pico": "^2.1.1",
         "compromise": "^14.14.5",

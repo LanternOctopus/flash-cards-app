@@ -15,15 +15,26 @@ import { SentenceActivitiesIndex } from "./pages/SentenceActivitiesIndex";
 import { ParentScreen } from "./activities/ParentScreen";
 import { ReadOutLoudModel } from "./activities/ReadOutLoudModel";
 import { ReadOutLoud } from "./activities/ReadOutLoudView";
+import HindiExample from "./pages/HindiExample";
 
 const App: React.FC = () => {
     return (
         <>
             <header
-                style={{ width: "90%", margin: "0 auto" }}
+                style={{
+                    padding: "0 1rem",
+                    background:
+                        "var(--pico-background-color)",
+                }}
             >
                 <nav>
-                    <ul>
+                    <ul
+                        style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            width: "100%",
+                        }}
+                    >
                         <li>
                             <Link to="/sentenceactivities">
                                 Sentence Activities
@@ -216,12 +227,22 @@ const App: React.FC = () => {
                         </ParentScreen>
                     }
                 />
+                <Route
+                    path="/hindi"
+                    element={<HindiExample />}
+                />
             </Routes>
 
             <footer
                 style={{
                     display: "flex",
-                    justifyContent: "center",
+                    justifyContent: "space-between",
+                    flexFlow: "column",
+                    background:
+                        "var(--pico-background-color)",
+                    alignContent: "center",
+                    padding: "1rem",
+                    textAlign: "center",
                 }}
             >
                 <small>
