@@ -68,6 +68,24 @@ export function ReadOutLoud() {
     const wakeLockManager = useRef<WakeLockManager>(
         new WakeLockManager(),
     );
+    const stallTimeoutRef = useRef<number | null>(null);
+    const stallTokenRef = useRef(0);
+    const clearStallTimer = () => {
+        if (stallTimeoutRef.current != null) {
+            clearTimeout(stallTimeoutRef.current);
+            stallTimeoutRef.current = null;
+        }
+    };
+
+    const startStallTimer = (ms = 10_000) => {
+        clearStallTimer();
+        const token = ++stallTokenRef.current;
+
+        stallTimeoutRef.current = window.setTimeout(() => {
+            if (token !== stallTokenRef.current) return;
+            advanceIndex();
+        }, ms);
+    };
     const advanceIndex = () => {
         if (
             itemRef.current &&
@@ -83,6 +101,7 @@ export function ReadOutLoud() {
 
     useEffect(() => {
         wakeLockManager.current.initVisibilityHandler();
+        wakeLockManager.current.request();
         const callbacks = {
             onResultCapture: (text: string) => {
                 console.log("resultCapture", text);
@@ -117,12 +136,21 @@ export function ReadOutLoud() {
             new SpeechRecognitionController(callbacks);
 
         return () => {
+            clearStallTimer();
             controllerRef.current?.cleanup();
             wakeLockManager.current.release();
             controllerRef.current = null;
         };
     }, []);
+    useEffect(() => {
+        if (!itemRef.current) return;
 
+        startStallTimer(10_000);
+
+        return () => {
+            clearStallTimer();
+        };
+    }, [currentIndex, item?.id]);
     useEffect(() => {
         if (!controllerRef.current) return;
         itemRef.current = item;
@@ -134,11 +162,11 @@ export function ReadOutLoud() {
 
         controllerRef.current.stop();
         controllerRef.current.start();
-        wakeLockManager.current.request();
+
         if (item?.picture) setImage(item.picture);
         if (item?.caption) setCaption(item.caption);
         if (item?.alt) setAlt(item.alt);
-    }, [item.id]);
+    }, [item?.id]);
 
     const textChunkJSX = item.chunks.map(
         (chunk: string, i: number) => (
@@ -211,6 +239,7 @@ export function ReadOutLoud() {
                         padding: 0,
                     }}
                 >
+                    {spokenPhones}
                     {imageSlot.front}
                 </footer>
             </article>

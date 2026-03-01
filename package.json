@@ -2,7 +2,7 @@
     "name": "flash-cards-app",
     "version": "0.1.0",
     "private": true,
-    "homepage": "https://anandaenglish.com",
+    "homepage": ".",
     "dependencies": {
         "@picocss/pico": "^2.1.1",
         "compromise": "^14.14.5",
@@ -23,7 +23,7 @@
     },
     "scripts": {
         "start": "react-scripts start",
-        "build": "react-scripts build && workbox injectManifest workbox-config.js",
+        "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
         "predeploy": "npm run build",

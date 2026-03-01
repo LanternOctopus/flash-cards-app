@@ -3,6 +3,9 @@ export class WakeLockManager {
     private wakeLock: any = null;
 
     async request() {
+        if (document.visibilityState !== "visible") {
+            return;
+        }
         try {
             if ("wakeLock" in navigator) {
                 this.wakeLock = await (

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FlashcardItem } from "../types";
-
+import "./Flashcard.css";
 function capitalizeFirstLetter(str: string) {
     return str
         ? str.charAt(0).toUpperCase() + str.slice(1)

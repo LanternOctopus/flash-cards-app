@@ -60,13 +60,13 @@ interface SpeechRecognition extends EventTarget {
     onerror:
         | ((
               this: SpeechRecognition,
-              ev: SpeechRecognitionErrorEvent
+              ev: SpeechRecognitionErrorEvent,
           ) => any)
         | null;
     onresult:
         | ((
               this: SpeechRecognition,
-              ev: SpeechRecognitionEvent
+              ev: SpeechRecognitionEvent,
           ) => any)
         | null;
 }
@@ -90,13 +90,13 @@ export class SpeechRecognitionController {
 
     constructor(
         callbacks: ControllerCallbacks,
-        options?: SpeechRecognitionControllerOptions
+        options?: SpeechRecognitionControllerOptions,
     ) {
         this.callbacks = callbacks;
         this.options = {
             lang: "en-US",
             interimResults: false,
-            continuous: false,
+            continuous: true,
             autoRestart: true,
             ...options,
         };
@@ -105,12 +105,12 @@ export class SpeechRecognitionController {
 
         this.handleResultBound = (event: Event) => {
             this.handleResult(
-                event as unknown as SpeechRecognitionEvent
+                event as unknown as SpeechRecognitionEvent,
             );
         };
         this.handleErrorBound = (event: Event) => {
             this.handleError(
-                event as SpeechRecognitionErrorEvent
+                event as SpeechRecognitionErrorEvent,
             );
         };
         this.handleEndBound = this.handleEnd.bind(this);
@@ -138,15 +138,15 @@ export class SpeechRecognitionController {
 
         recognition.addEventListener(
             "result",
-            this.handleResultBound
+            this.handleResultBound,
         );
         recognition.addEventListener(
             "error",
-            this.handleErrorBound
+            this.handleErrorBound,
         );
         recognition.addEventListener(
             "end",
-            this.handleEndBound
+            this.handleEndBound,
         );
 
         this.recognitionRef = recognition;
@@ -158,17 +158,18 @@ export class SpeechRecognitionController {
             return;
 
         const result = event.results[event.resultIndex];
-        if (!result.isFinal) return; // only final results
+        if (!result || !result.isFinal) return;
 
         const transcript =
-            result[event.resultIndex].transcript.trim();
+            result[0]?.transcript?.trim() ?? "";
+
         if (transcript) {
             this.callbacks.onResultCapture(transcript);
         }
     }
 
     private handleError(
-        event: SpeechRecognitionErrorEvent
+        event: SpeechRecognitionErrorEvent,
     ) {
         switch (event.error) {
             case "no-speech":
@@ -233,15 +234,15 @@ export class SpeechRecognitionController {
         if (!this.recognitionRef) return;
         this.recognitionRef.removeEventListener(
             "result",
-            this.handleResultBound
+            this.handleResultBound,
         );
         this.recognitionRef.removeEventListener(
             "error",
-            this.handleErrorBound
+            this.handleErrorBound,
         );
         this.recognitionRef.removeEventListener(
             "end",
-            this.handleEndBound
+            this.handleEndBound,
         );
         this.recognitionRef = null;
     }
@@ -268,7 +269,7 @@ export class PhraseController {
 
     constructor(
         phrase: string,
-        callbacks: PhraseControllerCallbacks
+        callbacks: PhraseControllerCallbacks,
     ) {
         // Split phrase into words, handling multiple spaces
         this.words = phrase
@@ -279,7 +280,7 @@ export class PhraseController {
         // Validate we have words
         if (this.words.length === 0) {
             throw new Error(
-                "Phrase must contain at least one word"
+                "Phrase must contain at least one word",
             );
         }
 
@@ -382,7 +383,7 @@ export class PhraseController {
             percentage: Math.round(
                 ((this.currentIndex + 1) /
                     this.words.length) *
-                    100
+                    100,
             ),
         };
     }
