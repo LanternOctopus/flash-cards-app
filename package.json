@@ -11,7 +11,6 @@
         "js-yaml": "^4.1.1",
         "kaplay": "^4000.0.0-alpha.4",
         "path": "^0.12.7",
-        "phonemize": "^1.1.0",
         "react": "^19.0.0",
         "react-dom": "^19.0.0",
         "react-router-dom": "^7.9.5",

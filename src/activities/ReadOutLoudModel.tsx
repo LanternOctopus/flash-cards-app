@@ -1,5 +1,4 @@
 import { ActivityModel } from "./Models";
-import { phonemize } from "phonemize";
 import { stripPunctuation } from "../utils/utils";
 type ReadOutLoudItem = {
     text: string;
@@ -32,22 +31,21 @@ export class ReadOutLoudModel extends ActivityModel<ReadOutLoudItem> {
         target: string,
         setSpokenPhones: any,
     ) {
-        const phrase = stripPunctuation(rawphrase);
-        const spokenPhones = phonemize(phrase);
-        const targetPhones = phonemize(
-            stripPunctuation(target),
-        );
+        const spokenWords = stripPunctuation(rawphrase)
+            .toLowerCase()
+            .split(" ");
 
-        setSpokenPhones(rawphrase);
-        const correctans = targetPhones.split(" ");
-        const spoken = spokenPhones.split(" ");
+        const targetWords = stripPunctuation(target)
+            .toLowerCase()
+            .split(" ");
 
-        const matches = spoken.filter((p) =>
-            correctans.includes(p),
+        const matches = spokenWords.filter((w) =>
+            targetWords.includes(w),
         ).length;
-        const ratio = matches / correctans.length;
 
-        return { correct: ratio >= 0.5 };
+        const ratio = matches / targetWords.length;
+
+        return { correct: ratio >= 0.6 };
     }
     protected isValidItem(
         item: unknown,
