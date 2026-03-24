@@ -2,12 +2,8 @@
 import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import Home from "./components/Home";
-import AllActivities from "./components/AllActivities";
-import FlashCards from "./components/FlashCards";
-import Typing from "./components/Typing";
 import Conversations from "./components/Conversations";
 import Scrambler from "./components/Scrambler";
-import Sequences from "./components/Sequences";
 import { PictureMatchingGameScreen } from "./activities/PictureMatchingGame";
 import { ReadOutLoudScreen } from "./activities/ReadOutLoudView";
 import { PartsOfSpeechScreen } from "./activities/PartsofSpeechNew";
@@ -16,7 +12,7 @@ import { ParentScreen } from "./activities/ParentScreen";
 import { ReadOutLoudModel } from "./activities/ReadOutLoudModel";
 import { ReadOutLoud } from "./activities/ReadOutLoudView";
 import HindiExample from "./pages/HindiExample";
-
+import { FlashCardScreen } from "./activities/flash-cards/FlashCardView";
 const App: React.FC = () => {
     return (
         <>
@@ -96,18 +92,7 @@ const App: React.FC = () => {
             </header>
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route
-                    path="/allactivities"
-                    element={<AllActivities />}
-                />
-                <Route
-                    path="/flashcards"
-                    element={<FlashCards />}
-                />
-                <Route
-                    path="/typing"
-                    element={<Typing />}
-                />
+
                 <Route
                     path="/partsofspeech"
                     element={<PartsOfSpeechScreen />}
@@ -120,10 +105,7 @@ const App: React.FC = () => {
                     path="/scrambler"
                     element={<Scrambler />}
                 />
-                <Route
-                    path="/sequences"
-                    element={<Sequences />}
-                />
+
                 <Route
                     path="/picturematchinggame"
                     element={<PictureMatchingGameScreen />}
@@ -230,6 +212,10 @@ const App: React.FC = () => {
                 <Route
                     path="/hindi"
                     element={<HindiExample />}
+                />
+                <Route
+                    path="/flashcards"
+                    element={<FlashCardScreen />}
                 />
             </Routes>
 

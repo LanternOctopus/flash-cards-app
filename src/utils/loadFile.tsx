@@ -3,7 +3,7 @@ async function fetchWithTimeout(url: string, ms = 5000) {
     const controller = new AbortController();
     const timeout = setTimeout(
         () => controller.abort(),
-        ms
+        ms,
     );
 
     try {
