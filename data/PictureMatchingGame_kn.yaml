@@ -1,0 +1,161 @@
+verbs:
+    - picture: picturematchinggame\verbs\add.png
+      question: add
+      answer: add
+      translation: ಸೇರಿಸು
+      transliteration: serisu
+      ansOptions:
+          choices: [add, run, love, watch]
+          translations: [ಸೇರಿಸು, ಓಡು, ಪ್ರೀತಿ, ನೋಡು]
+          transliterations: [serisu, odu, preeti, nodu]
+
+    - picture: picturematchinggame\verbs\allow.png
+      question: allow
+      answer: allow
+      translation: ಅನುಮತಿಸು
+      transliteration: anumatisu
+      ansOptions:
+          choices: [allow, read, win, walk]
+          translations: [ಅನುಮತಿಸು, ಓದು, ಗೆಲ್ಲು, ನಡೆ]
+          transliterations: [anumatisu, odu, gellu, nade]
+
+    - picture: picturematchinggame\verbs\begin.png
+      question: begin
+      answer: begin
+      translation: ಆರಂಭಿಸು
+      transliteration: aarambhisu
+      ansOptions:
+          choices: [begin, love, watch, add]
+          translations: [ಆರಂಭಿಸು, ಪ್ರೀತಿ, ನೋಡು, ಸೇರಿಸು]
+          transliterations:
+              [aarambhisu, preeti, nodu, serisu]
+
+    - picture: picturematchinggame\verbs\can.png
+      question: can
+      answer: can
+      translation: ಸಾಧ್ಯವಾಗು
+      transliteration: saadhyavaagu
+      ansOptions:
+          choices: [can, run, read, win]
+          translations: [ಸಾಧ್ಯವಾಗು, ಓಡು, ಓದು, ಗೆಲ್ಲು]
+          transliterations: [saadhyavaagu, odu, odu, gellu]
+
+    - picture: picturematchinggame\verbs\come.png
+      question: come
+      answer: come
+      translation: ಬರು
+      transliteration: baru
+      ansOptions:
+          choices: [come, think, watch, add]
+          translations: [ಬರು, ಯೋಚಿಸು, ನೋಡು, ಸೇರಿಸು]
+          transliterations: [baru, yochisu, nodu, serisu]
+
+    - picture: picturematchinggame\verbs\create.png
+      question: create
+      answer: create
+      translation: ಸೃಷ್ಟಿಸು
+      transliteration: srushtisu
+      ansOptions:
+          choices: [create, run, watch, win]
+          translations: [ಸೃಷ್ಟಿಸು, ಓಡು, ನೋಡು, ಗೆಲ್ಲು]
+          transliterations: [srushtisu, odu, nodu, gellu]
+
+    - picture: picturematchinggame\verbs\cut.png
+      question: cut
+      answer: cut
+      translation: ಕತ್ತರಿಸು
+      transliteration: kattarisu
+      ansOptions:
+          choices: [cut, love, read, walk]
+          translations: [ಕತ್ತರಿಸು, ಪ್ರೀತಿ, ಓದು, ನಡೆ]
+          transliterations: [kattarisu, preeti, odu, nade]
+
+    - picture: picturematchinggame\verbs\do.png
+      question: do
+      answer: do
+      translation: ಮಾಡು
+      transliteration: maadu
+      ansOptions:
+          choices: [do, watch, win, walk]
+          translations: [ಮಾಡು, ನೋಡು, ಗೆಲ್ಲು, ನಡೆ]
+          transliterations: [maadu, nodu, gellu, nade]
+
+    - picture: picturematchinggame\verbs\get.png
+      question: get
+      answer: get
+      translation: ಪಡೆಯು
+      transliteration: padeyu
+      ansOptions:
+          choices: [get, read, love, run]
+          translations: [ಪಡೆಯು, ಓದು, ಪ್ರೀತಿ, ಓಡು]
+          transliterations: [padeyu, odu, preeti, odu]
+
+    - picture: picturematchinggame\verbs\go.png
+      question: go
+      answer: go
+      translation: ಹೋಗು
+      transliteration: hogu
+      ansOptions:
+          choices: [go, watch, win, add]
+          translations: [ಹೋಗು, ನೋಡು, ಗೆಲ್ಲು, ಸೇರಿಸು]
+          transliterations: [hogu, nodu, gellu, serisu]
+
+    - picture: picturematchinggame\verbs\have.png
+      question: have
+      answer: have
+      translation: ಹೊಂದಿರು
+      transliteration: hondiru
+      ansOptions:
+          choices: [have, run, read, walk]
+          translations: [ಹೊಂದಿರು, ಓಡು, ಓದು, ನಡೆ]
+          transliterations: [hondiru, odu, odu, nade]
+
+    - picture: picturematchinggame\verbs\love.png
+      question: love
+      answer: love
+      translation: ಪ್ರೀತಿ
+      transliteration: preeti
+      ansOptions:
+          choices: [love, add, run, watch]
+          translations: [ಪ್ರೀತಿ, ಸೇರಿಸು, ಓಡು, ನೋಡು]
+          transliterations: [preeti, serisu, odu, nodu]
+
+    - picture: picturematchinggame\verbs\make.png
+      question: make
+      answer: make
+      translation: ತಯಾರಿಸು
+      transliteration: tayaarisu
+      ansOptions:
+          choices: [make, read, win, walk]
+          translations: [ತಯಾರಿಸು, ಓದು, ಗೆಲ್ಲು, ನಡೆ]
+          transliterations: [tayaarisu, odu, gellu, nade]
+
+    - picture: picturematchinggame\verbs\move.png
+      question: move
+      answer: move
+      translation: ಚಲಿಸು
+      transliteration: chalisu
+      ansOptions:
+          choices: [move, love, watch, read]
+          translations: [ಚಲಿಸು, ಪ್ರೀತಿ, ನೋಡು, ಓದು]
+          transliterations: [chalisu, preeti, nodu, odu]
+
+    - picture: picturematchinggame\verbs\offer.png
+      question: offer
+      answer: offer
+      translation: ನೀಡು
+      transliteration: needu
+      ansOptions:
+          choices: [offer, run, read, win]
+          translations: [ನೀಡು, ಓಡು, ಓದು, ಗೆಲ್ಲು]
+          transliterations: [needu, odu, odu, gellu]
+
+    - picture: picturematchinggame\verbs\open.png
+      question: open
+      answer: open
+      translation: ತೆರೆಯು
+      transliteration: tereyu
+      ansOptions:
+          choices: [open, love, walk, watch]
+          translations: [ತೆರೆಯು, ಪ್ರೀತಿ, ನಡೆ, ನೋಡು]
+          transliterations: [tereyu, preeti, nade, nodu]

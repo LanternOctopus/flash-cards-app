@@ -1,0 +1,29 @@
+fields:
+    question: { type: text }
+    english: { type: text }
+    targetLang: { type: text }
+    phonetics: { type: text }
+    "meta.subject": { type: text }
+    "meta.tense": { type: text }
+    learningHint: { type: text }
+
+frontDefault:
+    - question
+    - targetLang
+    - phonetics
+    - meta.tense
+    - meta.subject
+
+choicesDefault:
+    - choices
+
+backDefault:
+    - english
+    - targetLang
+    - phonetics
+    - meta.tense
+    - meta.subject
+    - learningHint
+
+choice_categories:
+    - choices

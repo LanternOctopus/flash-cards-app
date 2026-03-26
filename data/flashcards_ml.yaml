@@ -1,0 +1,39 @@
+verbs:
+    - question: go
+      meta:
+          subject: he
+          tense: Simple past
+      english: "He went to the market."
+      targetLang: "അവൻ മാർക്കറ്റിൽ പോയി."
+      phonetics: "avan markettil poyi."
+      wrongAnswers:
+          - "They goes to the market."
+          - "Me went to the market."
+          - "She is go to the market."
+      learningHint: "The verb 'go' is irregular in the past: use 'went' for all subjects (I/he/she/they went). 'Goes' is present tense, and forms like 'me went' or 'is go' are incorrect. Correct pattern: Subject + went + (place/object). Example: 'He went to the market.'"
+
+    - question: go
+      meta:
+          subject: she
+          tense: Continuous past
+      english: "She was going to school."
+      targetLang: "അവൾ സ്കൂളിലേക്ക് പോകുകയായിരുന്നു."
+      phonetics: "aval skoolilekku pokukayirunnu."
+      wrongAnswers:
+          - "He were going to school."
+          - "Her was go to school."
+          - "They going to school."
+      learningHint: "Past continuous = was/were + verb-ing. Use 'was' with singular third-person subjects (he/she/it): 'She was going to school.' Don't omit the auxiliary 'was' or use 'were' with 'she'."
+
+    - question: go
+      meta:
+          subject: they
+          tense: Simple present
+      english: "They go to work."
+      targetLang: "അവർ ജോലിക്ക് പോകുന്നു."
+      phonetics: "avar jolikku pokunnu."
+      wrongAnswers:
+          - "I goes to work."
+          - "We went to work."
+          - "Their go to work."
+      learningHint: "In the simple present, use the base verb with plural subjects: 'they go'. Do not add -s. ('go' for I/you/we/they; 'goes' only for he/she/it.)"
