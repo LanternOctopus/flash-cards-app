@@ -13,9 +13,11 @@ import { ReadOutLoudModel } from "./activities/ReadOutLoudModel";
 import { ReadOutLoud } from "./activities/ReadOutLoudView";
 import HindiExample from "./pages/HindiExample";
 import { FlashCardScreen } from "./activities/flash-cards/FlashCardView";
+import { LanguageSwitcher } from "./activities/languageswitcher/LanguageSwitcher";
+import { LanguageProvider } from "./activities/languageswitcher/LanguageProvider";
 const App: React.FC = () => {
     return (
-        <>
+        <LanguageProvider>
             <header
                 style={{
                     padding: "0 1rem",
@@ -35,6 +37,9 @@ const App: React.FC = () => {
                             <Link to="/sentenceactivities">
                                 Sentence Activities
                             </Link>
+                        </li>
+                        <li className="languageSwitcher">
+                            <LanguageSwitcher />
                         </li>
                         <li>
                             <details className="dropdown">
@@ -237,7 +242,7 @@ const App: React.FC = () => {
                 </small>
                 <small>© 2026 All Rights Reserved.</small>
             </footer>
-        </>
+        </LanguageProvider>
     );
 };
 

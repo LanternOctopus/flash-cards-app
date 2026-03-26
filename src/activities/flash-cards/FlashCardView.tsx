@@ -5,11 +5,12 @@ import { useVisibilityGate } from "../../components/VisibilityGateContext";
 import { useAnswer } from "./../AnswerProvider";
 import { ParentScreen } from "../ParentScreen";
 import { FlashCardItem } from "./FlashCardModel";
-
+import { useLanguage } from "../languageswitcher/LanguageProvider";
 export function FlashCardScreen() {
+    const { locale } = useLanguage();
     return (
         <ParentScreen
-            itemPath="FlashCards.yaml"
+            itemPath={`FlashCards_${locale}.yaml`}
             configPath="FlashCardsConfig.yaml"
             storageKey="flashCards"
             modelClass={FlashCardModel}
