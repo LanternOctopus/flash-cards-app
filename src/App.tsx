@@ -127,8 +127,8 @@ const App: React.FC = () => {
                     path="/readoutloud/whimsicalcontractions"
                     element={
                         <ParentScreen
-                            itemPath="whimsicalcontractions.yaml"
-                            configPath="ReadOutLoudConfig.yaml"
+                            itemPath="verbs/identification/whimsicalcontractions.yaml"
+                            configPath="config/ReadOutLoudConfig.yaml"
                             storageKey="readOutLoud"
                             modelClass={ReadOutLoudModel}
                         >
@@ -140,8 +140,8 @@ const App: React.FC = () => {
                     path="/readoutloud/adognamedchai"
                     element={
                         <ParentScreen
-                            itemPath="adognamedchai.yaml"
-                            configPath="ReadOutLoudConfig.yaml"
+                            itemPath="reading/intermediate/adognamedchai.yaml"
+                            configPath="config/ReadOutLoudConfig.yaml"
                             storageKey="readOutLoud"
                             modelClass={ReadOutLoudModel}
                         >
@@ -153,8 +153,8 @@ const App: React.FC = () => {
                     path="/readoutloud/learningcanchangeus"
                     element={
                         <ParentScreen
-                            itemPath="learningcanchangeus.yaml"
-                            configPath="ReadOutLoudConfig.yaml"
+                            itemPath="verbs/identification/learningcanchangeus.yaml"
+                            configPath="config/ReadOutLoudConfig.yaml"
                             storageKey="readOutLoud"
                             modelClass={ReadOutLoudModel}
                         >
@@ -166,8 +166,8 @@ const App: React.FC = () => {
                     path="/readoutloud/thebusydayoflittlesteps"
                     element={
                         <ParentScreen
-                            itemPath="thebusydayoflittlesteps.yaml"
-                            configPath="ReadOutLoudConfig.yaml"
+                            itemPath="verbs/identification/thebusydayoflittlesteps.yaml"
+                            configPath="config/ReadOutLoudConfig.yaml"
                             storageKey="readOutLoud"
                             modelClass={ReadOutLoudModel}
                         >
@@ -179,8 +179,8 @@ const App: React.FC = () => {
                     path="/readoutloud/wordsthattravel"
                     element={
                         <ParentScreen
-                            itemPath="wordsthattravel.yaml"
-                            configPath="ReadOutLoudConfig.yaml"
+                            itemPath="verbs/identification/wordsthattravel.yaml"
+                            configPath="config/ReadOutLoudConfig.yaml"
                             storageKey="readOutLoud"
                             modelClass={ReadOutLoudModel}
                         >
@@ -192,8 +192,8 @@ const App: React.FC = () => {
                     path="/readoutloud/wordsyoucandoatyourdesk"
                     element={
                         <ParentScreen
-                            itemPath="wordsyoucandoatyourdesk.yaml"
-                            configPath="ReadOutLoudConfig.yaml"
+                            itemPath="verbs/identification/wordsyoucandoatyourdesk.yaml"
+                            configPath="config/ReadOutLoudConfig.yaml"
                             storageKey="readOutLoud"
                             modelClass={ReadOutLoudModel}
                         >
@@ -205,8 +205,8 @@ const App: React.FC = () => {
                     path="/readoutloud/whatmybodycando"
                     element={
                         <ParentScreen
-                            itemPath="whatmybodycando.yaml"
-                            configPath="ReadOutLoudConfig.yaml"
+                            itemPath="verbs/identification/whatmybodycando.yaml"
+                            configPath="config/ReadOutLoudConfig.yaml"
                             storageKey="readOutLoud"
                             modelClass={ReadOutLoudModel}
                         >

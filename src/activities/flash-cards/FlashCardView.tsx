@@ -10,8 +10,8 @@ export function FlashCardScreen() {
     const { locale } = useLanguage();
     return (
         <ParentScreen
-            itemPath={`FlashCards_${locale}.yaml`}
-            configPath="FlashCardsConfig.yaml"
+            itemPath={`verbs/tenses/flashcards_${locale}.yaml`}
+            configPath="config/flashcardsconfig.yaml"
             storageKey="flashCards"
             modelClass={FlashCardModel}
         >

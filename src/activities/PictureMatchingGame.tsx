@@ -6,12 +6,14 @@ import { useQuestion } from "./QuestionContext";
 import { ParentScreen } from "./ParentScreen";
 import { playSynthRibbit } from "../utils/audio";
 import { TTS } from "../utils/TTS";
+import { useLanguage } from "./languageswitcher/LanguageProvider";
 import "./picturematchinggame.css";
 export function PictureMatchingGameScreen() {
+    const { locale } = useLanguage();
     return (
         <ParentScreen
-            itemPath="PictureMatchingGame.yaml"
-            configPath="PictureMatchingGameConfig.yaml"
+            itemPath={`verbs/vocabulary/PictureMatchingGame_${locale}.yaml`}
+            configPath="config/PictureMatchingGameConfig.yaml"
             storageKey="pictureMatchingGame"
             modelClass={PictureMatchingGameModel}
         >

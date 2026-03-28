@@ -11,8 +11,8 @@ import { PartOfSpeechMagicalGirl } from "../components/decorative/PartofSpeechMa
 export function PartsOfSpeechScreen() {
     return (
         <ParentScreen
-            itemPath="PartsofSpeech.yaml"
-            configPath="PartsofSpeechConfig.yaml"
+            itemPath="verbs/identification/PartsofSpeech.yaml"
+            configPath="config/PartsofSpeechConfig.yaml"
             storageKey="partsofSpeech"
             modelClass={PartsofSpeechModel}
         >

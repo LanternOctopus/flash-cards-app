@@ -5,8 +5,8 @@ import { PictureMatchingGameModel } from "../activities/PictureMatchingGameModel
 const HindiExample: React.FC = () => {
     return (
         <ParentScreen
-            itemPath="Picturematchinggamehindi.yaml"
-            configPath="PictureMatchingGameConfig.yaml"
+            itemPath="verbs/vocabularyPicturematchinggamehindi.yaml"
+            configPath="config/PictureMatchingGameConfig.yaml"
             storageKey="hindi"
             modelClass={PictureMatchingGameModel}
         >

@@ -21,7 +21,7 @@ class LexiconModel {
                         malayalam,
                         transliteration,
                     ]);
-                }
+                },
             );
         });
 
@@ -29,11 +29,11 @@ class LexiconModel {
     }
 
     protected isValidLexicon(
-        item: any
+        item: any,
     ): item is Record<string, Entry[]> {
         if (item instanceof Promise) {
             throw new Error(
-                "Lexicon must be resolved before validation"
+                "Lexicon must be resolved before validation",
             );
         }
 
@@ -45,7 +45,7 @@ class LexiconModel {
         return Object.values(item).every(
             (set) =>
                 Array.isArray(set) &&
-                set.every(this.isValidEntry)
+                set.every(this.isValidEntry),
         );
     }
 
@@ -68,7 +68,7 @@ class LexiconModel {
     }
 
     public getTranslation(
-        word: string
+        word: string,
     ): Translation[] | null {
         return this.data[word] ?? null;
     }
@@ -80,6 +80,6 @@ class LexiconModel {
 
 export const Lexicon = new LexiconModel(
     await loadSource<Record<string, Entry[]>>(
-        "lexicon.ml.yaml"
-    )
+        "lexicon/lexicon_ml.yaml",
+    ),
 );
