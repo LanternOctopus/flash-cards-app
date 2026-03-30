@@ -55,15 +55,9 @@ export class ReadOutLoudModel extends ActivityModel<ReadOutLoudItem> {
 
         const it = item as any;
 
-        return (
-            typeof it.text === "string" &&
-            Array.isArray(it.phonemes) &&
-            it.phonemes.every(
-                (p: any) => typeof p === "string",
-            )
-        );
+        return typeof it.text === "string";
     }
     getImageUrl(image: string) {
-        return `${process.env.PUBLIC_URL}/images/readoutloud/${image}`;
+        return `${process.env.PUBLIC_URL}/images/${image}`;
     }
 }

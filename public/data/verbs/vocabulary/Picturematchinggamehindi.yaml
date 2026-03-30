@@ -1,5 +1,5 @@
 Verbs:
-    - picture: picturematchinggame\verbs\add.png
+    - picture: verbs\vocabulary\add.png
       question: add
       answer: add
       translation: जोड़ना
@@ -9,7 +9,7 @@ Verbs:
           translations: [जोड़ना, दौड़ना, प्यार, देखना]
           transliterations: [jodna, daudna, pyaar, dekhna]
 
-    - picture: picturematchinggame\verbs\allow.png
+    - picture: verbs\vocabulary\allow.png
       question: allow
       answer: allow
       translation: अनुमति देना
@@ -20,7 +20,7 @@ Verbs:
           transliterations:
               [anumati dena, padhna, jeetna, chalna]
 
-    - picture: picturematchinggame\verbs\begin.png
+    - picture: verbs\vocabulary\begin.png
       question: begin
       answer: begin
       translation: शुरू करना
@@ -31,7 +31,7 @@ Verbs:
           transliterations:
               [shuru karna, pyaar, dekhna, jodna]
 
-    - picture: picturematchinggame\verbs\can.png
+    - picture: verbs\vocabulary\can.png
       question: can
       answer: can
       translation: सकता है
@@ -42,7 +42,7 @@ Verbs:
           transliterations:
               [sakta hai, daudna, padhna, jeetna]
 
-    - picture: picturematchinggame\verbs\come.png
+    - picture: verbs\vocabulary\come.png
       question: come
       answer: come
       translation: आना
@@ -52,7 +52,7 @@ Verbs:
           translations: [आना, सोचना, देखना, जोड़ना]
           transliterations: [aana, sochna, dekhna, jodna]
 
-    - picture: picturematchinggame\verbs\could.png
+    - picture: verbs\vocabulary\could.png
       question: could
       answer: could
       translation: सकता था
@@ -63,7 +63,7 @@ Verbs:
           transliterations:
               [sakta tha, pyaar, chalna, padhna]
 
-    - picture: picturematchinggame\verbs\create.png
+    - picture: verbs\vocabulary\create.png
       question: create
       answer: create
       translation: बनाना

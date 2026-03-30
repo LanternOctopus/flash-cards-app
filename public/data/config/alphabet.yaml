@@ -1,0 +1,9 @@
+fields:
+    text: { type: text }
+    picture: { type: text }
+    caption: { type: text }
+    alt: { type: text }
+frontDefault:
+    - text
+    - picture
+    - alt

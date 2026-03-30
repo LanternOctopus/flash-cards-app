@@ -222,6 +222,32 @@ const App: React.FC = () => {
                     path="/flashcards"
                     element={<FlashCardScreen />}
                 />
+                <Route
+                    path="/letter/alphabet"
+                    element={
+                        <ParentScreen
+                            itemPath="letter/learnthealphabet.yaml"
+                            configPath="config/alphabet.yaml"
+                            storageKey="alphabetMatching"
+                            modelClass={ReadOutLoudModel}
+                        >
+                            <ReadOutLoud />
+                        </ParentScreen>
+                    }
+                />
+                <Route
+                    path="/letter/alphabetmatching"
+                    element={
+                        <ParentScreen
+                            itemPath="letter/mcq.yaml"
+                            configPath="config/alphabetmatching.yaml"
+                            storageKey="alphabetMatching"
+                            modelClass={ReadOutLoudModel}
+                        >
+                            <ReadOutLoud />
+                        </ParentScreen>
+                    }
+                />
             </Routes>
 
             <footer

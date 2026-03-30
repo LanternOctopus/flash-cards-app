@@ -1,5 +1,5 @@
 verbs:
-    - picture: picturematchinggame\verbs\add.png
+    - picture: verbs/vocabulary/add.png
       question: add
       answer: add
       translation: ಸೇರಿಸು
@@ -9,7 +9,7 @@ verbs:
           translations: [ಸೇರಿಸು, ಓಡು, ಪ್ರೀತಿ, ನೋಡು]
           transliterations: [serisu, odu, preeti, nodu]
 
-    - picture: picturematchinggame\verbs\allow.png
+    - picture: verbs/vocabulary/allow.png
       question: allow
       answer: allow
       translation: ಅನುಮತಿಸು
@@ -19,7 +19,7 @@ verbs:
           translations: [ಅನುಮತಿಸು, ಓದು, ಗೆಲ್ಲು, ನಡೆ]
           transliterations: [anumatisu, odu, gellu, nade]
 
-    - picture: picturematchinggame\verbs\begin.png
+    - picture: verbs/vocabulary/begin.png
       question: begin
       answer: begin
       translation: ಆರಂಭಿಸು
@@ -30,7 +30,7 @@ verbs:
           transliterations:
               [aarambhisu, preeti, nodu, serisu]
 
-    - picture: picturematchinggame\verbs\can.png
+    - picture: verbs/vocabulary/can.png
       question: can
       answer: can
       translation: ಸಾಧ್ಯವಾಗು
@@ -40,7 +40,7 @@ verbs:
           translations: [ಸಾಧ್ಯವಾಗು, ಓಡು, ಓದು, ಗೆಲ್ಲು]
           transliterations: [saadhyavaagu, odu, odu, gellu]
 
-    - picture: picturematchinggame\verbs\come.png
+    - picture: verbs/vocabulary/come.png
       question: come
       answer: come
       translation: ಬರು
@@ -50,7 +50,7 @@ verbs:
           translations: [ಬರು, ಯೋಚಿಸು, ನೋಡು, ಸೇರಿಸು]
           transliterations: [baru, yochisu, nodu, serisu]
 
-    - picture: picturematchinggame\verbs\create.png
+    - picture: verbs/vocabulary/create.png
       question: create
       answer: create
       translation: ಸೃಷ್ಟಿಸು
@@ -60,7 +60,7 @@ verbs:
           translations: [ಸೃಷ್ಟಿಸು, ಓಡು, ನೋಡು, ಗೆಲ್ಲು]
           transliterations: [srushtisu, odu, nodu, gellu]
 
-    - picture: picturematchinggame\verbs\cut.png
+    - picture: verbs/vocabulary/cut.png
       question: cut
       answer: cut
       translation: ಕತ್ತರಿಸು
@@ -70,7 +70,7 @@ verbs:
           translations: [ಕತ್ತರಿಸು, ಪ್ರೀತಿ, ಓದು, ನಡೆ]
           transliterations: [kattarisu, preeti, odu, nade]
 
-    - picture: picturematchinggame\verbs\do.png
+    - picture: verbs/vocabulary/do.png
       question: do
       answer: do
       translation: ಮಾಡು
@@ -80,7 +80,7 @@ verbs:
           translations: [ಮಾಡು, ನೋಡು, ಗೆಲ್ಲು, ನಡೆ]
           transliterations: [maadu, nodu, gellu, nade]
 
-    - picture: picturematchinggame\verbs\get.png
+    - picture: verbs/vocabulary/get.png
       question: get
       answer: get
       translation: ಪಡೆಯು
@@ -90,7 +90,7 @@ verbs:
           translations: [ಪಡೆಯು, ಓದು, ಪ್ರೀತಿ, ಓಡು]
           transliterations: [padeyu, odu, preeti, odu]
 
-    - picture: picturematchinggame\verbs\go.png
+    - picture: verbs/vocabulary/go.png
       question: go
       answer: go
       translation: ಹೋಗು
@@ -100,7 +100,7 @@ verbs:
           translations: [ಹೋಗು, ನೋಡು, ಗೆಲ್ಲು, ಸೇರಿಸು]
           transliterations: [hogu, nodu, gellu, serisu]
 
-    - picture: picturematchinggame\verbs\have.png
+    - picture: verbs/vocabulary/have.png
       question: have
       answer: have
       translation: ಹೊಂದಿರು
@@ -110,7 +110,7 @@ verbs:
           translations: [ಹೊಂದಿರು, ಓಡು, ಓದು, ನಡೆ]
           transliterations: [hondiru, odu, odu, nade]
 
-    - picture: picturematchinggame\verbs\love.png
+    - picture: verbs/vocabulary/love.png
       question: love
       answer: love
       translation: ಪ್ರೀತಿ
@@ -120,7 +120,7 @@ verbs:
           translations: [ಪ್ರೀತಿ, ಸೇರಿಸು, ಓಡು, ನೋಡು]
           transliterations: [preeti, serisu, odu, nodu]
 
-    - picture: picturematchinggame\verbs\make.png
+    - picture: verbs/vocabulary/make.png
       question: make
       answer: make
       translation: ತಯಾರಿಸು
@@ -130,7 +130,7 @@ verbs:
           translations: [ತಯಾರಿಸು, ಓದು, ಗೆಲ್ಲು, ನಡೆ]
           transliterations: [tayaarisu, odu, gellu, nade]
 
-    - picture: picturematchinggame\verbs\move.png
+    - picture: verbs/vocabulary/move.png
       question: move
       answer: move
       translation: ಚಲಿಸು
@@ -140,7 +140,7 @@ verbs:
           translations: [ಚಲಿಸು, ಪ್ರೀತಿ, ನೋಡು, ಓದು]
           transliterations: [chalisu, preeti, nodu, odu]
 
-    - picture: picturematchinggame\verbs\offer.png
+    - picture: verbs/vocabulary/offer.png
       question: offer
       answer: offer
       translation: ನೀಡು
@@ -150,7 +150,7 @@ verbs:
           translations: [ನೀಡು, ಓಡು, ಓದು, ಗೆಲ್ಲು]
           transliterations: [needu, odu, odu, gellu]
 
-    - picture: picturematchinggame\verbs\open.png
+    - picture: verbs/vocabulary/open.png
       question: open
       answer: open
       translation: ತೆರೆಯು

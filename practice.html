@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Alphabet Trace Pro</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --bg: #f8fafc;
+        }
+
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            background: var(--bg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            touch-action: none;
+        }
+
+        .header {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .controls {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 10px;
+            max-width: 500px;
+            margin-bottom: 10px;
+        }
+
+        .canvas-area {
+            position: relative;
+            width: 320px;
+            height: 320px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 15px;
+        }
+
+        #drawCanvas {
+            cursor: crosshair;
+            z-index: 10;
+        }
+
+        #guideCanvas {
+            z-index: 5;
+            opacity: 0.3;
+        }
+
+        /* Light grey guide */
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 8px;
+            background: white;
+            color: #475569;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: 0.2s;
+        }
+
+        button.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .action-btns {
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .clear-btn {
+            background: #ef4444;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h2>Trace the Letter</h2>
+        <p>Pick a letter, watch the guide, then trace!</p>
+    </div>
+
+    <div class="controls" id="letterNav"></div>
+
+    <div class="canvas-area">
+        <canvas id="guideCanvas" width="320" height="320"></canvas>
+        <canvas id="drawCanvas" width="320" height="320"></canvas>
+    </div>
+
+    <div class="action-btns">
+        <button onclick="replayGuide()">Replay Guide</button>
+        <button class="clear-btn" onclick="clearUserDrawing()">Clear My Drawing</button>
+    </div>
+
+    <script>
+        const guideCanvas = document.getElementById('guideCanvas');
+        const drawCanvas = document.getElementById('drawCanvas');
+        const gCtx = guideCanvas.getContext('2d');
+        const dCtx = drawCanvas.getContext('2d');
+
+        let progress = 0;
+        let isDrawing = false;
+        let currentLetter = 'A';
+        let animationId;
+
+        // --- Alphabet Data ---
+        const alphabet = {
+            'A': [{ type: 'line', pts: [50, 20, 20, 80] }, { type: 'line', pts: [50, 20, 80, 80] }, { type: 'line', pts: [35, 55, 65, 55] }],
+            'B': [{ type: 'line', pts: [30, 20, 30, 80] }, { type: 'curve', pts: [30, 20, 75, 20, 75, 50, 30, 50] }, { type: 'curve', pts: [30, 50, 85, 50, 85, 80, 30, 80] }],
+            'C': [{ type: 'curve', pts: [75, 30, 20, 10, 20, 90, 75, 70] }],
+            'D': [{ type: 'line', pts: [30, 20, 30, 80] }, { type: 'curve', pts: [30, 20, 90, 20, 90, 80, 30, 80] }],
+            'E': [{ type: 'line', pts: [35, 20, 35, 80] }, { type: 'line', pts: [35, 20, 70, 20] }, { type: 'line', pts: [35, 50, 60, 50] }, { type: 'line', pts: [35, 80, 70, 80] }],
+            'S': [{ type: 'curve', pts: [75, 30, 75, 10, 20, 30, 50, 50] }, { type: 'curve', pts: [50, 50, 80, 70, 25, 90, 25, 70] }]
+            // Add other letters here using the same format
+        };
+
+        // --- Guide Animation Logic ---
+        function getBezier(t, p) {
+            const n = 1 - t;
+            return {
+                x: n ** 3 * p[0] + 3 * n ** 2 * t * p[2] + 3 * n * t ** 2 * p[4] + t ** 3 * p[6],
+                y: n ** 3 * p[1] + 3 * n ** 2 * t * p[3] + 3 * n * t ** 2 * p[5] + t ** 3 * p[7]
+            };
+        }
+
+        function animateGuide() {
+            const strokes = alphabet[currentLetter];
+            gCtx.clearRect(0, 0, 320, 320);
+            gCtx.strokeStyle = '#cbd5e1';
+            gCtx.lineWidth = 14;
+            gCtx.lineCap = 'round';
+
+            const strokeDur = 1 / strokes.length;
+            strokes.forEach((s, i) => {
+                const start = i * strokeDur;
+                if (progress < start) return;
+                const pStep = Math.min((progress - start) / strokeDur, 1);
+                const pts = s.pts.map(v => v * 2.5 + 35); // Scale to canvas
+
+                gCtx.beginPath();
+                gCtx.moveTo(pts[0], pts[1]);
+                if (s.type === 'line') {
+                    gCtx.lineTo(pts[0] + (pts[2] - pts[0]) * pStep, pts[1] + (pts[3] - pts[1]) * pStep);
+                } else {
+                    for (let j = 0; j <= pStep; j += 0.02) {
+                        const b = getBezier(j, pts);
+                        gCtx.lineTo(b.x, b.y);
+                    }
+                }
+                gCtx.stroke();
+            });
+
+            if (progress < 1) {
+                progress += 0.007;
+                animationId = requestAnimationFrame(animateGuide);
+            }
+        }
+
+        // --- User Drawing Logic (Mobile Friendly) ---
+        function getPos(e) {
+            const rect = drawCanvas.getBoundingClientRect();
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            return { x: clientX - rect.left, y: clientY - rect.top };
+        }
+
+        function startDrawing(e) {
+            isDrawing = true;
+            const pos = getPos(e);
+            dCtx.beginPath();
+            dCtx.moveTo(pos.x, pos.y);
+            e.preventDefault();
+        }
+
+        function draw(e) {
+            if (!isDrawing) return;
+            const pos = getPos(e);
+            dCtx.lineTo(pos.x, pos.y);
+            dCtx.strokeStyle = '#2563eb';
+            dCtx.lineWidth = 10;
+            dCtx.lineCap = 'round';
+            dCtx.lineJoin = 'round';
+            dCtx.stroke();
+            e.preventDefault();
+        }
+
+        function stopDrawing() { isDrawing = false; }
+
+        // --- UI Interactions ---
+        function selectLetter(l) {
+            currentLetter = l;
+            document.querySelectorAll('#letterNav button').forEach(b => b.classList.toggle('active', b.innerText === l));
+            clearUserDrawing();
+            replayGuide();
+        }
+
+        function replayGuide() {
+            progress = 0;
+            cancelAnimationFrame(animationId);
+            animateGuide();
+        }
+
+        function clearUserDrawing() {
+            dCtx.clearRect(0, 0, 320, 320);
+        }
+
+        // Init Letter Buttons
+        const nav = document.getElementById('letterNav');
+        Object.keys(alphabet).forEach(l => {
+            const btn = document.createElement('button');
+            btn.innerText = l;
+            btn.onclick = () => selectLetter(l);
+            nav.appendChild(btn);
+        });
+
+        // Event Listeners
+        drawCanvas.addEventListener('mousedown', startDrawing);
+        window.addEventListener('mousemove', draw);
+        window.addEventListener('mouseup', stopDrawing);
+
+        drawCanvas.addEventListener('touchstart', startDrawing);
+        drawCanvas.addEventListener('touchmove', draw);
+        drawCanvas.addEventListener('touchend', stopDrawing);
+
+        selectLetter('A');
+    </script>
+</body>
+
+</html>
