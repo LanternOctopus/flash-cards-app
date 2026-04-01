@@ -10,7 +10,7 @@ export function SequenceController({
     children: React.ReactNode;
 }) {
     const [current, setCurrent] = useState<any | null>(
-        null
+        null,
     );
     const data = useData();
     const modelRef = useRef<any>(null);
@@ -18,7 +18,7 @@ export function SequenceController({
         if (!data?.items) return;
         modelRef.current = new modelClass(data.items);
         modelRef.current.initializeGenerator();
-
+        console.log("data items", data.items);
         const first = modelRef.current.nextItem();
         if (!first.done) {
             setCurrent(first.value);

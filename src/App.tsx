@@ -15,6 +15,7 @@ import HindiExample from "./pages/HindiExample";
 import { FlashCardScreen } from "./activities/flash-cards/FlashCardView";
 import { LanguageSwitcher } from "./activities/languageswitcher/LanguageSwitcher";
 import { LanguageProvider } from "./activities/languageswitcher/LanguageProvider";
+import { HandwritingScreen } from "./activities/writing/WritingView";
 const App: React.FC = () => {
     return (
         <LanguageProvider>
@@ -87,6 +88,11 @@ const App: React.FC = () => {
                                     <li>
                                         <Link to="/partsofspeech">
                                             Parts Of Speech
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/handwriting">
+                                            Handwriting
                                         </Link>
                                     </li>
                                 </ul>
@@ -247,6 +253,10 @@ const App: React.FC = () => {
                             <ReadOutLoud />
                         </ParentScreen>
                     }
+                />
+                <Route
+                    path="/handwriting"
+                    element={<HandwritingScreen />}
                 />
             </Routes>
 
