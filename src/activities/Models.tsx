@@ -22,7 +22,7 @@ export abstract class ActivityModel<TItem extends WithId> {
     private CACHE_KEY = this.getProgressCacheKey();
     private TTL = 60 * 60 * 1000; // 1 hour
     private currentId: string | null = null;
-    private answer: any = null;
+    protected answer: any = null;
     public score: number = 0;
     onScoreChange: (score: number) => void;
     constructor(

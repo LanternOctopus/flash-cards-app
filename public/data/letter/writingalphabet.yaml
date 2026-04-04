@@ -1,0 +1,7 @@
+alphabet:
+    - text: "A"
+      repeat: 4
+    - text: "B"
+      repeat: 4
+    - text: "C"
+      repeat: 4
