@@ -186,7 +186,6 @@ export function PictureMatch() {
     const choices = builder.getZippedChoices(
         item.ansOptions,
     );
-    console.log("choices", choices);
 
     const renderSlot = (v: string, idx: number) => {
         switch (idx) {
@@ -253,7 +252,7 @@ export function PictureMatch() {
                                                         ans,
                                                     );
                                                 onComplete(
-                                                    result.correct,
+                                                    result?.correct,
                                                 );
                                             }}
                                         >

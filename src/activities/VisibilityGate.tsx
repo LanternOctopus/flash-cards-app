@@ -6,20 +6,15 @@ type Placement = "front" | "back";
 export class VisibilityGate {
     constructor(
         public uiSelections: any,
-        public slots: Record<string, any>
-    ) {
-        console.log(
-            "VisibilityGate constructor",
-            this.uiSelections
-        );
-    }
+        public slots: Record<string, any>,
+    ) {}
 
     showSlot(
         slotName: string,
         placements:
             | Placement
             | Placement[]
-            | Record<Placement, React.ReactNode>
+            | Record<Placement, React.ReactNode>,
     ) {
         const result: Record<Placement, React.ReactNode> = {
             front: "",
@@ -29,9 +24,9 @@ export class VisibilityGate {
         const placementArray = Array.isArray(placements)
             ? placements
             : typeof placements === "object" &&
-              !Array.isArray(placements)
-            ? (Object.keys(placements) as Placement[])
-            : [placements as Placement];
+                !Array.isArray(placements)
+              ? (Object.keys(placements) as Placement[])
+              : [placements as Placement];
 
         placementArray.forEach((p) => {
             const selectedSlots = this.uiSelections[p];
@@ -53,7 +48,7 @@ export class VisibilityGate {
 
     getChoices(choices: Record<string, any[]>) {
         const selectedKeys = Object.keys(
-            this.uiSelections.choices
+            this.uiSelections.choices,
         ).filter((key) => this.uiSelections.choices[key]);
 
         return selectedKeys

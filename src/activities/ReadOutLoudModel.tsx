@@ -1,4 +1,4 @@
-import { ActivityModel } from "./Models";
+import { ActivityModel, CheckResult } from "./Models";
 import { stripPunctuation } from "../utils/utils";
 type ReadOutLoudItem = {
     text: string;
@@ -12,8 +12,11 @@ type ReadOutLoudItem = {
 
 export class ReadOutLoudModel extends ActivityModel<ReadOutLoudItem> {
     protected currentItem: ReadOutLoudItem | null = null;
-    constructor(raw: unknown) {
-        super(raw);
+    constructor(
+        raw: unknown,
+        scorechangeCallback: (score: number) => void,
+    ) {
+        super(raw, scorechangeCallback);
         this.checkCorrectness =
             this.checkCorrectness.bind(this);
         Object.values(this.rawData).every((set) =>
@@ -26,27 +29,23 @@ export class ReadOutLoudModel extends ActivityModel<ReadOutLoudItem> {
         return true;
     }
 
-    checkCorrectness(
-        rawphrase: string,
-        target: string,
-        setSpokenPhones: any,
-    ) {
-        const spokenWords = stripPunctuation(rawphrase)
+    checkCorrectness = (
+        userAnswer: [string, string],
+    ): CheckResult => {
+        const [rawPhrase, target] = userAnswer;
+        const spokenWords = stripPunctuation(rawPhrase)
             .toLowerCase()
             .split(" ");
-
         const targetWords = stripPunctuation(target)
             .toLowerCase()
             .split(" ");
-
         const matches = spokenWords.filter((w) =>
             targetWords.includes(w),
         ).length;
-
         const ratio = matches / targetWords.length;
 
-        return { correct: ratio >= 0.6 };
-    }
+        return { correct: ratio >= 0.6, done: true }; // done is always true for single-answer activities
+    };
     protected isValidItem(
         item: unknown,
     ): item is ReadOutLoudItem {

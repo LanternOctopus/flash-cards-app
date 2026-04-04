@@ -11,11 +11,14 @@ type PictureItem = {
 };
 
 export class PictureMatchingGameModel extends ActivityModel<PictureItem> {
-    constructor(raw: unknown) {
-        super(raw);
+    constructor(
+        raw: unknown,
+        scorechangeCallback: (score: number) => void,
+    ) {
+        super(raw, scorechangeCallback);
     }
     protected isValidItem(
-        item: unknown
+        item: unknown,
     ): item is PictureItem {
         if (typeof item !== "object" || item === null)
             return false;
@@ -41,7 +44,7 @@ export class PictureMatchingGameModel extends ActivityModel<PictureItem> {
         }
         if (!Array.isArray(it.ansOptions.choices)) {
             console.log(
-                "ansOptions.choices is not an array"
+                "ansOptions.choices is not an array",
             );
             return false;
         }
@@ -56,8 +59,8 @@ export class PictureMatchingGameModel extends ActivityModel<PictureItem> {
                     (v) =>
                         Array.isArray(v) &&
                         v.every(
-                            (s) => typeof s === "string"
-                        )
+                            (s) => typeof s === "string",
+                        ),
                 )
             )
                 return false;

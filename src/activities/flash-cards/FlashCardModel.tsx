@@ -16,8 +16,11 @@ export type FlashCardItem = {
 };
 
 export class FlashCardModel extends ActivityModel<FlashCardItem> {
-    constructor(raw: unknown) {
-        super(raw);
+    constructor(
+        raw: unknown,
+        scorechangeCallback: (score: number) => void,
+    ) {
+        super(raw, scorechangeCallback);
         console.log("raw", raw);
     }
 

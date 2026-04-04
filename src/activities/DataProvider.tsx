@@ -42,18 +42,11 @@ export function DataProvider<TConfig, TItems>({
     >({});
 
     React.useEffect(() => {
-        console.log("useEffect registered");
         async function load() {
-            console.log("Loading data...");
-
             try {
                 const rawConfig =
                     await loadSource<TConfig>(configPath);
-                console.log(
-                    "Loading config from:",
-                    configPath,
-                );
-                console.log("Loaded config:", rawConfig);
+
                 const storing = {
                     front: {},
                     back: {},
@@ -116,7 +109,7 @@ export function DataProvider<TConfig, TItems>({
                 setUiSelections(storing);
                 const rawItems =
                     await loadSource<TItems>(itemPath);
-                console.log("Load items:", rawItems);
+
                 const stored =
                     localStorage.getItem(storageKey);
                 const userConfig = stored
@@ -142,8 +135,7 @@ export function DataProvider<TConfig, TItems>({
                 custSlots.advance = <></>;
                 custSlots.feedback = <></>;
                 setSlots(custSlots);
-                console.log("Loaded items:", rawItems);
-                console.log("Stored config:", userConfig);
+
                 setItems(rawItems);
                 setLoaded(true);
             } catch (e) {

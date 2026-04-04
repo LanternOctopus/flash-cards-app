@@ -12,7 +12,10 @@ export function ParentScreen({
     itemPath: string;
     configPath: string;
     storageKey: string;
-    modelClass: new (raw: unknown) => any;
+    modelClass: new (
+        raw: unknown,
+        scorechangeCallback: (score: number) => void,
+    ) => any;
     children: React.ReactNode;
 }) {
     return (
