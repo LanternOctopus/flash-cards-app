@@ -34,11 +34,7 @@ type ReadOutLoudItem = {
 };
 
 type ReadOutLoudAnswer = {
-    checkCorrectness: (
-        input: unknown,
-        target: unknown,
-        setSpokenPhones: any,
-    ) => {
+    checkCorrectness: (input: [string, string]) => {
         correct: boolean;
         done?: boolean;
     };
@@ -106,13 +102,12 @@ export function ReadOutLoud() {
             onResultCapture: (text: string) => {
                 console.log("resultCapture", text);
                 if (!itemRef.current) return;
-                const isCorrect = checkCorrectness(
+                const isCorrect = checkCorrectness([
                     text,
                     itemRef.current.chunks[
                         currentIndexRef.current
                     ],
-                    setSpokenPhones,
-                ).correct;
+                ]).correct;
                 if (!isCorrect) {
                     setLastErrorIndex(
                         currentIndexRef.current,

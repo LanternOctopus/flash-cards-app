@@ -5,11 +5,6 @@ export const ToggleBoxController = () => {
         useData();
     if (!config) return null;
 
-    console.log("ToggleBoxController render");
-    console.log(config);
-    console.log(updateConfig);
-    console.log(uiSelections);
-
     return (
         <ToggleBox
             //@ts-expect-error
@@ -26,7 +21,7 @@ interface ToggleBoxProps {
     categories: string[];
     uiSelections: Record<string, object>;
     updateStorage: (
-        newSelections: Record<string, object>
+        newSelections: Record<string, object>,
     ) => void;
 }
 
@@ -55,7 +50,7 @@ export function ToggleBox({
     const renderToggle = (
         key: string,
         checked: boolean,
-        group: string
+        group: string,
     ) => (
         <div key={`${group}-${key}`}>
             <label>
@@ -121,8 +116,8 @@ export function ToggleBox({
                                 key,
                                 //@ts-expect-error
                                 uiSelections.front[key],
-                                "front"
-                            )
+                                "front",
+                            ),
                     )}
                     <h3>Back</h3>
                     {Object.keys(uiSelections.back).map(
@@ -131,8 +126,8 @@ export function ToggleBox({
                                 key,
                                 //@ts-expect-error
                                 uiSelections.back[key],
-                                "back"
-                            )
+                                "back",
+                            ),
                     )}
                     {Object.keys(uiSelections.choices)
                         .length > 0 && <h3>Categories</h3>}
@@ -142,8 +137,8 @@ export function ToggleBox({
                                 key,
                                 //@ts-expect-error
                                 uiSelections.choices[key],
-                                "choices"
-                            )
+                                "choices",
+                            ),
                     )}
                 </article>
             </dialog>

@@ -9,7 +9,7 @@ type BaseAnswerSchema = {
 
 export const AnswerContext =
     React.createContext<AnswerContextType<any> | null>(
-        null
+        null,
     );
 
 export type AnswerContextType<T extends BaseAnswerSchema> =
@@ -18,12 +18,12 @@ export type AnswerContextType<T extends BaseAnswerSchema> =
     };
 
 export function useAnswer<
-    T extends BaseAnswerSchema
+    T extends BaseAnswerSchema,
 >(): AnswerContextType<T> {
     const ctx = React.useContext(AnswerContext);
     if (!ctx) {
         throw new Error(
-            "useAnswer must be used inside AnswerProvider"
+            "useAnswer must be used inside AnswerProvider",
         );
     }
     return ctx;
@@ -44,18 +44,6 @@ export function AnswerProvider({
     getImageUrl,
     children,
 }: AnswerProviderProps) {
-    const defaultCheckCorrectness = (input: unknown) => {
-        if (Array.isArray(answer)) {
-            return {
-                correct:
-                    Array.isArray(input) &&
-                    input.length === answer.length &&
-                    input.every((v, i) => v === answer[i]),
-            };
-        }
-
-        return { correct: input === answer };
-    };
     const defaultGetImageUrl = (image: string) => {
         return `${process.env.PUBLIC_URL}/images/${image}`;
     };
@@ -64,9 +52,7 @@ export function AnswerProvider({
         <AnswerContext.Provider
             value={{
                 answer,
-                checkCorrectness:
-                    checkCorrectness ??
-                    defaultCheckCorrectness,
+                checkCorrectness: checkCorrectness,
                 getImageUrl:
                     getImageUrl ?? defaultGetImageUrl,
                 handleNext,

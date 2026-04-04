@@ -1,4 +1,4 @@
-import { ActivityModel } from "./Models";
+import { ActivityModel, CheckResult } from "./Models";
 import expandContractions from "../utils/expandContractions";
 import { stripPunctuation } from "../utils/utils";
 type PartsofSpeechItemNew = {
@@ -13,18 +13,21 @@ export class PartsofSpeechModel extends ActivityModel<PartsofSpeechItemNew> {
     protected currentItem: PartsofSpeechItemNew | null =
         null;
 
-    constructor(raw: unknown) {
-        super(raw);
+    constructor(
+        raw: unknown,
+        scorechangeCallback: (score: number) => void,
+    ) {
+        super(raw, scorechangeCallback);
         this.remainingAnswers = [];
         this.wrongAnswerCount = 0;
         this.checkCorrectness =
             this.checkCorrectness.bind(this);
         Object.values(this.rawData).every((set) =>
-            set.every((item) => this.addWords(item))
+            set.every((item) => this.addWords(item)),
         );
     }
     protected isValidItem(
-        item: unknown
+        item: unknown,
     ): item is PartsofSpeechItemNew {
         if (typeof item !== "object" || item === null)
             return false;
@@ -46,42 +49,42 @@ export class PartsofSpeechModel extends ActivityModel<PartsofSpeechItemNew> {
         item.words = splitWords;
         return true;
     }
-    checkCorrectness(rawWord: string) {
+    checkCorrectness = (rawWord: string): CheckResult => {
         const words = stripPunctuation(
-            expandContractions(rawWord)
+            expandContractions(rawWord),
         ).split(" ");
-        console.log("words", words);
-        // Find the first remaining answer that matches one of the words
         const matched = this.remainingAnswers.find((ans) =>
-            words.includes(ans)
+            words.includes(ans),
         );
-        console.log("matched", matched);
 
         if (matched) {
-            // Remove the matched word from remainingAnswers
             this.remainingAnswers =
                 this.remainingAnswers.filter(
-                    (a) => a !== matched
+                    (a) => a !== matched,
                 );
-
-            const done = this.remainingAnswers.length === 0;
-            return { correct: true, done };
+            return {
+                correct: true,
+                done: this.remainingAnswers.length === 0,
+            };
         }
 
         this.wrongAnswerCount++;
-        const done = this.wrongAnswerCount >= 3;
-        return { correct: false, done };
-    }
+        return {
+            correct: false,
+            done: this.wrongAnswerCount >= 3,
+        };
+    };
 
-    nextItem() {
+    nextItem(): IteratorResult<any> {
         if (!this._generator)
-            return { item: null, done: true };
+            return { value: null, done: true };
+
         const iteratorResult = this._generator.next();
         const { value, done } = iteratorResult;
 
         if (!done && value) {
             this.remainingAnswers = Array.isArray(
-                value.answer
+                value.answer,
             )
                 ? [...value.answer]
                 : [value.answer];

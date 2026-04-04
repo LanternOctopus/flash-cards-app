@@ -11,7 +11,7 @@ type DataContextType<TConfig, TItems> = {
 
 export const DataContext =
     React.createContext<DataContextType<any, any> | null>(
-        null
+        null,
     );
 export function DataProvider<TConfig, TItems>({
     configPath,
@@ -27,7 +27,7 @@ export function DataProvider<TConfig, TItems>({
     const [config, setConfig] =
         React.useState<TConfig | null>(null);
     const [items, setItems] = React.useState<TItems | null>(
-        null
+        null,
     );
     const [loaded, setLoaded] = React.useState(false);
     const [uiSelections, setUiSelections] = React.useState<
@@ -42,19 +42,11 @@ export function DataProvider<TConfig, TItems>({
     >({});
 
     React.useEffect(() => {
-        console.log("useEffect registered");
         async function load() {
-            console.log("Loading data...");
-
             try {
-                const rawConfig = await loadSource<TConfig>(
-                    configPath
-                );
-                console.log(
-                    "Loading config from:",
-                    configPath
-                );
-                console.log("Loaded config:", rawConfig);
+                const rawConfig =
+                    await loadSource<TConfig>(configPath);
+
                 const storing = {
                     front: {},
                     back: {},
@@ -69,7 +61,7 @@ export function DataProvider<TConfig, TItems>({
                             storing.front[key] = false;
                             //@ts-expect-error
                             storing.back[key] = false;
-                        }
+                        },
                     );
                 }
                 //@ts-expect-error
@@ -80,7 +72,7 @@ export function DataProvider<TConfig, TItems>({
                         (key) => {
                             //@ts-expect-error
                             storing.choices[key] = false;
-                        }
+                        },
                     );
                 }
                 //@ts-expect-error
@@ -91,7 +83,7 @@ export function DataProvider<TConfig, TItems>({
                         (key) => {
                             //@ts-expect-error
                             storing.front[key] = true;
-                        }
+                        },
                     );
                 }
                 //@ts-expect-error
@@ -110,14 +102,13 @@ export function DataProvider<TConfig, TItems>({
                         (key) => {
                             //@ts-expect-error
                             storing.choices[key] = true;
-                        }
+                        },
                     );
                 }
 
                 setUiSelections(storing);
-                const rawItems = await loadSource<TItems>(
-                    itemPath
-                );
+                const rawItems =
+                    await loadSource<TItems>(itemPath);
 
                 const stored =
                     localStorage.getItem(storageKey);
@@ -139,13 +130,12 @@ export function DataProvider<TConfig, TItems>({
                 Object.keys(rawConfig.fields).forEach(
                     (key) => {
                         custSlots[key] = <></>;
-                    }
+                    },
                 );
                 custSlots.advance = <></>;
                 custSlots.feedback = <></>;
                 setSlots(custSlots);
-                console.log("Loaded items:", rawItems);
-                console.log("Stored config:", userConfig);
+
                 setItems(rawItems);
                 setLoaded(true);
             } catch (e) {
@@ -162,7 +152,7 @@ export function DataProvider<TConfig, TItems>({
             const next = { ...prev, ...patch };
             localStorage.setItem(
                 storageKey,
-                JSON.stringify(next)
+                JSON.stringify(next),
             );
             return next;
         });
@@ -189,12 +179,12 @@ export function useData<T>() {
         DataContext as React.Context<DataContextType<
             T,
             T
-        > | null>
+        > | null>,
     );
 
     if (!ctx) {
         throw new Error(
-            "useData must be used inside DataProvider"
+            "useData must be used inside DataProvider",
         );
     }
 

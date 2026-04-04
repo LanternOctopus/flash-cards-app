@@ -21,7 +21,6 @@ export async function loadSource<T>(filePath: string) {
     const base = process.env.PUBLIC_URL ?? "";
 
     const url = `${base}/data/${filePath}`;
-    console.log("Loading source from URL:", url);
     const response = await fetchWithTimeout(url, 5000);
     if (!response.ok) {
         throw new Error(`Failed to fetch ${url}`);
