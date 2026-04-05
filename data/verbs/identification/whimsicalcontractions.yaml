@@ -1,5 +1,5 @@
 Whimsical Contractions:
-    - text: Don’t means do not, that’s plain to see, Doesn’t is does not, simple as can be.
+    - answer: Don’t means do not, that’s plain to see, Doesn’t is does not, simple as can be.
       picture: contractions/contractions.png
       caption: Contractions are when we join two words with an apostrophe
       alt: An illustration depicting Contractions
@@ -8,102 +8,102 @@ Whimsical Contractions:
           - ðæts plˈeɪn tə sˈiː
           - dˈʌzənt ɪz dʌznˈɑːt
           - sˈɪmpəl æz kæn bˈiː
-    - text: Didn’t is did not, now you know, Can’t is cannot, let’s make it show.
+    - answer: Didn’t is did not, now you know, Can’t is cannot, let’s make it show.
       phonemes:
           - dˈɪdnt ɪz dɪdnˈɑːt
           - nˈaʊ juː nˈoʊ
           - kˈænt ɪz kænˈɑːt
           - lˈɛts mˌeɪk ɪt ʃˈoʊ
-    - text: Couldn’t is could not, don’t forget, Won’t is will not, that’s a safe bet.
+    - answer: Couldn’t is could not, don’t forget, Won’t is will not, that’s a safe bet.
       phonemes:
           - kˌʊdənt ɪz kʊd nˈɑːt
           - dˈoʊnt fɚɡˈɛt
           - woʊnt ɪz wɪl nˈɑːt
           - ðæts ɐ sˈeɪf bˈɛt
-    - text: Wouldn’t is would not, easy to say, Isn’t is is not, every day.
+    - answer: Wouldn’t is would not, easy to say, Isn’t is is not, every day.
       phonemes:
           - wˈʊdənt ɪz wʊd nˈɑːt
           - ˈiːzi tə sˈeɪ
           - ˌɪzənt ɪz ɪz nˈɑːt
           - ˈɛvɹi dˈeɪ
-    - text: Aren’t is are not, that’s not too hard, Wasn’t is was not, let’s play the card.
+    - answer: Aren’t is are not, that’s not too hard, Wasn’t is was not, let’s play the card.
       phonemes:
           - ˌɑːɹnt ɪz ɑːɹ nˈɑːt
           - ðæts nˌɑːt tˈuː hˈɑːɹd
           - wˈʌzn̩t ɪz wʌz nˈɑːt
           - lˈɛts plˈeɪ ðə kˈɑːɹd
-    - text: Weren’t is were not, simple and clear, Shouldn’t is should not, say it out here.
+    - answer: Weren’t is were not, simple and clear, Shouldn’t is should not, say it out here.
       phonemes:
           - wˌɜːnt ɪz wɜː nˈɑːt
           - sˈɪmpəl ænd klˈɪɹ
           - ʃˌʊdənt ɪz ʃˌʊd nˈɑːt
           - sˈeɪ ɪɾ ˈaʊt hˈɪɹ
-    - text: Mustn’t is must not, remember it too, I’m is I am, now you can do.
+    - answer: Mustn’t is must not, remember it too, I’m is I am, now you can do.
       phonemes:
           - mˈʌsənt ɪz mˈʌst nˈɑːt
           - ɹᵻmˈɛmbɚɹ ɪt tˈuː
           - aɪm ɪz aɪˈæm
           - nˈaʊ juː kæn dˈuː
-    - text: You’re is you are, we’re we are, They’re is they are, now we’re not far.
+    - answer: You’re is you are, we’re we are, They’re is they are, now we’re not far.
       phonemes:
           - jʊɹ ɪz juː ˈɑːɹ
           - wɪɹ wiː ˈɑːɹ
           - ðeɪɚɹ ɪz ðeɪ ˈɑːɹ
           - nˈaʊ wɪɹ nˌɑːt fˈɑːɹ
-    - text: He’s is he is, she’s is she is, It’s is it is, that’s a quick quiz.
+    - answer: He’s is he is, she’s is she is, It’s is it is, that’s a quick quiz.
       phonemes:
           - hiːz ɪz hiː ˈɪz
           - ʃiːz ɪz ʃiː ˈɪz
           - ɪts ɪz ɪɾ ˈɪz
           - ðæts ɐ kwˈɪk kwˈɪz
-    - text: That’s is that is, what’s is what is, Where’s is where is, who’s is who is.
+    - answer: That’s is that is, what’s is what is, Where’s is where is, who’s is who is.
       phonemes:
           - ðæts ɪz ðæt ˈɪz
           - wˌʌts ɪz wˈʌt ɪz
           - wˌɛɹz ɪz wˈɛɹ ɪz
           - hˌuːz ɪz hˈuː ɪz
-    - text: How’s is how is, I’ll is I will, You’ll is you will, we’ll is we will.
+    - answer: How’s is how is, I’ll is I will, You’ll is you will, we’ll is we will.
       phonemes:
           - hˌaʊz ɪz hˈaʊ ɪz
           - aɪl ɪz aɪ wˈɪl
           - juːl ɪz juː wˈɪl
           - wiːl ɪz wiː wˈɪl
-    - text: They’ll is they will, he’ll is he will, She’ll is she will, it’ll is it will.
+    - answer: They’ll is they will, he’ll is he will, She’ll is she will, it’ll is it will.
       phonemes:
           - ðeɪl ɪz ðeɪ wˈɪl
           - hiːl ɪz hiː wˈɪl
           - ʃiːl ɪz ʃiː wˈɪl
           - ˌɪɾəl ɪz ɪt wˈɪl
-    - text: I’d is I would, you’d is you would, We’d is we would, they’d is they would.
+    - answer: I’d is I would, you’d is you would, We’d is we would, they’d is they would.
       phonemes:
           - aɪd ɪz aɪ wˈʊd
           - juːd ɪz juː wˈʊd
           - wiːd ɪz wiː wˈʊd
           - ðeɪd ɪz ðeɪ wˈʊd
-    - text: He’d is he would, she’d is she would, It’d is it would, easy and good.
+    - answer: He’d is he would, she’d is she would, It’d is it would, easy and good.
       phonemes:
           - hiːd ɪz hiː wˈʊd
           - ʃiːd ɪz ʃiː wˈʊd
           - ɪɾəd ɪz ɪt wˈʊd
           - ˈiːzi ænd ɡˈʊd
-    - text: I’ve is I have, you’ve is you have, We’ve is we have, they’ve is they have.
+    - answer: I’ve is I have, you’ve is you have, We’ve is we have, they’ve is they have.
       phonemes:
           - aɪv ɪz aɪ hˈæv
           - juːv ɪz juː hˈæv
           - wiːv ɪz wiː hˈæv
           - ðeɪv ɪz ðeɪ hˈæv
-    - text: Could’ve is could have, should’ve is should have, Would’ve is would have, now we all know!
+    - answer: Could’ve is could have, should’ve is should have, Would’ve is would have, now we all know!
       phonemes:
           - kʊdəv ɪz kˈʊdhæv
           - ʃˌʊdəv ɪz ʃˈʊdhæv
           - wˌʊdəv ɪz wˈʊdhæv
           - nˈaʊ wiː ˈɔːl nˈoʊ
-    - text: So every contraction has a twin, Say it and spell it, let learning begin.
+    - answer: So every contraction has a twin, Say it and spell it, let learning begin.
       phonemes:
           - sˌoʊ ˈɛvɹi kəntɹˈækʃən hɐz ɐ twˈɪn
           - sˈeɪ ɪt ænd spˈɛl ɪt
           - lˈɛt lˈɜːnɪŋ bɪɡˈɪn
-    - text: Do not, does not, did not too, Cannot, could not, will not—woohoo!
+    - answer: Do not, does not, did not too, Cannot, could not, will not—woohoo!
       phonemes:
           - duːnˈɑːt
           - dʌznˈɑːt
@@ -111,7 +111,7 @@ Whimsical Contractions:
           - kænˈɑːt
           - kʊd nˈɑːt
           - wɪl nˌɑːt wˈuːhuː
-    - text: Would not, is not, are not, see? Was not, were not, should not, must not, whee!
+    - answer: Would not, is not, are not, see? Was not, were not, should not, must not, whee!
       phonemes:
           - wʊd nˈɑːt
           - ɪz nˈɑːt
@@ -122,7 +122,7 @@ Whimsical Contractions:
           - ʃˌʊd nˈɑːt
           - mˈʌst nˈɑːt
           - wˈiː
-    - text: I am, you are, we are, they are, He is, she is, it is, near and far.
+    - answer: I am, you are, we are, they are, He is, she is, it is, near and far.
       phonemes:
           - aɪˈæm
           - juː ˈɑːɹ
@@ -132,7 +132,7 @@ Whimsical Contractions:
           - ʃiː ˈɪz
           - ɪɾ ˈɪz
           - nˌɪɹ ænd fˈɑːɹ
-    - text: That is, what is, where is, who is, How is, I will, you will, we will,
+    - answer: That is, what is, where is, who is, How is, I will, you will, we will,
       phonemes:
           - ðæt ˈɪz
           - wˈʌt ɪz
@@ -142,7 +142,7 @@ Whimsical Contractions:
           - aɪ wˈɪl
           - juː wˈɪl
           - wiː wˈɪl
-    - text: They will, he will, she will, it will, I would, you would, we would, they would—still!
+    - answer: They will, he will, she will, it will, I would, you would, we would, they would—still!
       phonemes:
           - ðeɪ wˈɪl
           - hiː wˈɪl
@@ -152,7 +152,7 @@ Whimsical Contractions:
           - juː wˈʊd
           - wiː wˈʊd
           - ðeɪ wʊd stˈɪl
-    - text: He would, she would, it would, I have, You have, we have, they have, could have,
+    - answer: He would, she would, it would, I have, You have, we have, they have, could have,
       phonemes:
           - hiː wˈʊd
           - ʃiː wˈʊd
@@ -162,7 +162,7 @@ Whimsical Contractions:
           - wiː hˈæv
           - ðeɪ hˈæv
           - kˈʊdhæv
-    - text: Should have, would have, now you can see, Every contraction, from A to Z!
+    - answer: Should have, would have, now you can see, Every contraction, from A to Z!
       phonemes:
           - ʃˈʊdhæv
           - wˈʊdhæv
