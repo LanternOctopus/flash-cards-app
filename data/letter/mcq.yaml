@@ -1,0 +1,156 @@
+alphabet:
+    - picture: letter/objects/a_apple.png
+      question: a
+      answer: a
+      ansOptions:
+          choices: [a, m, t, s]
+
+    - picture: letter/objects/b_ball.png
+      question: b
+      answer: b
+      ansOptions:
+          choices: [b, t, p, d]
+
+    - picture: letter/objects/c_cat.png
+      question: c
+      answer: c
+      ansOptions:
+          choices: [c, b, t, p]
+
+    - picture: letter/objects/d_dog.png
+      question: d
+      answer: d
+      ansOptions:
+          choices: [d, b, p, t]
+
+    - picture: letter/objects/e_egg.png
+      question: e
+      answer: e
+      ansOptions:
+          choices: [e, m, s, t]
+
+    - picture: letter/objects/f_fish.png
+      question: f
+      answer: f
+      ansOptions:
+          choices: [f, t, m, s]
+
+    - picture: letter/objects/g_giraffe.png
+      question: g
+      answer: g
+      ansOptions:
+          choices: [g, b, t, p]
+
+    - picture: letter/objects/h_hat.png
+      question: h
+      answer: h
+      ansOptions:
+          choices: [h, m, t, s]
+
+    - picture: letter/objects/i_igloo.png
+      question: i
+      answer: i
+      ansOptions:
+          choices: [i, t, m, s]
+
+    - picture: letter/objects/j_jam.png
+      question: j
+      answer: j
+      ansOptions:
+          choices: [j, m, t, s]
+
+    - picture: letter/objects/k_kite.png
+      question: k
+      answer: k
+      ansOptions:
+          choices: [k, b, t, p]
+
+    - picture: letter/objects/l_lion.png
+      question: l
+      answer: l
+      ansOptions:
+          choices: [l, t, m, s]
+
+    - picture: letter/objects/m_moon.png
+      question: m
+      answer: m
+      ansOptions:
+          choices: [m, t, s, a]
+
+    - picture: letter/objects/n_net.png
+      question: n
+      answer: n
+      ansOptions:
+          choices: [n, m, t, s]
+
+    - picture: letter/objects/o_orange.png
+      question: o
+      answer: o
+      ansOptions:
+          choices: [o, m, t, s]
+
+    - picture: letter/objects/p_pen.png
+      question: p
+      answer: p
+      ansOptions:
+          choices: [p, b, t, d]
+
+    - picture: letter/objects/q_queen.png
+      question: q
+      answer: q
+      ansOptions:
+          choices: [q, m, t, s]
+
+    - picture: letter/objects/r_rat.png
+      question: r
+      answer: r
+      ansOptions:
+          choices: [r, m, t, s]
+
+    - picture: letter/objects/s_sun.png
+      question: s
+      answer: s
+      ansOptions:
+          choices: [s, m, t, a]
+
+    - picture: letter/objects/t_top.png
+      question: t
+      answer: t
+      ansOptions:
+          choices: [t, m, s, a]
+
+    - picture: letter/objects/u_umbrella.png
+      question: u
+      answer: u
+      ansOptions:
+          choices: [u, m, t, s]
+
+    - picture: letter/objects/v_van.png
+      question: v
+      answer: v
+      ansOptions:
+          choices: [v, m, t, s]
+
+    - picture: letter/objects/w_water.png
+      question: w
+      answer: w
+      ansOptions:
+          choices: [w, m, t, s]
+
+    - picture: letter/objects/x_box.png
+      question: x
+      answer: x
+      ansOptions:
+          choices: [x, m, t, s]
+
+    - picture: letter/objects/y_yak.png
+      question: y
+      answer: y
+      ansOptions:
+          choices: [y, m, t, s]
+
+    - picture: letter/objects/z_zebra.png
+      question: z
+      answer: z
+      ansOptions:
+          choices: [z, m, t, s]

@@ -1,5 +1,5 @@
 verbs:
-    - picture: picturematchinggame\verbs\add.png
+    - picture: verbs/vocabulary/add.png
       question: add
       answer: add
       translation: ചേർക്കുക
@@ -9,7 +9,7 @@ verbs:
           translations: [ചേർക്കുക, ഓടുക, സ്നേഹം, വാച്ച്]
           transliterations: [cherkuka, oduka, sneham, vaach]
 
-    - picture: picturematchinggame\verbs\allow.png
+    - picture: verbs/vocabulary/allow.png
       question: allow
       answer: allow
       translation: സമ്മതിക്കുക
@@ -21,7 +21,7 @@ verbs:
           transliterations:
               [sammathikkuka, vaayikkuka, jayam, nadakkuka]
 
-    - picture: picturematchinggame\verbs\begin.png
+    - picture: verbs/vocabulary/begin.png
       question: begin
       answer: begin
       translation: ആരംഭിക്കുക
@@ -33,7 +33,7 @@ verbs:
           transliterations:
               [aarambhikkuka, sneham, vaach, cherkuka]
 
-    - picture: picturematchinggame\verbs\can.png
+    - picture: verbs/vocabulary/can.png
       question: can
       answer: can
       translation: കഴിയുക
@@ -44,7 +44,7 @@ verbs:
           transliterations:
               [kazhiyuka, oduka, vaayikkuka, jayam]
 
-    - picture: picturematchinggame\verbs\come.png
+    - picture: verbs/vocabulary/come.png
       question: come
       answer: come
       translation: വരുക
@@ -56,7 +56,7 @@ verbs:
           transliterations:
               [varuka, chinthikkuka, vaach, cherkuka]
 
-    - picture: picturematchinggame\verbs\could.png
+    - picture: verbs/vocabulary/could.png
       question: could
       answer: could
       translation: സാധ്യമായ
@@ -68,7 +68,7 @@ verbs:
           transliterations:
               [saadhyamaaya, sneham, nadakkuka, vaayikkuka]
 
-    - picture: picturematchinggame\verbs\create.png
+    - picture: verbs/vocabulary/create.png
       question: create
       answer: create
       translation: സൃഷ്ടിക്കുക
@@ -79,7 +79,7 @@ verbs:
           transliterations:
               [srishtikkuka, oduka, vaach, jayam]
 
-    - picture: picturematchinggame\verbs\cut.png
+    - picture: verbs/vocabulary/cut.png
       question: cut
       answer: cut
       translation: മുറിക്കുക
@@ -91,7 +91,7 @@ verbs:
           transliterations:
               [murikkuka, sneham, vaayikkuka, nadakkuka]
 
-    - picture: picturematchinggame\verbs\do.png
+    - picture: verbs/vocabulary/do.png
       question: do
       answer: do
       translation: ചെയ്യുക
@@ -102,7 +102,7 @@ verbs:
           transliterations:
               [cheyyuka, vaach, jayam, nadakkuka]
 
-    - picture: picturematchinggame\verbs\get.png
+    - picture: verbs/vocabulary/get.png
       question: get
       answer: get
       translation: ലഭിക്കുക
@@ -113,7 +113,7 @@ verbs:
           transliterations:
               [kittuka, vaayikkuka, sneham, oduka]
 
-    - picture: picturematchinggame\verbs\go.png
+    - picture: verbs/vocabulary/go.png
       question: go
       answer: go
       translation: പോകുക
@@ -123,7 +123,7 @@ verbs:
           translations: [പോകുക, വാച്ച്, ജയം, ചേർക്കുക]
           transliterations: [pokuka, vaach, jayam, cherkuka]
 
-    - picture: picturematchinggame\verbs\have.png
+    - picture: verbs/vocabulary/have.png
       question: have
       answer: have
       translation: ഉണ്ടായിരിക്കുക
@@ -135,7 +135,7 @@ verbs:
           transliterations:
               [undayirikkuka, oduka, vaayikkuka, nadakkuka]
 
-    - picture: picturematchinggame\verbs\love.png
+    - picture: verbs/vocabulary/love.png
       question: love
       answer: love
       translation: സ്നേഹം
@@ -145,7 +145,7 @@ verbs:
           translations: [സ്നേഹം, ചേർക്കുക, ഓടുക, വാച്ച്]
           transliterations: [sneham, cherkuka, oduka, vaach]
 
-    - picture: picturematchinggame\verbs\make.png
+    - picture: verbs/vocabulary/make.png
       question: make
       answer: make
       translation: ഉണ്ടാക്കുക
@@ -157,7 +157,7 @@ verbs:
           transliterations:
               [undakkuka, vaayikkuka, jayam, nadakkuka]
 
-    - picture: picturematchinggame\verbs\move.png
+    - picture: verbs/vocabulary/move.png
       question: move
       answer: move
       translation: ചലിക്കുക
@@ -169,7 +169,7 @@ verbs:
           transliterations:
               [chalikkuka, sneham, vaach, vaayikkuka]
 
-    - picture: picturematchinggame\verbs\offer.png
+    - picture: verbs/vocabulary/offer.png
       question: offer
       answer: offer
       translation: നൽകുക
@@ -180,7 +180,7 @@ verbs:
           transliterations:
               [nalkuka, oduka, vaayikkuka, jayam]
 
-    - picture: picturematchinggame\verbs\open.png
+    - picture: verbs/vocabulary/open.png
       question: open
       answer: open
       translation: തുറക്കുക
@@ -191,7 +191,7 @@ verbs:
           transliterations:
               [thurakkuka, sneham, nadakkuka, vaach]
 
-    - picture: picturematchinggame\verbs\play.png
+    - picture: verbs/vocabulary/play.png
       question: play
       answer: play
       translation: കളിക്കുക
@@ -202,7 +202,7 @@ verbs:
           transliterations:
               [kalikkuka, vaayikkuka, jayam, cherkuka]
 
-    - picture: picturematchinggame\verbs\read.png
+    - picture: verbs/vocabulary/read.png
       question: read
       answer: read
       translation: വായിക്കുക
@@ -213,7 +213,7 @@ verbs:
           transliterations:
               [vaayikkuka, oduka, sneham, vaach]
 
-    - picture: picturematchinggame\verbs\remember.png
+    - picture: verbs/vocabulary/remember.png
       question: remember
       answer: remember
       translation: ഓർമ്മിക്കുക
@@ -225,7 +225,7 @@ verbs:
           transliterations:
               [ormmikkuka, nadakkuka, jayam, cherkuka]
 
-    - picture: picturematchinggame\verbs\run.png
+    - picture: verbs/vocabulary/run.png
       question: run
       answer: run
       translation: ഓടുക
@@ -236,7 +236,7 @@ verbs:
           transliterations:
               [oduka, vaayikkuka, sneham, vaach]
 
-    - picture: picturematchinggame\verbs\say.png
+    - picture: verbs/vocabulary/say.png
       question: say
       answer: say
       translation: പറയുക
@@ -247,7 +247,7 @@ verbs:
           transliterations:
               [parayuka, nadakkuka, jayam, vaayikkuka]
 
-    - picture: picturematchinggame\verbs\see.png
+    - picture: verbs/vocabulary/see.png
       question: see
       answer: see
       translation: കാണുക
@@ -258,7 +258,7 @@ verbs:
           transliterations:
               [kaanuka, sneham, oduka, cherkuka]
 
-    - picture: picturematchinggame\verbs\speak.png
+    - picture: verbs/vocabulary/speak.png
       question: speak
       answer: speak
       translation: സംസാരിക്കുക
@@ -270,7 +270,7 @@ verbs:
           transliterations:
               [samsaarikkuka, vaayikkuka, jayam, vaach]
 
-    - picture: picturematchinggame\verbs\spend.png
+    - picture: verbs/vocabulary/spend.png
       question: spend
       answer: spend
       translation: ചെലവഴിക്കുക
@@ -287,7 +287,7 @@ verbs:
                   vaayikkuka,
               ]
 
-    - picture: picturematchinggame\verbs\start.png
+    - picture: verbs/vocabulary/start.png
       question: start
       answer: start
       translation: ആരംഭിക്കുക
@@ -298,7 +298,7 @@ verbs:
           transliterations:
               [aarambhikkuka, jayam, vaach, cherkuka]
 
-    - picture: picturematchinggame\verbs\stop.png
+    - picture: verbs/vocabulary/stop.png
       question: stop
       answer: stop
       translation: നിർത്തുക
@@ -310,7 +310,7 @@ verbs:
           transliterations:
               [nirthuka, vaayikkuka, sneham, nadakkuka]
 
-    - picture: picturematchinggame\verbs\take.png
+    - picture: verbs/vocabulary/take.png
       question: take
       answer: take
       translation: എടുക്കുക
@@ -321,7 +321,7 @@ verbs:
           transliterations:
               [edukkuka, jayam, vaach, vaayikkuka]
 
-    - picture: picturematchinggame\verbs\talk.png
+    - picture: verbs/vocabulary/talk.png
       question: talk
       answer: talk
       translation: സംസാരിക്കുക
@@ -333,7 +333,7 @@ verbs:
           transliterations:
               [samsaarikkuka, oduka, sneham, cherkuka]
 
-    - picture: picturematchinggame\verbs\think.png
+    - picture: verbs/vocabulary/think.png
       question: think
       answer: think
       translation: ചിന്തിക്കുക
@@ -344,7 +344,7 @@ verbs:
           transliterations:
               [chinthikkuka, vaach, jayam, nadakkuka]
 
-    - picture: picturematchinggame\verbs\turn.png
+    - picture: verbs/vocabulary/turn.png
       question: turn
       answer: turn
       translation: തിരിക്കുക
@@ -355,7 +355,7 @@ verbs:
           transliterations:
               [thirikkuka, vaayikkuka, sneham, oduka]
 
-    - picture: picturematchinggame\verbs\walk.png
+    - picture: verbs/vocabulary/walk.png
       question: walk
       answer: walk
       translation: നടക്കുക
@@ -366,7 +366,7 @@ verbs:
           transliterations:
               [nadakkuka, vaach, jayam, cherkuka]
 
-    - picture: picturematchinggame\verbs\want.png
+    - picture: verbs/vocabulary/want.png
       question: want
       answer: want
       translation: ആഗ്രഹിക്കുക
@@ -378,7 +378,7 @@ verbs:
           transliterations:
               [aagrahikkuka, vaayikkuka, sneham, oduka]
 
-    - picture: picturematchinggame\verbs\watch.png
+    - picture: verbs/vocabulary/watch.png
       question: watch
       answer: watch
       translation: നോക്കുക
@@ -389,7 +389,7 @@ verbs:
           transliterations:
               [nokkuka, jayam, cherkuka, nadakkuka]
 
-    - picture: picturematchinggame\verbs\win.png
+    - picture: verbs/vocabulary/win.png
       question: win
       answer: win
       translation: വിജയം
@@ -399,7 +399,7 @@ verbs:
           translations: [വിജയം, വായിക്കുക, സ്നേഹം, നടക്കുക]
           transliterations:
               [vijayam, vaayikkuka, sneham, nadakkuka]
-    - picture: picturematchinggame\verbs\look.png
+    - picture: verbs/vocabulary/look.png
       question: look
       answer: look
       translation: നോക്കുക
@@ -410,7 +410,7 @@ verbs:
           transliterations:
               [nokkuka, vaanguka, kooduka, ezhuthuka]
 
-    - picture: picturematchinggame\verbs\hold.png
+    - picture: verbs/vocabulary/hold.png
       question: hold
       answer: hold
       translation: പിടിക്കുക
@@ -432,7 +432,7 @@ verbs:
                   sevikkuka,
               ]
 
-    - picture: picturematchinggame\verbs\consider.png
+    - picture: verbs/vocabulary/consider.png
       question: consider
       answer: consider
       translation: വിലയിരുത്തുക
@@ -444,7 +444,7 @@ verbs:
           transliterations:
               [vilayiruthuka, kooduka, vaanguka, ayakkuka]
 
-    - picture: picturematchinggame\verbs\use.png
+    - picture: verbs/vocabulary/use.png
       question: use
       answer: use
       translation: ഉപയോഗിക്കുക
@@ -466,7 +466,7 @@ verbs:
                   kaathirikkuka,
               ]
 
-    - picture: picturematchinggame\verbs\bring.png
+    - picture: verbs/vocabulary/bring.png
       question: bring
       answer: bring
       translation: എടുക്കുക
@@ -478,7 +478,7 @@ verbs:
           transliterations:
               [edukkuka, sevikkuka, kooduka, samsaarikkuka]
 
-    - picture: picturematchinggame\verbs\appear.png
+    - picture: verbs/vocabulary/appear.png
       question: appear
       answer: appear
       translation: കാണപ്പെടുക
@@ -490,7 +490,7 @@ verbs:
           transliterations:
               [kanapeduka, vaanguka, pidikkuka, ezhuthuka]
 
-    - picture: picturematchinggame\verbs\find.png
+    - picture: verbs/vocabulary/find.png
       question: find
       answer: find
       translation: കണ്ടുപിടിക്കുക
@@ -512,7 +512,7 @@ verbs:
                   sevikkuka,
               ]
 
-    - picture: picturematchinggame\verbs\buy.png
+    - picture: verbs/vocabulary/buy.png
       question: buy
       answer: buy
       translation: വാങ്ങുക
@@ -529,7 +529,7 @@ verbs:
                   pidikkuka,
               ]
 
-    - picture: picturematchinggame\verbs\give.png
+    - picture: verbs/vocabulary/give.png
       question: give
       answer: give
       translation: നൽകുക
@@ -541,7 +541,7 @@ verbs:
           transliterations:
               [nalkuka, kooduka, ezhuthuka, kaathirikkuka]
 
-    - picture: picturematchinggame\verbs\wait.png
+    - picture: verbs/vocabulary/wait.png
       question: wait
       answer: wait
       translation: കാത്തിരിക്കുക
@@ -553,7 +553,7 @@ verbs:
           transliterations:
               [kaathirikkuka, vaanguka, sevikkuka, nokkuka]
 
-    - picture: picturematchinggame\verbs\talk.png
+    - picture: verbs/vocabulary/talk.png
       question: talk
       answer: talk
       translation: സംസാരിക്കുക
@@ -565,7 +565,7 @@ verbs:
           transliterations:
               [samsaarikkuka, kooduka, vaanguka, kanapeduka]
 
-    - picture: picturematchinggame\verbs\write.png
+    - picture: verbs/vocabulary/write.png
       question: write
       answer: write
       translation: എഴുതുക
@@ -582,7 +582,7 @@ verbs:
                   sevikkuka,
               ]
 
-    - picture: picturematchinggame\verbs\serve.png
+    - picture: verbs/vocabulary/serve.png
       question: serve
       answer: serve
       translation: സേവിക്കുക
@@ -593,7 +593,7 @@ verbs:
           transliterations:
               [sevikkuka, vaanguka, kooduka, nokkuka]
 
-    - picture: picturematchinggame\verbs\work.png
+    - picture: verbs/vocabulary/work.png
       question: work
       answer: work
       translation: പ്രവൃത്തി
@@ -610,7 +610,7 @@ verbs:
                   ezhuthuka,
               ]
 
-    - picture: picturematchinggame\verbs\provide.png
+    - picture: verbs/vocabulary/provide.png
       question: provide
       answer: provide
       translation: ഉപലബ്ധമാക്കുക
@@ -627,7 +627,7 @@ verbs:
                   samsaarikkuka,
               ]
 
-    - picture: picturematchinggame\verbs\sit.png
+    - picture: verbs/vocabulary/sit.png
       question: sit
       answer: sit
       translation: കൂടുക
@@ -638,7 +638,7 @@ verbs:
           transliterations:
               [kooduka, ezhuthuka, sevikkuka, vaanguka]
 
-    - picture: picturematchinggame\verbs\send.png
+    - picture: verbs/vocabulary/send.png
       question: send
       answer: send
       translation: അയക്കുക
