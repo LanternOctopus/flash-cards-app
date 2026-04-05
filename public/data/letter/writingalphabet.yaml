@@ -1,7 +1,7 @@
 alphabet:
-    - text: "A"
+    - answer: "A"
       repeat: 4
-    - text: "B"
+    - answer: "B"
       repeat: 4
-    - text: "C"
+    - answer: "C"
       repeat: 4

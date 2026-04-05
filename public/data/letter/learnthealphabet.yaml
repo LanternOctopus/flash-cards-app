@@ -1,104 +1,104 @@
 Montessori Letter Sounds:
-    - text: ssss like sun
+    - answer: ssss like sun
       picture: letter/objects/s_sun.png
       alt: a bright sun in the sky
 
-    - text: mmmm like moon
+    - answer: mmmm like moon
       picture: letter/objects/m_moon.png
       alt: a round moon in the night sky
 
-    - text: aaaa like apple
+    - answer: aaaa like apple
       picture: letter/objects/a_apple.png
       alt: a red apple
 
-    - text: t like top
+    - answer: t like top
       picture: letter/objects/t_top.png
       alt: a spinning toy top
 
-    - text: p like pen
+    - answer: p like pen
       picture: letter/objects/p_pen.png
       alt: a writing pen
 
-    - text: iiii like igloo
+    - answer: iiii like igloo
       picture: letter/objects/i_igloo.png
       alt: an igloo made of snow blocks
 
-    - text: nnnn like net
+    - answer: nnnn like net
       picture: letter/objects/n_net.png
       alt: a net used for catching
 
-    - text: k like cat
+    - answer: k like cat
       picture: letter/objects/c_cat.png
       alt: a small cat
 
-    - text: k like kite
+    - answer: k like kite
       picture: letter/objects/k_kite.png
       alt: a kite flying in the sky
 
-    - text: eeee like egg
+    - answer: eeee like egg
       picture: letter/objects/e_egg.png
       alt: a white egg
 
-    - text: hhhh like hat
+    - answer: hhhh like hat
       picture: letter/objects/h_hat.png
       alt: a hat
 
-    - text: rrrr like rat
+    - answer: rrrr like rat
       picture: letter/objects/r_rat.png
       alt: a small rat
 
-    - text: d like dog
+    - answer: d like dog
       picture: letter/objects/d_dog.png
       alt: a dog
 
-    - text: llll like lion
+    - answer: llll like lion
       picture: letter/objects/l_lion.png
       alt: a lion
 
-    - text: uuuu like umbrella
+    - answer: uuuu like umbrella
       picture: letter/objects/u_umbrella.png
       alt: an open umbrella
 
-    - text: oooo like orange
+    - answer: oooo like orange
       picture: letter/objects/o_orange.png
       alt: an orange fruit
 
-    - text: b like ball
+    - answer: b like ball
       picture: letter/objects/b_ball.png
       alt: a round ball
 
-    - text: ffff like fish
+    - answer: ffff like fish
       picture: letter/objects/f_fish.png
       alt: a fish
 
-    - text: g like goat
+    - answer: g like goat
       picture: letter/objects/g_goat.png
       alt: a goat
 
-    - text: j like jam
+    - answer: j like jam
       picture: letter/objects/j_jam.png
       alt: a jar of jam
 
-    - text: vvvv like van
+    - answer: vvvv like van
       picture: letter/objects/v_van.png
       alt: a van
 
-    - text: www like water
+    - answer: www like water
       picture: letter/objects/w_water.png
       alt: water in a glass
 
-    - text: y like yak
+    - answer: y like yak
       picture: letter/objects/y_yak.png
       alt: a yak
 
-    - text: zzzz like zebra
+    - answer: zzzz like zebra
       picture: letter/objects/z_zebra.png
       alt: a zebra
 
-    - text: kw like queen
+    - answer: kw like queen
       picture: letter/objects/q_queen.png
       alt: a queen wearing a crown
 
-    - text: ks like box
+    - answer: ks like box
       picture: letter/objects/x_box.png
       alt: a box

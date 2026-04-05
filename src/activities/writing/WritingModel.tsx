@@ -26,7 +26,7 @@ export class HandwritingModel extends ActivityModel<any> {
         Object.values(this.rawData).forEach((set) =>
             set.forEach((item) => {
                 (item as any).strokes =
-                    this.getStrokesForText(item.text);
+                    this.getStrokesForText(item.answer);
             }),
         );
         this.checkCorrectness =
@@ -93,29 +93,26 @@ export class HandwritingModel extends ActivityModel<any> {
         return { x, y };
     }
 
-    checkCorrectness = (
-        userAnswer: Point[],
-    ): CheckResult => {
-        // 1. Retrieve the target letter from the model's answer state
-        const letterKey = this.answer;
-
-        // 2. Get the ideal points for the target letter
+    checkCorrectness = (userAnswer: any): CheckResult => {
+        // 1. Cast the userAnswer (points) and get the target letter
+        const userPoints = userAnswer as Point[];
+        const letterKey = this.answer; // Assuming this.answer holds 'A', 'B', etc.
+        console.log("User Points:", userPoints);
+        console.log("letterKey:", letterKey);
         const idealPoints = this.getIdealPoints(
             this.alphabet[letterKey] || [],
         );
-
-        // 3. Normalize the incoming user points
-        const normalizedUserPoints =
-            this.getNormalizedPoints(userAnswer);
-
-        // Safety check for empty input
-        if (!normalizedUserPoints.length) {
+        console.log("Ideal Points:", idealPoints);
+        // 2. Safety check: if they didn't draw anything, it's wrong
+        if (!userPoints || userPoints.length < 5) {
             return { correct: false, done: false };
         }
 
+        const normalizedUserPoints =
+            this.getNormalizedPoints(userPoints);
         let totalDistance = 0;
 
-        // 4. Calculate Euclidean distance (Nearest Neighbor)
+        // 3. Simple Distance Calculation
         normalizedUserPoints.forEach((uPt) => {
             let minDist = Infinity;
             idealPoints.forEach((iPt) => {
@@ -131,18 +128,13 @@ export class HandwritingModel extends ActivityModel<any> {
         const avgDist =
             totalDistance / normalizedUserPoints.length;
 
-        // 5. Calculate Score
-        const score = Math.round(
-            100 * Math.exp(-avgDist / 20),
-        );
-
-        // 6. Map to the Parent's expected CheckResult signature
-        const isCorrect = score >= 70;
+        // 4. Pure Binary Result
+        // If average distance is less than 15px (pretty close), they win!
+        const isCorrect = avgDist < 15;
 
         return {
             correct: isCorrect,
-            // In handwriting, usually if it's correct, they are 'done' with this letter
-            done: isCorrect,
+            done: isCorrect, // If they got it right, they're done!
         };
     };
     protected isValidItem(
@@ -151,7 +143,7 @@ export class HandwritingModel extends ActivityModel<any> {
         return (
             typeof item === "object" &&
             item !== null &&
-            "text" in item
+            "answer" in item
         );
     }
     getStrokesForText(text: string): Stroke[] {
