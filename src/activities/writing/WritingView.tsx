@@ -183,7 +183,8 @@ export function HandwritingView() {
 
             if (progress < 1) requestAnimationFrame(frame);
         };
-        requestAnimationFrame(frame);
+        const id = requestAnimationFrame(frame);
+        return () => cancelAnimationFrame(id);
     }, [item]);
 
     // --- 2. User Drawing Logic ---
@@ -229,7 +230,7 @@ export function HandwritingView() {
     const handleCheck = () => {
         // 1. Run the similarity check from your model
         // We pass the points array and the target letter text
-        const result = checkCorrectness(points, item.text);
+        const result = checkCorrectness(points);
 
         if (result.correct) {
             // 1. Clear the "Ink" from the User Canvas immediately
@@ -242,13 +243,13 @@ export function HandwritingView() {
 
             // 3. Give the user a "Good Job" alert
             // (Alternatively, you could set a 'success' state to show a green checkmark)
-            alert(`🌟 Excellent! Score: ${result.score}%`);
+            alert(`🌟 Excellent!`);
             // 4  If the score is >= 70 (defined in your model), go to next
             handleNext?.();
         } else {
             // 5. If they missed too many spots, give feedback
             alert(
-                `Almost! Your accuracy was ${result.score}%. Try to stay inside the lines!`,
+                `Almost! Try again! Try to stay inside the lines!`,
             );
 
             // Optional: Clear the user's ink so they can try again fresh
