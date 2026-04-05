@@ -4,7 +4,7 @@ import { useVisibilityGate } from "../components/VisibilityGateContext";
 import { useAnswer } from "./AnswerProvider";
 import { useQuestion } from "./QuestionContext";
 import { ParentScreen } from "./ParentScreen";
-import { playSynthRibbit } from "../utils/audio";
+
 import { TTS } from "../utils/TTS";
 import { useLanguage } from "./languageswitcher/LanguageProvider";
 import "./picturematchinggame.css";
@@ -246,7 +246,6 @@ export function PictureMatch() {
                                             className="frog-button"
                                             key={`${item.id}-choice-${i}`}
                                             onClick={() => {
-                                                playSynthRibbit();
                                                 const result =
                                                     checkCorrectness(
                                                         ans,
