@@ -183,7 +183,8 @@ export function HandwritingView() {
 
             if (progress < 1) requestAnimationFrame(frame);
         };
-        requestAnimationFrame(frame);
+        const id = requestAnimationFrame(frame);
+        return () => cancelAnimationFrame(id);
     }, [item]);
 
     // --- 2. User Drawing Logic ---
