@@ -40,7 +40,7 @@ const Home: React.FC = () => {
                     marginBottom: "2rem",
                 }}
             >
-                Welcome to Ananda English! 🎉
+                Welcome to Learning Hub! 🎉
             </h1>
 
             <section style={{ marginBottom: "2rem" }}>
@@ -83,6 +83,9 @@ const Home: React.FC = () => {
                     <Card to="/flashcards" icon="📇">
                         Flash Cards
                     </Card>
+                    <Card to="/handwriting" icon="✍️">
+                        Handwriting
+                    </Card>
                 </div>
             </section>
 
@@ -94,6 +97,9 @@ const Home: React.FC = () => {
                         flexWrap: "wrap",
                     }}
                 >
+                    <Card to="/readoutloud" icon="🎤">
+                        Read Out Loud (All)
+                    </Card>
                     <Card
                         to="/readoutloud/whimsicalcontractions"
                         icon="🎤"
@@ -140,18 +146,24 @@ const Home: React.FC = () => {
             </section>
 
             <section>
-                <h2>Alphabet Games 🌏</h2>
+                <h2>Other Resources 🌏</h2>
                 <div
                     style={{
                         display: "flex",
                         flexWrap: "wrap",
                     }}
                 >
+                    <Card to="/hindi" icon="🌐">
+                        Hindi Example
+                    </Card>
                     <Card to="/letter/alphabet" icon="🔤">
                         Learn the Alphabet
                     </Card>
-                    <Card to="/handwriting" icon="✍️">
-                        Handwriting
+                    <Card
+                        to="/letter/alphabetmatching"
+                        icon="🧩"
+                    >
+                        Alphabet Matching Quiz
                     </Card>
                 </div>
             </section>

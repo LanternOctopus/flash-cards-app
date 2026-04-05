@@ -1,7 +1,7 @@
 import { ActivityModel, CheckResult } from "./Models";
 import { stripPunctuation } from "../utils/utils";
 type ReadOutLoudItem = {
-    text: string;
+    answer: string;
     phonemes: string[];
     id: string;
     chunks: string[];
@@ -24,7 +24,7 @@ export class ReadOutLoudModel extends ActivityModel<ReadOutLoudItem> {
         );
     }
     protected addChunks(item: ReadOutLoudItem) {
-        const chunks = item.text.split(/(?<=[.!?\n])/g);
+        const chunks = item.answer.split(/(?<=[.!?\n])/g);
         item.chunks = chunks;
         return true;
     }
@@ -49,14 +49,16 @@ export class ReadOutLoudModel extends ActivityModel<ReadOutLoudItem> {
     protected isValidItem(
         item: unknown,
     ): item is ReadOutLoudItem {
+        console.log("Validating item:", item);
         if (typeof item !== "object" || item === null)
             return false;
 
         const it = item as any;
 
-        return typeof it.text === "string";
+        return typeof it.answer === "string";
     }
-    getImageUrl(image: string) {
-        return `${process.env.PUBLIC_URL}/images/${image}`;
-    }
+
+    getImageUrl = (imageName: string) => {
+        return `${process.env.PUBLIC_URL}/images/readoutloud/${imageName}`;
+    };
 }

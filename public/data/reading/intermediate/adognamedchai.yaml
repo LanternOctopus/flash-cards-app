@@ -1,77 +1,77 @@
 A dog named Chai:
-    - text: On a sunny street lived a dog named Chai,
+    - answer: On a sunny street lived a dog named Chai,
       picture: chai/chai.png
       alt: Chai the dog
       caption: Chai enjoys sunny streets and helping his friends.
       phonemes:
           - ˌɔn ɐ sˈʌni stɹˈiːt lˈɪvd ɐ dˈɑːɡ nˈeɪmd tʃˈaɪ
-    - text: With floppy ears and a sparkle in his eye.
+    - answer: With floppy ears and a sparkle in his eye.
       phonemes:
           - wɪð flˈɑːpi ˈɪɹz ænd ɐ spˈɑːɹkəl ɪn hɪz ˈaɪ
-    - text: He wagged his tail at everyone he met,
+    - answer: He wagged his tail at everyone he met,
       phonemes:
           - hiː wˈæɡd hɪz tˈeɪl æɾ ˈɛvɹɪwˌʌn hiː mˈɛt
-    - text: Happy as a dog could ever get.
+    - answer: Happy as a dog could ever get.
       phonemes:
           - hˈæpi æz ɐ dˈɑːɡ kʊd ˈɛvɚ ɡˈɛt
-    - text: Chai loved naps by the tea shop door,
+    - answer: Chai loved naps by the tea shop door,
       phonemes:
           - tʃˈaɪ lˈʌvd nˈæps baɪ ðə tˈiː ʃˈɑːp dˈoːɹ
-    - text: Listening to cups clink and scooters roar.
+    - answer: Listening to cups clink and scooters roar.
       phonemes:
           - lˈɪsənɪŋ tə kˈʌps klˈɪŋk ænd skˈuːɾɚz ɹˈoːɹ
-    - text: The shopkeeper smiled and tossed him a treat,
+    - answer: The shopkeeper smiled and tossed him a treat,
       phonemes:
           - ðə ʃˈɑːpkiːpɚ smˈaɪld ænd tˈɔst hˌɪm ɐ tɹˈiːt
-    - text: Best dog buddy on the whole wide street.
+    - answer: Best dog buddy on the whole wide street.
       phonemes:
           - bˈɛst dˈɑːɡ bˈʌdi ɔnðə hˈoʊl wˈaɪd stɹˈiːt
-    - text: He chased pigeons but never too far,
+    - answer: He chased pigeons but never too far,
       phonemes:
           - hiː tʃˈeɪst pˈɪdʒənz bˌʌt nˈɛvɚ tˈuː fˈɑːɹ
-    - text: Then rested in shade by a parked auto car.
+    - answer: Then rested in shade by a parked auto car.
       phonemes:
           - ðˈɛn ɹˈɛstᵻd ɪn ʃˈeɪd baɪ ɐ pˈɑːɹkt ˈɔːɾoʊ kˈɑːɹ
-    - text: Kids laughed loud when he did a spin,
+    - answer: Kids laughed loud when he did a spin,
       phonemes:
           - kˈɪdz lˈæft lˈaʊd wɛn hiː dˈɪd ɐ spˈɪn
-    - text: Chai bowed proudly, tail tucked in.
+    - answer: Chai bowed proudly, tail tucked in.
       phonemes:
           - tʃˈaɪ bˈaʊd pɹˈaʊdli
           - tˈeɪl tˈʌkt ˈɪn
-    - text: When rain poured down and puddles grew,
+    - answer: When rain poured down and puddles grew,
       phonemes:
           - wˌɛn ɹˈeɪn pˈoːɹd dˌaʊn ænd pˈʌdəlz ɡɹˈuː
-    - text: Chai splashed happily, soaked right through.
+    - answer: Chai splashed happily, soaked right through.
       phonemes:
           - tʃˈaɪ splˈæʃt hˈæpɪli
           - sˈoʊkt ɹˈaɪt θɹˈuː
-    - text: Mud on his paws, joy on his face,
+    - answer: Mud on his paws, joy on his face,
       phonemes:
           - mˈʌd ˌɔn hɪz pˈɔːz
           - dʒˈɔɪ ˌɔn hɪz fˈeɪs
-    - text: Rainy days were his favorite place.
+    - answer: Rainy days were his favorite place.
       phonemes:
           - ɹˈeɪni dˈeɪz wɜː hɪz fˈeɪvɚɹᵻt plˈeɪs
-    - text: At night he guarded the sleeping lane,
+    - answer: At night he guarded the sleeping lane,
       phonemes:
           - æt nˈaɪt hiː ɡˈɑːɹdᵻd ðə slˈiːpɪŋ lˈeɪn
-    - text: A gentle hero in moonlight plain.
+    - answer: A gentle hero in moonlight plain.
       phonemes:
           - ɐ dʒˈɛntəl hˈiəɹoʊ ɪn mˈuːnlaɪt plˈeɪn
-    - text: No collar, no leash, but loved so true,
+    - answer: No collar, no leash, but loved so true,
       phonemes:
           - nˈoʊ kˈɑːlɚ
           - nˈoʊ lˈiːʃ
           - bˌʌt lˈʌvd sˌoʊ tɹˈuː
-    - text: The street was his home, his family too.
+    - answer: The street was his home, his family too.
       phonemes:
           - ðə stɹˈiːt wʌz hɪz hˈoʊm
           - hɪz fˈæmɪli tˈuː
-    - text: So if you see Chai wag and grin,
+    - answer: So if you see Chai wag and grin,
       phonemes:
           - sˌoʊ ɪf juː sˈiː tʃˈaɪ wˈæɡ ænd ɡɹˈɪn
-    - text: Give a soft hello, let kindness in.
+    - answer: Give a soft hello, let kindness in.
       phonemes:
           - ɡˈɪv ɐ sˈɔft həlˈoʊ
           - lˈɛt kˈaɪndnəs ˈɪn

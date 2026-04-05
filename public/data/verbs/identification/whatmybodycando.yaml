@@ -1,5 +1,5 @@
 What My Body Can Do:
-    - text: With my eyes, I see the sun. I look around—oh! So much fun.
+    - answer: With my eyes, I see the sun. I look around—oh! So much fun.
       picture: whatmybodycando/whatmybodycando.png
       caption: A poem about senses and discovery.
       alt: What My Body Can Do cover.
@@ -8,49 +8,49 @@ What My Body Can Do:
           - aɪ sˈiː ðə sˈʌn
           - aɪ lˈʊk ɚɹˈaʊnd ˈoʊ
           - sˈoʊ mˌʌtʃ fˈʌn
-    - text: With my ears, I hear a sound. A bird, a bell—what did I find around?
+    - answer: With my ears, I hear a sound. A bird, a bell—what did I find around?
       phonemes:
           - wɪð maɪ ˈɪɹz
           - aɪ hˈɪɹ ɐ sˈaʊnd
           - ɐ bˈɜːd
           - ɐ bˈɛl wʌt dˈɪd aɪ fˈaɪnd ɚɹˈaʊnd
-    - text: With my hands, I feel things near. Soft and bumpy, smooth and clear.
+    - answer: With my hands, I feel things near. Soft and bumpy, smooth and clear.
       phonemes:
           - wɪð maɪ hˈændz
           - aɪ fˈiːl θˈɪŋz nˈɪɹ
           - sˈɔft ænd bˈʌmpi
           - smˈuːð ænd klˈɪɹ
-    - text: Sometimes things appear in sight, A rainbow pops—oh! What delight!
+    - answer: Sometimes things appear in sight, A rainbow pops—oh! What delight!
       phonemes:
           - sˈʌmtaɪmz θˈɪŋz ɐpˈɪɹ ɪn sˈaɪt
           - ɐ ɹˈeɪnboʊ pˈɑːps ˈoʊ
           - wˌʌt dᵻlˈaɪt
-    - text: With my nose, I wait and sniff, Cookies baking? Don't mind if—
+    - answer: With my nose, I wait and sniff, Cookies baking? Don't mind if—
       phonemes:
           - wɪð maɪ nˈoʊz
           - aɪ wˈeɪt ænd snˈɪf
           - kˈʊkiz bˈeɪkɪŋ
           - dˈoʊnt mˈaɪnd ɪf
-    - text: With my mouth, I taste a bite. Sweet or sour? Mmm… just right.
+    - answer: With my mouth, I taste a bite. Sweet or sour? Mmm… just right.
       phonemes:
           - wɪð maɪ mˈaʊθ
           - aɪ tˈeɪst ɐ bˈaɪt
           - swˈiːt ɔːɹ sˈaʊɚ
           - ˌɛmˌɛmˈɛm
           - dʒˈʌst ɹˈaɪt
-    - text: With my feet, things happen fast. I trip, I giggle, then I laugh.
+    - answer: With my feet, things happen fast. I trip, I giggle, then I laugh.
       phonemes:
           - wɪð maɪ fˈiːt
           - θˈɪŋz hˈæpən fˈæst
           - aɪ tɹˈɪp
           - aɪ ɡˈɪɡəl
           - ðˈɛn aɪ lˈæf
-    - text: With my face, I meet a friend. Smiles say 'hello' again and again.
+    - answer: With my face, I meet a friend. Smiles say 'hello' again and again.
       phonemes:
           - wɪð maɪ fˈeɪs
           - aɪ mˈiːt ɐ fɹˈɛnd
           - smˈaɪlz sˈeɪ həlˈoʊ ɐɡˈɛn ænd ɐɡˈɛn
-    - text: Sometimes I lose my teddy bear— I look again—ah! It's right there!
+    - answer: Sometimes I lose my teddy bear— I look again—ah! It's right there!
       phonemes:
           - sˈʌmtaɪmz aɪ lˈuːz maɪ tˈɛdi bˈɛɹ
           - aɪ lˈʊk ɐɡˈɛn ˈɑː

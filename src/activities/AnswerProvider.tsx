@@ -44,17 +44,12 @@ export function AnswerProvider({
     getImageUrl,
     children,
 }: AnswerProviderProps) {
-    const defaultGetImageUrl = (image: string) => {
-        return `${process.env.PUBLIC_URL}/images/${image}`;
-    };
-
     return (
         <AnswerContext.Provider
             value={{
                 answer,
                 checkCorrectness: checkCorrectness,
-                getImageUrl:
-                    getImageUrl ?? defaultGetImageUrl,
+                getImageUrl: getImageUrl,
                 handleNext,
             }}
         >

@@ -273,4 +273,7 @@ export abstract class ActivityModel<TItem extends WithId> {
         }
         return correct; // for UI to consume
     };
+    getImageUrl = (image: string) => {
+        return `${process.env.PUBLIC_URL}/images/${image}`;
+    };
 }

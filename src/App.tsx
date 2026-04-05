@@ -35,68 +35,20 @@ const App: React.FC = () => {
                         }}
                     >
                         <li>
-                            <Link to="/sentenceactivities">
-                                Sentence Activities
+                            <Link
+                                to="/"
+                                style={{
+                                    fontWeight: "bold",
+                                    fontSize: "1.5rem",
+                                    color: "#333",
+                                    textDecoration: "none",
+                                }}
+                            >
+                                🌟 Ananda English
                             </Link>
                         </li>
                         <li className="languageSwitcher">
                             <LanguageSwitcher />
-                        </li>
-                        <li>
-                            <details className="dropdown">
-                                <summary>
-                                    Activities
-                                </summary>
-                                <ul dir="rtl">
-                                    <li>
-                                        <Link to="/allactivities">
-                                            Combined
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/flashcards">
-                                            Flash Cards
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/typing">
-                                            Typing
-                                        </Link>
-                                    </li>
-
-                                    <li>
-                                        <Link to="/scrambler">
-                                            Scrambler
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/sequences">
-                                            Sequences
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/picturematchinggame">
-                                            Picture Matching
-                                            Game
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/readoutloud">
-                                            Read Out Loud
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/partsofspeech">
-                                            Parts Of Speech
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/handwriting">
-                                            Handwriting
-                                        </Link>
-                                    </li>
-                                </ul>
-                            </details>
                         </li>
                     </ul>
                 </nav>

@@ -1,5 +1,5 @@
 Words That Travel:
-    - text: In the morning, I say 'hello,' A friendly word, soft and slow.
+    - answer: In the morning, I say 'hello,' A friendly word, soft and slow.
       picture: wordsthattravel/wordsthattravel.png
       caption: A poem about communication.
       alt: Words That Travel cover.
@@ -8,47 +8,47 @@ Words That Travel:
           - aɪ sˈeɪ həlˈoʊ
           - ɐ fɹˈɛndli wˈɜːd
           - sˈɔft ænd slˈoʊ
-    - text: I tell my mom about my dream, I tell her everything I've seen.
+    - answer: I tell my mom about my dream, I tell her everything I've seen.
       phonemes:
           - aɪ tˈɛl maɪ mˈɑːm ɐbˌaʊt maɪ dɹˈiːm
           - aɪ tˈɛl hɜːɹ ˈɛvɹɪθˌɪŋ aɪv sˈiːn
-    - text: At school, I speak so all can hear, I speak my words, calm and clear.
+    - answer: At school, I speak so all can hear, I speak my words, calm and clear.
       phonemes:
           - æt skˈuːl
           - aɪ spˈiːk sˌoʊ ˈɔːl kæn hˈɪɹ
           - aɪ spˈiːk maɪ wˈɜːdz
           - kˈɑːm ænd klˈɪɹ
-    - text: With friends, I talk all through the day, We talk and laugh and share our play.
+    - answer: With friends, I talk all through the day, We talk and laugh and share our play.
       phonemes:
           - wɪð fɹˈɛndz
           - aɪ tˈɔːk ˈɔːl θɹuː ðə dˈeɪ
           - wiː tˈɔːk ænd lˈæf ænd ʃˈɛɹ ˌaʊɚ plˈeɪ
-    - text: When I don't know, I ask a question, I ask for help or a suggestion.
+    - answer: When I don't know, I ask a question, I ask for help or a suggestion.
       phonemes:
           - wˌɛn aɪ dˈoʊnt nˈoʊ
           - aɪ ˈæsk ɐ kwˈɛstʃən
           - aɪ ˈæsk fɔːɹ hˈɛlp ɔːɹ ɐ sədʒˈɛstʃən
-    - text: Across the yard, I call out loud, I call my name into the crowd.
+    - answer: Across the yard, I call out loud, I call my name into the crowd.
       phonemes:
           - əkɹˌɑːs ðə jˈɑːɹd
           - aɪ kˈɔːl ˈaʊt lˈaʊd
           - aɪ kˈɔːl maɪ nˈeɪm ˌɪntʊ ðə kɹˈaʊd
-    - text: With pencil tight, I write my name, I write my words again and again.
+    - answer: With pencil tight, I write my name, I write my words again and again.
       phonemes:
           - wɪð pˈɛnsəl tˈaɪt
           - aɪ ɹˈaɪt maɪ nˈeɪm
           - aɪ ɹˈaɪt maɪ wˈɜːdz ɐɡˈɛn ænd ɐɡˈɛn
-    - text: I read a book, page by page, I read the words that tell the stage.
+    - answer: I read a book, page by page, I read the words that tell the stage.
       phonemes:
           - aɪ ɹˈiːd ɐ bˈʊk
           - pˈeɪdʒ baɪ pˈeɪdʒ
           - aɪ ɹˈiːd ðə wˈɜːdz ðæt tˈɛl ðə stˈeɪdʒ
-    - text: I show my picture, proud and bright, I show what I made with all my might.
+    - answer: I show my picture, proud and bright, I show what I made with all my might.
       phonemes:
           - aɪ ʃˈoʊ maɪ pˈɪktʃɚ
           - pɹˈaʊd ænd bɹˈaɪt
           - aɪ ʃˈoʊ wʌt aɪ mˌeɪd wɪð ˈɔːl maɪ mˈaɪt
-    - text: Far away, but still I send, A note to family, to a friend.
+    - answer: Far away, but still I send, A note to family, to a friend.
       phonemes:
           - fˈɑːɹ ɐwˈeɪ
           - bˌʌt stˈɪl aɪ sˈɛnd
