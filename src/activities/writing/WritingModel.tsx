@@ -97,12 +97,9 @@ export class HandwritingModel extends ActivityModel<any> {
         // 1. Cast the userAnswer (points) and get the target letter
         const userPoints = userAnswer as Point[];
         const letterKey = this.answer; // Assuming this.answer holds 'A', 'B', etc.
-        console.log("User Points:", userPoints);
-        console.log("letterKey:", letterKey);
         const idealPoints = this.getIdealPoints(
             this.alphabet[letterKey] || [],
         );
-        console.log("Ideal Points:", idealPoints);
         // 2. Safety check: if they didn't draw anything, it's wrong
         if (!userPoints || userPoints.length < 5) {
             return { correct: false, done: false };
@@ -130,7 +127,7 @@ export class HandwritingModel extends ActivityModel<any> {
 
         // 4. Pure Binary Result
         // If average distance is less than 15px (pretty close), they win!
-        const isCorrect = avgDist < 15;
+        const isCorrect = avgDist < 5;
 
         return {
             correct: isCorrect,

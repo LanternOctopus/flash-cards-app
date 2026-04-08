@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { AnswerProvider } from "./AnswerProvider";
 import { QuestionProvider } from "./QuestionContext";
 import { useData } from "./DataProvider";
+import { ScoreBoard } from "../components/score/ScoreBoard";
 export function SequenceController({
     modelClass,
     children,
@@ -20,6 +21,7 @@ export function SequenceController({
     const modelRef = useRef<any>(null);
     useEffect(() => {
         if (!data?.items) return;
+
         modelRef.current = new modelClass(
             data.items,
             setScore,
@@ -47,7 +49,12 @@ export function SequenceController({
     }
     return (
         <>
-            <h1>score: {score ?? "N/A"}</h1>
+            <ScoreBoard
+                score={score ?? 0}
+                total={
+                    modelRef.current.getTotalScore() ?? 0
+                }
+            />
             <QuestionProvider value={current}>
                 <AnswerProvider
                     answer={current.answer}

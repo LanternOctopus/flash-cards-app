@@ -1,0 +1,6 @@
+.score-number.animate {
+    transform: scale(1.5);
+    text-shadow:
+        0 0 8px #fff,
+        0 0 12px #ffb3b3;
+}

@@ -276,4 +276,11 @@ export abstract class ActivityModel<TItem extends WithId> {
     getImageUrl = (image: string) => {
         return `${process.env.PUBLIC_URL}/images/${image}`;
     };
+    getTotalScore() {
+        console.log(
+            "Calculating total score from rawData",
+            this.rawData,
+        );
+        return this.getSet().length;
+    }
 }
