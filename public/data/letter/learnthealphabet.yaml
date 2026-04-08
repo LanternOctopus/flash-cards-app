@@ -2,103 +2,96 @@ Montessori Letter Sounds:
     - answer: ssss like sun
       picture: letter/objects/s_sun.png
       alt: a bright sun in the sky
-
+      audio: english/s_sun.mp3
     - answer: mmmm like moon
       picture: letter/objects/m_moon.png
       alt: a round moon in the night sky
-
-    - answer: aaaa like apple
-      picture: letter/objects/a_apple.png
-      alt: a red apple
-
+      audio: english/m_moon.mp3
     - answer: t like top
       picture: letter/objects/t_top.png
       alt: a spinning toy top
-
+      audio: english/t_top.mp3
     - answer: p like pen
       picture: letter/objects/p_pen.png
       alt: a writing pen
-
+      audio: english/p_pen.mp3
     - answer: iiii like igloo
       picture: letter/objects/i_igloo.png
       alt: an igloo made of snow blocks
-
+      audio: english/i_igloo.mp3
     - answer: nnnn like net
       picture: letter/objects/n_net.png
       alt: a net used for catching
-
+      audio: english/n_net.mp3
     - answer: k like cat
       picture: letter/objects/c_cat.png
       alt: a small cat
-
+      audio: english/c_cat.mp3
     - answer: k like kite
       picture: letter/objects/k_kite.png
       alt: a kite flying in the sky
-
-    - answer: eeee like egg
-      picture: letter/objects/e_egg.png
-      alt: a white egg
-
+      audio: english/k_kite.mp3
     - answer: hhhh like hat
       picture: letter/objects/h_hat.png
       alt: a hat
-
+      audio: english/h_hat.mp3
     - answer: rrrr like rat
       picture: letter/objects/r_rat.png
       alt: a small rat
-
+      audio: english/r_rat.mp3
     - answer: d like dog
       picture: letter/objects/d_dog.png
       alt: a dog
-
+      audio: english/d_dog.mp3
     - answer: llll like lion
       picture: letter/objects/l_lion.png
       alt: a lion
-
+      audio: english/l_lion.mp3
     - answer: uuuu like umbrella
       picture: letter/objects/u_umbrella.png
       alt: an open umbrella
-
+      audio: english/u_umbrella.mp3
     - answer: oooo like orange
       picture: letter/objects/o_orange.png
       alt: an orange fruit
-
+      audio: english/o_orange.mp3
     - answer: b like ball
       picture: letter/objects/b_ball.png
       alt: a round ball
-
+      audio: english/b_ball.mp3
     - answer: ffff like fish
       picture: letter/objects/f_fish.png
       alt: a fish
-
+      audio: english/f_fish.mp3
     - answer: g like goat
       picture: letter/objects/g_goat.png
       alt: a goat
-
+      audio: english/g_goat.mp3
     - answer: j like jam
       picture: letter/objects/j_jam.png
       alt: a jar of jam
-
+      audio: english/j_jam.mp3
     - answer: vvvv like van
       picture: letter/objects/v_van.png
       alt: a van
-
+      audio: english/v_van.mp3
     - answer: www like water
       picture: letter/objects/w_water.png
       alt: water in a glass
-
+      audio: english/w_water.mp3
     - answer: y like yak
       picture: letter/objects/y_yak.png
       alt: a yak
-
+      audio: english/y_yak.mp3
     - answer: zzzz like zebra
       picture: letter/objects/z_zebra.png
       alt: a zebra
-
+      audio: english/z_zebra.mp3
     - answer: kw like queen
       picture: letter/objects/q_queen.png
       alt: a queen wearing a crown
-
+      audio: english/q_queen.mp3
     - answer: ks like box
       picture: letter/objects/x_box.png
       alt: a box
+      audio: english/x_box.mp3

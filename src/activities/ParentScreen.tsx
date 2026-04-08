@@ -2,6 +2,7 @@ import { VisibilityGateProvider } from "../components/VisibilityGateContext";
 import { ToggleBoxController } from "../components/ToggleBox";
 import { DataProvider } from "./DataProvider";
 import { SequenceController } from "./SequenceController";
+import { AudioProvider } from "../providers/AudioProvider";
 export function ParentScreen({
     itemPath,
     configPath,
@@ -19,21 +20,23 @@ export function ParentScreen({
     children: React.ReactNode;
 }) {
     return (
-        <DataProvider
-            itemPath={itemPath}
-            configPath={configPath}
-            storageKey={storageKey}
-        >
-            <VisibilityGateProvider>
-                <ToggleBoxController />
-                <main>
-                    <SequenceController
-                        modelClass={modelClass}
-                    >
-                        {children}
-                    </SequenceController>
-                </main>
-            </VisibilityGateProvider>
-        </DataProvider>
+        <AudioProvider>
+            <DataProvider
+                itemPath={itemPath}
+                configPath={configPath}
+                storageKey={storageKey}
+            >
+                <VisibilityGateProvider>
+                    <ToggleBoxController />
+                    <main>
+                        <SequenceController
+                            modelClass={modelClass}
+                        >
+                            {children}
+                        </SequenceController>
+                    </main>
+                </VisibilityGateProvider>
+            </DataProvider>
+        </AudioProvider>
     );
 }

@@ -1,7 +1,8 @@
 // components/Home.tsx
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { SessionProvider } from "../providers/SessionProvider";
+import { Track } from "../components/Track";
 const cardStyle = {
     display: "flex",
     flexDirection: "column" as const,
@@ -155,6 +156,9 @@ const Home: React.FC = () => {
                     </Card>
                 </div>
             </section>
+            <SessionProvider>
+                <Track />
+            </SessionProvider>
         </main>
     );
 };
