@@ -1,13 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.b58e32bc.css",
-    "main.js": "/static/js/main.2e9e33fc.js",
+    "main.css": "/static/css/main.25b9b6ce.css",
+    "main.js": "/static/js/main.d640fa82.js",
+    "static/media/InriaSerif-Italic.ttf": "/static/media/InriaSerif-Italic.ae8c93c183d12cacb419.ttf",
+    "static/media/InriaSerif-Regular.ttf": "/static/media/InriaSerif-Regular.f43b3e7fe0caf2aaeade.ttf",
+    "static/media/InriaSerif-Bold.ttf": "/static/media/InriaSerif-Bold.6e940239a53050039654.ttf",
+    "static/media/ComicRelief-Regular.ttf": "/static/media/ComicRelief-Regular.6e10de08b3a5e639247e.ttf",
+    "static/media/Kavivanar-Regular.ttf": "/static/media/Kavivanar-Regular.32d5ccf94f3a2d526064.ttf",
     "index.html": "/index.html",
-    "main.b58e32bc.css.map": "/static/css/main.b58e32bc.css.map",
-    "main.2e9e33fc.js.map": "/static/js/main.2e9e33fc.js.map"
+    "main.25b9b6ce.css.map": "/static/css/main.25b9b6ce.css.map",
+    "main.d640fa82.js.map": "/static/js/main.d640fa82.js.map"
   },
   "entrypoints": [
-    "static/css/main.b58e32bc.css",
-    "static/js/main.2e9e33fc.js"
+    "static/css/main.25b9b6ce.css",
+    "static/js/main.d640fa82.js"
   ]
 }
