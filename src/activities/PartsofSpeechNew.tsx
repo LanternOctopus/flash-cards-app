@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 
 import { PartsofSpeechModel } from "./PartsofSpeechModel";
 import { useVisibilityGate } from "../components/VisibilityGateContext";
-import { useAnswer } from "./AnswerProvider";
-import { useQuestion } from "./QuestionContext";
+import { useAnswer } from "../providers/AnswerProvider";
+import { useQuestion } from "../providers/QuestionContext";
 import { ParentScreen } from "./ParentScreen";
 import expandContractions from "../utils/expandContractions";
 import { stripPunctuation } from "../utils/utils";

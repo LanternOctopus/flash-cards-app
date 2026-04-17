@@ -1,5 +1,5 @@
 import { ActivityModel } from "./../Models";
-
+import { WithId } from "./../Models";
 const isNonEmptyString = (
     value: unknown,
 ): value is string =>
@@ -15,7 +15,9 @@ export type FlashCardItem = {
     meta: Record<string, string>;
 };
 
-export class FlashCardModel extends ActivityModel<FlashCardItem> {
+export class FlashCardModel<
+    TItem extends WithId,
+> extends ActivityModel<TItem> {
     constructor(
         raw: unknown,
         scorechangeCallback: (score: number) => void,
@@ -24,9 +26,7 @@ export class FlashCardModel extends ActivityModel<FlashCardItem> {
         console.log("raw", raw);
     }
 
-    protected isValidItem(
-        item: unknown,
-    ): item is FlashCardItem {
+    protected isValidItem(item: unknown): item is TItem {
         if (typeof item !== "object" || item === null) {
             console.log("item is not an object");
             return false;

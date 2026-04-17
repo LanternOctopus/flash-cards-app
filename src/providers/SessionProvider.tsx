@@ -5,8 +5,7 @@ import React, {
     useState,
     ReactNode,
 } from "react";
-import { ReadOutLoudModel } from "../activities/ReadOutLoudModel";
-import { ReadOutLoud } from "../activities/ReadOutLoudView";
+
 export type Step =
     | {
           type: "title";
@@ -47,29 +46,13 @@ export const useSession = (): SessionContextType => {
 };
 
 interface SessionProviderProps {
+    steps: Step[];
     children: ReactNode;
 }
 
 export const SessionProvider: React.FC<
     SessionProviderProps
-> = ({ children }) => {
-    const steps: Step[] = [
-        {
-            type: "activity",
-            itemPath: "letter/learnthealphabet.yaml",
-            configPath: "config/alphabet.yaml",
-            storageKey: "alphabetMatching",
-            modelClass: ReadOutLoudModel,
-            children: <ReadOutLoud />,
-        },
-        {
-            type: "story",
-            config: {
-                text: "Our hero starts the adventure...",
-            },
-        },
-    ];
-
+> = ({ steps, children }) => {
     const [stepIndex, setStepIndex] = useState(0);
 
     const next = () =>

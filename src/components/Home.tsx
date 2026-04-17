@@ -1,7 +1,5 @@
-// components/Home.tsx
 import React from "react";
 import { Link } from "react-router-dom";
-import { SessionProvider } from "../providers/SessionProvider";
 import { Track } from "../components/Track";
 const cardStyle = {
     display: "flex",
@@ -29,137 +27,157 @@ const cardHoverStyle = {
 
 const Home: React.FC = () => {
     return (
-        <main
-            style={{
-                padding: "2rem",
-                fontFamily: "sans-serif",
-            }}
-        >
-            <h1
+        <>
+            <main
                 style={{
-                    textAlign: "center",
-                    marginBottom: "2rem",
+                    padding: "3rem",
+                    fontFamily: "sans-serif",
                 }}
             >
-                Welcome to Ananda English! 🎉
-            </h1>
-
-            <section style={{ marginBottom: "2rem" }}>
-                <h2>Sentence & Grammar Activities 📚</h2>
-                <div
+                <h1
                     style={{
-                        display: "flex",
-                        flexWrap: "wrap",
+                        textAlign: "center",
+                        marginBottom: "2rem",
                     }}
                 >
-                    <Card
-                        to="/sentenceactivities"
-                        icon="📝"
-                    >
-                        Sentence Activities
-                    </Card>
-                    <Card to="/partsofspeech" icon="📖">
-                        Parts Of Speech
-                    </Card>
-                </div>
-            </section>
+                    Welcome to Ananda English! 🎉
+                </h1>
+                <section style={{ marginBottom: "2rem" }}>
+                    <h2>Dalit History Month ✊📖</h2>
 
-            <section style={{ marginBottom: "2rem" }}>
-                <h2>Games & Interactive Fun 🎮</h2>
-                <div
-                    style={{
-                        display: "flex",
-                        flexWrap: "wrap",
-                    }}
-                >
-                    <Card to="/scrambler" icon="🕹️">
-                        Scrambler
-                    </Card>
-                    <Card
-                        to="/picturematchinggame"
-                        icon="🖼️"
+                    <div
+                        style={{
+                            display: "flex",
+                            flexWrap: "wrap",
+                        }}
                     >
-                        Picture Matching
-                    </Card>
-                    <Card to="/flashcards" icon="📇">
-                        Flash Cards
-                    </Card>
-                </div>
-            </section>
+                        <Card
+                            to="/dalit-history-month/gabbilamu"
+                            icon="🪶"
+                        >
+                            Gabbilam Reading Comprehension
+                        </Card>
+                    </div>
+                </section>
+                <section style={{ marginBottom: "2rem" }}>
+                    <h2>
+                        Sentence & Grammar Activities 📚
+                    </h2>
+                    <div
+                        style={{
+                            display: "flex",
+                            flexWrap: "wrap",
+                        }}
+                    >
+                        <Card
+                            to="/sentenceactivities"
+                            icon="📝"
+                        >
+                            Sentence Activities
+                        </Card>
+                        <Card to="/partsofspeech" icon="📖">
+                            Parts Of Speech
+                        </Card>
+                    </div>
+                </section>
 
-            <section style={{ marginBottom: "2rem" }}>
-                <h2>Reading & Pronunciation 📖</h2>
-                <div
-                    style={{
-                        display: "flex",
-                        flexWrap: "wrap",
-                    }}
-                >
-                    <Card
-                        to="/readoutloud/whimsicalcontractions"
-                        icon="🎤"
+                <section style={{ marginBottom: "2rem" }}>
+                    <h2>Games & Interactive Fun 🎮</h2>
+                    <div
+                        style={{
+                            display: "flex",
+                            flexWrap: "wrap",
+                        }}
                     >
-                        Whimsical Contractions
-                    </Card>
-                    <Card
-                        to="/readoutloud/adognamedchai"
-                        icon="🎤"
-                    >
-                        A Dog Named Chai
-                    </Card>
-                    <Card
-                        to="/readoutloud/learningcanchangeus"
-                        icon="🎤"
-                    >
-                        Learning Can Change Us
-                    </Card>
-                    <Card
-                        to="/readoutloud/thebusydayoflittlesteps"
-                        icon="🎤"
-                    >
-                        Busy Day of Little Steps
-                    </Card>
-                    <Card
-                        to="/readoutloud/wordsthattravel"
-                        icon="🎤"
-                    >
-                        Words That Travel
-                    </Card>
-                    <Card
-                        to="/readoutloud/wordsyoucandoatyourdesk"
-                        icon="🎤"
-                    >
-                        Words You Can Do at Desk
-                    </Card>
-                    <Card
-                        to="/readoutloud/whatmybodycando"
-                        icon="🎤"
-                    >
-                        What My Body Can Do
-                    </Card>
-                </div>
-            </section>
+                        <Card to="/scrambler" icon="🕹️">
+                            Scrambler
+                        </Card>
+                        <Card
+                            to="/picturematchinggame"
+                            icon="🖼️"
+                        >
+                            Picture Matching
+                        </Card>
+                        <Card to="/flashcards" icon="📇">
+                            Flash Cards
+                        </Card>
+                    </div>
+                </section>
 
-            <section>
-                <h2>Alphabet Games 🌏</h2>
-                <div
-                    style={{
-                        display: "flex",
-                        flexWrap: "wrap",
-                    }}
-                >
-                    <Card to="/letter/alphabet" icon="🔤">
-                        Learn the Alphabet
-                    </Card>
-                    <Card to="/handwriting" icon="✍️">
-                        Handwriting
-                    </Card>
-                </div>
-            </section>
-            <SessionProvider>
-                <Track />
-            </SessionProvider>
-        </main>
+                <section style={{ marginBottom: "2rem" }}>
+                    <h2>Reading & Pronunciation 📖</h2>
+                    <div
+                        style={{
+                            display: "flex",
+                            flexWrap: "wrap",
+                        }}
+                    >
+                        <Card
+                            to="/readoutloud/whimsicalcontractions"
+                            icon="🎤"
+                        >
+                            Whimsical Contractions
+                        </Card>
+                        <Card
+                            to="/readoutloud/adognamedchai"
+                            icon="🎤"
+                        >
+                            A Dog Named Chai
+                        </Card>
+                        <Card
+                            to="/readoutloud/learningcanchangeus"
+                            icon="🎤"
+                        >
+                            Learning Can Change Us
+                        </Card>
+                        <Card
+                            to="/readoutloud/thebusydayoflittlesteps"
+                            icon="🎤"
+                        >
+                            Busy Day of Little Steps
+                        </Card>
+                        <Card
+                            to="/readoutloud/wordsthattravel"
+                            icon="🎤"
+                        >
+                            Words That Travel
+                        </Card>
+                        <Card
+                            to="/readoutloud/wordsyoucandoatyourdesk"
+                            icon="🎤"
+                        >
+                            Words You Can Do at Desk
+                        </Card>
+                        <Card
+                            to="/readoutloud/whatmybodycando"
+                            icon="🎤"
+                        >
+                            What My Body Can Do
+                        </Card>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Alphabet Games 🌏</h2>
+                    <div
+                        style={{
+                            display: "flex",
+                            flexWrap: "wrap",
+                        }}
+                    >
+                        <Card
+                            to="/letter/alphabet"
+                            icon="🔤"
+                        >
+                            Learn the Alphabet
+                        </Card>
+                        <Card to="/handwriting" icon="✍️">
+                            Handwriting
+                        </Card>
+                    </div>
+                </section>
+            </main>
+        </>
     );
 };
 

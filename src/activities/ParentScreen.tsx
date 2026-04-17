@@ -1,6 +1,6 @@
 import { VisibilityGateProvider } from "../components/VisibilityGateContext";
 import { ToggleBoxController } from "../components/ToggleBox";
-import { DataProvider } from "./DataProvider";
+import { DataProvider } from "../providers/DataProvider";
 import { SequenceController } from "./SequenceController";
 import { AudioProvider } from "../providers/AudioProvider";
 export function ParentScreen({
@@ -27,7 +27,6 @@ export function ParentScreen({
                 storageKey={storageKey}
             >
                 <VisibilityGateProvider>
-                    <ToggleBoxController />
                     <main>
                         <SequenceController
                             modelClass={modelClass}
@@ -40,3 +39,10 @@ export function ParentScreen({
         </AudioProvider>
     );
 }
+// type Props = React.HTMLAttributes<HTMLDivElement> & {
+//     itemPath: string;
+//     configPath: string;
+//     storageKey: string;
+//     modelClass: new (...args: any[]) => any;
+//     children: React.ReactNode;
+// };

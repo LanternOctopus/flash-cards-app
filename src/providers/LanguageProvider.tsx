@@ -11,7 +11,7 @@ import {
     isSupportedLocale,
     Locale,
     saveLocale,
-} from "../../utils/language";
+} from "../utils/language";
 
 type LanguageContextValue = {
     locale: Locale;

@@ -1,0 +1,383 @@
+@import "@picocss/pico/css/pico.min.css";
+body {
+    font-size: 16px;
+}
+main {
+    margin: 0;
+}
+@font-face {
+    font-family: "Kavivanar";
+    src: url("./fonts/Kavivanar-Regular.ttf")
+        format("truetype");
+}
+@font-face {
+    font-family: "Inria Serif";
+    src: url("./fonts/InriaSerif-Regular.ttf")
+        format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Inria Serif";
+    src: url("./fonts/InriaSerif-Italic.ttf")
+        format("truetype");
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Inria Serif";
+    src: url("./fonts/InriaSerif-Bold.ttf")
+        format("truetype");
+    font-weight: 700;
+    font-style: normal;
+}
+.Dalit-history-month {
+    --font-family: "Inria Serif", serif;
+    padding: 1.5em 0 2em 0;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: var(--font-family);
+    }
+    p {
+        font-family: var(--font-family);
+        font-size: 1em;
+    }
+    h1 {
+        font-size: 2.5rem;
+        color: rgb(0, 0, 0);
+        text-align: center;
+        margin-top: 2rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        color: rgb(0, 0, 0);
+        text-align: center;
+    }
+
+    h4 {
+        color: rgb(0, 0, 0);
+        font-size: 1em;
+    }
+
+    .dropcap::first-letter {
+        font-size: 4em;
+        float: left;
+        line-height: 0.75;
+        margin-right: 10px;
+        margin-top: 0;
+        display: block;
+    }
+    .serious-button {
+        width: 100%;
+        border-radius: 8px;
+        background-color: #fffafa;
+        color: #000;
+        font-family: "Inria Serif", serif;
+        font-size: 1em;
+
+        border: 1px solid rgba(39, 13, 13, 0.5);
+
+        padding: 0.5em 1em;
+        cursor: pointer;
+
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+
+        transition:
+            box-shadow 0.1s ease,
+            transform 0.05s ease;
+        display: block;
+    }
+
+    .serious-button:active {
+        box-shadow: none;
+        transform: translateY(1px); /* tiny press feel */
+    }
+
+    .conversation .character {
+        height: 960px;
+        bottom: -150px;
+        position: relative;
+    }
+
+    /* Mobile (default) */
+    @media (min-width: 480px) {
+    }
+
+    /* Small tablets */
+    @media (min-width: 768px) {
+        .conversation .character {
+            height: 1200px;
+            bottom: 0px;
+        }
+    }
+
+    /* Tablets / small laptops */
+    @media (min-width: 1024px) {
+        .conversation .character {
+            height: 1445px;
+            bottom: -300px;
+        }
+    }
+
+    /* Desktops */
+    @media (min-width: 1280px) {
+        .conversation .character {
+            height: 1350px;
+            bottom: 0px;
+        }
+    }
+
+    /* Large screens */
+    @media (min-width: 1536px) {
+    }
+    .container-fluid {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    /* Switch at 1000px */
+    @media (min-width: 1000px) {
+        .container-fluid {
+            flex-direction: row;
+            align-items: flex-start;
+        }
+
+        .container-fluid > div {
+            flex: 1; /* equal width columns */
+        }
+    }
+    .container-fluid > div {
+        min-width: 0; /* prevents overflow bugs */
+    }
+    .question-block {
+        text-align: left;
+    }
+
+    .serious-button {
+        display: block;
+        width: 100%;
+        text-align: left;
+    }
+    .dropcap {
+        font-size: 1em;
+    }
+
+    @media (min-width: 768px) {
+        .dropcap {
+            font-size: 1.5em;
+        }
+    }
+    .progress {
+        display: flex;
+        gap: 0.5rem;
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+
+    .progress-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #ccc;
+        transition: all 0.2s ease;
+    }
+
+    .progress-dot.active {
+        width: 12px;
+        height: 12px;
+        background: #333;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 0;
+        font-weight: normal;
+    }
+
+    h3 {
+        margin-bottom: 0;
+    }
+    .gabbilam-header {
+        display: flex;
+        flex-flow: column;
+        gap: 1rem;
+        align-items: center;
+    }
+    @media screen and (min-width: 1000px) {
+        .gabbilam-header {
+            align-items: flex-start;
+            margin-top: 3em;
+        }
+    }
+    h1 {
+        font-family: "Kavivanar", cursive;
+    }
+    hr {
+        border: none;
+        height: 1px;
+        background: rgba(0, 0, 0, 0.1);
+        margin: 16px 0;
+    }
+    p {
+        margin-bottom: 0;
+    }
+    .wrapper {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    .stage {
+        position: relative;
+        min-height: 100dvh;
+        background-size: cover;
+        background-position: center;
+        overflow: hidden;
+    }
+
+    .character {
+        position: absolute;
+        bottom: -15vh;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .character img {
+        height: min(100vh);
+        width: auto;
+        max-width: none;
+    }
+    .db-content {
+        position: absolute;
+        top: 70vh;
+        width: 100%;
+    }
+    .db-content-inner {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.68);
+        padding: 2em;
+    }
+    .db-header {
+        font-size: 1.5em;
+        color: #470000;
+    }
+    .db-choices {
+        position: absolute;
+        top: 50vh;
+        display: flex;
+        flex-flow: column;
+        gap: 1em;
+        width: 100%;
+    }
+    .db-choice {
+        background-color: rgba(255, 255, 255, 0.68);
+        color: #000;
+        width: 80vw;
+        max-width: 700px;
+        padding: 1em;
+        margin: 0 auto;
+    }
+    .db-choices,
+    .db-continue {
+        opacity: 0;
+        transform: translateY(10px);
+        transition: all 0.25s ease;
+    }
+
+    .db-choices.show,
+    .db-continue.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .db-continue {
+        background-color: rgba(255, 255, 255, 0);
+        border: none;
+    }
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
+}
+.serious-button.correct {
+    background: #2ecc71;
+    color: white;
+    border-color: #2ecc71;
+}
+
+.serious-button.wrong {
+    background: #e74c3c;
+    color: white;
+    border-color: #e74c3c;
+}
+
+.next-button {
+    background: navy !important;
+    color: #fff !important;
+    border: 1px solid rgba(52, 152, 219, 0.4) !important;
+    position: relative;
+    overflow: hidden;
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+    border-radius: 8px;
+    visibility: hidden;
+}
+.show-next {
+    visibility: visible;
+}
+.next-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -60%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.5),
+        transparent
+    );
+    transform: skewX(-20deg);
+    animation: shine 2.2s infinite;
+}
+
+@keyframes shine {
+    0% {
+        left: -60%;
+    }
+    100% {
+        left: 120%;
+    }
+}
+.gabbilam-question-section {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.next-button {
+    align-self: flex-end;
+}

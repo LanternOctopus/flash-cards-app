@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
-import { AnswerProvider } from "./AnswerProvider";
-import { QuestionProvider } from "./QuestionContext";
-import { useData } from "./DataProvider";
+import { AnswerProvider } from "../providers/AnswerProvider";
+import { QuestionProvider } from "../providers/QuestionContext";
+import { useData } from "../providers/DataProvider";
 export function SequenceController({
     modelClass,
     children,
@@ -47,7 +47,6 @@ export function SequenceController({
     }
     return (
         <>
-            <h1>score: {score ?? "N/A"}</h1>
             <QuestionProvider value={current}>
                 <AnswerProvider
                     answer={current.answer}

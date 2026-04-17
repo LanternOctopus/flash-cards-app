@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { FlashCardModel } from "./FlashCardModel";
-import { useQuestion } from "./../QuestionContext";
+import { useQuestion } from "../../providers/QuestionContext";
 import { useVisibilityGate } from "../../components/VisibilityGateContext";
-import { useAnswer } from "./../AnswerProvider";
+import { useAnswer } from "../../providers/AnswerProvider";
 import { ParentScreen } from "../ParentScreen";
 import { FlashCardItem } from "./FlashCardModel";
-import { useLanguage } from "../languageswitcher/LanguageProvider";
+import { useLanguage } from "../../providers/LanguageProvider";
 export function FlashCardScreen() {
     const { locale } = useLanguage();
     return (

@@ -6,7 +6,6 @@ import { ParentScreen } from "../activities/ParentScreen";
 
 export function Track() {
     const { currentStep } = useSession(); // keep lowercase
-    console.log("Current Step:", currentStep);
     if (!currentStep) return null;
 
     switch (currentStep.type) {

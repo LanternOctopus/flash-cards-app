@@ -6,8 +6,8 @@ import {
     useImperativeHandle,
 } from "react";
 import { useVisibilityGate } from "../../components/VisibilityGateContext";
-import { useAnswer } from "./../AnswerProvider";
-import { useQuestion } from "./../QuestionContext";
+import { useAnswer } from "../../providers/AnswerProvider";
+import { useQuestion } from "../../providers/QuestionContext";
 import { ParentScreen } from "./../ParentScreen";
 import {
     HandwritingModel,

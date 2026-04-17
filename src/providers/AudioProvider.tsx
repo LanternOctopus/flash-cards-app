@@ -11,7 +11,7 @@ import {
 interface AudioContextType {
     play: (
         src: string,
-        volume?: number, // use volume now
+        volume?: number,
         loop?: boolean,
         startTime?: number,
     ) => void;
