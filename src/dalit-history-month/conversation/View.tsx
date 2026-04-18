@@ -145,6 +145,9 @@ export default function ConversationView({ graph }: Props) {
                                     </div>
 
                                     <button
+                                        style={{
+                                            flex: "0 0 50px",
+                                        }}
                                         className={`db-continue ${
                                             showContinue
                                                 ? "show"

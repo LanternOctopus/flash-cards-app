@@ -57,6 +57,12 @@ const Home: React.FC = () => {
                         >
                             Gabbilam Reading Comprehension
                         </Card>
+                        <Card
+                            to="/dalit-history-month/leather"
+                            icon="👢"
+                        >
+                            Leather Visual Novel
+                        </Card>
                     </div>
                 </section>
                 <section style={{ marginBottom: "2rem" }}>
