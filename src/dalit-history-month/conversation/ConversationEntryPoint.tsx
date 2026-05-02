@@ -114,7 +114,7 @@ nodes:
 
   reform_ending:
     id: reform_ending
-    text: "The report crosses oceans. Global pressure forces real audits. Arul finally gets safety gear, and though the land is still salty, the air begins to clear. The struggle for ownership begins."
+    text: "Global pressure forces real audits. Arul finally gets safety gear, and though the land is still salty, the air begins to clear. The struggle for ownership begins."
     speakerName: "Journalist (Player)"
     speakerImage: "/images/dalithistorymonth/tannery-worker.png"
     speakerBg: "/images/dalithistorymonth/tannery.png"
@@ -126,7 +126,7 @@ nodes:
 
   shutdown_ending:
     id: shutdown_ending
-    text: "The brands flee to avoid the scandal. The factories move elsewhere, leaving behind a poisoned wasteland. Arul and his family are forced to move to a cramped city slum, seeking work in the shadows."
+    text: "The brands flee to avoid the scandal. Arul and his family are forced to move to a cramped city slum, seeking work in the shadows."
     speakerName: "Journalist (Player)"
     speakerImage: "/images/dalithistorymonth/tannery-worker.png"
     speakerBg: "/images/dalithistorymonth/tannery.png"

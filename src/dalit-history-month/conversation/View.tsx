@@ -141,12 +141,17 @@ export default function ConversationView({ graph }: Props) {
                                         className="db-text"
                                         id="dialogue-text"
                                     >
-                                        {currentNode.text}
+                                        <div className="db-text-inner">
+                                            {
+                                                currentNode.text
+                                            }
+                                        </div>
                                     </div>
 
                                     <button
                                         style={{
                                             flex: "0 0 50px",
+                                            padding: 0,
                                         }}
                                         className={`db-continue ${
                                             showContinue
@@ -185,7 +190,7 @@ export default function ConversationView({ graph }: Props) {
                                                 choice.next,
                                             )
                                         }
-                                        key={choice.next}
+                                        key={choice.text}
                                         role="listitem"
                                     >
                                         {choice.text}

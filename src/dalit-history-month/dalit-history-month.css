@@ -35,7 +35,6 @@ main {
 }
 .Dalit-history-month {
     --font-family: "Inria Serif", serif;
-    padding: 1.5em 0 2em 0;
     h1,
     h2,
     h3,
@@ -262,7 +261,7 @@ main {
     }
     .db-content {
         position: absolute;
-        top: 70vh;
+        bottom: 10vh;
         width: 100%;
     }
     .db-content-inner {
@@ -278,7 +277,7 @@ main {
     }
     .db-choices {
         position: absolute;
-        top: 20vh;
+        bottom: 40vh;
         display: flex;
         flex-flow: column;
         gap: 1em;
@@ -378,6 +377,26 @@ main {
     justify-content: flex-start;
     align-items: flex-start;
 }
+/* This forces EVERY path and shape inside the SVG to obey */
+
+@media (prefers-color-scheme: dark) {
+    .gabbilam-question-section,
+    .gabbilam-header,
+    .learning-hint {
+        color: #fff;
+        filter: invert(1);
+    }
+}
 .next-button {
     align-self: flex-end;
+}
+.db-text-inner {
+    margin-bottom: 20px;
+}
+.db-text {
+    max-height: 10vh;
+    overflow-y: auto;
+}
+.db-text-inner {
+    scrollbar-width: 10vw;
 }
