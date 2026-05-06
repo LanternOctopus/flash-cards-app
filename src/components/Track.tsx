@@ -5,7 +5,7 @@ import {
 import { ParentScreen } from "../activities/ParentScreen";
 
 export function Track() {
-    const { currentStep } = useSession(); // keep lowercase
+    const { currentStep, next } = useSession(); // keep lowercase
     console.log("Current Step:", currentStep);
     if (!currentStep) return null;
 
@@ -18,13 +18,19 @@ export function Track() {
                         configPath={currentStep.configPath}
                         storageKey={currentStep.storageKey}
                         modelClass={currentStep.modelClass}
+                        key={currentStep.path}
                     >
                         {currentStep.children}
                     </ParentScreen>
                 </>
             );
-        // case "story":
-        //     return <StoryScreen config={currentStep.config} />;
+        case "story":
+            return (
+                <>
+                    <div>Story Component Placeholder</div>
+                    <button onClick={next}>Next</button>
+                </>
+            );
         // case "title":
         //     return <TitleScreen config={currentStep.config} />;
 

@@ -59,27 +59,26 @@ export function SequenceController({
     }
     if (!data?.items || !modelRef.current || !current) {
         return <div>Loading...</div>;
+    } else {
+        return (
+            <>
+                <h1>score: {score ?? "N/A"}</h1>
+                <QuestionProvider value={current}>
+                    <AnswerProvider
+                        answer={current.answer}
+                        handleNext={handleNext}
+                        checkCorrectness={
+                            submitAnswerAndSync
+                        }
+                        getImageUrl={
+                            modelRef.current.getImageUrl
+                        }
+                    >
+                        {children}
+                    </AnswerProvider>
+                </QuestionProvider>
+            </>
+        );
     }
-    // else {
-    //     return (
-    //         <>
-    //             <h1>score: {score ?? "N/A"}</h1>
-    //             <QuestionProvider value={current}>
-    //                 <AnswerProvider
-    //                     answer={current.answer}
-    //                     handleNext={handleNext}
-    //                     checkCorrectness={
-    //                         submitAnswerAndSync
-    //                     }
-    //                     getImageUrl={
-    //                         modelRef.current.getImageUrl
-    //                     }
-    //                 >
-    //                     {children}
-    //                 </AnswerProvider>
-    //             </QuestionProvider>
-    //         </>
-    //     );
-    // }
     return <div>Loading...</div>;
 }

@@ -19,16 +19,16 @@ export const session1Steps: Step[] = [
         modelClass: FlashCardModel,
         children: <FlashCardView />,
     },
-    // {
-    //     type: "activity",
-    //     path: "/sentence/session1/adjectives/mcq-opposites",
-    //     itemPath:
-    //         "cirriculum/sentence/session-one/adjectives/mcq-opposites.yaml",
-    //     configPath: "config/flashcardsconfig.yaml",
-    //     storageKey: "mcq",
-    //     modelClass: FlashCardModel,
-    //     children: <FlashCardView />,
-    // },
+    {
+        type: "activity",
+        path: "/sentence/session1/adjectives/mcq-opposites",
+        itemPath:
+            "cirriculum/sentence/session-one/adjectives/mcq-opposites.yaml",
+        configPath: "config/flashcardsconfig.yaml",
+        storageKey: "mcq",
+        modelClass: FlashCardModel,
+        children: <FlashCardView />,
+    },
     {
         type: "activity",
         path: "/sentence/session1/adjectives/partsofspeech",
@@ -39,6 +39,7 @@ export const session1Steps: Step[] = [
         modelClass: PartsofSpeechModel,
         children: <PartsOfSpeechNew />,
     },
+
     {
         type: "activity",
         path: "/sentence/session1/adjectives/reading",

@@ -14,7 +14,6 @@ export type Step =
       }
     | {
           type: "story";
-          config: { text: string };
       }
     | {
           type: "activity";
