@@ -12,7 +12,10 @@
         "esModuleInterop": true,
         "strict": true,
         "skipLibCheck": true,
-        "forceConsistentCasingInFileNames": true
+        "forceConsistentCasingInFileNames": true,
+        "compilerOptions": {
+            "types": ["node"]
+        }
     },
     "include": ["src", "global.d.ts"],
     "exclude": ["node_modules", "notes*"]

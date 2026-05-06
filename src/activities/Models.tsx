@@ -34,18 +34,18 @@ export abstract class ActivityModel<TItem extends WithId> {
         const cachedScores = this.getCache(
             this.getScoreCacheKey(),
         );
-        if (cached) {
-            this.currentId = cached.lastQuestionId;
-            this.rawData = this.resumeFromLast(cached);
-            if (cachedScores && cachedScores.scores) {
-                this.answers = cachedScores.scores; // Sync the local answers record
-                this.score = this.countCorrectAnswers(
-                    this.answers,
-                ); // Calculate initial score
-                this.onScoreChange(this.score); // Tell the UI what the score is immediately
-            }
-            return;
-        }
+        // if (cached) {
+        //     this.currentId = cached.lastQuestionId;
+        //     this.rawData = this.resumeFromLast(cached);
+        //     if (cachedScores && cachedScores.scores) {
+        //         this.answers = cachedScores.scores; // Sync the local answers record
+        //         this.score = this.countCorrectAnswers(
+        //             this.answers,
+        //         ); // Calculate initial score
+        //         this.onScoreChange(this.score); // Tell the UI what the score is immediately
+        //     }
+        //     return;
+        // }
 
         if (!this.isValidSet(raw)) {
             throw new Error("Invalid activity data");

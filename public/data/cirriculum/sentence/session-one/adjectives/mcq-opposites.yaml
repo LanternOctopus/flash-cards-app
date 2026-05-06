@@ -1,0 +1,198 @@
+adjectives:
+    - question: "good"
+      english: "This is a good book."
+      targetLang: "ഇത് ഒരു നല്ല പുസ്തകമാണ്."
+      phonetics: "ithu oru nalla pusthakamanu."
+      distractors:
+          choices:
+              - "This is a bad book."
+              - "This is a big book."
+              - "This is a new book."
+              - "This is a small book."
+          translations:
+              - "ഇത് ഒരു മോശം പുസ്തകമാണ്."
+              - "ഇത് ഒരു വലിയ പുസ്തകമാണ്."
+              - "ഇത് ഒരു പുതിയ പുസ്തകമാണ്."
+              - "ഇത് ഒരു ചെറിയ പുസ്തകമാണ്."
+          transliterations:
+              - "ithu oru mosham pusthakamanu."
+              - "ithu oru valiya pusthakamanu."
+              - "ithu oru puthiya pusthakamanu."
+              - "ithu oru cheriya pusthakamanu."
+      learningHint: "‘Good’ describes something positive."
+
+    - question: "bad"
+      english: "This is a bad idea."
+      targetLang: "ഇത് ഒരു മോശം ആശയമാണ്."
+      phonetics: "ithu oru mosham aashayamanu."
+      distractors:
+          choices:
+              - "This is a good idea."
+              - "This is a big idea."
+              - "This is a new idea."
+              - "This is an easy idea."
+          translations:
+              - "ഇത് ഒരു നല്ല ആശയമാണ്."
+              - "ഇത് ഒരു വലിയ ആശയമാണ്."
+              - "ഇത് ഒരു പുതിയ ആശയമാണ്."
+              - "ഇത് ഒരു എളുപ്പമുള്ള ആശയമാണ്."
+          transliterations:
+              - "ithu oru nalla aashayamanu."
+              - "ithu oru valiya aashayamanu."
+              - "ithu oru puthiya aashayamanu."
+              - "ithu oru eluppamulla aashayamanu."
+      learningHint: "‘Bad’ is the opposite of ‘good’."
+
+    - question: "big"
+      english: "This is a big house."
+      targetLang: "ഇത് ഒരു വലിയ വീടാണ്."
+      phonetics: "ithu oru valiya veedanu."
+      distractors:
+          choices:
+              - "This is a small house."
+              - "This is a good house."
+              - "This is a new house."
+              - "This is an old house."
+          translations:
+              - "ഇത് ഒരു ചെറിയ വീടാണ്."
+              - "ഇത് ഒരു നല്ല വീടാണ്."
+              - "ഇത് ഒരു പുതിയ വീടാണ്."
+              - "ഇത് ഒരു പഴയ വീടാണ്."
+          transliterations:
+              - "ithu oru cheriya veedanu."
+              - "ithu oru nalla veedanu."
+              - "ithu oru puthiya veedanu."
+              - "ithu oru pazhaya veedanu."
+      learningHint: "‘Big’ describes size."
+
+    - question: "small"
+      english: "This is a small room."
+      targetLang: "ഇത് ഒരു ചെറിയ മുറിയാണ്."
+      phonetics: "ithu oru cheriya muriyanu."
+      distractors:
+          choices:
+              - "This is a big room."
+              - "This is a good room."
+              - "This is a new room."
+              - "This is an old room."
+          translations:
+              - "ഇത് ഒരു വലിയ മുറിയാണ്."
+              - "ഇത് ഒരു നല്ല മുറിയാണ്."
+              - "ഇത് ഒരു പുതിയ മുറിയാണ്."
+              - "ഇത് ഒരു പഴയ മുറിയാണ്."
+          transliterations:
+              - "ithu oru valiya muriyanu."
+              - "ithu oru nalla muriyanu."
+              - "ithu oru puthiya muriyanu."
+              - "ithu oru pazhaya muriyanu."
+      learningHint: "‘Small’ is the opposite of ‘big’."
+
+    - question: "new"
+      english: "This is a new phone."
+      targetLang: "ഇത് ഒരു പുതിയ ഫോൺ ആണ്."
+      phonetics: "ithu oru puthiya phone aanu."
+      distractors:
+          choices:
+              - "This is an old phone."
+              - "This is a good phone."
+              - "This is a big phone."
+              - "This is a small phone."
+          translations:
+              - "ഇത് ഒരു പഴയ ഫോൺ ആണ്."
+              - "ഇത് ഒരു നല്ല ഫോൺ ആണ്."
+              - "ഇത് ഒരു വലിയ ഫോൺ ആണ്."
+              - "ഇത് ഒരു ചെറിയ ഫോൺ ആണ്."
+          transliterations:
+              - "ithu oru pazhaya phone aanu."
+              - "ithu oru nalla phone aanu."
+              - "ithu oru valiya phone aanu."
+              - "ithu oru cheriya phone aanu."
+      learningHint: "‘New’ means recently made or bought."
+
+    - question: "old"
+      english: "This is an old car."
+      targetLang: "ഇത് ഒരു പഴയ കാറാണ്."
+      phonetics: "ithu oru pazhaya car aanu."
+      distractors:
+          choices:
+              - "This is a new car."
+              - "This is a good car."
+              - "This is a big car."
+              - "This is a small car."
+          translations:
+              - "ഇത് ഒരു പുതിയ കാറാണ്."
+              - "ഇത് ഒരു നല്ല കാറാണ്."
+              - "ഇത് ഒരു വലിയ കാറാണ്."
+              - "ഇത് ഒരു ചെറിയ കാറാണ്."
+          transliterations:
+              - "ithu oru puthiya car aanu."
+              - "ithu oru nalla car aanu."
+              - "ithu oru valiya car aanu."
+              - "ithu oru cheriya car aanu."
+      learningHint: "‘Old’ is the opposite of ‘new’."
+
+    - question: "easy"
+      english: "This is an easy test."
+      targetLang: "ഇത് ഒരു എളുപ്പമുള്ള പരീക്ഷയാണ്."
+      phonetics: "ithu oru eluppamulla pareeksha aanu."
+      distractors:
+          choices:
+              - "This is a hard test."
+              - "This is a good test."
+              - "This is a new test."
+              - "This is a small test."
+          translations:
+              - "ഇത് ഒരു ബുദ്ധിമുട്ടുള്ള പരീക്ഷയാണ്."
+              - "ഇത് ഒരു നല്ല പരീക്ഷയാണ്."
+              - "ഇത് ഒരു പുതിയ പരീക്ഷയാണ്."
+              - "ഇത് ഒരു ചെറിയ പരീക്ഷയാണ്."
+          transliterations:
+              - "ithu oru buddhimuttulla pareeksha aanu."
+              - "ithu oru nalla pareeksha aanu."
+              - "ithu oru puthiya pareeksha aanu."
+              - "ithu oru cheriya pareeksha aanu."
+      learningHint: "‘Easy’ means not difficult."
+
+    - question: "hard"
+      english: "This is a hard problem."
+      targetLang: "ഇത് ഒരു ബുദ്ധിമുട്ടുള്ള പ്രശ്നമാണ്."
+      phonetics: "ithu oru buddhimuttulla prashnamanu."
+      distractors:
+          choices:
+              - "This is an easy problem."
+              - "This is a good problem."
+              - "This is a new problem."
+              - "This is a small problem."
+          translations:
+              - "ഇത് ഒരു എളുപ്പമുള്ള പ്രശ്നമാണ്."
+              - "ഇത് ഒരു നല്ല പ്രശ്നമാണ്."
+              - "ഇത് ഒരു പുതിയ പ്രശ്നമാണ്."
+              - "ഇത് ഒരു ചെറിയ പ്രശ്നമാണ്."
+          transliterations:
+              - "ithu oru eluppamulla prashnamanu."
+              - "ithu oru nalla prashnamanu."
+              - "ithu oru puthiya prashnamanu."
+              - "ithu oru cheriya prashnamanu."
+      learningHint: "‘Hard’ means difficult."
+
+    - question: "important"
+      english: "This is an important message."
+      targetLang: "ഇത് ഒരു പ്രധാനപ്പെട്ട സന്ദേശമാണ്."
+      phonetics: "ithu oru pradhanappetta sandeshamanu."
+      distractors:
+          choices:
+              - "This is an unimportant message."
+              - "This is a good message."
+              - "This is a new message."
+              - "This is a small message."
+          translations:
+              - "ഇത് ഒരു പ്രധാനമല്ലാത്ത സന്ദേശമാണ്."
+              - "ഇത് ഒരു നല്ല സന്ദേശമാണ്."
+              - "ഇത് ഒരു പുതിയ സന്ദേശമാണ്."
+              - "ഇത് ഒരു ചെറിയ സന്ദേശമാണ്."
+          transliterations:
+              - "ithu oru pradhanamallaatha sandeshamanu."
+              - "ithu oru nalla sandeshamanu."
+              - "ithu oru puthiya sandeshamanu."
+              - "ithu oru cheriya sandeshamanu."
+      learningHint: "‘Important’ means something matters a lot."

@@ -17,6 +17,7 @@ export class PartsofSpeechModel extends ActivityModel<PartsofSpeechItemNew> {
         raw: unknown,
         scorechangeCallback: (score: number) => void,
     ) {
+        console.log("raw", raw);
         super(raw, scorechangeCallback);
         this.remainingAnswers = [];
         this.wrongAnswerCount = 0;

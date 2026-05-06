@@ -1,0 +1,100 @@
+prepositions:
+  - picture: prepositions/in_room.png
+    question: in
+    answer: in
+    translation: അകത്ത്
+    transliteration: akaththu
+    ansOptions:
+      choices: [in, on, under, at]
+      translations: [അകത്ത്, മുകളിൽ, കീഴിൽ, സമീപത്ത്]
+      transliterations: [akaththu, mukalil, keezhil, samipaththu]
+
+  - picture: prepositions/on_table.png
+    question: on
+    answer: on
+    translation: മുകളിൽ
+    transliteration: mukalil
+    ansOptions:
+      choices: [on, under, in, to]
+      translations: [മുകളിൽ, കീഴിൽ, അകത്ത്, വരെ]
+      transliterations: [mukalil, keezhil, akaththu, vare]
+
+  - picture: prepositions/under_chair.png
+    question: under
+    answer: under
+    translation: കീഴിൽ
+    transliteration: keezhil
+    ansOptions:
+      choices: [under, on, in, at]
+      translations: [കീഴിൽ, മുകളിൽ, അകത്ത്, സമീപത്ത്]
+      transliterations: [keezhil, mukalil, akaththu, samipaththu]
+
+  - picture: prepositions/to_school.png
+    question: to
+    answer: to
+    translation: വരെ
+    transliteration: vare
+    ansOptions:
+      choices: [to, at, in, on]
+      translations: [വരെ, സമീപത്ത്, അകത്ത്, മുകളിൽ]
+      transliterations: [vare, samipaththu, akaththu, mukalil]
+
+  - picture: prepositions/at_home.png
+    question: at
+    answer: at
+    translation: സമീപത്ത്
+    transliteration: samipaththu
+    ansOptions:
+      choices: [at, in, on, under]
+      translations: [സമീപത്ത്, അകത്ത്, മുകളിൽ, കീഴിൽ]
+      transliterations: [samipaththu, akaththu, mukalil, keezhil]
+
+  - picture: prepositions/in_box.png
+    question: in
+    answer: in
+    translation: അകത്ത്
+    transliteration: akaththu
+    ansOptions:
+      choices: [in, on, under, to]
+      translations: [അകത്ത്, മുകളിൽ, കീഴിൽ, വരെ]
+      transliterations: [akaththu, mukalil, keezhil, vare]
+
+  - picture: prepositions/on_bed.png
+    question: on
+    answer: on
+    translation: മുകളിൽ
+    transliteration: mukalil
+    ansOptions:
+      choices: [on, in, under, at]
+      translations: [മുകളിൽ, അകത്ത്, കീഴിൽ, സമീപത്ത്]
+      transliterations: [mukalil, akaththu, keezhil, samipaththu]
+
+  - picture: prepositions/under_table.png
+    question: under
+    answer: under
+    translation: കീഴിൽ
+    transliteration: keezhil
+    ansOptions:
+      choices: [under, on, to, in]
+      translations: [കീഴിൽ, മുകളിൽ, വരെ, അകത്ത്]
+      transliterations: [keezhil, mukalil, vare, akaththu]
+
+  - picture: prepositions/to_market.png
+    question: to
+    answer: to
+    translation: വരെ
+    transliteration: vare
+    ansOptions:
+      choices: [to, at, on, in]
+      translations: [വരെ, സമീപത്ത്, മുകളിൽ, അകത്ത്]
+      transliterations: [vare, samipaththu, mukalil, akaththu]
+
+  - picture: prepositions/at_school.png
+    question: at
+    answer: at
+    translation: സമീപത്ത്
+    transliteration: samipaththu
+    ansOptions:
+      choices: [at, in, under, on]
+      translations: [സമീപത്ത്, അകത്ത്, കീഴിൽ, മുകളിൽ]
+      transliterations: [samipaththu, akaththu, keezhil, mukalil]

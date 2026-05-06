@@ -29,6 +29,13 @@ export function DataProvider<TConfig, TItems>({
     const [items, setItems] = React.useState<TItems | null>(
         null,
     );
+    const wrapSetItems = (items: TItems) => {
+        console.log("wrapSetItems", items);
+        console.log("storageKey", storageKey);
+        console.log("itemPath", itemPath);
+        console.log("configPath", configPath);
+        setItems(items);
+    };
     const [loaded, setLoaded] = React.useState(false);
     const [uiSelections, setUiSelections] = React.useState<
         Record<string, object>
@@ -42,6 +49,8 @@ export function DataProvider<TConfig, TItems>({
     >({});
 
     React.useEffect(() => {
+        console.log("configPath:", configPath);
+        console.log("itemPath:", itemPath);
         async function load() {
             try {
                 const rawConfig =
@@ -136,7 +145,7 @@ export function DataProvider<TConfig, TItems>({
                 custSlots.feedback = <></>;
                 setSlots(custSlots);
 
-                setItems(rawItems);
+                wrapSetItems(rawItems);
                 setLoaded(true);
             } catch (e) {
                 console.error(e);
@@ -169,6 +178,11 @@ export function DataProvider<TConfig, TItems>({
                 slots,
             }}
         >
+            <>
+                <h1>{itemPath}</h1>
+                <h1>{configPath}</h1>
+                <h1>{storageKey}</h1>
+            </>
             {children}
         </DataContext.Provider>
     );

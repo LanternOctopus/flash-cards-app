@@ -11,7 +11,18 @@ export function Track() {
 
     switch (currentStep.type) {
         case "activity":
-            return <ParentScreen {...currentStep} />;
+            return (
+                <>
+                    <ParentScreen
+                        itemPath={currentStep.itemPath}
+                        configPath={currentStep.configPath}
+                        storageKey={currentStep.storageKey}
+                        modelClass={currentStep.modelClass}
+                    >
+                        {currentStep.children}
+                    </ParentScreen>
+                </>
+            );
         // case "story":
         //     return <StoryScreen config={currentStep.config} />;
         // case "title":
