@@ -1,0 +1,56 @@
+adverbs:
+    - text: "I always go to school on time."
+      answer:
+          - always
+
+    - text: "She goes always to the market."
+      answer:
+          - always
+
+    - text: "Suddenly, it started to rain."
+      answer:
+          - suddenly
+
+    - text: "The door opened suddenly."
+      answer:
+          - suddenly
+
+    - text: "He runs very fast."
+      answer:
+          - very
+
+    - text: "The car is fast very."
+      answer:
+          - very
+
+    - text: "She reads the book again."
+      answer:
+          - again
+
+    - text: "Again, he tried to solve the problem."
+      answer:
+          - again
+
+    - text: "The water is very cold."
+      answer:
+          - very
+
+    - text: "It is very a cold day."
+      answer:
+          - very
+
+    - text: "They always arrive early."
+      answer:
+          - always
+
+    - text: "The bell suddenly rang."
+      answer:
+          - suddenly
+
+    - text: "He tried again after failing."
+      answer:
+          - again
+
+    - text: "She speaks very clearly."
+      answer:
+          - very

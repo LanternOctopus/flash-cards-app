@@ -13,7 +13,7 @@ export const session1Steps: Step[] = [
         type: "activity",
         path: "/sentence/session1/adjectives/mcq",
         itemPath:
-            "cirriculum/sentence/session-one/adjectives/mcq.yaml",
+            "curriculum/sentence/session-one/adjectives/mcq.yaml",
         configPath: "config/flashcardsconfig.yaml",
         storageKey: "mcq",
         modelClass: FlashCardModel,
@@ -23,7 +23,7 @@ export const session1Steps: Step[] = [
         type: "activity",
         path: "/sentence/session1/adjectives/mcq-opposites",
         itemPath:
-            "cirriculum/sentence/session-one/adjectives/mcq-opposites.yaml",
+            "curriculum/sentence/session-one/adjectives/mcq-opposites.yaml",
         configPath: "config/flashcardsconfig.yaml",
         storageKey: "mcq",
         modelClass: FlashCardModel,
@@ -33,7 +33,7 @@ export const session1Steps: Step[] = [
         type: "activity",
         path: "/sentence/session1/adjectives/partsofspeech",
         itemPath:
-            "cirriculum/sentence/session-one/adjectives/partsofspeech.yaml",
+            "curriculum/sentence/session-one/adjectives/partsofspeech.yaml",
         configPath: "config/PartsofSpeechConfig.yaml",
         storageKey: "partsofSpeech",
         modelClass: PartsofSpeechModel,
@@ -44,7 +44,7 @@ export const session1Steps: Step[] = [
         type: "activity",
         path: "/sentence/session1/adjectives/reading",
         itemPath:
-            "cirriculum/sentence/session-one/adjectives/reading.yaml",
+            "curriculum/sentence/session-one/adjectives/reading.yaml",
         configPath: "config/ReadOutLoudConfig.yaml",
         storageKey: "reading",
         modelClass: ReadOutLoudModel,
@@ -56,7 +56,7 @@ export const session1Steps: Step[] = [
         type: "activity",
         path: "/sentence/session1/adverbs/mcq",
         itemPath:
-            "cirriculum/sentence/session-one/adverbs/mcq.yaml",
+            "curriculum/sentence/session-one/adverbs/mcq.yaml",
         configPath: "config/flashcardsconfig.yaml",
         storageKey: "mcq",
         modelClass: FlashCardModel,
@@ -66,7 +66,7 @@ export const session1Steps: Step[] = [
         type: "activity",
         path: "/sentence/session1/adverbs/mcq-opposites",
         itemPath:
-            "cirriculum/sentence/session-one/adverbs/mcq-opposites.yaml",
+            "curriculum/sentence/session-one/adverbs/mcq-opposites.yaml",
         configPath: "config/flashcardsconfig.yaml",
         storageKey: "mcq",
         modelClass: FlashCardModel,
@@ -76,7 +76,7 @@ export const session1Steps: Step[] = [
         type: "activity",
         path: "/sentence/session1/adverbs/partsofspeech",
         itemPath:
-            "cirriculum/sentence/session-one/adverbs/partsofspeech.yaml",
+            "curriculum/sentence/session-one/adverbs/partsofspeech.yaml",
         configPath: "config/PartsofSpeechConfig.yaml",
         storageKey: "partsofSpeech",
         modelClass: PartsofSpeechModel,
@@ -86,7 +86,7 @@ export const session1Steps: Step[] = [
         type: "activity",
         path: "/sentence/session1/adverbs/reading",
         itemPath:
-            "cirriculum/sentence/session-one/adverbs/reading.yaml",
+            "curriculum/sentence/session-one/adverbs/reading.yaml",
         configPath: "config/ReadOutLoudConfig.yaml",
         storageKey: "reading",
         modelClass: ReadOutLoudModel,
@@ -98,7 +98,7 @@ export const session1Steps: Step[] = [
         type: "activity",
         path: "/sentence/session1/nouns/mcq",
         itemPath:
-            "cirriculum/sentence/session-one/nouns/mcq.yaml",
+            "curriculum/sentence/session-one/nouns/mcq.yaml",
         configPath: "config/flashcardsconfig.yaml",
         storageKey: "mcq",
         modelClass: FlashCardModel,
@@ -108,7 +108,7 @@ export const session1Steps: Step[] = [
         type: "activity",
         path: "/sentence/session1/nouns/partsofspeech",
         itemPath:
-            "cirriculum/sentence/session-one/nouns/partsofspeech.yaml",
+            "curriculum/sentence/session-one/nouns/partsofspeech.yaml",
         configPath: "config/PartsofSpeechConfig.yaml",
         storageKey: "partsofSpeech",
         modelClass: PartsofSpeechModel,
@@ -118,7 +118,7 @@ export const session1Steps: Step[] = [
         type: "activity",
         path: "/sentence/session1/nouns/reading",
         itemPath:
-            "cirriculum/sentence/session-one/nouns/reading.yaml",
+            "curriculum/sentence/session-one/nouns/reading.yaml",
         configPath: "config/ReadOutLoudConfig.yaml",
         storageKey: "reading",
         modelClass: ReadOutLoudModel,
@@ -130,7 +130,7 @@ export const session1Steps: Step[] = [
         type: "activity",
         path: "/sentence/session1/prepositions/partsofspeech",
         itemPath:
-            "cirriculum/sentence/session-one/prepositions/partsofspeech.yaml",
+            "curriculum/sentence/session-one/prepositions/partsofspeech.yaml",
         configPath: "config/PartsofSpeechConfig.yaml",
         storageKey: "partsofSpeech",
         modelClass: PartsofSpeechModel,
@@ -140,7 +140,7 @@ export const session1Steps: Step[] = [
         type: "activity",
         path: "/sentence/session1/prepositions/picturematching",
         itemPath:
-            "cirriculum/sentence/session-one/prepositions/picturematch.yaml",
+            "curriculum/sentence/session-one/prepositions/picturematch.yaml",
         configPath: "config/PictureMatchingGameConfig.yaml",
         storageKey: "pictureMatchingGame",
         modelClass: PictureMatchingGameModel,
@@ -152,7 +152,7 @@ export const session1Steps: Step[] = [
         type: "activity",
         path: "/sentence/session1/pronouns/partsofspeech",
         itemPath:
-            "cirriculum/sentence/session-one/pronouns/partsofspeech.yaml",
+            "curriculum/sentence/session-one/pronouns/partsofspeech.yaml",
         configPath: "config/PartsofSpeechConfig.yaml",
         storageKey: "partsofSpeech",
         modelClass: PartsofSpeechModel,
@@ -162,7 +162,7 @@ export const session1Steps: Step[] = [
         type: "activity",
         path: "/sentence/session1/pronouns/reading",
         itemPath:
-            "cirriculum/sentence/session-one/pronouns/reading.yaml",
+            "curriculum/sentence/session-one/pronouns/reading.yaml",
         configPath: "config/ReadOutLoudConfig.yaml",
         storageKey: "reading",
         modelClass: ReadOutLoudModel,
@@ -174,7 +174,7 @@ export const session1Steps: Step[] = [
         type: "activity",
         path: "/sentence/session1/verbs/partsofspeech",
         itemPath:
-            "cirriculum/sentence/session-one/verbs/partsofspeech.yaml",
+            "curriculum/sentence/session-one/verbs/partsofspeech.yaml",
         configPath: "config/PartsofSpeechConfig.yaml",
         storageKey: "partsofSpeech",
         modelClass: PartsofSpeechModel,
@@ -184,7 +184,7 @@ export const session1Steps: Step[] = [
         type: "activity",
         path: "/sentence/session1/verbs/reading",
         itemPath:
-            "cirriculum/sentence/session-one/verbs/reading.yaml",
+            "curriculum/sentence/session-one/verbs/reading.yaml",
         configPath: "config/ReadOutLoudConfig.yaml",
         storageKey: "reading",
         modelClass: ReadOutLoudModel,
@@ -194,7 +194,7 @@ export const session1Steps: Step[] = [
         type: "activity",
         path: "/sentence/session1/verbs/mcq",
         itemPath:
-            "cirriculum/sentence/session-one/verbs/mcq.yaml",
+            "curriculum/sentence/session-one/verbs/mcq.yaml",
         configPath: "config/flashcardsconfig.yaml",
         storageKey: "mcq",
         modelClass: FlashCardModel,
@@ -204,7 +204,7 @@ export const session1Steps: Step[] = [
         type: "activity",
         path: "/sentence/session1/verbs/mcq-subject-verbagreement",
         itemPath:
-            "cirriculum/sentence/session-one/verbs/subjectverbagreement/mcq.yaml",
+            "curriculum/sentence/session-one/verbs/subjectverbagreement/mcq.yaml",
         configPath: "config/flashcardsconfig.yaml",
         storageKey: "mcq",
         modelClass: FlashCardModel,

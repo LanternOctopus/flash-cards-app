@@ -8,14 +8,10 @@
         "jsx": "react-jsx",
         "allowJs": true,
         "moduleResolution": "Node",
-        "allowSyntheticDefaultImports": true,
-        "esModuleInterop": true,
         "strict": true,
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
-        "compilerOptions": {
-            "types": ["node"]
-        }
+        "types": ["node"]
     },
     "include": ["src", "global.d.ts"],
     "exclude": ["node_modules", "notes*"]
