@@ -1,11 +1,11 @@
 import { useRef, useEffect, useState } from "react";
 import { ReadOutLoudModel } from "./ReadOutLoudModel";
-import { useVisibilityGate } from "../components/VisibilityGateContext";
-import { useAnswer } from "./AnswerProvider";
-import { useQuestion } from "./QuestionContext";
+import { useVisibilityGate } from "../providers/VisibilityGateContext";
+import { useAnswer } from "../providers/AnswerProvider";
+import { useQuestion } from "../providers/QuestionContext";
 import { ParentScreen } from "./ParentScreen";
 import { SpeechRecognitionController } from "../controllers/SpeechRecognition";
-import { PartialTranslation } from "./PartialTranslation";
+import { PartialTranslation } from "../lexicon/PartialTranslation";
 import { WakeLockManager } from "../utils/wakeLock";
 import "./ReadOutLoud.css";
 export function ReadOutLoudScreen() {

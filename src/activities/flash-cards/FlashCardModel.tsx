@@ -6,13 +6,24 @@ const isNonEmptyString = (
     typeof value === "string" && value.trim().length > 0;
 export type FlashCardItem = {
     id: string;
-    question: string; // was verb
+    question: string;
     english: string;
     targetLang: string;
     phonetics?: string;
-    wrongAnswers: string[];
+
+    distractors: {
+        choices: string[];
+        translations: string[];
+        transliterations: string[];
+    };
+
     learningHint: string;
-    meta: Record<string, string>;
+
+    meta?: {
+        subject?: string;
+        tense?: string;
+        [key: string]: string | undefined;
+    };
 };
 
 export class FlashCardModel extends ActivityModel<FlashCardItem> {
@@ -35,17 +46,17 @@ export class FlashCardModel extends ActivityModel<FlashCardItem> {
         const it = item as Record<string, unknown>;
 
         if (!isNonEmptyString(it.question)) {
-            console.log("question is missing or invalid");
+            console.log("question invalid");
             return false;
         }
 
         if (!isNonEmptyString(it.english)) {
-            console.log("english is missing or invalid");
+            console.log("english invalid");
             return false;
         }
 
         if (!isNonEmptyString(it.targetLang)) {
-            console.log("targetLang is missing or invalid");
+            console.log("targetLang invalid");
             return false;
         }
 
@@ -53,53 +64,82 @@ export class FlashCardModel extends ActivityModel<FlashCardItem> {
             it.phonetics !== undefined &&
             !isNonEmptyString(it.phonetics)
         ) {
-            console.log("phonetics is invalid");
+            console.log("phonetics invalid");
             return false;
         }
 
-        if (!Array.isArray(it.wrongAnswers)) {
-            console.log("wrongAnswers is not an array");
+        // ✅ distractors (replaces wrongAnswers + ansOptions)
+        if (
+            typeof it.distractors !== "object" ||
+            it.distractors === null
+        ) {
+            console.log("distractors missing");
+            return false;
+        }
+
+        const d = it.distractors as Record<string, unknown>;
+
+        if (
+            !Array.isArray(d.choices) ||
+            !Array.isArray(d.translations) ||
+            !Array.isArray(d.transliterations)
+        ) {
+            console.log("distractors arrays missing");
+            return false;
+        }
+
+        const len = d.choices.length;
+
+        if (
+            len === 0 ||
+            d.translations.length !== len ||
+            d.transliterations.length !== len
+        ) {
+            console.log("distractors length mismatch");
             return false;
         }
 
         if (
-            it.wrongAnswers.length === 0 ||
-            !it.wrongAnswers.every(isNonEmptyString)
+            !d.choices.every(isNonEmptyString) ||
+            !d.translations.every(isNonEmptyString) ||
+            !d.transliterations.every(isNonEmptyString)
         ) {
-            console.log(
-                "wrongAnswers must be a non-empty array of strings",
-            );
+            console.log("distractors invalid values");
             return false;
         }
 
         if (!isNonEmptyString(it.learningHint)) {
-            console.log(
-                "learningHint is missing or invalid",
-            );
+            console.log("learningHint invalid");
             return false;
         }
 
-        // ✅ meta validation
-        if (
-            typeof it.meta !== "object" ||
-            it.meta === null
-        ) {
-            console.log("meta is missing or invalid");
-            return false;
-        }
+        // ✅ meta optional
+        if (it.meta !== undefined) {
+            if (
+                typeof it.meta !== "object" ||
+                it.meta === null
+            ) {
+                console.log("meta invalid");
+                return false;
+            }
 
-        const meta = it.meta as Record<string, unknown>;
+            const meta = it.meta as Record<string, unknown>;
 
-        if (!isNonEmptyString(meta.subject)) {
-            console.log(
-                "meta.subject is missing or invalid",
-            );
-            return false;
-        }
+            if (
+                meta.subject !== undefined &&
+                !isNonEmptyString(meta.subject)
+            ) {
+                console.log("meta.subject invalid");
+                return false;
+            }
 
-        if (!isNonEmptyString(meta.tense)) {
-            console.log("meta.tense is missing or invalid");
-            return false;
+            if (
+                meta.tense !== undefined &&
+                !isNonEmptyString(meta.tense)
+            ) {
+                console.log("meta.tense invalid");
+                return false;
+            }
         }
 
         return true;

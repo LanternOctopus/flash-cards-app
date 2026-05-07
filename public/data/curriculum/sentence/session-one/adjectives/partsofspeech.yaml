@@ -1,0 +1,60 @@
+adjectives:
+  - text: "I think this is a good movie."
+    answer:
+      - good
+
+  - text: "This is a bad plan for today."
+    answer:
+      - bad
+
+  - text: "The book is good, but the ending is bad."
+    answer:
+      - good
+      - bad
+
+  - text: "This is a big house near the road."
+    answer:
+      - big
+
+  - text: "We sat in a small room."
+    answer:
+      - small
+
+  - text: "The big dog ran past the small cat."
+    answer:
+      - big
+      - small
+
+  - text: "I bought a new phone yesterday."
+    answer:
+      - new
+
+  - text: "He drives an old car to work."
+    answer:
+      - old
+
+  - text: "This new road replaced the old one."
+    answer:
+      - new
+      - old
+
+  - text: "The test was easy for me."
+    answer:
+      - easy
+
+  - text: "This problem looks hard."
+    answer:
+      - hard
+
+  - text: "The easy question came before the hard one."
+    answer:
+      - easy
+      - hard
+
+  - text: "This is an important message."
+    answer:
+      - important
+
+  - text: "That idea is important for the team."
+    answer:
+      - important

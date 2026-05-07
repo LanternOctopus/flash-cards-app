@@ -1,0 +1,61 @@
+nouns:
+  - text: "The place is very quiet."
+    answer:
+      - place
+
+  - text: "People like this place."
+    answer:
+      - people
+      - place
+
+  - text: "This thing is very useful."
+    answer:
+      - thing
+
+  - text: "We use these things every day."
+    answer:
+      - things
+
+  - text: "A good idea comes to a person."
+    answer:
+      - idea
+      - person
+
+  - text: "Many ideas come from people."
+    answer:
+      - ideas
+      - people
+
+  - text: "At night, time moves slowly."
+    answer:
+      - time
+
+  - text: "Time is very important for us."
+    answer:
+      - time
+
+  - text: "In this place, a person feels safe."
+    answer:
+      - place
+      - person
+
+  - text: "There are many things in the box."
+    answer:
+      - things
+
+  - text: "A person saw people near the beach."
+    answer:
+      - person
+      - people
+
+  - text: "Ideas change the way we think."
+    answer:
+      - ideas
+
+  - text: "Sometimes, a thing breaks easily."
+    answer:
+      - thing
+
+  - text: "On Sundays, people relax."
+    answer:
+      - people

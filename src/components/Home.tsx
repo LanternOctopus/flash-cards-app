@@ -156,9 +156,6 @@ const Home: React.FC = () => {
                     </Card>
                 </div>
             </section>
-            <SessionProvider>
-                <Track />
-            </SessionProvider>
         </main>
     );
 };

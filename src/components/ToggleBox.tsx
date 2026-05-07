@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { useData } from "../activities/DataProvider";
+import { useData } from "../providers/DataProvider";
 export const ToggleBoxController = () => {
     const { config, updateConfig, uiSelections } =
         useData();

@@ -1,0 +1,41 @@
+pronouns:
+  - text: "Ajay likes school. He looks forward to it every morning."
+    answer:
+      - He
+
+  - text: "She is very happy today."
+    answer:
+      - She
+
+  - text: "Riya has a new bag. It is blue."
+    answer:
+      - It
+
+  - text: "They are playing in the park."
+    answer:
+      - They
+
+  - text: "The boy is tired. He sits down."
+    answer:
+      - He
+
+  - text: "I see a dog. It runs fast."
+    answer:
+      - I
+      - It
+
+  - text: "We go to school together."
+    answer:
+      - We
+
+  - text: "The teacher is kind. She helps the students."
+    answer:
+      - She
+
+  - text: "You are my best friend."
+    answer:
+      - You
+
+  - text: "Rahul and Lila are friends. They walk to school."
+    answer:
+      - They

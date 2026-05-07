@@ -29,6 +29,7 @@ export function DataProvider<TConfig, TItems>({
     const [items, setItems] = React.useState<TItems | null>(
         null,
     );
+
     const [loaded, setLoaded] = React.useState(false);
     const [uiSelections, setUiSelections] = React.useState<
         Record<string, object>
@@ -136,7 +137,6 @@ export function DataProvider<TConfig, TItems>({
                 custSlots.feedback = <></>;
                 setSlots(custSlots);
 
-                setItems(rawItems);
                 setLoaded(true);
             } catch (e) {
                 console.error(e);

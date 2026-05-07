@@ -1,0 +1,105 @@
+nouns:
+    - question: "person"
+      english: "I saw a person running with a dog."
+      targetLang: "ഞാൻ ഒരു വ്യക്തിയെ നായയോടൊപ്പം ഓടുന്നത് കണ്ടു."
+      phonetics: "njan oru vyakthiye naayayodoppam odunnathu kandu."
+      distractors:
+          choices:
+              - "place"
+              - "thing"
+              - "idea"
+          translations:
+              - "സ്ഥലം"
+              - "വസ്തു"
+              - "ആശയം"
+          transliterations:
+              - "sthalem"
+              - "vasthu"
+              - "aashayam"
+      learningHint: "A person is a human being. 'Person' means വ്യക്തി (vyakthi)."
+      meta:
+          type: "person"
+
+    - question: "thing"
+      english: "A thing is not as important as a person."
+      targetLang: "ഒരു വസ്തു ഒരു വ്യക്തിയെ പോലെ പ്രധാനമല്ല."
+      phonetics: "oru vasthu oru vyakthiye pole pradhanamalla."
+      distractors:
+          choices:
+              - "place"
+              - "idea"
+              - "time"
+          translations:
+              - "സ്ഥലം"
+              - "ആശയം"
+              - "സമയം"
+          transliterations:
+              - "sthalem"
+              - "aashayam"
+              - "samayam"
+      learningHint: "A thing is something you can touch. 'Thing' means വസ്തു (vasthu)."
+      meta:
+          type: "thing"
+
+    - question: "time"
+      english: "There never seems to be enough time for movies."
+      targetLang: "സിനിമകൾക്ക് മതിയായ സമയം ഒരിക്കലും ഉണ്ടാകുന്നില്ല."
+      phonetics: "cinemakalke mathiyaaya samayam orikkalum undaakunnilla."
+      distractors:
+          choices:
+              - "person"
+              - "place"
+              - "thing"
+          translations:
+              - "വ്യക്തി"
+              - "സ്ഥലം"
+              - "വസ്തു"
+          transliterations:
+              - "vyakthi"
+              - "sthalem"
+              - "vasthu"
+      learningHint: "Time tells us when something happens. 'Time' means സമയം (samayam)."
+      meta:
+          type: "time"
+
+    - question: "place"
+      english: "It is such a peaceful place."
+      targetLang: "ഇത് വളരെ സമാധാനപരമായ ഒരു സ്ഥലമാണ്."
+      phonetics: "ithu valare samadhanaparamaya oru sthalaman."
+      distractors:
+          choices:
+              - "person"
+              - "idea"
+              - "thing"
+          translations:
+              - "വ്യക്തി"
+              - "ആശയം"
+              - "വസ്തു"
+          transliterations:
+              - "vyakthi"
+              - "aashayam"
+              - "vasthu"
+      learningHint: "A place is where something happens. 'Place' means സ്ഥലം (sthalem)."
+      meta:
+          type: "place"
+
+    - question: "idea"
+      english: "I had an idea for the science fair."
+      targetLang: "സയൻസ് ഫെയറിനായി എനിക്ക് ഒരു ആശയം ഉണ്ടായിരുന്നു."
+      phonetics: "science fairinu enikku oru aashayam undayirunnu."
+      distractors:
+          choices:
+              - "person"
+              - "place"
+              - "thing"
+          translations:
+              - "വ്യക്തി"
+              - "സ്ഥലം"
+              - "വസ്തു"
+          transliterations:
+              - "vyakthi"
+              - "sthalem"
+              - "vasthu"
+      learningHint: "An idea is something in your mind. 'Idea' means ആശയം (aashayam)."
+      meta:
+          type: "idea"

@@ -1,0 +1,152 @@
+sentence_verbs_session_1:
+    - question: "go"
+      english: "I go to the office every morning."
+      targetLang: "ഞാൻ എല്ലാ ദിവസവും രാവിലെ ഓഫീസിൽ പോകുന്നു."
+      phonetics: "njan ella divasavum ravile officil pokunnu."
+      distractors:
+          choices:
+              - "I went to the office yesterday morning."
+              - "I will go to the office tomorrow morning."
+          translations:
+              - "ഞാൻ ഇന്നലെ രാവിലെ ഓഫീസിൽ പോയി."
+              - "ഞാൻ നാളെ രാവിലെ ഓഫീസിൽ പോകും."
+          transliterations:
+              - "njan innale ravile officil poyi."
+              - "njan nale ravile officil pokum."
+      learningHint: "Use simple present for habits and routines."
+      meta:
+          subject: "I"
+          tense: "simple present"
+
+    - question: "go"
+      english: "We went to the party last night."
+      targetLang: "ഞങ്ങൾ ഇന്നലെ രാത്രി പാർട്ടിക്ക് പോയി."
+      phonetics: "njangal innale rathri party-kku poyi."
+      distractors:
+          choices:
+              - "We go to the party every night."
+              - "We will go to the party tomorrow night."
+          translations:
+              - "ഞങ്ങൾ എല്ലാ രാത്രിയും പാർട്ടിക്ക് പോകുന്നു."
+              - "ഞങ്ങൾ നാളെ രാത്രി പാർട്ടിക്ക് പോകും."
+          transliterations:
+              - "njangal ella rathriyilum party-kku pokunnu."
+              - "njangal nale rathri party-kku pokum."
+      learningHint: "'Went' is the past tense of 'go'."
+      meta:
+          subject: "we"
+          tense: "simple past"
+
+    - question: "go"
+      english: "They will go to a new place next year."
+      targetLang: "അവർ അടുത്ത വർഷം പുതിയൊരു സ്ഥലത്തേക്ക് പോകും."
+      phonetics: "avar adutha varsham puthiyoru sthalathekku pokum."
+      distractors:
+          choices:
+              - "They go to a new place every year."
+              - "They went to a new place last year."
+          translations:
+              - "അവർ എല്ലാ വർഷവും പുതിയ സ്ഥലത്തേക്ക് പോകുന്നു."
+              - "അവർ കഴിഞ്ഞ വർഷം പുതിയ സ്ഥലത്തേക്ക് പോയി."
+          transliterations:
+              - "avar ella varshavum puthiya sthalathekku pokunnu."
+              - "avar kazhinja varsham puthiya sthalathekku poyi."
+      learningHint: "Use 'will go' for future actions."
+      meta:
+          subject: "they"
+          tense: "future"
+
+    - question: "see"
+      english: "I see a big problem with this idea."
+      targetLang: "ഈ ആശയത്തിൽ എനിക്ക് വലിയൊരു പ്രശ്നം കാണുന്നു."
+      phonetics: "ee aashayathil enikku valiyoru prashnam kaanunnu."
+      distractors:
+          choices:
+              - "I saw a big problem with this idea yesterday."
+              - "I will see a big problem with this idea tomorrow."
+          translations:
+              - "ഈ ആശയത്തിൽ എനിക്ക് ഇന്നലെ വലിയൊരു പ്രശ്നം കണ്ടു."
+              - "ഈ ആശയത്തിൽ എനിക്ക് നാളെ വലിയൊരു പ്രശ്നം കാണും."
+          transliterations:
+              - "ee aashayathil enikku innale valiyoru prashnam kandu."
+              - "ee aashayathil enikku nale valiyoru prashnam kaanum."
+      learningHint: "Use simple present for thoughts and opinions."
+      meta:
+          subject: "I"
+          tense: "simple present"
+
+    - question: "see"
+      english: "The girl sees a small thing under the table."
+      targetLang: "മേശയുടെ അടിയിൽ പെൺകുട്ടി ഒരു ചെറിയ സാധനം കാണുന്നു."
+      phonetics: "meshayude adiyil penkutti oru cheriya saadhanam kaanunnu."
+      distractors:
+          choices:
+              - "The girl saw a small thing under the table."
+              - "The girl will see a small thing under the table."
+          translations:
+              - "മേശയുടെ അടിയിൽ പെൺകുട്ടി ഒരു ചെറിയ സാധനം കണ്ടു."
+              - "മേശയുടെ അടിയിൽ പെൺകുട്ടി ഒരു ചെറിയ സാധനം കാണും."
+          transliterations:
+              - "meshayude adiyil penkutti oru cheriya saadhanam kandu."
+              - "meshayude adiyil penkutti oru cheriya saadhanam kaanum."
+      learningHint: "Use 'sees' with singular subjects like 'the girl'."
+      meta:
+          subject: "the girl"
+          tense: "simple present"
+
+    - question: "work"
+      english: "My mother works at the hospital."
+      targetLang: "എന്റെ അമ്മ ആശുപത്രിയിൽ ജോലി ചെയ്യുന്നു."
+      phonetics: "ente amma aashupathriyil joli cheyyunnu."
+      distractors:
+          choices:
+              - "My mother worked at the hospital last year."
+              - "My mother will work at the hospital next year."
+          translations:
+              - "എന്റെ അമ്മ കഴിഞ്ഞ വർഷം ആശുപത്രിയിൽ ജോലി ചെയ്തു."
+              - "എന്റെ അമ്മ അടുത്ത വർഷം ആശുപത്രിയിൽ ജോലി ചെയ്യും."
+          transliterations:
+              - "ente amma kazhinja varsham aashupathriyil joli cheythu."
+              - "ente amma adutha varsham aashupathriyil joli cheyyum."
+      learningHint: "Use 'works' with singular subjects."
+      meta:
+          subject: "my mother"
+          tense: "simple present"
+
+    - question: "give"
+      english: "I give the money to the person at the door."
+      targetLang: "ഞാൻ വാതിലിലുള്ള ആൾക്ക് പണം നൽകുന്നു."
+      phonetics: "njan vaathililulla aalkku panam nalkunnu."
+      distractors:
+          choices:
+              - "I gave the money to the person at the door yesterday."
+              - "I will give the money to the person at the door tomorrow."
+          translations:
+              - "ഞാൻ ഇന്നലെ വാതിലിലുള്ള ആൾക്ക് പണം നൽകി."
+              - "ഞാൻ നാളെ വാതിലിലുള്ള ആൾക്ക് പണം നൽകും."
+          transliterations:
+              - "njan innale vaathililulla aalkku panam nalki."
+              - "njan nale vaathililulla aalkku panam nalkum."
+      learningHint: "Use simple present for regular actions."
+      meta:
+          subject: "I"
+          tense: "simple present"
+
+    - question: "think"
+      english: "I think the new job is very good."
+      targetLang: "പുതിയ ജോലി വളരെ നല്ലതാണെന്ന് എനിക്ക് തോന്നുന്നു."
+      phonetics: "puthiya joli valare nallathaanennu enikku thonnunnu."
+      distractors:
+          choices:
+              - "I thought the new job was very good."
+              - "I will think the new job is very good."
+          translations:
+              - "പുതിയ ജോലി വളരെ നല്ലതാണെന്ന് എനിക്ക് തോന്നി."
+              - "പുതിയ ജോലി വളരെ നല്ലതാണെന്ന് എനിക്ക് തോന്നും."
+          transliterations:
+              - "puthiya joli valare nallathaanennu enikku thonni."
+              - "puthiya joli valare nallathaanennu enikku thonnum."
+      learningHint: "Use 'think' to express present opinions."
+      meta:
+          subject: "I"
+          tense: "simple present"

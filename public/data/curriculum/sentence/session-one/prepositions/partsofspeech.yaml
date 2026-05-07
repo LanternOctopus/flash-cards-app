@@ -1,0 +1,51 @@
+prepositions:
+  - text: "I go to the office every morning."
+    answer:
+      - to
+      - at
+
+  - text: "The book is on the table."
+    answer:
+      - on
+
+  - text: "The cat is under the chair."
+    answer:
+      - under
+
+  - text: "She lives in a small house."
+    answer:
+      - in
+
+  - text: "We arrive at school at eight o’clock."
+    answer:
+      - at
+      - at
+
+  - text: "The boy walks to the park."
+    answer:
+      - to
+
+  - text: "The keys are on the desk."
+    answer:
+      - on
+
+  - text: "The dog sleeps under the bed."
+    answer:
+      - under
+
+  - text: "They are in the room."
+    answer:
+      - in
+
+  - text: "I am at home now."
+    answer:
+      - at
+
+  - text: "She put the bag on the chair."
+    answer:
+      - on
+
+  - text: "We go to school in the morning."
+    answer:
+      - to
+      - in

@@ -1,7 +1,6 @@
 import React, { createContext } from "react";
 import { VisibilityGate } from "../activities/VisibilityGate";
-import { useData } from "../activities/DataProvider";
-
+import { useData } from "./DataProvider";
 export const VisibilityGateContext =
     createContext<VisibilityGate | null>(null);
 
@@ -19,7 +18,7 @@ export function VisibilityGateProvider({
         if (!data.loaded) return null;
         return new VisibilityGate(
             data.uiSelections,
-            data.slots
+            data.slots,
         );
     }, [data.config]);
 
@@ -34,7 +33,7 @@ export function useVisibilityGate() {
     const ctx = React.useContext(VisibilityGateContext);
     if (!ctx) {
         throw new Error(
-            "useVisibilityGate must be used inside VisibilityGateProvider"
+            "useVisibilityGate must be used inside VisibilityGateProvider",
         );
     }
     return ctx;

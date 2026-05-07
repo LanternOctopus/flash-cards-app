@@ -5,8 +5,8 @@ import React, {
     useState,
     ReactNode,
 } from "react";
-import { ReadOutLoudModel } from "../activities/ReadOutLoudModel";
-import { ReadOutLoud } from "../activities/ReadOutLoudView";
+import { session1Steps } from "../curriculum/sentencesession1";
+import { ActivityModel } from "../activities/Models";
 export type Step =
     | {
           type: "title";
@@ -14,18 +14,18 @@ export type Step =
       }
     | {
           type: "story";
-          config: { text: string };
       }
     | {
           type: "activity";
           itemPath: string;
+          path?: string;
           configPath: string;
           storageKey: string;
           modelClass: new (
               raw: unknown,
               scorechangeCallback: (score: number) => void,
-          ) => any;
-          children: ReactNode;
+          ) => ActivityModel<any>;
+          children?: ReactNode;
       };
 
 export interface SessionContextType {
@@ -53,23 +53,7 @@ interface SessionProviderProps {
 export const SessionProvider: React.FC<
     SessionProviderProps
 > = ({ children }) => {
-    const steps: Step[] = [
-        {
-            type: "activity",
-            itemPath: "letter/learnthealphabet.yaml",
-            configPath: "config/alphabet.yaml",
-            storageKey: "alphabetMatching",
-            modelClass: ReadOutLoudModel,
-            children: <ReadOutLoud />,
-        },
-        {
-            type: "story",
-            config: {
-                text: "Our hero starts the adventure...",
-            },
-        },
-    ];
-
+    const steps = session1Steps satisfies Step[];
     const [stepIndex, setStepIndex] = useState(0);
 
     const next = () =>

@@ -1,0 +1,91 @@
+verbs:
+  - text: "I go to the office every morning."
+    answer:
+      - go
+
+  - text: "The student goes to school by bus."
+    answer:
+      - goes
+
+  - text: "They go to a new place every year."
+    answer:
+      - go
+
+  - text: "We went to the party last night."
+    answer:
+      - went
+
+  - text: "Perhaps the family will go to the city tomorrow."
+    answer:
+      - will
+      - go
+
+  - text: "This TV will work for a long time."
+    answer:
+      - will
+      - work
+
+  - text: "My mother works at the hospital."
+    answer:
+      - works
+
+  - text: "The men work hard on the farm."
+    answer:
+      - work
+
+  - text: "He worked at the company for ten years."
+    answer:
+      - worked
+
+  - text: "The father gives a small gift to the child."
+    answer:
+      - gives
+
+  - text: "I give the money to the person at the door."
+    answer:
+      - give
+
+  - text: "She gave an important reason for the problem."
+    answer:
+      - gave
+
+  - text: "The teacher will give the result next week."
+    answer:
+      - will
+      - give
+
+  - text: "Sachu often thinks about the future."
+    answer:
+      - thinks
+
+  - text: "I think the new job is very good."
+    answer:
+      - think
+      - is
+
+  - text: "We thought the story was easy to understand."
+    answer:
+      - thought
+      - was
+
+  - text: "They will think about the idea again."
+    answer:
+      - will
+      - think
+
+  - text: "I see the man at the place every day."
+    answer:
+      - see
+
+  - text: "The girl sees a big thing under the table."
+    answer:
+      - sees
+
+  - text: "Suddenly, we saw the car on the road."
+    answer:
+      - saw
+
+  - text: "You will see the information in the book."
+    answer:
+      - will
+      - see

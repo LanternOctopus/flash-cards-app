@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { PictureMatchingGameModel } from "./PictureMatchingGameModel";
-import { useVisibilityGate } from "../components/VisibilityGateContext";
-import { useAnswer } from "./AnswerProvider";
-import { useQuestion } from "./QuestionContext";
+import { useVisibilityGate } from "../providers/VisibilityGateContext";
+import { useAnswer } from "../providers/AnswerProvider";
+import { useQuestion } from "../providers/QuestionContext";
 import { ParentScreen } from "./ParentScreen";
 import { playSynthRibbit } from "../utils/audio";
 import { TTS } from "../utils/TTS";

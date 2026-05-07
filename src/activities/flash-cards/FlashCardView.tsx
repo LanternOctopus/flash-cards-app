@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { FlashCardModel } from "./FlashCardModel";
-import { useQuestion } from "./../QuestionContext";
-import { useVisibilityGate } from "../../components/VisibilityGateContext";
-import { useAnswer } from "./../AnswerProvider";
+import { useQuestion } from "../../providers/QuestionContext";
+import { useVisibilityGate } from "../../providers/VisibilityGateContext";
+import { useAnswer } from "../../providers/AnswerProvider";
 import { ParentScreen } from "../ParentScreen";
 import { FlashCardItem } from "./FlashCardModel";
 import { useLanguage } from "../languageswitcher/LanguageProvider";
@@ -35,7 +35,7 @@ export function FlashCardView() {
     useEffect(() => {
         if (!item?.id) return;
 
-        const wrongs = [...item.wrongAnswers];
+        const wrongs = [...item.distractors.choices];
         for (let i = wrongs.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [wrongs[i], wrongs[j]] = [wrongs[j], wrongs[i]];
@@ -52,7 +52,7 @@ export function FlashCardView() {
     }, [
         item.id,
         item.english,
-        item.wrongAnswers,
+        item.distractors.choices,
         numChoices,
     ]);
 
@@ -117,22 +117,6 @@ export function FlashCardView() {
         ) : null,
     });
 
-    const subject = builder.showSlot("subject", {
-        front: (
-            <div className="subject">
-                {item.meta.subject}
-            </div>
-        ),
-        back: <div>{item.meta.subject}</div>,
-    });
-
-    const tense = builder.showSlot("tense", {
-        front: (
-            <div className="tense">{item.meta.tense}</div>
-        ),
-        back: <div>{item.meta.tense}</div>,
-    });
-
     const learningHint = builder.showSlot("learningHint", {
         front: null,
         back: (
@@ -161,8 +145,6 @@ export function FlashCardView() {
                         {question.front}
                         {targetLang.front}
                         {phonetics.front}
-                        {tense.front}
-                        {subject.front}
                     </section>
 
                     <form>
@@ -216,8 +198,6 @@ export function FlashCardView() {
                     {english.back}
                     {targetLang.back}
                     {phonetics.back}
-                    {tense.back}
-                    {subject.back}
                     {learningHint.back}
 
                     <div>
