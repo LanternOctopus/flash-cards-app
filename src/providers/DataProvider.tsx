@@ -110,7 +110,7 @@ export function DataProvider<TConfig, TItems>({
                 setUiSelections(storing);
                 const rawItems =
                     await loadSource<TItems>(itemPath);
-
+                setItems(rawItems);
                 const stored =
                     localStorage.getItem(storageKey);
                 const userConfig = stored

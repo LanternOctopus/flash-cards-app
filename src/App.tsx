@@ -262,7 +262,7 @@ const App: React.FC = () => {
                         path="/sentence/session1/adjectives/mcq"
                         element={
                             <ParentScreen
-                                itemPath="cirriculum/sentence/session-one/adjectives/mcq.yaml"
+                                itemPath="curriculum/sentence/session-one/adjectives/mcq.yaml"
                                 configPath="config/flashcardsconfig.yaml"
                                 storageKey="mcq"
                                 modelClass={FlashCardModel}
@@ -275,7 +275,7 @@ const App: React.FC = () => {
                         path="/sentence/session1/adjectives/mcq-opposites"
                         element={
                             <ParentScreen
-                                itemPath="cirriculum/sentence/session-one/adjectives/mcq-opposites.yaml"
+                                itemPath="curriculum/sentence/session-one/adjectives/mcq-opposites.yaml"
                                 configPath="config/flashcardsconfig.yaml"
                                 storageKey="mcq"
                                 modelClass={FlashCardModel}
@@ -288,7 +288,7 @@ const App: React.FC = () => {
                         path="/sentence/session1/adjectives/partsofspeech"
                         element={
                             <ParentScreen
-                                itemPath="cirriculum/sentence/session-one/adjectives/partsofspeech.yaml"
+                                itemPath="curriculum/sentence/session-one/adjectives/partsofspeech.yaml"
                                 configPath="config/PartsofSpeechConfig.yaml"
                                 storageKey="partsofSpeech"
                                 modelClass={
@@ -303,7 +303,7 @@ const App: React.FC = () => {
                         path="/sentence/session1/adjectives/reading"
                         element={
                             <ParentScreen
-                                itemPath="cirriculum/sentence/session-one/adjectives/reading.yaml"
+                                itemPath="curriculum/sentence/session-one/adjectives/reading.yaml"
                                 configPath="config/ReadOutLoudConfig.yaml"
                                 storageKey="reading"
                                 modelClass={
@@ -318,7 +318,7 @@ const App: React.FC = () => {
                         path="/sentence/session1/adverbs/mcq"
                         element={
                             <ParentScreen
-                                itemPath="cirriculum/sentence/session-one/adverbs/mcq.yaml"
+                                itemPath="curriculum/sentence/session-one/adverbs/mcq.yaml"
                                 configPath="config/flashcardsconfig.yaml"
                                 storageKey="mcq"
                                 modelClass={FlashCardModel}
@@ -331,7 +331,7 @@ const App: React.FC = () => {
                         path="/sentence/session1/adverbs/mcq-opposites"
                         element={
                             <ParentScreen
-                                itemPath="cirriculum/sentence/session-one/adverbs/mcq-opposites.yaml"
+                                itemPath="curriculum/sentence/session-one/adverbs/mcq-opposites.yaml"
                                 configPath="config/flashcardsconfig.yaml"
                                 storageKey="mcq"
                                 modelClass={FlashCardModel}
@@ -344,7 +344,7 @@ const App: React.FC = () => {
                         path="/sentence/session1/adverbs/partsofspeech"
                         element={
                             <ParentScreen
-                                itemPath="cirriculum/sentence/session-one/adverbs/partsofspeech.yaml"
+                                itemPath="curriculum/sentence/session-one/adverbs/partsofspeech.yaml"
                                 configPath="config/PartsofSpeechConfig.yaml"
                                 storageKey="partsofSpeech"
                                 modelClass={
@@ -359,7 +359,7 @@ const App: React.FC = () => {
                         path="/sentence/session1/adverbs/reading"
                         element={
                             <ParentScreen
-                                itemPath="cirriculum/sentence/session-one/adverbs/reading.yaml"
+                                itemPath="curriculum/sentence/session-one/adverbs/reading.yaml"
                                 configPath="config/ReadOutLoudConfig.yaml"
                                 storageKey="reading"
                                 modelClass={
@@ -374,7 +374,7 @@ const App: React.FC = () => {
                         path="/sentence/session1/nouns/mcq"
                         element={
                             <ParentScreen
-                                itemPath="cirriculum/sentence/session-one/nouns/mcq.yaml"
+                                itemPath="curriculum/sentence/session-one/nouns/mcq.yaml"
                                 configPath="config/flashcardsconfig.yaml"
                                 storageKey="mcq"
                                 modelClass={FlashCardModel}
@@ -388,7 +388,7 @@ const App: React.FC = () => {
                         path="/sentence/session1/nouns/partsofspeech"
                         element={
                             <ParentScreen
-                                itemPath="cirriculum/sentence/session-one/nouns/partsofspeech.yaml"
+                                itemPath="curriculum/sentence/session-one/nouns/partsofspeech.yaml"
                                 configPath="config/PartsofSpeechConfig.yaml"
                                 storageKey="partsofSpeech"
                                 modelClass={
@@ -403,7 +403,7 @@ const App: React.FC = () => {
                         path="/sentence/session1/nouns/reading"
                         element={
                             <ParentScreen
-                                itemPath="cirriculum/sentence/session-one/nouns/reading.yaml"
+                                itemPath="curriculum/sentence/session-one/nouns/reading.yaml"
                                 configPath="config/ReadOutLoudConfig.yaml"
                                 storageKey="reading"
                                 modelClass={
@@ -418,7 +418,7 @@ const App: React.FC = () => {
                         path="/sentence/session1/prepositions/partsofspeech"
                         element={
                             <ParentScreen
-                                itemPath="cirriculum/sentence/session-one/prepositions/partsofspeech.yaml"
+                                itemPath="curriculum/sentence/session-one/prepositions/partsofspeech.yaml"
                                 configPath="config/PartsofSpeechConfig.yaml"
                                 storageKey="partsofSpeech"
                                 modelClass={
@@ -434,7 +434,7 @@ const App: React.FC = () => {
                         element={
                             <ParentScreen
                                 itemPath={
-                                    "cirriculum/sentence/session-one/prepositions/picturematch.yaml"
+                                    "curriculum/sentence/session-one/prepositions/picturematch.yaml"
                                 }
                                 configPath="config/PictureMatchingGameConfig.yaml"
                                 storageKey="pictureMatchingGame"
@@ -450,7 +450,7 @@ const App: React.FC = () => {
                         path="/sentence/session1/pronouns/partsofspeech"
                         element={
                             <ParentScreen
-                                itemPath="cirriculum/sentence/session-one/pronouns/partsofspeech.yaml"
+                                itemPath="curriculum/sentence/session-one/pronouns/partsofspeech.yaml"
                                 configPath="config/PartsofSpeechConfig.yaml"
                                 storageKey="partsofSpeech"
                                 modelClass={
@@ -465,7 +465,7 @@ const App: React.FC = () => {
                         path="/sentence/session1/pronouns/reading"
                         element={
                             <ParentScreen
-                                itemPath="cirriculum/sentence/session-one/pronouns/reading.yaml"
+                                itemPath="curriculum/sentence/session-one/pronouns/reading.yaml"
                                 configPath="config/ReadOutLoudConfig.yaml"
                                 storageKey="reading"
                                 modelClass={
@@ -480,7 +480,7 @@ const App: React.FC = () => {
                         path="/sentence/session1/verbs/partsofspeech"
                         element={
                             <ParentScreen
-                                itemPath="cirriculum/sentence/session-one/verbs/partsofspeech.yaml"
+                                itemPath="curriculum/sentence/session-one/verbs/partsofspeech.yaml"
                                 configPath="config/PartsofSpeechConfig.yaml"
                                 storageKey="partsofSpeech"
                                 modelClass={
@@ -495,7 +495,7 @@ const App: React.FC = () => {
                         path="/sentence/session1/verbs/reading"
                         element={
                             <ParentScreen
-                                itemPath="cirriculum/sentence/session-one/verbs/reading.yaml"
+                                itemPath="curriculum/sentence/session-one/verbs/reading.yaml"
                                 configPath="config/ReadOutLoudConfig.yaml"
                                 storageKey="reading"
                                 modelClass={
@@ -510,7 +510,7 @@ const App: React.FC = () => {
                         path="/sentence/session1/verbs/mcq"
                         element={
                             <ParentScreen
-                                itemPath="cirriculum/sentence/session-one/verbs/mcq.yaml"
+                                itemPath="curriculum/sentence/session-one/verbs/mcq.yaml"
                                 configPath="config/flashcardsconfig.yaml"
                                 storageKey="mcq"
                                 modelClass={FlashCardModel}
@@ -523,7 +523,7 @@ const App: React.FC = () => {
                         path="/sentence/session1/verbs/mcq-subject-verbagreement"
                         element={
                             <ParentScreen
-                                itemPath="cirriculum/sentence/session-one/verbs/subjectverbagreement/mcq.yaml"
+                                itemPath="curriculum/sentence/session-one/verbs/subjectverbagreement/mcq.yaml"
                                 configPath="config/flashcardsconfig.yaml"
                                 storageKey="mcq"
                                 modelClass={FlashCardModel}
