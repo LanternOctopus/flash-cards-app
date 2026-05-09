@@ -1,60 +1,347 @@
-adjectives:
-  - text: "I think this is a good movie."
-    answer:
-      - good
+adjective:
+    - text: "I think this is a good movie."
+      tokens:
+          i:
+              partOfSpeech: "pronoun"
 
-  - text: "This is a bad plan for today."
-    answer:
-      - bad
+          think:
+              partOfSpeech: "verb"
 
-  - text: "The book is good, but the ending is bad."
-    answer:
-      - good
-      - bad
+          this:
+              partOfSpeech: "pronoun"
 
-  - text: "This is a big house near the road."
-    answer:
-      - big
+          is:
+              partOfSpeech: "verb"
 
-  - text: "We sat in a small room."
-    answer:
-      - small
+          a:
+              partOfSpeech: "article"
 
-  - text: "The big dog ran past the small cat."
-    answer:
-      - big
-      - small
+          good:
+              partOfSpeech: "adjective"
 
-  - text: "I bought a new phone yesterday."
-    answer:
-      - new
+          movie:
+              partOfSpeech: "noun"
 
-  - text: "He drives an old car to work."
-    answer:
-      - old
+      answer:
+          - good
 
-  - text: "This new road replaced the old one."
-    answer:
-      - new
-      - old
+    - text: "This is a bad plan for today."
+      tokens:
+          this:
+              partOfSpeech: "pronoun"
 
-  - text: "The test was easy for me."
-    answer:
-      - easy
+          is:
+              partOfSpeech: "verb"
 
-  - text: "This problem looks hard."
-    answer:
-      - hard
+          a:
+              partOfSpeech: "article"
 
-  - text: "The easy question came before the hard one."
-    answer:
-      - easy
-      - hard
+          bad:
+              partOfSpeech: "adjective"
 
-  - text: "This is an important message."
-    answer:
-      - important
+          plan:
+              partOfSpeech: "noun"
 
-  - text: "That idea is important for the team."
-    answer:
-      - important
+          for:
+              partOfSpeech: "preposition"
+
+          today:
+              partOfSpeech: "noun"
+
+      answer:
+          - bad
+
+    - text: "The book is good, but the ending is bad."
+      tokens:
+          the:
+              partOfSpeech: "article"
+
+          book:
+              partOfSpeech: "noun"
+
+          is:
+              partOfSpeech: "verb"
+
+          good:
+              partOfSpeech: "adjective"
+
+          but:
+              partOfSpeech: "conjunction"
+
+          ending:
+              partOfSpeech: "noun"
+
+          bad:
+              partOfSpeech: "adjective"
+
+      answer:
+          - good
+          - bad
+
+    - text: "This is a big house near the road."
+      tokens:
+          this:
+              partOfSpeech: "pronoun"
+
+          is:
+              partOfSpeech: "verb"
+
+          a:
+              partOfSpeech: "article"
+
+          big:
+              partOfSpeech: "adjective"
+
+          house:
+              partOfSpeech: "noun"
+
+          near:
+              partOfSpeech: "preposition"
+
+          the:
+              partOfSpeech: "article"
+
+          road:
+              partOfSpeech: "noun"
+
+      answer:
+          - big
+
+    - text: "We sat in a small room."
+      tokens:
+          we:
+              partOfSpeech: "pronoun"
+
+          sat:
+              partOfSpeech: "verb"
+
+          in:
+              partOfSpeech: "preposition"
+
+          a:
+              partOfSpeech: "article"
+
+          small:
+              partOfSpeech: "adjective"
+
+          room:
+              partOfSpeech: "noun"
+
+      answer:
+          - small
+
+    - text: "The big dog ran past the small cat."
+      tokens:
+          the:
+              partOfSpeech: "article"
+
+          big:
+              partOfSpeech: "adjective"
+
+          dog:
+              partOfSpeech: "noun"
+
+          ran:
+              partOfSpeech: "verb"
+
+          past:
+              partOfSpeech: "preposition"
+
+          small:
+              partOfSpeech: "adjective"
+
+          cat:
+              partOfSpeech: "noun"
+
+      answer:
+          - big
+          - small
+
+    - text: "I bought a new phone yesterday."
+      tokens:
+          i:
+              partOfSpeech: "pronoun"
+
+          bought:
+              partOfSpeech: "verb"
+
+          a:
+              partOfSpeech: "article"
+
+          new:
+              partOfSpeech: "adjective"
+
+          phone:
+              partOfSpeech: "noun"
+
+          yesterday:
+              partOfSpeech: "noun"
+
+      answer:
+          - new
+
+    - text: "He drives an old car to work."
+      tokens:
+          he:
+              partOfSpeech: "pronoun"
+
+          drives:
+              partOfSpeech: "verb"
+
+          an:
+              partOfSpeech: "article"
+
+          old:
+              partOfSpeech: "adjective"
+
+          car:
+              partOfSpeech: "noun"
+
+          to:
+              partOfSpeech: "preposition"
+
+          work:
+              partOfSpeech: "noun"
+
+      answer:
+          - old
+
+    - text: "This new road replaced the old one."
+      tokens:
+          this:
+              partOfSpeech: "determiner"
+
+          new:
+              partOfSpeech: "adjective"
+
+          road:
+              partOfSpeech: "noun"
+
+          replaced:
+              partOfSpeech: "verb"
+
+          the:
+              partOfSpeech: "article"
+
+          old:
+              partOfSpeech: "adjective"
+
+          one:
+              partOfSpeech: "pronoun"
+
+      answer:
+          - new
+          - old
+
+    - text: "The test was easy for me."
+      tokens:
+          the:
+              partOfSpeech: "article"
+
+          test:
+              partOfSpeech: "noun"
+
+          was:
+              partOfSpeech: "verb"
+
+          easy:
+              partOfSpeech: "adjective"
+
+          for:
+              partOfSpeech: "preposition"
+
+          me:
+              partOfSpeech: "pronoun"
+
+      answer:
+          - easy
+
+    - text: "This problem looks hard."
+      tokens:
+          this:
+              partOfSpeech: "determiner"
+
+          problem:
+              partOfSpeech: "noun"
+
+          looks:
+              partOfSpeech: "verb"
+
+          hard:
+              partOfSpeech: "adjective"
+
+      answer:
+          - hard
+
+    - text: "The easy question came before the hard one."
+      tokens:
+          the:
+              partOfSpeech: "article"
+
+          easy:
+              partOfSpeech: "adjective"
+
+          question:
+              partOfSpeech: "noun"
+
+          came:
+              partOfSpeech: "verb"
+
+          before:
+              partOfSpeech: "preposition"
+
+          hard:
+              partOfSpeech: "adjective"
+
+          one:
+              partOfSpeech: "pronoun"
+
+      answer:
+          - easy
+          - hard
+
+    - text: "This is an important message."
+      tokens:
+          this:
+              partOfSpeech: "pronoun"
+
+          is:
+              partOfSpeech: "verb"
+
+          an:
+              partOfSpeech: "article"
+
+          important:
+              partOfSpeech: "adjective"
+
+          message:
+              partOfSpeech: "noun"
+
+      answer:
+          - important
+
+    - text: "That idea is important for the team."
+      tokens:
+          that:
+              partOfSpeech: "determiner"
+
+          idea:
+              partOfSpeech: "noun"
+
+          is:
+              partOfSpeech: "verb"
+
+          important:
+              partOfSpeech: "adjective"
+
+          for:
+              partOfSpeech: "preposition"
+
+          the:
+              partOfSpeech: "article"
+
+          team:
+              partOfSpeech: "noun"
+
+      answer:
+          - important

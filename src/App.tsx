@@ -31,6 +31,7 @@ import { SentenceSessions } from "./pages/SentenceSessions";
 import { PictureMatchingGameModel } from "./activities/PictureMatchingGameModel";
 import { Track } from "./components/Track";
 import { SessionProvider } from "./providers/SessionProvider";
+import "./ananda-english.scss";
 const App: React.FC = () => {
     return (
         <LanguageProvider>

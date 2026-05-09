@@ -1,0 +1,396 @@
+// ============================================================
+// ANANDA ENGLISH — SCSS SKELETON
+// Built on top of Pico CSS custom properties
+// ============================================================
+@font-face {
+    font-family: "Fenix";
+    src: url("./assets/fonts/en/Fenix-Regular.woff2")
+        format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Comic Relief";
+    src: url("./assets/fonts/en/ComicRelief-Regular.woff2")
+        format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Comic Relief";
+    src: url("./assets/fonts/en/ComicRelief-Bold.woff2")
+        format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Noto Serif Malayalam";
+    src: url("./assets/fonts/ml/NotoSerifMalayalam-VariableFont_wght.woff2")
+        format("woff2");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Manjari";
+    src: url("./assets/fonts/ml/Manjari-Regular.woff2")
+        format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+// ============================================================
+// 1. DESIGN TOKENS
+// Override Pico variables + define app-specific ones
+// ============================================================
+
+:root {
+    // --- Brand colors ---
+    --color-green-regular: #a5d601; // default answer button bg
+    --color-green-correct: #4cbf00; // correct state
+    --color-green-dark: #1a3a0a; // text on light green bg
+    --color-green-light-text: #ffffff; // text on dark green bg
+
+    --color-orange: #f57b00; // incorrect state
+    --color-orange-text: #3d1a00; // text on orange bg
+
+    // --- Typography ---
+    --font-en-display: "Fenix", serif;
+    --font-en-body: "Comic Relief", cursive;
+    --font-ml-display: "Noto Serif Malayalam", serif;
+    --font-ml-body: "Manjari", sans-serif;
+    // --- Spacing ---
+    --pill-padding-x: 16px;
+    --pill-padding-y: 12px;
+    --pill-gap: 10px;
+    --pill-radius: 999px;
+    --pill-min-width: 56px;
+    --pill-min-height: 48px;
+}
+
+// ============================================================
+// 2. SESSION HEADER
+// Score bar + mascot + treasure chest
+// ============================================================
+
+.session-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    &__score {
+        // score bubble (the green circle with number)
+    }
+
+    &__progress {
+        // progress bar
+        flex: 1;
+    }
+
+    &__reward {
+        // treasure chest icon
+    }
+}
+
+// ============================================================
+// 3. QUESTION PROMPT
+// The text at the top of each question card
+// ============================================================
+
+.question-prompt {
+    text-align: center;
+    font-family: var(--font-en-display);
+    color: #1a1a1a;
+
+    // Large version — main focus of the screen (no image competing)
+    &--lg {
+        font-size: clamp(1.6rem, 6vw, 2.2rem);
+        line-height: 1.2;
+    }
+
+    // Small version — shares space with an image (picture match)
+    &--sm {
+        font-size: clamp(1rem, 4vw, 1.3rem);
+        line-height: 1.3;
+    }
+
+    // Language modifiers — swap font family
+    &--en {
+        font-family: var(--font-en-display);
+    }
+
+    &--ml {
+        font-family: var(--font-ml-display);
+    }
+}
+
+// ============================================================
+// 4. ANSWER BUTTON
+// Multiple choice pill buttons
+// ============================================================
+
+.answer-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: var(--pill-min-width);
+    min-height: var(--pill-min-height);
+    padding: var(--pill-padding-y) var(--pill-padding-x);
+    border-radius: var(--pill-radius);
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    transition:
+        transform 0.1s ease,
+        filter 0.1s ease;
+    width: 100%;
+
+    // Default state
+    background: var(--color-green-regular);
+    color: var(--color-green-dark);
+
+    &__label {
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: 1.3;
+    }
+
+    // Labeled variant — has Malayalam + phonetic subtitle (Watch button)
+    &--labeled {
+        gap: 4px;
+
+        .answer-button__sublabel {
+            font-size: 0.75rem; // TODO: may need to increase for kids
+            opacity: 0.85;
+            display: flex;
+            gap: 8px;
+        }
+    }
+
+    // Correct state
+    &--correct {
+        background: var(--color-green-correct);
+        color: var(--color-green-light-text);
+    }
+
+    // Incorrect state
+    &--incorrect {
+        background: var(--color-orange);
+        color: var(--color-orange-text);
+    }
+
+    // Language modifiers
+    &--en .answer-button__label {
+        font-family: var(--font-en-body);
+    }
+
+    &--ml .answer-button__label {
+        font-family: var(--font-ml-body);
+    }
+}
+
+// ============================================================
+// 5. WORD TOKEN
+// Tappable word pills in parts-of-speech / word hunt
+// ============================================================
+
+.word-token {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: var(--pill-min-width);
+    min-height: var(--pill-min-height);
+    padding: 10px 14px;
+    border-radius: 14px;
+    border: 2px solid transparent;
+    font-size: 1.1rem;
+    font-family: var(--font-en-body);
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease;
+    background: var(--color-green-regular);
+    color: var(--color-green-dark);
+
+    &--correct {
+        background: var(--color-green-correct);
+        color: var(--color-green-light-text);
+    }
+
+    &--incorrect {
+        background: var(--color-orange);
+        color: var(--color-orange-text);
+    }
+
+    &--ml {
+        font-family: var(--font-ml-body);
+    }
+}
+// Container for the word token sentence
+.word-token-sentence {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--pill-gap);
+    justify-content: flex-start;
+}
+
+// ============================================================
+// 6. SENTENCE CHUNK
+// Read aloud sentences — active / done / future states
+// ============================================================
+
+.sentence-chunk {
+    display: block;
+    line-height: 1.5;
+    transition:
+        opacity 0.3s ease,
+        font-size 0.3s ease;
+
+    &[data-state="active"] {
+        font-size: clamp(1.4rem, 5vw, 1.8rem);
+        font-weight: 700;
+        color: #1a1a1a;
+        opacity: 1;
+    }
+
+    &[data-state="done"] {
+        font-size: 1rem;
+        color: #888;
+        opacity: 0.5;
+    }
+
+    &[data-state="future"] {
+        font-size: 1rem;
+        color: #aaa;
+        opacity: 0.35;
+    }
+
+    &[data-state="error"] {
+        color: var(--color-orange);
+        opacity: 0.6;
+    }
+}
+
+// ============================================================
+// 7. QUESTION IMAGE
+// Picture shown in picture-match question type
+// ============================================================
+
+.question-image {
+    width: 100%;
+    max-width: 220px;
+    margin: 0 auto;
+    border-radius: 12px;
+    border: 3px solid var(--color-green-regular);
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+}
+
+// ============================================================
+// 8. SPEECH BUBBLE
+// Witch instructor feedback bubble
+// ============================================================
+.speech-bubble {
+    position: absolute;
+    z-index: 10;
+    container-type: inline-size;
+    right: 20px;
+    top: -90px;
+    width: 200px;
+    display: grid;
+
+    svg,
+    &__text {
+        grid-area: 1 / 1; // same cell, both overlap
+    }
+
+    svg {
+        width: 100%;
+        height: auto; // height comes from the SVG viewBox, not you
+    }
+
+    &__text {
+        place-self: center;
+        padding: 12px 16px 28px; // extra bottom padding to push text up above the tail
+        padding-bottom: 25%;
+        text-align: center;
+        line-height: 1.3;
+        z-index: 11;
+        font-size: clamp(1rem, 10cqi, 1.5rem);
+    }
+}
+.character-container {
+    position: relative;
+}
+
+// ============================================================
+// 9. MASCOTS
+// ============================================================
+
+.mascot {
+    // Little girl — top left, emotional feedback only
+    &--girl {
+        width: 48px;
+        height: auto;
+    }
+
+    // Witch — parts of speech instructor
+    &--witch {
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto;
+        display: block;
+    }
+}
+
+// ============================================================
+// 10. REWARD ICON
+// Treasure chest
+// ============================================================
+
+.reward-icon {
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+}
+
+// ============================================================
+// 11. CARD
+// White rounded container that wraps question content
+// ============================================================
+
+.question-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 1.5rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    width: 100%;
+}
+
+// ============================================================
+// 12. ANSWER BUTTON LIST
+// Wraps the set of answer buttons in multiple choice
+// ============================================================
+
+.answer-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--pill-gap);
+    width: 100%;
+}

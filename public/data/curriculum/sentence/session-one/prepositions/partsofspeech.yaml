@@ -1,51 +1,263 @@
-prepositions:
-  - text: "I go to the office every morning."
-    answer:
-      - to
-      - at
+preposition:
+    - text: "I go to the office every morning."
+      tokens:
+          i:
+              partOfSpeech: "pronoun"
 
-  - text: "The book is on the table."
-    answer:
-      - on
+          go:
+              partOfSpeech: "verb"
 
-  - text: "The cat is under the chair."
-    answer:
-      - under
+          to:
+              partOfSpeech: "preposition"
 
-  - text: "She lives in a small house."
-    answer:
-      - in
+          the:
+              partOfSpeech: "article"
 
-  - text: "We arrive at school at eight o’clock."
-    answer:
-      - at
-      - at
+          office:
+              partOfSpeech: "noun"
 
-  - text: "The boy walks to the park."
-    answer:
-      - to
+          every:
+              partOfSpeech: "determiner"
 
-  - text: "The keys are on the desk."
-    answer:
-      - on
+          morning:
+              partOfSpeech: "noun"
 
-  - text: "The dog sleeps under the bed."
-    answer:
-      - under
+      answer:
+          - to
 
-  - text: "They are in the room."
-    answer:
-      - in
+    - text: "The book is on the table."
+      tokens:
+          the:
+              partOfSpeech: "article"
 
-  - text: "I am at home now."
-    answer:
-      - at
+          book:
+              partOfSpeech: "noun"
 
-  - text: "She put the bag on the chair."
-    answer:
-      - on
+          is:
+              partOfSpeech: "verb"
 
-  - text: "We go to school in the morning."
-    answer:
-      - to
-      - in
+          on:
+              partOfSpeech: "preposition"
+
+          table:
+              partOfSpeech: "noun"
+
+      answer:
+          - on
+
+    - text: "The cat is under the chair."
+      tokens:
+          the:
+              partOfSpeech: "article"
+
+          cat:
+              partOfSpeech: "noun"
+
+          is:
+              partOfSpeech: "verb"
+
+          under:
+              partOfSpeech: "preposition"
+
+          chair:
+              partOfSpeech: "noun"
+
+      answer:
+          - under
+
+    - text: "She lives in a small house."
+      tokens:
+          she:
+              partOfSpeech: "pronoun"
+
+          lives:
+              partOfSpeech: "verb"
+
+          in:
+              partOfSpeech: "preposition"
+
+          a:
+              partOfSpeech: "article"
+
+          small:
+              partOfSpeech: "adjective"
+
+          house:
+              partOfSpeech: "noun"
+
+      answer:
+          - in
+
+    - text: "We arrive at school at eight o’clock."
+      tokens:
+          we:
+              partOfSpeech: "pronoun"
+
+          arrive:
+              partOfSpeech: "verb"
+
+          at:
+              partOfSpeech: "preposition"
+
+          school:
+              partOfSpeech: "noun"
+
+          eight:
+              partOfSpeech: "number"
+
+          o’clock:
+              partOfSpeech: "noun"
+
+      answer:
+          - at
+          - at
+
+    - text: "The boy walks to the park."
+      tokens:
+          the:
+              partOfSpeech: "article"
+
+          boy:
+              partOfSpeech: "noun"
+
+          walks:
+              partOfSpeech: "verb"
+
+          to:
+              partOfSpeech: "preposition"
+
+          park:
+              partOfSpeech: "noun"
+
+      answer:
+          - to
+
+    - text: "The keys are on the desk."
+      tokens:
+          the:
+              partOfSpeech: "article"
+
+          keys:
+              partOfSpeech: "noun"
+
+          are:
+              partOfSpeech: "verb"
+
+          on:
+              partOfSpeech: "preposition"
+
+          desk:
+              partOfSpeech: "noun"
+
+      answer:
+          - on
+
+    - text: "The dog sleeps under the bed."
+      tokens:
+          the:
+              partOfSpeech: "article"
+
+          dog:
+              partOfSpeech: "noun"
+
+          sleeps:
+              partOfSpeech: "verb"
+
+          under:
+              partOfSpeech: "preposition"
+
+          bed:
+              partOfSpeech: "noun"
+
+      answer:
+          - under
+
+    - text: "They are in the room."
+      tokens:
+          they:
+              partOfSpeech: "pronoun"
+
+          are:
+              partOfSpeech: "verb"
+
+          in:
+              partOfSpeech: "preposition"
+
+          the:
+              partOfSpeech: "article"
+
+          room:
+              partOfSpeech: "noun"
+
+      answer:
+          - in
+
+    - text: "I am at home now."
+      tokens:
+          i:
+              partOfSpeech: "pronoun"
+
+          am:
+              partOfSpeech: "verb"
+
+          at:
+              partOfSpeech: "preposition"
+
+          home:
+              partOfSpeech: "noun"
+
+          now:
+              partOfSpeech: "adverb"
+
+      answer:
+          - at
+
+    - text: "She put the bag on the chair."
+      tokens:
+          she:
+              partOfSpeech: "pronoun"
+
+          put:
+              partOfSpeech: "verb"
+
+          the:
+              partOfSpeech: "article"
+
+          bag:
+              partOfSpeech: "noun"
+
+          on:
+              partOfSpeech: "preposition"
+
+          chair:
+              partOfSpeech: "noun"
+
+      answer:
+          - on
+
+    - text: "We go to school in the morning."
+      tokens:
+          we:
+              partOfSpeech: "pronoun"
+
+          go:
+              partOfSpeech: "verb"
+
+          to:
+              partOfSpeech: "preposition"
+
+          school:
+              partOfSpeech: "noun"
+
+          in:
+              partOfSpeech: "preposition"
+
+          the:
+              partOfSpeech: "article"
+
+          morning:
+              partOfSpeech: "noun"
+
+      answer:
+          - to
+          - in

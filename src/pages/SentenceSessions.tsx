@@ -35,7 +35,7 @@ export function SentenceSessions() {
                         </li>
                         <li>
                             <Link to="/sentence/session1/adjectives/reading">
-                                Pratice reading Adjectives
+                                Practice reading Adjectives
                                 aloud
                             </Link>
                         </li>
@@ -64,7 +64,7 @@ export function SentenceSessions() {
                         </li>
                         <li>
                             <Link to="/sentence/session1/adverbs/reading">
-                                Pratice reading Adverbs
+                                Practice reading Adverbs
                                 aloud
                             </Link>
                         </li>
@@ -86,7 +86,7 @@ export function SentenceSessions() {
                         </li>
                         <li>
                             <Link to="/sentence/session1/nouns/reading">
-                                Pratice reading Nouns aloud
+                                Practice reading Nouns aloud
                             </Link>
                         </li>
                     </ul>
@@ -119,7 +119,7 @@ export function SentenceSessions() {
                         </li>
                         <li>
                             <Link to="/sentence/session1/pronouns/reading">
-                                Pratice reading Pronouns
+                                Practice reading Pronouns
                                 aloud
                             </Link>
                         </li>
@@ -135,7 +135,7 @@ export function SentenceSessions() {
                         </li>
                         <li>
                             <Link to="/sentence/session1/verbs/reading">
-                                Pratice reading Verbs aloud
+                                Practice reading Verbs aloud
                             </Link>
                         </li>
                         <li>

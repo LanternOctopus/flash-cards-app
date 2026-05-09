@@ -1,13 +1,21 @@
 import React, { useEffect, useState } from "react";
 
-import { PartsofSpeechModel } from "./PartsofSpeechModel";
+import {
+    PartsofSpeechModel,
+    PartsofSpeechItemNew,
+} from "./PartsofSpeechModel";
 import { useVisibilityGate } from "../providers/VisibilityGateContext";
+import { useData } from "../providers/DataProvider";
 import { useAnswer } from "../providers/AnswerProvider";
 import { useQuestion } from "../providers/QuestionContext";
 import { ParentScreen } from "./ParentScreen";
 import expandContractions from "../utils/expandContractions";
-import { stripPunctuation } from "../utils/utils";
+import {
+    stripPunctuation,
+    normalizeStr,
+} from "../utils/utils";
 import { PartOfSpeechMagicalGirl } from "../components/decorative/PartofSpeechMagicalGirl";
+import haptics from "../utils/haptics";
 export function PartsOfSpeechScreen() {
     return (
         <ParentScreen
@@ -36,56 +44,42 @@ const WordSpan: React.FC<WordSpanProps> = ({
     if (word.includes("'")) {
         marginLeft = 0;
     }
-    const outline =
-        guessState === "not guessed"
-            ? "none"
-            : guessState === "correct"
-              ? "3px solid green"
-              : "3px solid red";
-    const icon =
+
+    const className =
         guessState === "not guessed"
             ? ""
             : guessState === "correct"
-              ? "✅"
-              : "❌";
+              ? "--correct"
+              : "--incorrect";
     const displayWord =
         guessState === "not guessed"
             ? word
             : expandContractions(word);
-    const style: React.CSSProperties = {
-        outline: outline,
-        cursor: "pointer",
-    };
 
     return (
-        <label style={style}>
-            <input
-                type="checkbox"
-                name="pos"
-                style={{ display: "none" }} // Hides the actual box, but the label remains clickable
-                onClick={onClick}
-                aria-invalid={
-                    guessState === "correct"
-                        ? "false"
-                        : guessState === "wrong"
-                          ? "true"
-                          : undefined
-                }
-            />
+        <button
+            className={`word-token word-token${className}`}
+            onClick={onClick}
+            style={{ marginLeft }}
+            type="button"
+            aria-pressed={guessState !== "not guessed"}
+            aria-invalid={
+                guessState === "correct"
+                    ? "false"
+                    : guessState === "wrong"
+                      ? "true"
+                      : undefined
+            }
+        >
             {displayWord}
-            {icon}
-        </label>
+        </button>
     );
 };
 
-type PartsofSpeechItemNew = {
-    text: string;
-    answer: string[];
-    words: string[];
-    id: string;
-};
 export function PartsOfSpeechNew() {
     const item = useQuestion<PartsofSpeechItemNew>();
+    const data = useData<any>();
+    console.log("data", data);
     const builder = useVisibilityGate();
     const { checkCorrectness, handleNext } = useAnswer();
 
@@ -97,10 +91,13 @@ export function PartsOfSpeechNew() {
     const [latestWord, setLatestWord] = useState<string>();
     useEffect(() => {
         if (!item?.text) return;
+
         const initialGuesses: Record<string, string> = {};
-        item.words.forEach(
-            (w) => (initialGuesses[w] = "not guessed"),
-        );
+
+        item.words.forEach((w) => {
+            initialGuesses[normalizeStr(w)] = "not guessed";
+        });
+
         setGuessedWords(initialGuesses);
         setCorrect(false);
         setShowBack(false);
@@ -112,21 +109,30 @@ export function PartsOfSpeechNew() {
         return;
     };
     const checkWord = (rawWord: string) => {
-        if (guessedWords[rawWord] !== "not guessed") return;
-        setLatestWord(rawWord);
-        console.log("latest word", latestWord);
+        const word = normalizeStr(rawWord);
+
+        if (guessedWords[word] !== "not guessed") return;
+
+        setLatestWord(word);
+
         const expanded = expandContractions(rawWord)
             .split(" ")
-            .map(stripPunctuation);
+            .map(normalizeStr);
 
-        const result = checkCorrectness(rawWord);
+        const result = checkCorrectness(word.toLowerCase());
+
+        if (result.correct) {
+            haptics.effects.success();
+        } else {
+            haptics.effects.wrong();
+        }
 
         setGuessedWords((prev) => {
             const updated: Record<string, string> = {
                 ...prev,
             };
 
-            updated[rawWord] = result.correct
+            updated[word] = result.correct
                 ? "correct"
                 : "incorrect";
 
@@ -141,7 +147,9 @@ export function PartsOfSpeechNew() {
             return updated;
         });
 
-        if (result.done) onComplete(result.correct);
+        if (result.done) {
+            onComplete(result.correct);
+        }
     };
     const style = {
         display: "flex",
@@ -178,16 +186,40 @@ export function PartsOfSpeechNew() {
                 <fieldset style={style}>
                     <legend>
                         <h2>
-                            Find {item.answer.length}{" "}
-                            verb(s)
+                            {(() => {
+                                const keys = Object.keys(
+                                    data.items ?? {},
+                                );
+                                const label =
+                                    keys.length > 0
+                                        ? keys[0]
+                                        : "word"; // Fallback to "word" or ""
+
+                                return (
+                                    <>
+                                        Find{" "}
+                                        {item.answer.length}{" "}
+                                        {item.answer
+                                            .length === 1
+                                            ? label
+                                            : `${label}s`}
+                                    </>
+                                );
+                            })()}
                         </h2>
                     </legend>
                     {slots.front}
                 </fieldset>
                 <PartOfSpeechMagicalGirl
-                    correct={correct}
-                    phrase={item.text}
-                    word={latestWord}
+                    partOfSpeech={
+                        latestWord
+                            ? item.tokens[
+                                  stripPunctuation(
+                                      latestWord.toLowerCase(),
+                                  )
+                              ]?.partOfSpeech
+                            : undefined
+                    }
                 />
                 {showBack && advanceButton}
             </form>

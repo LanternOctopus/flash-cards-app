@@ -1,56 +1,283 @@
-adverbs:
+adverb:
     - text: "I always go to school on time."
+      tokens:
+          i:
+              partOfSpeech: "pronoun"
+
+          always:
+              partOfSpeech: "adverb"
+
+          go:
+              partOfSpeech: "verb"
+
+          to:
+              partOfSpeech: "preposition"
+
+          school:
+              partOfSpeech: "noun"
+
+          on:
+              partOfSpeech: "preposition"
+
+          time:
+              partOfSpeech: "noun"
+
       answer:
           - always
 
     - text: "She goes always to the market."
+      tokens:
+          she:
+              partOfSpeech: "pronoun"
+
+          goes:
+              partOfSpeech: "verb"
+
+          always:
+              partOfSpeech: "adverb"
+
+          to:
+              partOfSpeech: "preposition"
+
+          the:
+              partOfSpeech: "article"
+
+          market:
+              partOfSpeech: "noun"
+
       answer:
           - always
 
     - text: "Suddenly, it started to rain."
+      tokens:
+          suddenly:
+              partOfSpeech: "adverb"
+
+          it:
+              partOfSpeech: "pronoun"
+
+          started:
+              partOfSpeech: "verb"
+
+          to:
+              partOfSpeech: "preposition"
+
+          rain:
+              partOfSpeech: "verb"
+
       answer:
           - suddenly
 
     - text: "The door opened suddenly."
+      tokens:
+          the:
+              partOfSpeech: "article"
+
+          door:
+              partOfSpeech: "noun"
+
+          opened:
+              partOfSpeech: "verb"
+
+          suddenly:
+              partOfSpeech: "adverb"
+
       answer:
           - suddenly
 
     - text: "He runs very fast."
+      tokens:
+          he:
+              partOfSpeech: "pronoun"
+
+          runs:
+              partOfSpeech: "verb"
+
+          very:
+              partOfSpeech: "adverb"
+
+          fast:
+              partOfSpeech: "adjective"
+
       answer:
           - very
 
     - text: "The car is fast very."
+      tokens:
+          the:
+              partOfSpeech: "article"
+
+          car:
+              partOfSpeech: "noun"
+
+          is:
+              partOfSpeech: "verb"
+
+          fast:
+              partOfSpeech: "adjective"
+
+          very:
+              partOfSpeech: "adverb"
+
       answer:
           - very
 
     - text: "She reads the book again."
+      tokens:
+          she:
+              partOfSpeech: "pronoun"
+
+          reads:
+              partOfSpeech: "verb"
+
+          the:
+              partOfSpeech: "article"
+
+          book:
+              partOfSpeech: "noun"
+
+          again:
+              partOfSpeech: "adverb"
+
       answer:
           - again
 
     - text: "Again, he tried to solve the problem."
+      tokens:
+          again:
+              partOfSpeech: "adverb"
+
+          he:
+              partOfSpeech: "pronoun"
+
+          tried:
+              partOfSpeech: "verb"
+
+          to:
+              partOfSpeech: "preposition"
+
+          solve:
+              partOfSpeech: "verb"
+
+          the:
+              partOfSpeech: "article"
+
+          problem:
+              partOfSpeech: "noun"
+
       answer:
           - again
 
     - text: "The water is very cold."
+      tokens:
+          the:
+              partOfSpeech: "article"
+
+          water:
+              partOfSpeech: "noun"
+
+          is:
+              partOfSpeech: "verb"
+
+          very:
+              partOfSpeech: "adverb"
+
+          cold:
+              partOfSpeech: "adjective"
+
       answer:
           - very
 
     - text: "It is very a cold day."
+      tokens:
+          it:
+              partOfSpeech: "pronoun"
+
+          is:
+              partOfSpeech: "verb"
+
+          very:
+              partOfSpeech: "adverb"
+
+          a:
+              partOfSpeech: "article"
+
+          cold:
+              partOfSpeech: "adjective"
+
+          day:
+              partOfSpeech: "noun"
+
       answer:
           - very
 
     - text: "They always arrive early."
+      tokens:
+          they:
+              partOfSpeech: "pronoun"
+
+          always:
+              partOfSpeech: "adverb"
+
+          arrive:
+              partOfSpeech: "verb"
+
+          early:
+              partOfSpeech: "adverb"
+
       answer:
           - always
 
     - text: "The bell suddenly rang."
+      tokens:
+          the:
+              partOfSpeech: "article"
+
+          bell:
+              partOfSpeech: "noun"
+
+          suddenly:
+              partOfSpeech: "adverb"
+
+          rang:
+              partOfSpeech: "verb"
+
       answer:
           - suddenly
 
     - text: "He tried again after failing."
+      tokens:
+          he:
+              partOfSpeech: "pronoun"
+
+          tried:
+              partOfSpeech: "verb"
+
+          again:
+              partOfSpeech: "adverb"
+
+          after:
+              partOfSpeech: "preposition"
+
+          failing:
+              partOfSpeech: "verb"
+
       answer:
           - again
 
     - text: "She speaks very clearly."
+      tokens:
+          she:
+              partOfSpeech: "pronoun"
+
+          speaks:
+              partOfSpeech: "verb"
+
+          very:
+              partOfSpeech: "adverb"
+
+          clearly:
+              partOfSpeech: "adverb"
+
       answer:
           - very

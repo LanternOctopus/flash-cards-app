@@ -1,41 +1,259 @@
-pronouns:
-  - text: "Ajay likes school. He looks forward to it every morning."
-    answer:
-      - He
+pronoun:
+    - text: "Ajay likes school. He looks forward to it every morning."
+      tokens:
+          ajay:
+              partOfSpeech: "noun"
 
-  - text: "She is very happy today."
-    answer:
-      - She
+          likes:
+              partOfSpeech: "verb"
 
-  - text: "Riya has a new bag. It is blue."
-    answer:
-      - It
+          school:
+              partOfSpeech: "noun"
 
-  - text: "They are playing in the park."
-    answer:
-      - They
+          he:
+              partOfSpeech: "pronoun"
 
-  - text: "The boy is tired. He sits down."
-    answer:
-      - He
+          looks:
+              partOfSpeech: "verb"
 
-  - text: "I see a dog. It runs fast."
-    answer:
-      - I
-      - It
+          forward:
+              partOfSpeech: "adverb"
 
-  - text: "We go to school together."
-    answer:
-      - We
+          to:
+              partOfSpeech: "preposition"
 
-  - text: "The teacher is kind. She helps the students."
-    answer:
-      - She
+          it:
+              partOfSpeech: "pronoun"
 
-  - text: "You are my best friend."
-    answer:
-      - You
+          every:
+              partOfSpeech: "determiner"
 
-  - text: "Rahul and Lila are friends. They walk to school."
-    answer:
-      - They
+          morning:
+              partOfSpeech: "noun"
+
+      answer:
+          - he
+          - it
+
+    - text: "She is very happy today."
+      tokens:
+          she:
+              partOfSpeech: "pronoun"
+
+          is:
+              partOfSpeech: "verb"
+
+          very:
+              partOfSpeech: "adverb"
+
+          happy:
+              partOfSpeech: "adjective"
+
+          today:
+              partOfSpeech: "noun"
+
+      answer:
+          - she
+
+    - text: "Riya has a new bag. It is blue."
+      tokens:
+          riya:
+              partOfSpeech: "noun"
+
+          has:
+              partOfSpeech: "verb"
+
+          a:
+              partOfSpeech: "article"
+
+          new:
+              partOfSpeech: "adjective"
+
+          bag:
+              partOfSpeech: "noun"
+
+          it:
+              partOfSpeech: "pronoun"
+
+          is:
+              partOfSpeech: "verb"
+
+          blue:
+              partOfSpeech: "adjective"
+
+      answer:
+          - it
+
+    - text: "They are playing in the park."
+      tokens:
+          they:
+              partOfSpeech: "pronoun"
+
+          are:
+              partOfSpeech: "verb"
+
+          playing:
+              partOfSpeech: "verb"
+
+          in:
+              partOfSpeech: "preposition"
+
+          the:
+              partOfSpeech: "article"
+
+          park:
+              partOfSpeech: "noun"
+
+      answer:
+          - they
+
+    - text: "The boy is tired. He sits down."
+      tokens:
+          the:
+              partOfSpeech: "article"
+
+          boy:
+              partOfSpeech: "noun"
+
+          is:
+              partOfSpeech: "verb"
+
+          tired:
+              partOfSpeech: "adjective"
+
+          he:
+              partOfSpeech: "pronoun"
+
+          sits:
+              partOfSpeech: "verb"
+
+          down:
+              partOfSpeech: "adverb"
+
+      answer:
+          - he
+
+    - text: "I see a dog. It runs fast."
+      tokens:
+          i:
+              partOfSpeech: "pronoun"
+
+          see:
+              partOfSpeech: "verb"
+
+          a:
+              partOfSpeech: "article"
+
+          dog:
+              partOfSpeech: "noun"
+
+          it:
+              partOfSpeech: "pronoun"
+
+          runs:
+              partOfSpeech: "verb"
+
+          fast:
+              partOfSpeech: "adverb"
+
+      answer:
+          - i
+          - it
+
+    - text: "We go to school together."
+      tokens:
+          we:
+              partOfSpeech: "pronoun"
+
+          go:
+              partOfSpeech: "verb"
+
+          to:
+              partOfSpeech: "preposition"
+
+          school:
+              partOfSpeech: "noun"
+
+          together:
+              partOfSpeech: "adverb"
+
+      answer:
+          - we
+
+    - text: "The teacher is kind. She helps the students."
+      tokens:
+          the:
+              partOfSpeech: "article"
+
+          teacher:
+              partOfSpeech: "noun"
+
+          is:
+              partOfSpeech: "verb"
+
+          kind:
+              partOfSpeech: "adjective"
+
+          she:
+              partOfSpeech: "pronoun"
+
+          helps:
+              partOfSpeech: "verb"
+
+          students:
+              partOfSpeech: "noun"
+
+      answer:
+          - she
+
+    - text: "You are my best friend."
+      tokens:
+          you:
+              partOfSpeech: "pronoun"
+
+          are:
+              partOfSpeech: "verb"
+
+          my:
+              partOfSpeech: "determiner"
+
+          best:
+              partOfSpeech: "adjective"
+
+          friend:
+              partOfSpeech: "noun"
+
+      answer:
+          - you
+
+    - text: "Rahul and Lila are friends. They walk to school."
+      tokens:
+          rahul:
+              partOfSpeech: "noun"
+
+          and:
+              partOfSpeech: "conjunction"
+
+          lila:
+              partOfSpeech: "noun"
+
+          are:
+              partOfSpeech: "verb"
+
+          friends:
+              partOfSpeech: "noun"
+
+          they:
+              partOfSpeech: "pronoun"
+
+          walk:
+              partOfSpeech: "verb"
+
+          to:
+              partOfSpeech: "preposition"
+
+          school:
+              partOfSpeech: "noun"
+
+      answer:
+          - they
