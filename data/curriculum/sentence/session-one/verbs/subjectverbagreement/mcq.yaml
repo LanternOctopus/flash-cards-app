@@ -1,0 +1,220 @@
+verbs:
+    - question: "go"
+      english: "He went to the market."
+      targetLang: "അവൻ മാർക്കറ്റിൽ പോയി."
+      phonetics: "avan markettil poyi."
+      distractors:
+          choices:
+              - "He go to the market yesterday."
+              - "They goes to the market."
+              - "He is went to the market."
+          translations:
+              - "അവൻ ഇന്നലെ മാർക്കറ്റിൽ പോകുന്നു."
+              - "അവർ മാർക്കറ്റിൽ പോകുന്നു."
+              - "അവൻ മാർക്കറ്റിൽ പോയിട്ടുണ്ട്."
+          transliterations:
+              - "avan innale markettil pokunnu."
+              - "avar markettil pokunnu."
+              - "avan markettil poyittundu."
+      learningHint: "Past of 'go' is 'went' for all subjects."
+      meta:
+          subject: "he"
+          tense: "simple past"
+
+    - question: "go"
+      english: "They go to school every day."
+      targetLang: "അവർ എല്ലാ ദിവസവും സ്കൂളിൽ പോകുന്നു."
+      phonetics: "avar ellaa divasavum schoolil pokunnu."
+      distractors:
+          choices:
+              - "They goes to school every day."
+              - "They is go to school every day."
+              - "They went to school every day."
+          translations:
+              - "അവർ എല്ലാ ദിവസവും സ്കൂളിൽ പോകുന്നു."
+              - "അവർ എല്ലാ ദിവസവും സ്കൂളിൽ പോകുന്നു."
+              - "അവർ എല്ലാ ദിവസവും സ്കൂളിൽ പോയി."
+          transliterations:
+              - "avar ellaa divasavum schoolil pokunnu."
+              - "avar ellaa divasavum schoolil pokunnu."
+              - "avar ellaa divasavum schoolil poyi."
+      learningHint: "Plural subjects use base verb 'go'."
+      meta:
+          subject: "they"
+          tense: "present simple"
+
+    - question: "see"
+      english: "She sees the teacher in the hall."
+      targetLang: "അവൾ ഹാളിൽ ടീച്ചറെ കാണുന്നു."
+      phonetics: "aval haalil teacher-e kaanunnu."
+      distractors:
+          choices:
+              - "She see the teacher in the hall."
+              - "She seen the teacher in the hall."
+              - "They sees the teacher in the hall."
+          translations:
+              - "അവൾ ഹാളിൽ ടീച്ചറെ കാണുന്നു."
+              - "അവൾ ഹാളിൽ ടീച്ചറെ കണ്ടു."
+              - "അവർ ഹാളിൽ ടീച്ചറെ കാണുന്നു."
+          transliterations:
+              - "aval haalil teacher-e kaanunnu."
+              - "aval haalil teacher-e kandu."
+              - "avar haalil teacher-e kaanunnu."
+      learningHint: "He/She/It takes 'sees' in present simple."
+      meta:
+          subject: "she"
+          tense: "present simple"
+
+    - question: "work"
+      english: "We work in the office."
+      targetLang: "ഞങ്ങൾ ഓഫീസിൽ ജോലി ചെയ്യുന്നു."
+      phonetics: "njangal officeil joli cheyyunnu."
+      distractors:
+          choices:
+              - "We works in the office."
+              - "We is work in the office."
+              - "She work in the office."
+          translations:
+              - "ഞങ്ങൾ ഓഫീസിൽ ജോലി ചെയ്യുന്നു."
+              - "ഞങ്ങൾ ഓഫീസിൽ ജോലി ചെയ്യുന്നു."
+              - "അവൾ ഓഫീസിൽ ജോലി ചെയ്യുന്നു."
+          transliterations:
+              - "njangal officeil joli cheyyunnu."
+              - "njangal officeil joli cheyyunnu."
+              - "aval officeil joli cheyyunnu."
+      learningHint: "'We' uses base verb 'work'."
+      meta:
+          subject: "we"
+          tense: "present simple"
+
+    - question: "give"
+      english: "He gives a gift to the child."
+      targetLang: "അവൻ കുട്ടിക്ക് ഒരു സമ്മാനം കൊടുക്കുന്നു."
+      phonetics: "avan kutti-kku oru sammanam kodukkunnu."
+      distractors:
+          choices:
+              - "He give a gift to the child."
+              - "He gave a gift every day."
+              - "They gives a gift to the child."
+          translations:
+              - "അവൻ കുട്ടിക്ക് ഒരു സമ്മാനം കൊടുക്കുന്നു."
+              - "അവൻ ഓരോ ദിവസവും ഒരു സമ്മാനം കൊടുത്തു."
+              - "അവർ കുട്ടിക്ക് ഒരു സമ്മാനം കൊടുക്കുന്നു."
+          transliterations:
+              - "avan kutti-kku oru sammanam kodukkunnu."
+              - "avan oro divasavum oru sammanam koduthu."
+              - "avar kutti-kku oru sammanam kodukkunnu."
+      learningHint: "He/She/It takes 'gives'."
+      meta:
+          subject: "he"
+          tense: "present simple"
+
+    - question: "think"
+      english: "They think about the problem."
+      targetLang: "അവർ പ്രശ്നത്തെക്കുറിച്ച് ചിന്തിക്കുന്നു."
+      phonetics: "avar prashnam kurich chinthikkunnu."
+      distractors:
+          choices:
+              - "They thinks about the problem."
+              - "They is think about the problem."
+              - "He think about the problem."
+          translations:
+              - "അവർ പ്രശ്നത്തെക്കുറിച്ച് ചിന്തിക്കുന്നു."
+              - "അവർ പ്രശ്നത്തെക്കുറിച്ച് ചിന്തിക്കുന്നു."
+              - "അവൻ പ്രശ്നത്തെക്കുറിച്ച് ചിന്തിക്കുന്നു."
+          transliterations:
+              - "avar prashnam kurich chinthikkunnu."
+              - "avar prashnam kurich chinthikkunnu."
+              - "avan prashnam kurich chinthikkunnu."
+      learningHint: "Plural subjects use 'think'."
+      meta:
+          subject: "they"
+          tense: "present simple"
+
+    - question: "work"
+      english: "She worked at the hospital."
+      targetLang: "അവൾ ആശുപത്രിയിൽ ജോലി ചെയ്തു."
+      phonetics: "aval aashupathriyil joli cheythu."
+      distractors:
+          choices:
+              - "She work at the hospital yesterday."
+              - "She works at the hospital yesterday."
+              - "They worked at the hospital."
+          translations:
+              - "അവൾ ഇന്നലെ ആശുപത്രിയിൽ ജോലി ചെയ്യുന്നു."
+              - "അവൾ ഇന്നലെ ആശുപത്രിയിൽ ജോലി ചെയ്യുന്നു."
+              - "അവർ ആശുപത്രിയിൽ ജോലി ചെയ്തു."
+          transliterations:
+              - "aval innale aashupathriyil joli cheyyunnu."
+              - "aval innale aashupathriyil joli cheyyunnu."
+              - "avar aashupathriyil joli cheythu."
+      learningHint: "Past of 'work' is 'worked'."
+      meta:
+          subject: "she"
+          tense: "simple past"
+
+    - question: "see"
+      english: "I see the result clearly."
+      targetLang: "ഞാൻ ഫലം വ്യക്തമായി കാണുന്നു."
+      phonetics: "njaan phalam vyakthamaayi kaanunnu."
+      distractors:
+          choices:
+              - "I sees the result clearly."
+              - "I am see the result clearly."
+              - "He see the result clearly."
+          translations:
+              - "ഞാൻ ഫലം വ്യക്തമായി കാണുന്നു."
+              - "ഞാൻ ഫലം വ്യക്തമായി കാണുന്നു."
+              - "അവൻ ഫലം വ്യക്തമായി കാണുന്നു."
+          transliterations:
+              - "njaan phalam vyakthamaayi kaanunnu."
+              - "njaan phalam vyakthamaayi kaanunnu."
+              - "avan phalam vyakthamaayi kaanunnu."
+      learningHint: "'I' uses base verb 'see'."
+      meta:
+          subject: "I"
+          tense: "present simple"
+
+    - question: "give"
+      english: "They gave the book to me."
+      targetLang: "അവർ എനിക്ക് പുസ്തകം കൊടുത്തു."
+      phonetics: "avar enikku pusthakam koduthu."
+      distractors:
+          choices:
+              - "They give the book to me yesterday."
+              - "They gives the book to me yesterday."
+              - "He gave the book to me."
+          translations:
+              - "അവർ ഇന്നലെ എനിക്ക് പുസ്തകം കൊടുക്കുന്നു."
+              - "അവർ ഇന്നലെ എനിക്ക് പുസ്തകം കൊടുക്കുന്നു."
+              - "അവൻ എനിക്ക് പുസ്തകം കൊടുത്തു."
+          transliterations:
+              - "avar innale enikku pusthakam kodukkunnu."
+              - "avar innale enikku pusthakam kodukkunnu."
+              - "avan enikku pusthakam koduthu."
+      learningHint: "Past of 'give' is 'gave'."
+      meta:
+          subject: "they"
+          tense: "simple past"
+
+    - question: "think"
+      english: "He thought about the idea."
+      targetLang: "അവൻ ആശയം കുറിച്ച് ചിന്തിച്ചു."
+      phonetics: "avan aashayam kurich chinthichu."
+      distractors:
+          choices:
+              - "He think about the idea yesterday."
+              - "He thinks about the idea yesterday."
+              - "They thought about the idea."
+          translations:
+              - "അവൻ ഇന്നലെ ആശയം കുറിച്ച് ചിന്തിക്കുന്നു."
+              - "അവൻ ഇന്നലെ ആശയം കുറിച്ച് ചിന്തിക്കുന്നു."
+              - "അവർ ആശയം കുറിച്ച് ചിന്തിച്ചു."
+          transliterations:
+              - "avan innale aashayam kurich chinthikkunnu."
+              - "avan innale aashayam kurich chinthikkunnu."
+              - "avar aashayam kurich chinthichu."
+      learningHint: "Past of 'think' is 'thought'."
+      meta:
+          subject: "he"
+          tense: "simple past"

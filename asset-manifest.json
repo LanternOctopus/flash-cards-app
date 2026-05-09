@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.879086b8.css",
-    "main.js": "/static/js/main.c6c03c4b.js",
-    "static/media/InriaSerif-Italic.ttf": "/static/media/InriaSerif-Italic.ae8c93c183d12cacb419.ttf",
-    "static/media/InriaSerif-Regular.ttf": "/static/media/InriaSerif-Regular.f43b3e7fe0caf2aaeade.ttf",
-    "static/media/InriaSerif-Bold.ttf": "/static/media/InriaSerif-Bold.6e940239a53050039654.ttf",
-    "static/media/ComicRelief-Regular.ttf": "/static/media/ComicRelief-Regular.6e10de08b3a5e639247e.ttf",
-    "static/media/Kavivanar-Regular.ttf": "/static/media/Kavivanar-Regular.32d5ccf94f3a2d526064.ttf",
+    "main.css": "/static/css/main.c0c3d55d.css",
+    "main.js": "/static/js/main.abcbfa88.js",
+    "static/media/NotoSerifMalayalam-VariableFont_wght.woff2": "/static/media/NotoSerifMalayalam-VariableFont_wght.e96be3b3ab19b9dc465b.woff2",
+    "static/media/Manjari-Regular.woff2": "/static/media/Manjari-Regular.705d839119abf8a58f11.woff2",
+    "static/media/ComicRelief-Bold.woff2": "/static/media/ComicRelief-Bold.06265decdee0275dc9e4.woff2",
+    "static/media/ComicRelief-Regular.woff2": "/static/media/ComicRelief-Regular.cb1405719477062df542.woff2",
+    "static/media/Fenix-Regular.woff2": "/static/media/Fenix-Regular.58d45e10e3fc58c57855.woff2",
     "index.html": "/index.html",
-    "main.879086b8.css.map": "/static/css/main.879086b8.css.map",
-    "main.c6c03c4b.js.map": "/static/js/main.c6c03c4b.js.map"
+    "main.c0c3d55d.css.map": "/static/css/main.c0c3d55d.css.map",
+    "main.abcbfa88.js.map": "/static/js/main.abcbfa88.js.map"
   },
   "entrypoints": [
-    "static/css/main.879086b8.css",
-    "static/js/main.c6c03c4b.js"
+    "static/css/main.c0c3d55d.css",
+    "static/js/main.abcbfa88.js"
   ]
 }

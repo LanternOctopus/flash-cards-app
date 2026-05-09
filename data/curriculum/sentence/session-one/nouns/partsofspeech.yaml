@@ -1,0 +1,309 @@
+noun:
+    - text: "The place is very quiet."
+      tokens:
+          the:
+              partOfSpeech: "article"
+
+          place:
+              partOfSpeech: "noun"
+
+          is:
+              partOfSpeech: "verb"
+
+          very:
+              partOfSpeech: "adverb"
+
+          quiet:
+              partOfSpeech: "adjective"
+
+      answer:
+          - place
+
+    - text: "People like this place."
+      tokens:
+          people:
+              partOfSpeech: "noun"
+
+          like:
+              partOfSpeech: "verb"
+
+          this:
+              partOfSpeech: "determiner"
+
+          place:
+              partOfSpeech: "noun"
+
+      answer:
+          - people
+          - place
+
+    - text: "This thing is very useful."
+      tokens:
+          this:
+              partOfSpeech: "determiner"
+
+          thing:
+              partOfSpeech: "noun"
+
+          is:
+              partOfSpeech: "verb"
+
+          very:
+              partOfSpeech: "adverb"
+
+          useful:
+              partOfSpeech: "adjective"
+
+      answer:
+          - thing
+
+    - text: "We use these things every day."
+      tokens:
+          we:
+              partOfSpeech: "pronoun"
+
+          use:
+              partOfSpeech: "verb"
+
+          these:
+              partOfSpeech: "determiner"
+
+          things:
+              partOfSpeech: "noun"
+
+          every:
+              partOfSpeech: "determiner"
+
+          day:
+              partOfSpeech: "noun"
+
+      answer:
+          - things
+
+    - text: "A good idea comes to a person."
+      tokens:
+          a:
+              partOfSpeech: "article"
+
+          good:
+              partOfSpeech: "adjective"
+
+          idea:
+              partOfSpeech: "noun"
+
+          comes:
+              partOfSpeech: "verb"
+
+          to:
+              partOfSpeech: "preposition"
+
+          person:
+              partOfSpeech: "noun"
+
+      answer:
+          - idea
+          - person
+
+    - text: "Many ideas come from people."
+      tokens:
+          many:
+              partOfSpeech: "determiner"
+
+          ideas:
+              partOfSpeech: "noun"
+
+          come:
+              partOfSpeech: "verb"
+
+          from:
+              partOfSpeech: "preposition"
+
+          people:
+              partOfSpeech: "noun"
+
+      answer:
+          - ideas
+          - people
+
+    - text: "At night, time moves slowly."
+      tokens:
+          at:
+              partOfSpeech: "preposition"
+
+          night:
+              partOfSpeech: "noun"
+
+          time:
+              partOfSpeech: "noun"
+
+          moves:
+              partOfSpeech: "verb"
+
+          slowly:
+              partOfSpeech: "adverb"
+
+      answer:
+          - time
+
+    - text: "Time is very important for us."
+      tokens:
+          time:
+              partOfSpeech: "noun"
+
+          is:
+              partOfSpeech: "verb"
+
+          very:
+              partOfSpeech: "adverb"
+
+          important:
+              partOfSpeech: "adjective"
+
+          for:
+              partOfSpeech: "preposition"
+
+          us:
+              partOfSpeech: "pronoun"
+
+      answer:
+          - time
+
+    - text: "In this place, a person feels safe."
+      tokens:
+          in:
+              partOfSpeech: "preposition"
+
+          this:
+              partOfSpeech: "determiner"
+
+          place:
+              partOfSpeech: "noun"
+
+          a:
+              partOfSpeech: "article"
+
+          person:
+              partOfSpeech: "noun"
+
+          feels:
+              partOfSpeech: "verb"
+
+          safe:
+              partOfSpeech: "adjective"
+
+      answer:
+          - place
+          - person
+
+    - text: "There are many things in the box."
+      tokens:
+          there:
+              partOfSpeech: "pronoun"
+
+          are:
+              partOfSpeech: "verb"
+
+          many:
+              partOfSpeech: "determiner"
+
+          things:
+              partOfSpeech: "noun"
+
+          in:
+              partOfSpeech: "preposition"
+
+          the:
+              partOfSpeech: "article"
+
+          box:
+              partOfSpeech: "noun"
+
+      answer:
+          - things
+
+    - text: "A person saw people near the beach."
+      tokens:
+          a:
+              partOfSpeech: "article"
+
+          person:
+              partOfSpeech: "noun"
+
+          saw:
+              partOfSpeech: "verb"
+
+          people:
+              partOfSpeech: "noun"
+
+          near:
+              partOfSpeech: "preposition"
+
+          the:
+              partOfSpeech: "article"
+
+          beach:
+              partOfSpeech: "noun"
+
+      answer:
+          - person
+          - people
+
+    - text: "Ideas change the way we think."
+      tokens:
+          ideas:
+              partOfSpeech: "noun"
+
+          change:
+              partOfSpeech: "verb"
+
+          the:
+              partOfSpeech: "article"
+
+          way:
+              partOfSpeech: "noun"
+
+          we:
+              partOfSpeech: "pronoun"
+
+          think:
+              partOfSpeech: "verb"
+
+      answer:
+          - ideas
+
+    - text: "Sometimes, a thing breaks easily."
+      tokens:
+          sometimes:
+              partOfSpeech: "adverb"
+
+          a:
+              partOfSpeech: "article"
+
+          thing:
+              partOfSpeech: "noun"
+
+          breaks:
+              partOfSpeech: "verb"
+
+          easily:
+              partOfSpeech: "adverb"
+
+      answer:
+          - thing
+
+    - text: "On Sundays, people relax."
+      tokens:
+          on:
+              partOfSpeech: "preposition"
+
+          sundays:
+              partOfSpeech: "noun"
+
+          people:
+              partOfSpeech: "noun"
+
+          relax:
+              partOfSpeech: "verb"
+
+      answer:
+          - people

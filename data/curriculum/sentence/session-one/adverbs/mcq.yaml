@@ -1,0 +1,198 @@
+adverbs:
+    - question: "always"
+      english: "I always go to the park."
+      targetLang: "ഞാൻ എല്ലായ്പ്പോഴും പാർക്കിലേക്ക് പോകുന്നു."
+      phonetics: "njan ellayppozhum parkilekku pokunnu."
+      distractors:
+          choices:
+              - "I never go to the park."
+              - "I suddenly go to the park."
+              - "I go to the big park."
+              - "I always went to the park."
+          translations:
+              - "ഞാൻ ഒരിക്കലും പാർക്കിലേക്ക് പോകുന്നില്ല."
+              - "ഞാൻ പെട്ടെന്ന് പാർക്കിലേക്ക് പോകുന്നു."
+              - "ഞാൻ വലിയ പാർക്കിലേക്ക് പോകുന്നു."
+              - "ഞാൻ എല്ലായ്പ്പോഴും പാർക്കിലേക്ക് പോയി."
+          transliterations:
+              - "njan orikkalum parkilekku pokunnilla."
+              - "njan pettennu parkilekku pokunnu."
+              - "njan valiya parkilekku pokunnu."
+              - "njan ellayppozhum parkilekku poyi."
+      learningHint: "‘Always’ means every time."
+
+    - question: "sometimes"
+      english: "I sometimes read this book."
+      targetLang: "ഞാൻ ചിലപ്പോൾ ഈ പുസ്തകം വായിക്കുന്നു."
+      phonetics: "njan chilappol ee pusthakam vayikkunnu."
+      distractors:
+          choices:
+              - "I never read this book."
+              - "I suddenly read this book."
+              - "I read this big book."
+              - "I sometimes reads this book."
+          translations:
+              - "ഞാൻ ഒരിക്കലും ഈ പുസ്തകം വായിക്കുന്നില്ല."
+              - "ഞാൻ പെട്ടെന്ന് ഈ പുസ്തകം വായിക്കുന്നു."
+              - "ഞാൻ വലിയ ഈ പുസ്തകം വായിക്കുന്നു."
+              - "ഞാൻ ചിലപ്പോൾ ഈ പുസ്തകം വായിക്കുന്നു."
+          transliterations:
+              - "njan orikkalum ee pusthakam vayikkunnilla."
+              - "njan pettennu ee pusthakam vayikkunnu."
+              - "njan valiya ee pusthakam vayikkunnu."
+              - "njan chilappol ee pusthakam vayikkunnu."
+      learningHint: "‘Sometimes’ means not always, but occasionally."
+
+    - question: "never"
+      english: "I never eat at that place."
+      targetLang: "ഞാൻ ഒരിക്കലും ആ സ്ഥലത്ത് ഭക്ഷണം കഴിക്കുന്നില്ല."
+      phonetics: "njan orikkalum aa sthalath bhakshanam kazhikkunnilla."
+      distractors:
+          choices:
+              - "I always eat at that place."
+              - "I suddenly eat at that place."
+              - "I eat at that big place."
+              - "I never ate at that place."
+          translations:
+              - "ഞാൻ എല്ലായ്പ്പോഴും ആ സ്ഥലത്ത് ഭക്ഷണം കഴിക്കുന്നു."
+              - "ഞാൻ പെട്ടെന്ന് ആ സ്ഥലത്ത് ഭക്ഷണം കഴിക്കുന്നു."
+              - "ഞാൻ വലിയ ആ സ്ഥലത്ത് ഭക്ഷണം കഴിക്കുന്നു."
+              - "ഞാൻ ഒരിക്കലും ആ സ്ഥലത്ത് ഭക്ഷണം കഴിച്ചില്ല."
+          transliterations:
+              - "njan ellayppozhum aa sthalath bhakshanam kazhikkunnu."
+              - "njan pettennu aa sthalath bhakshanam kazhikkunnu."
+              - "njan valiya aa sthalath bhakshanam kazhikkunnu."
+              - "njan orikkalum aa sthalath bhakshanam kazhichilla."
+      learningHint: "‘Never’ means not at any time."
+
+    - question: "suddenly"
+      english: "I suddenly opened the door."
+      targetLang: "ഞാൻ പെട്ടെന്ന് വാതിൽ തുറന്നു."
+      phonetics: "njan pettennu vaathil thurannu."
+      distractors:
+          choices:
+              - "I slowly opened the door."
+              - "I always opened the door."
+              - "I opened the big door."
+              - "I suddenly opens the door."
+          translations:
+              - "ഞാൻ മന്ദഗതിയിൽ വാതിൽ തുറന്നു."
+              - "ഞാൻ എല്ലായ്പ്പോഴും വാതിൽ തുറന്നു."
+              - "ഞാൻ വലിയ വാതിൽ തുറന്നു."
+              - "ഞാൻ പെട്ടെന്ന് വാതിൽ തുറക്കുന്നു."
+          transliterations:
+              - "njan mandagathiyil vaathil thurannu."
+              - "njan ellayppozhum vaathil thurannu."
+              - "njan valiya vaathil thurannu."
+              - "njan pettennu vaathil thurakkunnu."
+      learningHint: "‘Suddenly’ means quickly and unexpectedly."
+
+    - question: "fast"
+      english: "I ran fast to the park."
+      targetLang: "ഞാൻ വേഗത്തിൽ പാർക്കിലേക്ക് ഓടി."
+      phonetics: "njan vegathil parkilekku odi."
+      distractors:
+          choices:
+              - "I ran slowly to the park."
+              - "I always ran to the park."
+              - "I ran to the new park."
+              - "I ran fastly to the park."
+          translations:
+              - "ഞാൻ മന്ദഗതിയിൽ പാർക്കിലേക്ക് ഓടി."
+              - "ഞാൻ എല്ലായ്പ്പോഴും പാർക്കിലേക്ക് ഓടി."
+              - "ഞാൻ പുതിയ പാർക്കിലേക്ക് ഓടി."
+              - "ഞാൻ വേഗത്തിൽ പാർക്കിലേക്ക് ഓടി."
+          transliterations:
+              - "njan mandagathiyil parkilekku odi."
+              - "njan ellayppozhum parkilekku odi."
+              - "njan puthiya parkilekku odi."
+              - "njan vegathil parkilekku odi."
+      learningHint: "‘Fast’ describes speed. ‘Fastly’ is incorrect."
+
+    - question: "slowly"
+      english: "I walked slowly to the house."
+      targetLang: "ഞാൻ മന്ദഗതിയിൽ വീട്ടിലേക്ക് നടന്നു."
+      phonetics: "njan mandagathiyil veetilekku nadannu."
+      distractors:
+          choices:
+              - "I walked fast to the house."
+              - "I always walked to the house."
+              - "I walked to the big house."
+              - "I walked slowlyed to the house."
+          translations:
+              - "ഞാൻ വേഗത്തിൽ വീട്ടിലേക്ക് നടന്നു."
+              - "ഞാൻ എല്ലായ്പ്പോഴും വീട്ടിലേക്ക് നടന്നു."
+              - "ഞാൻ വലിയ വീട്ടിലേക്ക് നടന്നു."
+              - "ഞാൻ മന്ദഗതിയിൽ വീട്ടിലേക്ക് നടന്നു."
+          transliterations:
+              - "njan vegathil veetilekku nadannu."
+              - "njan ellayppozhum veetilekku nadannu."
+              - "njan valiya veetilekku nadannu."
+              - "njan mandagathiyil veetilekku nadannu."
+      learningHint: "‘Slowly’ describes how an action happens."
+
+    - question: "again"
+      english: "I will try again tomorrow."
+      targetLang: "ഞാൻ നാളെ വീണ്ടും ശ്രമിക്കും."
+      phonetics: "njan nale veendum sramikkum."
+      distractors:
+          choices:
+              - "I will not try again tomorrow."
+              - "I always try tomorrow."
+              - "I will try tomorrow."
+              - "I will try again yesterday."
+          translations:
+              - "ഞാൻ നാളെ വീണ്ടും ശ്രമിക്കില്ല."
+              - "ഞാൻ എല്ലായ്പ്പോഴും നാളെ ശ്രമിക്കുന്നു."
+              - "ഞാൻ നാളെ ശ്രമിക്കും."
+              - "ഞാൻ ഇന്നലെ വീണ്ടും ശ്രമിക്കും."
+          transliterations:
+              - "njan nale veendum sramikkilla."
+              - "njan ellayppozhum nale sramikkunnu."
+              - "njan nale sramikkum."
+              - "njan innale veendum sramikkum."
+      learningHint: "‘Again’ means one more time."
+
+    - question: "very"
+      english: "This is very good."
+      targetLang: "ഇത് വളരെ നല്ലതാണ്."
+      phonetics: "ithu valare nallathanu."
+      distractors:
+          choices:
+              - "This is not very good."
+              - "This is always good."
+              - "This is suddenly good."
+              - "This is very went."
+          translations:
+              - "ഇത് അത്ര നല്ലതല്ല."
+              - "ഇത് എല്ലായ്പ്പോഴും നല്ലതാണ്."
+              - "ഇത് പെട്ടെന്ന് നല്ലതാണ്."
+              - "ഇത് വളരെ പോയി."
+          transliterations:
+              - "ithu athra nallathalla."
+              - "ithu ellayppozhum nallathanu."
+              - "ithu pettennu nallathanu."
+              - "ithu valare poyi."
+      learningHint: "‘Very’ increases intensity."
+
+    - question: "very (negative)"
+      english: "This is not very easy."
+      targetLang: "ഇത് അത്ര എളുപ്പമുള്ളതല്ല."
+      phonetics: "ithu athra eluppamullathalla."
+      distractors:
+          choices:
+              - "This is very easy."
+              - "This is always easy."
+              - "This is suddenly easy."
+              - "This is not very went."
+          translations:
+              - "ഇത് വളരെ എളുപ്പമാണ്."
+              - "ഇത് എല്ലായ്പ്പോഴും എളുപ്പമാണ്."
+              - "ഇത് പെട്ടെന്ന് എളുപ്പമാണ്."
+              - "ഇത് അത്ര പോയതല്ല."
+          transliterations:
+              - "ithu valare eluppamanu."
+              - "ithu ellayppozhum eluppamanu."
+              - "ithu pettennu eluppamanu."
+              - "ithu athra poyathalla."
+      learningHint: "‘Not very’ softens a negative meaning."
