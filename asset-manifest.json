@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.d2243475.css",
-    "main.js": "/static/js/main.991a2422.js",
+    "main.js": "/static/js/main.5a72fbca.js",
     "static/media/NotoSerifMalayalam-VariableFont_wght.woff2": "/static/media/NotoSerifMalayalam-VariableFont_wght.e96be3b3ab19b9dc465b.woff2",
     "static/media/Manjari-Regular.woff2": "/static/media/Manjari-Regular.705d839119abf8a58f11.woff2",
     "static/media/ComicRelief-Bold.woff2": "/static/media/ComicRelief-Bold.06265decdee0275dc9e4.woff2",
@@ -9,10 +9,10 @@
     "static/media/Fenix-Regular.woff2": "/static/media/Fenix-Regular.58d45e10e3fc58c57855.woff2",
     "index.html": "/index.html",
     "main.d2243475.css.map": "/static/css/main.d2243475.css.map",
-    "main.991a2422.js.map": "/static/js/main.991a2422.js.map"
+    "main.5a72fbca.js.map": "/static/js/main.5a72fbca.js.map"
   },
   "entrypoints": [
     "static/css/main.d2243475.css",
-    "static/js/main.991a2422.js"
+    "static/js/main.5a72fbca.js"
   ]
 }
