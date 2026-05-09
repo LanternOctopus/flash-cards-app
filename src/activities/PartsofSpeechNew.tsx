@@ -15,6 +15,8 @@ import {
     normalizeStr,
 } from "../utils/utils";
 import { PartOfSpeechMagicalGirl } from "../components/decorative/PartofSpeechMagicalGirl";
+import { useSwipeable } from "react-swipeable";
+import SwipeIndicator from "../utils/SwipeIndicator";
 import haptics from "../utils/haptics";
 export function PartsOfSpeechScreen() {
     return (
@@ -77,6 +79,13 @@ const WordSpan: React.FC<WordSpanProps> = ({
 };
 
 export function PartsOfSpeechNew() {
+    const handlers = useSwipeable({
+        onSwipedRight: () => {
+            if (showBack && handleNext) handleNext();
+        },
+        delta: 50, // minimum swipe distance in px before it registers
+        preventScrollOnSwipe: true,
+    });
     const item = useQuestion<PartsofSpeechItemNew>();
     const data = useData<any>();
     console.log("data", data);
@@ -181,7 +190,7 @@ export function PartsOfSpeechNew() {
     });
 
     return (
-        <article>
+        <article {...handlers}>
             <form>
                 <fieldset style={style}>
                     <legend>
@@ -221,6 +230,7 @@ export function PartsOfSpeechNew() {
                             : undefined
                     }
                 />
+                {showBack && <SwipeIndicator />}
                 {showBack && advanceButton}
             </form>
         </article>
