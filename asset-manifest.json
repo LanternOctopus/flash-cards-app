@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.67853287.css",
-    "main.js": "/static/js/main.78ffad95.js",
+    "main.css": "/static/css/main.57e2a51a.css",
+    "main.js": "/static/js/main.98cdffb9.js",
     "static/media/NotoSerifMalayalam-VariableFont_wght.woff2": "/static/media/NotoSerifMalayalam-VariableFont_wght.e96be3b3ab19b9dc465b.woff2",
     "static/media/Manjari-Regular.woff2": "/static/media/Manjari-Regular.705d839119abf8a58f11.woff2",
     "static/media/ComicRelief-Bold.woff2": "/static/media/ComicRelief-Bold.06265decdee0275dc9e4.woff2",
     "static/media/ComicRelief-Regular.woff2": "/static/media/ComicRelief-Regular.cb1405719477062df542.woff2",
     "static/media/Fenix-Regular.woff2": "/static/media/Fenix-Regular.58d45e10e3fc58c57855.woff2",
     "index.html": "/index.html",
-    "main.67853287.css.map": "/static/css/main.67853287.css.map",
-    "main.78ffad95.js.map": "/static/js/main.78ffad95.js.map"
+    "main.57e2a51a.css.map": "/static/css/main.57e2a51a.css.map",
+    "main.98cdffb9.js.map": "/static/js/main.98cdffb9.js.map"
   },
   "entrypoints": [
-    "static/css/main.67853287.css",
-    "static/js/main.78ffad95.js"
+    "static/css/main.57e2a51a.css",
+    "static/js/main.98cdffb9.js"
   ]
 }
