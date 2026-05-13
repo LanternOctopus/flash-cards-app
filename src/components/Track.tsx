@@ -1,12 +1,8 @@
-import {
-    useSession,
-    Step,
-} from "../providers/SessionProvider";
+import { useSession } from "../providers/SessionProvider";
 import { ParentScreen } from "../activities/ParentScreen";
 
 export function Track() {
     const { currentStep, next } = useSession(); // keep lowercase
-    console.log("Current Step:", currentStep);
     if (!currentStep) return null;
 
     switch (currentStep.type) {
@@ -16,9 +12,9 @@ export function Track() {
                     <ParentScreen
                         itemPath={currentStep.itemPath}
                         configPath={currentStep.configPath}
-                        storageKey={currentStep.storageKey}
                         modelClass={currentStep.modelClass}
                         key={currentStep.path}
+                        storageKey={currentStep.storageKey}
                     >
                         {currentStep.children}
                     </ParentScreen>

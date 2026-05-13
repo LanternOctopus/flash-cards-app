@@ -126,7 +126,6 @@ button.frog-button {
 article {
     opacity: 0.9;
     backdrop-filter: blur(4px);
-    margin: 40px auto;
     border-radius: 40px; // i want this for activities but not the togglebox and im unsure where else. Wish i could use border radius somehow on a tag.
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
     border: 2px solid rgba(255, 255, 255, 0.5);

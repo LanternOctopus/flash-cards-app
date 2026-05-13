@@ -18,6 +18,7 @@ import { PartOfSpeechMagicalGirl } from "../components/decorative/PartofSpeechMa
 import { useSwipeable } from "react-swipeable";
 import SwipeIndicator from "../utils/SwipeIndicator";
 import haptics from "../utils/haptics";
+import { useScore } from "../providers/ScoreProvider";
 export function PartsOfSpeechScreen() {
     return (
         <ParentScreen
@@ -88,7 +89,6 @@ export function PartsOfSpeechNew() {
     });
     const item = useQuestion<PartsofSpeechItemNew>();
     const data = useData<any>();
-    console.log("data", data);
     const builder = useVisibilityGate();
     const { checkCorrectness, handleNext } = useAnswer();
 
@@ -98,6 +98,7 @@ export function PartsOfSpeechNew() {
     const [showBack, setShowBack] = useState(false);
     const [correct, setCorrect] = useState<boolean>();
     const [latestWord, setLatestWord] = useState<string>();
+    const { updateScore, showMood } = useScore();
     useEffect(() => {
         if (!item?.text) return;
 
@@ -132,8 +133,10 @@ export function PartsOfSpeechNew() {
 
         if (result.correct) {
             haptics.effects.success();
+            updateScore(1);
         } else {
             haptics.effects.wrong();
+            updateScore(-1);
         }
 
         setGuessedWords((prev) => {

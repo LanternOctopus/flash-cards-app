@@ -3,6 +3,11 @@ import { AnswerProvider } from "../providers/AnswerProvider";
 import { QuestionProvider } from "../providers/QuestionContext";
 import { useData } from "../providers/DataProvider";
 import { useSession } from "../providers/SessionProvider";
+import {
+    ScoreProvider,
+    useScore,
+} from "../providers/ScoreProvider";
+import { ScoreBar } from "../components/score/ScoreBar";
 export function SequenceController({
     modelClass,
     children,
@@ -20,25 +25,26 @@ export function SequenceController({
     const data = useData();
     const modelRef = useRef<any>(null);
     const { next } = useSession();
-
+    const { setTotal } = useScore();
     useEffect(() => {
         if (!data?.items) return;
-        console.log("modle class:", modelClass);
-        console.log("data items:", data.items);
+
         modelRef.current = new modelClass(
             data.items,
             setScore,
         );
-        console.log(
-            "Initialized model with items:",
-            data.items,
-        );
+
         modelRef.current.initializeGenerator();
 
         const first = modelRef.current.goNext();
         if (!first.done) {
             setCurrent(first.value);
         }
+        setTotal(
+            (data.items as Record<string, any[]>)[
+                Object.keys(data.items)[0]
+            ].length,
+        );
     }, [data?.items, modelClass]);
 
     const handleNext = () => {
@@ -62,7 +68,7 @@ export function SequenceController({
     } else {
         return (
             <>
-                <h1>score: {score ?? "N/A"}</h1>
+                <ScoreBar />
                 <QuestionProvider value={current}>
                     <AnswerProvider
                         answer={current.answer}

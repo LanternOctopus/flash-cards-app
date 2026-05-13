@@ -30,8 +30,12 @@ import { PartsofSpeechModel } from "./activities/PartsofSpeechModel";
 import { SentenceSessions } from "./pages/SentenceSessions";
 import { PictureMatchingGameModel } from "./activities/PictureMatchingGameModel";
 import { Track } from "./components/Track";
-import { SessionProvider } from "./providers/SessionProvider";
+import {
+    SessionProvider,
+    Step,
+} from "./providers/SessionProvider";
 import "./ananda-english.scss";
+import { session1Steps } from "./curriculum/sentencesession1";
 const App: React.FC = () => {
     return (
         <LanguageProvider>
@@ -118,10 +122,10 @@ const App: React.FC = () => {
                             <ParentScreen
                                 itemPath="verbs/identification/whimsicalcontractions.yaml"
                                 configPath="config/ReadOutLoudConfig.yaml"
-                                storageKey="readOutLoud"
                                 modelClass={
                                     ReadOutLoudModel
                                 }
+                                storageKey="readOutLoud"
                             >
                                 <ReadOutLoud />
                             </ParentScreen>
@@ -133,10 +137,10 @@ const App: React.FC = () => {
                             <ParentScreen
                                 itemPath="reading/intermediate/adognamedchai.yaml"
                                 configPath="config/ReadOutLoudConfig.yaml"
-                                storageKey="readOutLoud"
                                 modelClass={
                                     ReadOutLoudModel
                                 }
+                                storageKey="readOutLoud"
                             >
                                 <ReadOutLoud />
                             </ParentScreen>
@@ -148,10 +152,10 @@ const App: React.FC = () => {
                             <ParentScreen
                                 itemPath="verbs/identification/learningcanchangeus.yaml"
                                 configPath="config/ReadOutLoudConfig.yaml"
-                                storageKey="readOutLoud"
                                 modelClass={
                                     ReadOutLoudModel
                                 }
+                                storageKey="readOutLoud"
                             >
                                 <ReadOutLoud />
                             </ParentScreen>
@@ -163,10 +167,10 @@ const App: React.FC = () => {
                             <ParentScreen
                                 itemPath="verbs/identification/thebusydayoflittlesteps.yaml"
                                 configPath="config/ReadOutLoudConfig.yaml"
-                                storageKey="readOutLoud"
                                 modelClass={
                                     ReadOutLoudModel
                                 }
+                                storageKey="readOutLoud"
                             >
                                 <ReadOutLoud />
                             </ParentScreen>
@@ -178,10 +182,10 @@ const App: React.FC = () => {
                             <ParentScreen
                                 itemPath="verbs/identification/wordsthattravel.yaml"
                                 configPath="config/ReadOutLoudConfig.yaml"
-                                storageKey="readOutLoud"
                                 modelClass={
                                     ReadOutLoudModel
                                 }
+                                storageKey="readOutLoud"
                             >
                                 <ReadOutLoud />
                             </ParentScreen>
@@ -193,10 +197,10 @@ const App: React.FC = () => {
                             <ParentScreen
                                 itemPath="verbs/identification/wordsyoucandoatyourdesk.yaml"
                                 configPath="config/ReadOutLoudConfig.yaml"
-                                storageKey="readOutLoud"
                                 modelClass={
                                     ReadOutLoudModel
                                 }
+                                storageKey="readOutLoud"
                             >
                                 <ReadOutLoud />
                             </ParentScreen>
@@ -208,10 +212,10 @@ const App: React.FC = () => {
                             <ParentScreen
                                 itemPath="verbs/identification/whatmybodycando.yaml"
                                 configPath="config/ReadOutLoudConfig.yaml"
-                                storageKey="readOutLoud"
                                 modelClass={
                                     ReadOutLoudModel
                                 }
+                                storageKey="readOutLoud"
                             >
                                 <ReadOutLoud />
                             </ParentScreen>
@@ -231,10 +235,10 @@ const App: React.FC = () => {
                             <ParentScreen
                                 itemPath="letter/learnthealphabet.yaml"
                                 configPath="config/alphabet.yaml"
-                                storageKey="alphabetMatching"
                                 modelClass={
                                     ReadOutLoudModel
                                 }
+                                storageKey="alphabetMatching"
                             >
                                 <ReadOutLoud />
                             </ParentScreen>
@@ -246,10 +250,10 @@ const App: React.FC = () => {
                             <ParentScreen
                                 itemPath="letter/mcq.yaml"
                                 configPath="config/alphabetmatching.yaml"
-                                storageKey="alphabetMatching"
                                 modelClass={
                                     ReadOutLoudModel
                                 }
+                                storageKey="alphabetMatching"
                             >
                                 <ReadOutLoud />
                             </ParentScreen>
@@ -259,280 +263,39 @@ const App: React.FC = () => {
                         path="/handwriting"
                         element={<HandwritingScreen />}
                     />
-                    <Route
-                        path="/sentence/session1/adjectives/mcq"
-                        element={
-                            <ParentScreen
-                                itemPath="curriculum/sentence/session-one/adjectives/mcq.yaml"
-                                configPath="config/flashcardsconfig.yaml"
-                                storageKey="mcq"
-                                modelClass={FlashCardModel}
-                            >
-                                <FlashCardView />
-                            </ParentScreen>
-                        }
-                    />
-                    <Route
-                        path="/sentence/session1/adjectives/mcq-opposites"
-                        element={
-                            <ParentScreen
-                                itemPath="curriculum/sentence/session-one/adjectives/mcq-opposites.yaml"
-                                configPath="config/flashcardsconfig.yaml"
-                                storageKey="mcq"
-                                modelClass={FlashCardModel}
-                            >
-                                <FlashCardView />
-                            </ParentScreen>
-                        }
-                    />
-                    <Route
-                        path="/sentence/session1/adjectives/partsofspeech"
-                        element={
-                            <ParentScreen
-                                itemPath="curriculum/sentence/session-one/adjectives/partsofspeech.yaml"
-                                configPath="config/PartsofSpeechConfig.yaml"
-                                storageKey="partsofSpeech"
-                                modelClass={
-                                    PartsofSpeechModel
+                    {session1Steps
+                        .filter(
+                            (
+                                step,
+                            ): step is Extract<
+                                Step,
+                                { type: "activity" }
+                            > => step.type === "activity",
+                        )
+                        .map((step) => (
+                            <Route
+                                key={step.path}
+                                path={step.path}
+                                element={
+                                    <ParentScreen
+                                        itemPath={
+                                            step.itemPath
+                                        }
+                                        configPath={
+                                            step.configPath
+                                        }
+                                        modelClass={
+                                            step.modelClass
+                                        }
+                                        storageKey={
+                                            step.storageKey
+                                        }
+                                    >
+                                        {step.children}
+                                    </ParentScreen>
                                 }
-                            >
-                                <PartsOfSpeechNew />
-                            </ParentScreen>
-                        }
-                    />
-                    <Route
-                        path="/sentence/session1/adjectives/reading"
-                        element={
-                            <ParentScreen
-                                itemPath="curriculum/sentence/session-one/adjectives/reading.yaml"
-                                configPath="config/ReadOutLoudConfig.yaml"
-                                storageKey="reading"
-                                modelClass={
-                                    ReadOutLoudModel
-                                }
-                            >
-                                <ReadOutLoud />
-                            </ParentScreen>
-                        }
-                    />
-                    <Route
-                        path="/sentence/session1/adverbs/mcq"
-                        element={
-                            <ParentScreen
-                                itemPath="curriculum/sentence/session-one/adverbs/mcq.yaml"
-                                configPath="config/flashcardsconfig.yaml"
-                                storageKey="mcq"
-                                modelClass={FlashCardModel}
-                            >
-                                <FlashCardView />
-                            </ParentScreen>
-                        }
-                    />
-                    <Route
-                        path="/sentence/session1/adverbs/mcq-opposites"
-                        element={
-                            <ParentScreen
-                                itemPath="curriculum/sentence/session-one/adverbs/mcq-opposites.yaml"
-                                configPath="config/flashcardsconfig.yaml"
-                                storageKey="mcq"
-                                modelClass={FlashCardModel}
-                            >
-                                <FlashCardView />
-                            </ParentScreen>
-                        }
-                    />
-                    <Route
-                        path="/sentence/session1/adverbs/partsofspeech"
-                        element={
-                            <ParentScreen
-                                itemPath="curriculum/sentence/session-one/adverbs/partsofspeech.yaml"
-                                configPath="config/PartsofSpeechConfig.yaml"
-                                storageKey="partsofSpeech"
-                                modelClass={
-                                    PartsofSpeechModel
-                                }
-                            >
-                                <PartsOfSpeechNew />
-                            </ParentScreen>
-                        }
-                    />
-                    <Route
-                        path="/sentence/session1/adverbs/reading"
-                        element={
-                            <ParentScreen
-                                itemPath="curriculum/sentence/session-one/adverbs/reading.yaml"
-                                configPath="config/ReadOutLoudConfig.yaml"
-                                storageKey="reading"
-                                modelClass={
-                                    ReadOutLoudModel
-                                }
-                            >
-                                <ReadOutLoud />
-                            </ParentScreen>
-                        }
-                    />
-                    <Route
-                        path="/sentence/session1/nouns/mcq"
-                        element={
-                            <ParentScreen
-                                itemPath="curriculum/sentence/session-one/nouns/mcq.yaml"
-                                configPath="config/flashcardsconfig.yaml"
-                                storageKey="mcq"
-                                modelClass={FlashCardModel}
-                            >
-                                <FlashCardView />
-                            </ParentScreen>
-                        }
-                    />
-
-                    <Route
-                        path="/sentence/session1/nouns/partsofspeech"
-                        element={
-                            <ParentScreen
-                                itemPath="curriculum/sentence/session-one/nouns/partsofspeech.yaml"
-                                configPath="config/PartsofSpeechConfig.yaml"
-                                storageKey="partsofSpeech"
-                                modelClass={
-                                    PartsofSpeechModel
-                                }
-                            >
-                                <PartsOfSpeechNew />
-                            </ParentScreen>
-                        }
-                    />
-                    <Route
-                        path="/sentence/session1/nouns/reading"
-                        element={
-                            <ParentScreen
-                                itemPath="curriculum/sentence/session-one/nouns/reading.yaml"
-                                configPath="config/ReadOutLoudConfig.yaml"
-                                storageKey="reading"
-                                modelClass={
-                                    ReadOutLoudModel
-                                }
-                            >
-                                <ReadOutLoud />
-                            </ParentScreen>
-                        }
-                    />
-                    <Route
-                        path="/sentence/session1/prepositions/partsofspeech"
-                        element={
-                            <ParentScreen
-                                itemPath="curriculum/sentence/session-one/prepositions/partsofspeech.yaml"
-                                configPath="config/PartsofSpeechConfig.yaml"
-                                storageKey="partsofSpeech"
-                                modelClass={
-                                    PartsofSpeechModel
-                                }
-                            >
-                                <PartsOfSpeechNew />
-                            </ParentScreen>
-                        }
-                    />
-                    <Route
-                        path="/sentence/session1/prepositions/picturematching"
-                        element={
-                            <ParentScreen
-                                itemPath={
-                                    "curriculum/sentence/session-one/prepositions/picturematch.yaml"
-                                }
-                                configPath="config/PictureMatchingGameConfig.yaml"
-                                storageKey="pictureMatchingGame"
-                                modelClass={
-                                    PictureMatchingGameModel
-                                }
-                            >
-                                <PictureMatch />
-                            </ParentScreen>
-                        }
-                    />
-                    <Route
-                        path="/sentence/session1/pronouns/partsofspeech"
-                        element={
-                            <ParentScreen
-                                itemPath="curriculum/sentence/session-one/pronouns/partsofspeech.yaml"
-                                configPath="config/PartsofSpeechConfig.yaml"
-                                storageKey="partsofSpeech"
-                                modelClass={
-                                    PartsofSpeechModel
-                                }
-                            >
-                                <PartsOfSpeechNew />
-                            </ParentScreen>
-                        }
-                    />
-                    <Route
-                        path="/sentence/session1/pronouns/reading"
-                        element={
-                            <ParentScreen
-                                itemPath="curriculum/sentence/session-one/pronouns/reading.yaml"
-                                configPath="config/ReadOutLoudConfig.yaml"
-                                storageKey="reading"
-                                modelClass={
-                                    ReadOutLoudModel
-                                }
-                            >
-                                <ReadOutLoud />
-                            </ParentScreen>
-                        }
-                    />
-                    <Route
-                        path="/sentence/session1/verbs/partsofspeech"
-                        element={
-                            <ParentScreen
-                                itemPath="curriculum/sentence/session-one/verbs/partsofspeech.yaml"
-                                configPath="config/PartsofSpeechConfig.yaml"
-                                storageKey="partsofSpeech"
-                                modelClass={
-                                    PartsofSpeechModel
-                                }
-                            >
-                                <PartsOfSpeechNew />
-                            </ParentScreen>
-                        }
-                    />
-                    <Route
-                        path="/sentence/session1/verbs/reading"
-                        element={
-                            <ParentScreen
-                                itemPath="curriculum/sentence/session-one/verbs/reading.yaml"
-                                configPath="config/ReadOutLoudConfig.yaml"
-                                storageKey="reading"
-                                modelClass={
-                                    ReadOutLoudModel
-                                }
-                            >
-                                <ReadOutLoud />
-                            </ParentScreen>
-                        }
-                    />
-                    <Route
-                        path="/sentence/session1/verbs/mcq"
-                        element={
-                            <ParentScreen
-                                itemPath="curriculum/sentence/session-one/verbs/mcq.yaml"
-                                configPath="config/flashcardsconfig.yaml"
-                                storageKey="mcq"
-                                modelClass={FlashCardModel}
-                            >
-                                <FlashCardView />
-                            </ParentScreen>
-                        }
-                    />
-                    <Route
-                        path="/sentence/session1/verbs/mcq-subject-verbagreement"
-                        element={
-                            <ParentScreen
-                                itemPath="curriculum/sentence/session-one/verbs/subjectverbagreement/mcq.yaml"
-                                configPath="config/flashcardsconfig.yaml"
-                                storageKey="mcq"
-                                modelClass={FlashCardModel}
-                            >
-                                <FlashCardView />
-                            </ParentScreen>
-                        }
-                    />
+                            />
+                        ))}
                 </Routes>
 
                 <footer

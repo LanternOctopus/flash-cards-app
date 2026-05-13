@@ -1,42 +1,43 @@
 import { VisibilityGateProvider } from "../providers/VisibilityGateContext";
-import { ToggleBoxController } from "../components/ToggleBox";
 import { DataProvider } from "../providers/DataProvider";
 import { SequenceController } from "./SequenceController";
 import { AudioProvider } from "../providers/AudioProvider";
+import { ScoreProvider } from "../providers/ScoreProvider";
 export function ParentScreen({
     itemPath,
     configPath,
-    storageKey,
     modelClass,
+    storageKey,
     children,
 }: {
     itemPath: string;
     configPath: string;
-    storageKey: string;
     modelClass: new (
         raw: unknown,
         scorechangeCallback: (score: number) => void,
     ) => any;
+    storageKey: string;
     children: React.ReactNode;
 }) {
     return (
-        <AudioProvider>
-            <DataProvider
-                itemPath={itemPath}
-                configPath={configPath}
-                storageKey={storageKey}
-            >
-                <VisibilityGateProvider>
-                    <ToggleBoxController />
-                    <main>
-                        <SequenceController
-                            modelClass={modelClass}
-                        >
-                            {children}
-                        </SequenceController>
-                    </main>
-                </VisibilityGateProvider>
-            </DataProvider>
-        </AudioProvider>
+        <ScoreProvider>
+            <AudioProvider>
+                <DataProvider
+                    itemPath={itemPath}
+                    configPath={configPath}
+                    storageKey={itemPath}
+                >
+                    <VisibilityGateProvider>
+                        <main>
+                            <SequenceController
+                                modelClass={modelClass}
+                            >
+                                {children}
+                            </SequenceController>
+                        </main>
+                    </VisibilityGateProvider>
+                </DataProvider>
+            </AudioProvider>
+        </ScoreProvider>
     );
 }

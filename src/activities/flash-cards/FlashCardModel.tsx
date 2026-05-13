@@ -4,26 +4,28 @@ const isNonEmptyString = (
     value: unknown,
 ): value is string =>
     typeof value === "string" && value.trim().length > 0;
+
 export type FlashCardItem = {
     id: string;
-    question: string;
-    english: string;
-    targetLang: string;
-    phonetics?: string;
 
+    // ✅ prompt
+    prompt_en: string;
+    prompt_targetLang: string;
+    prompt_phonetics?: string;
+
+    // ✅ answer
+    answer: string;
+    answer_targetLang: string;
+    answer_phonetics?: string;
+
+    // ✅ distractors
     distractors: {
-        choices: string[];
-        translations: string[];
-        transliterations: string[];
+        en: string[];
+        targetLang: string[];
+        phonetics: string[];
     };
 
     learningHint: string;
-
-    meta?: {
-        subject?: string;
-        tense?: string;
-        [key: string]: string | undefined;
-    };
 };
 
 export class FlashCardModel extends ActivityModel<FlashCardItem> {
@@ -45,30 +47,45 @@ export class FlashCardModel extends ActivityModel<FlashCardItem> {
 
         const it = item as Record<string, unknown>;
 
-        if (!isNonEmptyString(it.question)) {
-            console.log("question invalid");
+        // ✅ prompts
+        if (!isNonEmptyString(it.prompt_en)) {
+            console.log("prompt_en invalid");
             return false;
         }
 
-        if (!isNonEmptyString(it.english)) {
-            console.log("english invalid");
-            return false;
-        }
-
-        if (!isNonEmptyString(it.targetLang)) {
-            console.log("targetLang invalid");
+        if (!isNonEmptyString(it.prompt_targetLang)) {
+            console.log("prompt_targetLang invalid");
             return false;
         }
 
         if (
-            it.phonetics !== undefined &&
-            !isNonEmptyString(it.phonetics)
+            it.prompt_phonetics !== undefined &&
+            !isNonEmptyString(it.prompt_phonetics)
         ) {
-            console.log("phonetics invalid");
+            console.log("prompt_phonetics invalid");
             return false;
         }
 
-        // ✅ distractors (replaces wrongAnswers + ansOptions)
+        // ✅ answers
+        if (!isNonEmptyString(it.answer)) {
+            console.log("answer invalid");
+            return false;
+        }
+
+        if (!isNonEmptyString(it.answer_targetLang)) {
+            console.log("answer_targetLang invalid");
+            return false;
+        }
+
+        if (
+            it.answer_phonetics !== undefined &&
+            !isNonEmptyString(it.answer_phonetics)
+        ) {
+            console.log("answer_phonetics invalid");
+            return false;
+        }
+
+        // ✅ distractors
         if (
             typeof it.distractors !== "object" ||
             it.distractors === null
@@ -80,66 +97,38 @@ export class FlashCardModel extends ActivityModel<FlashCardItem> {
         const d = it.distractors as Record<string, unknown>;
 
         if (
-            !Array.isArray(d.choices) ||
-            !Array.isArray(d.translations) ||
-            !Array.isArray(d.transliterations)
+            !Array.isArray(d.en) ||
+            !Array.isArray(d.targetLang) ||
+            !Array.isArray(d.phonetics)
         ) {
             console.log("distractors arrays missing");
             return false;
         }
 
-        const len = d.choices.length;
+        const len = d.en.length;
 
         if (
             len === 0 ||
-            d.translations.length !== len ||
-            d.transliterations.length !== len
+            d.targetLang.length !== len ||
+            d.phonetics.length !== len
         ) {
             console.log("distractors length mismatch");
             return false;
         }
 
         if (
-            !d.choices.every(isNonEmptyString) ||
-            !d.translations.every(isNonEmptyString) ||
-            !d.transliterations.every(isNonEmptyString)
+            !d.en.every(isNonEmptyString) ||
+            !d.targetLang.every(isNonEmptyString) ||
+            !d.phonetics.every(isNonEmptyString)
         ) {
             console.log("distractors invalid values");
             return false;
         }
 
+        // ✅ learning hint
         if (!isNonEmptyString(it.learningHint)) {
             console.log("learningHint invalid");
             return false;
-        }
-
-        // ✅ meta optional
-        if (it.meta !== undefined) {
-            if (
-                typeof it.meta !== "object" ||
-                it.meta === null
-            ) {
-                console.log("meta invalid");
-                return false;
-            }
-
-            const meta = it.meta as Record<string, unknown>;
-
-            if (
-                meta.subject !== undefined &&
-                !isNonEmptyString(meta.subject)
-            ) {
-                console.log("meta.subject invalid");
-                return false;
-            }
-
-            if (
-                meta.tense !== undefined &&
-                !isNonEmptyString(meta.tense)
-            ) {
-                console.log("meta.tense invalid");
-                return false;
-            }
         }
 
         return true;

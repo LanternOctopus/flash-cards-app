@@ -13,8 +13,9 @@ export const session1Steps: Step[] = [
         type: "activity",
         path: "/sentence/session1/adjectives/mcq",
         itemPath:
-            "curriculum/sentence/session-one/adjectives/mcq.yaml",
-        configPath: "config/flashcardsconfig.yaml",
+            "curriculum/sentence/session-one/adjectives/mcq/mcq.yaml",
+        configPath:
+            "curriculum/sentence/session-one/adjectives/mcq/config.yaml",
         storageKey: "mcq",
         modelClass: FlashCardModel,
         children: <FlashCardView />,
@@ -23,8 +24,9 @@ export const session1Steps: Step[] = [
         type: "activity",
         path: "/sentence/session1/adjectives/mcq-opposites",
         itemPath:
-            "curriculum/sentence/session-one/adjectives/mcq-opposites.yaml",
-        configPath: "config/flashcardsconfig.yaml",
+            "curriculum/sentence/session-one/adjectives/mcq-opposites/mcq-opposites.yaml",
+        configPath:
+            "curriculum/sentence/session-one/adjectives/mcq-opposites/config.yaml",
         storageKey: "mcq",
         modelClass: FlashCardModel,
         children: <FlashCardView />,
@@ -56,8 +58,9 @@ export const session1Steps: Step[] = [
         type: "activity",
         path: "/sentence/session1/adverbs/mcq",
         itemPath:
-            "curriculum/sentence/session-one/adverbs/mcq.yaml",
-        configPath: "config/flashcardsconfig.yaml",
+            "curriculum/sentence/session-one/adverbs/mcq/mcq.yaml",
+        configPath:
+            "curriculum/sentence/session-one/adverbs/mcq/config.yaml",
         storageKey: "mcq",
         modelClass: FlashCardModel,
         children: <FlashCardView />,
@@ -66,8 +69,9 @@ export const session1Steps: Step[] = [
         type: "activity",
         path: "/sentence/session1/adverbs/mcq-opposites",
         itemPath:
-            "curriculum/sentence/session-one/adverbs/mcq-opposites.yaml",
-        configPath: "config/flashcardsconfig.yaml",
+            "curriculum/sentence/session-one/adverbs/mcq-opposites/mcq-opposites.yaml",
+        configPath:
+            "curriculum/sentence/session-one/adverbs/mcq-opposites/config.yaml",
         storageKey: "mcq",
         modelClass: FlashCardModel,
         children: <FlashCardView />,
@@ -98,8 +102,9 @@ export const session1Steps: Step[] = [
         type: "activity",
         path: "/sentence/session1/nouns/mcq",
         itemPath:
-            "curriculum/sentence/session-one/nouns/mcq.yaml",
-        configPath: "config/flashcardsconfig.yaml",
+            "curriculum/sentence/session-one/nouns/mcq/mcq.yaml",
+        configPath:
+            "curriculum/sentence/session-one/nouns/mcq/config.yaml",
         storageKey: "mcq",
         modelClass: FlashCardModel,
         children: <FlashCardView />,
@@ -194,8 +199,9 @@ export const session1Steps: Step[] = [
         type: "activity",
         path: "/sentence/session1/verbs/mcq",
         itemPath:
-            "curriculum/sentence/session-one/verbs/mcq.yaml",
-        configPath: "config/flashcardsconfig.yaml",
+            "curriculum/sentence/session-one/verbs/mcq/mcq.yaml",
+        configPath:
+            "curriculum/sentence/session-one/verbs/mcq/config.yaml",
         storageKey: "mcq",
         modelClass: FlashCardModel,
         children: <FlashCardView />,
@@ -205,7 +211,8 @@ export const session1Steps: Step[] = [
         path: "/sentence/session1/verbs/mcq-subject-verbagreement",
         itemPath:
             "curriculum/sentence/session-one/verbs/subjectverbagreement/mcq.yaml",
-        configPath: "config/flashcardsconfig.yaml",
+        configPath:
+            "curriculum/sentence/session-one/verbs/subjectverbagreement/config.yaml",
         storageKey: "mcq",
         modelClass: FlashCardModel,
         children: <FlashCardView />,
