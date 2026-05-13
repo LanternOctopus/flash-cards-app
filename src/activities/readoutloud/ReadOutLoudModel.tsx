@@ -1,5 +1,5 @@
-import { ActivityModel, CheckResult } from "./Models";
-import { stripPunctuation } from "../utils/utils";
+import { ActivityModel, CheckResult } from "../Models";
+import { stripPunctuation } from "../../utils/utils";
 type ReadOutLoudItem = {
     answer: string;
     phonemes: string[];

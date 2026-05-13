@@ -1,13 +1,14 @@
 import { useRef, useEffect, useState } from "react";
 import { ReadOutLoudModel } from "./ReadOutLoudModel";
-import { useVisibilityGate } from "../providers/VisibilityGateContext";
-import { useAnswer } from "../providers/AnswerProvider";
-import { useQuestion } from "../providers/QuestionContext";
-import { ParentScreen } from "./ParentScreen";
-import { SpeechRecognitionController } from "../controllers/SpeechRecognition";
-import { PartialTranslation } from "../lexicon/PartialTranslation";
-import { WakeLockManager } from "../utils/wakeLock";
+import { useVisibilityGate } from "../../providers/VisibilityGateContext";
+import { useAnswer } from "../../providers/AnswerProvider";
+import { useQuestion } from "../../providers/QuestionContext";
+import { ParentScreen } from "../ParentScreen";
+import { SpeechRecognitionController } from "../../controllers/SpeechRecognition";
+import { PartialTranslation } from "../../lexicon/PartialTranslation";
+import { WakeLockManager } from "../../utils/wakeLock";
 import "./ReadOutLoud.css";
+import { useScore } from "../../providers/ScoreProvider";
 export function ReadOutLoudScreen() {
     return (
         <ParentScreen
@@ -46,7 +47,6 @@ export function ReadOutLoud() {
     const builder = useVisibilityGate();
     const controllerRef = useRef<any>(null);
     const itemRef = useRef<ReadOutLoudItem>(null);
-    const [listening, setListening] = useState(false);
     const { checkCorrectness, handleNext, getImageUrl } =
         useAnswer<ReadOutLoudAnswer>();
     const [spokenPhones, setSpokenPhones] =
@@ -61,6 +61,7 @@ export function ReadOutLoud() {
     const [image, setImage] = useState("");
     const [caption, setCaption] = useState("");
     const [alt, setAlt] = useState("");
+    const { updateScore } = useScore();
     const wakeLockManager = useRef<WakeLockManager>(
         new WakeLockManager(),
     );
@@ -100,14 +101,14 @@ export function ReadOutLoud() {
         wakeLockManager.current.request();
         const callbacks = {
             onResultCapture: (text: string) => {
-                console.log("resultCapture", text);
                 if (!itemRef.current) return;
-                const isCorrect = checkCorrectness([
+                const correctness = checkCorrectness([
                     text,
                     itemRef.current.chunks[
                         currentIndexRef.current
                     ],
-                ]).correct;
+                ]);
+                const isCorrect = correctness.correct;
                 if (!isCorrect) {
                     setLastErrorIndex(
                         currentIndexRef.current,
@@ -121,6 +122,10 @@ export function ReadOutLoud() {
                         300,
                     );
                     return;
+                }
+                updateScore(1);
+                if (correctness.done) {
+                    //end screen?
                 }
                 advanceIndex();
             },

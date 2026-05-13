@@ -8,15 +8,15 @@ import {
     PictureMatch,
     PictureMatchingGameScreen,
 } from "./activities/PictureMatchingGame";
-import { ReadOutLoudScreen } from "./activities/ReadOutLoudView";
+import { ReadOutLoudScreen } from "./activities/readoutloud/ReadOutLoudView";
 import {
     PartsOfSpeechNew,
     PartsOfSpeechScreen,
 } from "./activities/PartsofSpeechNew";
 import { SentenceActivitiesIndex } from "./pages/SentenceActivitiesIndex";
 import { ParentScreen } from "./activities/ParentScreen";
-import { ReadOutLoudModel } from "./activities/ReadOutLoudModel";
-import { ReadOutLoud } from "./activities/ReadOutLoudView";
+import { ReadOutLoudModel } from "./activities/readoutloud/ReadOutLoudModel";
+import { ReadOutLoud } from "./activities/readoutloud/ReadOutLoudView";
 import HindiExample from "./pages/HindiExample";
 import {
     FlashCardScreen,
