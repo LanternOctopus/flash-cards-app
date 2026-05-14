@@ -1,87 +1,19 @@
-@import "@picocss/pico/css/pico.lime.min.css";
-body {
-    margin: 0;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    user-select: none;
-}
-
-html,
-body {
-    min-height: 100%;
-    overscroll-behavior: none;
-}
-
-body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-main {
-    flex: 1;
-}
-
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
-main {
-    margin: 0 auto;
-    width: 95%;
-    max-width: 100%;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-}
-nav details > summary {
-    line-height: 1;
-    padding: var(--nav-element-spacing-vertical)
-        var(--nav-element-spacing-horizontal);
-}
-
-@media (min-width: 1024px) {
-    main {
-        width: 85%;
-        max-width: 1240px;
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-1em);
+    }
+    100% {
+        transform: translateY(0);
     }
 }
+
+.floating {
+    animation: float 4s ease-in-out infinite;
+}
 body {
-    margin: 0;
-    min-height: 100vh;
-    /* Base background color */
-    background-color: #e8fbc3;
-
-    /* The SVG Pattern (Cute Frogs & Leaves) */
-    /* We use %23 instead of # for colors inside the Data URI */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='%23A4D441' opacity='0.4'%3E%3C!-- Frog 1 --%3E%3Ccircle cx='20' cy='22' r='4'/%3E%3Ccircle cx='36' cy='22' r='4'/%3E%3Cellipse cx='28' cy='28' rx='12' ry='9'/%3E%3Ccircle cx='20' cy='22' r='1.5' fill='%232D5A00'/%3E%3Ccircle cx='36' cy='22' r='1.5' fill='%232D5A00'/%3E%3C!-- Leaf 1 --%3E%3Cpath d='M85 30c10 0 15 10 15 20s-10 15-15 15-15-10-15-20 10-15 15-15z'/%3E%3Cpath d='M85 30v35' stroke='%232D5A00' stroke-width='1'/%3E%3C!-- Frog 2 --%3E%3Ccircle cx='90' cy='82' r='3'/%3E%3Ccircle cx='102' cy='82' r='3'/%3E%3Cellipse cx='96' cy='87' rx='9' ry='7'/%3E%3C!-- Leaf 2 --%3E%3Cpath d='M30 80c-8 0-12 8-12 15s8 12 12 12 12-8 12-15-8-12-12-12z'/%3E%3C/g%3E%3C/svg%3E");
-
-    /* Ensures it tiles perfectly */
-    background-repeat: repeat;
-    background-size: 120px 120px;
-    position: relative; /* All absolute positioning happens relative to this */
-}
-fieldset {
-    min-width: 0;
-}
-button.frog-button {
-    margin-bottom: 0.2rem;
-    &:last-of-type {
-        margin-bottom: 0;
-    }
-    border: 4px solid #fff;
-    display: block;
-    width: 100%;
-    border-radius: 40px;
-    box-shadow:
-        inset 0 4px 0 rgba(255, 255, 255, 0.4),
-        inset 0 -4px 0 rgba(0, 0, 0, 0.15),
-        0 4px 8px rgba(0, 0, 0, 0.1);
-    transition:
-        transform 0.1s ease,
-        box-shadow 0.1s ease;
-    box-sizing: border-box;
     position: relative;
     span:first-child {
         -webkit-text-stroke: 6px #2d5a00;
@@ -244,3 +176,4 @@ main {
         width: 1024px;
     }
 }
+@import "./themes/magic.scss";

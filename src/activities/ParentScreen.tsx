@@ -25,7 +25,7 @@ export function ParentScreen({
                 <DataProvider
                     itemPath={itemPath}
                     configPath={configPath}
-                    storageKey={itemPath}
+                    storageKey={storageKey}
                 >
                     <VisibilityGateProvider>
                         <main>
@@ -41,3 +41,10 @@ export function ParentScreen({
         </ScoreProvider>
     );
 }
+// type Props = React.HTMLAttributes<HTMLDivElement> & {
+//     itemPath: string;
+//     configPath: string;
+//     storageKey: string;
+//     modelClass: new (...args: any[]) => any;
+//     children: React.ReactNode;
+// };

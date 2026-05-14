@@ -1,5 +1,5 @@
 import React, { createContext } from "react";
-import { VisibilityGate } from "../activities/VisibilityGate";
+import { VisibilityGate } from "./VisibilityGate";
 import { useData } from "./DataProvider";
 export const VisibilityGateContext =
     createContext<VisibilityGate | null>(null);

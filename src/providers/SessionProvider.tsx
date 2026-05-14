@@ -47,6 +47,7 @@ export const useSession = (): SessionContextType => {
 };
 
 interface SessionProviderProps {
+    steps: Step[];
     children: ReactNode;
 }
 

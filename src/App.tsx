@@ -1,8 +1,6 @@
 // App.js
 import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
-import Home from "./components/Home";
-import Conversations from "./components/Conversations";
 import Scrambler from "./components/Scrambler";
 import {
     PictureMatch,
@@ -23,7 +21,7 @@ import {
     FlashCardView,
 } from "./activities/flash-cards/FlashCardView";
 import { LanguageSwitcher } from "./activities/languageswitcher/LanguageSwitcher";
-import { LanguageProvider } from "./activities/languageswitcher/LanguageProvider";
+import { LanguageProvider } from "./providers/LanguageProvider";
 import { HandwritingScreen } from "./activities/writing/WritingView";
 import { FlashCardModel } from "./activities/flash-cards/FlashCardModel";
 import { PartsofSpeechModel } from "./activities/PartsofSpeechModel";
@@ -36,10 +34,12 @@ import {
 } from "./providers/SessionProvider";
 import "./ananda-english.scss";
 import { session1Steps } from "./curriculum/sentencesession1";
+import TinyFooter from "./components/TinyFooter";
+import { ThemeWrapper } from "./components/ThemeWrappers";
 const App: React.FC = () => {
     return (
-        <LanguageProvider>
-            <SessionProvider>
+        <SessionProvider steps={session1Steps}>
+            <LanguageProvider>
                 <header
                     style={{
                         padding: "0 1rem",
@@ -81,16 +81,12 @@ const App: React.FC = () => {
                         path="/track"
                         element={<Track />}
                     />
-                    <Route path="/" element={<Home />} />
 
                     <Route
                         path="/partsofspeech"
                         element={<PartsOfSpeechScreen />}
                     />
-                    <Route
-                        path="/conversations"
-                        element={<Conversations />}
-                    />
+
                     <Route
                         path="/scrambler"
                         element={<Scrambler />}
@@ -277,49 +273,32 @@ const App: React.FC = () => {
                                 key={step.path}
                                 path={step.path}
                                 element={
-                                    <ParentScreen
-                                        itemPath={
-                                            step.itemPath
-                                        }
-                                        configPath={
-                                            step.configPath
-                                        }
-                                        modelClass={
-                                            step.modelClass
-                                        }
-                                        storageKey={
-                                            step.storageKey
-                                        }
-                                    >
-                                        {step.children}
-                                    </ParentScreen>
+                                    <ThemeWrapper theme="magic">
+                                        <ParentScreen
+                                            itemPath={
+                                                step.itemPath
+                                            }
+                                            configPath={
+                                                step.configPath
+                                            }
+                                            modelClass={
+                                                step.modelClass
+                                            }
+                                            storageKey={
+                                                step.storageKey
+                                            }
+                                        >
+                                            {step.children}
+                                        </ParentScreen>
+                                    </ThemeWrapper>
                                 }
                             />
                         ))}
                 </Routes>
 
-                <footer
-                    style={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        flexFlow: "column",
-                        background:
-                            "var(--pico-background-color)",
-                        alignContent: "center",
-                        padding: "1rem",
-                        textAlign: "center",
-                    }}
-                >
-                    <small>
-                        May this offering contribute to the
-                        freedom of all sentient beings.
-                    </small>
-                    <small>
-                        © 2026 All Rights Reserved.
-                    </small>
-                </footer>
-            </SessionProvider>
-        </LanguageProvider>
+                <TinyFooter />
+            </LanguageProvider>
+        </SessionProvider>
     );
 };
 

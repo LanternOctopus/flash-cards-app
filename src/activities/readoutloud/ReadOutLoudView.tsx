@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import { ReadOutLoudModel } from "./ReadOutLoudModel";
+import { TapToStart } from "../../utils/TapToStart";
 import { useVisibilityGate } from "../../providers/VisibilityGateContext";
 import { useAnswer } from "../../providers/AnswerProvider";
 import { useQuestion } from "../../providers/QuestionContext";
@@ -230,6 +231,7 @@ export function ReadOutLoud() {
 
     return (
         <>
+            <TapToStart />
             <article className="reading-container">
                 <div className="story-text">
                     {textSlots.front}

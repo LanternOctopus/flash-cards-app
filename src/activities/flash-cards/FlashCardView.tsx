@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { FlashCardModel } from "./FlashCardModel";
 import { useQuestion } from "../../providers/QuestionContext";
+import { useLanguage } from "../../providers/LanguageProvider";
 import { useVisibilityGate } from "../../providers/VisibilityGateContext";
 import { useAnswer } from "../../providers/AnswerProvider";
 import { ParentScreen } from "../ParentScreen";
 import { FlashCardItem } from "./FlashCardModel";
-import { useLanguage } from "../languageswitcher/LanguageProvider";
 import { useScore } from "../../providers/ScoreProvider";
 import { useSwipeable } from "react-swipeable";
 import SwipeIndicator from "../../utils/SwipeIndicator";

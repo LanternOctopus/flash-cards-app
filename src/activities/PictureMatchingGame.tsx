@@ -6,7 +6,7 @@ import { useQuestion } from "../providers/QuestionContext";
 import { ParentScreen } from "./ParentScreen";
 import { playSynthRibbit } from "../utils/audio";
 import { TTS } from "../utils/TTS";
-import { useLanguage } from "./languageswitcher/LanguageProvider";
+import { useLanguage } from "../providers/LanguageProvider";
 import "./picturematchinggame.css";
 export function PictureMatchingGameScreen() {
     const { locale } = useLanguage();
