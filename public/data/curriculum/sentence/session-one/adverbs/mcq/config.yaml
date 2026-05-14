@@ -12,8 +12,7 @@ choicesDefault:
     - choices
 
 backDefault:
-    - answer
-    - learningHint
-
+    - answer_targetLang
+    - answer_phonetics
 choice_categories:
     - choices

@@ -1,220 +1,260 @@
 verbs:
-    - question: "go"
-      english: "He went to the market."
-      targetLang: "അവൻ മാർക്കറ്റിൽ പോയി."
-      phonetics: "avan markettil poyi."
+    - prompt_en: "He went to the market."
+      prompt_targetLang: "അവൻ മാർക്കറ്റിൽ പോയി."
+      prompt_phonetics: "avan markettil poyi."
+
+      answer: "He went to the market."
+      answer_targetLang: "അവൻ മാർക്കറ്റിൽ പോയി."
+      answer_phonetics: "avan markettil poyi."
+
       distractors:
-          choices:
-              - "He go to the market yesterday."
-              - "They goes to the market."
-              - "He is went to the market."
-          translations:
-              - "അവൻ ഇന്നലെ മാർക്കറ്റിൽ പോകുന്നു."
-              - "അവർ മാർക്കറ്റിൽ പോകുന്നു."
-              - "അവൻ മാർക്കറ്റിൽ പോയിട്ടുണ്ട്."
-          transliterations:
-              - "avan innale markettil pokunnu."
-              - "avar markettil pokunnu."
-              - "avan markettil poyittundu."
+          en:
+              - "He goes to the market."
+              - "He will go to the market tomorrow."
+              - "They went to the market."
+
+          targetLang:
+              - "അവൻ മാർക്കറ്റിൽ പോകുന്നു."
+              - "അവൻ നാളെ മാർക്കറ്റിൽ പോകും."
+              - "അവർ മാർക്കറ്റിൽ പോയി."
+
+          phonetics:
+              - "avan markettil pokunnu."
+              - "avan nale markettil pokum."
+              - "avar markettil poyi."
+
       learningHint: "Past of 'go' is 'went' for all subjects."
-      meta:
-          subject: "he"
-          tense: "simple past"
 
-    - question: "go"
-      english: "They go to school every day."
-      targetLang: "അവർ എല്ലാ ദിവസവും സ്കൂളിൽ പോകുന്നു."
-      phonetics: "avar ellaa divasavum schoolil pokunnu."
+    - prompt_en: "They go to school every day."
+      prompt_targetLang: "അവർ എല്ലാ ദിവസവും സ്കൂളിൽ പോകുന്നു."
+      prompt_phonetics: "avar ellaa divasavum schoolil pokunnu."
+
+      answer: "They go to school every day."
+      answer_targetLang: "അവർ എല്ലാ ദിവസവും സ്കൂളിൽ പോകുന്നു."
+      answer_phonetics: "avar ellaa divasavum schoolil pokunnu."
+
       distractors:
-          choices:
-              - "They goes to school every day."
-              - "They is go to school every day."
-              - "They went to school every day."
-          translations:
-              - "അവർ എല്ലാ ദിവസവും സ്കൂളിൽ പോകുന്നു."
-              - "അവർ എല്ലാ ദിവസവും സ്കൂളിൽ പോകുന്നു."
-              - "അവർ എല്ലാ ദിവസവും സ്കൂളിൽ പോയി."
-          transliterations:
-              - "avar ellaa divasavum schoolil pokunnu."
-              - "avar ellaa divasavum schoolil pokunnu."
-              - "avar ellaa divasavum schoolil poyi."
+          en:
+              - "They went to school yesterday."
+              - "They will go to school tomorrow."
+              - "He goes to school every day."
+
+          targetLang:
+              - "അവർ ഇന്നലെ സ്കൂളിൽ പോയി."
+              - "അവർ നാളെ സ്കൂളിൽ പോകും."
+              - "അവൻ എല്ലാ ദിവസവും സ്കൂളിൽ പോകുന്നു."
+
+          phonetics:
+              - "avar innale schoolil poyi."
+              - "avar nale schoolil pokum."
+              - "avan ellaa divasavum schoolil pokunnu."
+
       learningHint: "Plural subjects use base verb 'go'."
-      meta:
-          subject: "they"
-          tense: "present simple"
 
-    - question: "see"
-      english: "She sees the teacher in the hall."
-      targetLang: "അവൾ ഹാളിൽ ടീച്ചറെ കാണുന്നു."
-      phonetics: "aval haalil teacher-e kaanunnu."
+    - prompt_en: "She sees the teacher in the hall."
+      prompt_targetLang: "അവൾ ഹാളിൽ ടീച്ചറെ കാണുന്നു."
+      prompt_phonetics: "aval haalil teacher-e kaanunnu."
+
+      answer: "She sees the teacher in the hall."
+      answer_targetLang: "അവൾ ഹാളിൽ ടീച്ചറെ കാണുന്നു."
+      answer_phonetics: "aval haalil teacher-e kaanunnu."
+
       distractors:
-          choices:
-              - "She see the teacher in the hall."
-              - "She seen the teacher in the hall."
-              - "They sees the teacher in the hall."
-          translations:
-              - "അവൾ ഹാളിൽ ടീച്ചറെ കാണുന്നു."
+          en:
+              - "She saw the teacher in the hall."
+              - "She will see the teacher in the hall."
+              - "They see the teacher in the hall."
+
+          targetLang:
               - "അവൾ ഹാളിൽ ടീച്ചറെ കണ്ടു."
+              - "അവൾ ഹാളിൽ ടീച്ചറെ കാണും."
               - "അവർ ഹാളിൽ ടീച്ചറെ കാണുന്നു."
-          transliterations:
-              - "aval haalil teacher-e kaanunnu."
+
+          phonetics:
               - "aval haalil teacher-e kandu."
+              - "aval haalil teacher-e kaanum."
               - "avar haalil teacher-e kaanunnu."
+
       learningHint: "He/She/It takes 'sees' in present simple."
-      meta:
-          subject: "she"
-          tense: "present simple"
 
-    - question: "work"
-      english: "We work in the office."
-      targetLang: "ഞങ്ങൾ ഓഫീസിൽ ജോലി ചെയ്യുന്നു."
-      phonetics: "njangal officeil joli cheyyunnu."
+    - prompt_en: "We work in the office."
+      prompt_targetLang: "ഞങ്ങൾ ഓഫീസിൽ ജോലി ചെയ്യുന്നു."
+      prompt_phonetics: "njangal officeil joli cheyyunnu."
+
+      answer: "We work in the office."
+      answer_targetLang: "ഞങ്ങൾ ഓഫീസിൽ ജോലി ചെയ്യുന്നു."
+      answer_phonetics: "njangal officeil joli cheyyunnu."
+
       distractors:
-          choices:
-              - "We works in the office."
-              - "We is work in the office."
-              - "She work in the office."
-          translations:
-              - "ഞങ്ങൾ ഓഫീസിൽ ജോലി ചെയ്യുന്നു."
-              - "ഞങ്ങൾ ഓഫീസിൽ ജോലി ചെയ്യുന്നു."
+          en:
+              - "We worked in the office yesterday."
+              - "We will work in the office tomorrow."
+              - "She works in the office."
+
+          targetLang:
+              - "ഞങ്ങൾ ഇന്നലെ ഓഫീസിൽ ജോലി ചെയ്തു."
+              - "ഞങ്ങൾ നാളെ ഓഫീസിൽ ജോലി ചെയ്യും."
               - "അവൾ ഓഫീസിൽ ജോലി ചെയ്യുന്നു."
-          transliterations:
-              - "njangal officeil joli cheyyunnu."
-              - "njangal officeil joli cheyyunnu."
+
+          phonetics:
+              - "njangal innale officeil joli cheythu."
+              - "njangal nale officeil joli cheyyum."
               - "aval officeil joli cheyyunnu."
+
       learningHint: "'We' uses base verb 'work'."
-      meta:
-          subject: "we"
-          tense: "present simple"
 
-    - question: "give"
-      english: "He gives a gift to the child."
-      targetLang: "അവൻ കുട്ടിക്ക് ഒരു സമ്മാനം കൊടുക്കുന്നു."
-      phonetics: "avan kutti-kku oru sammanam kodukkunnu."
+    - prompt_en: "He gives a gift to the child."
+      prompt_targetLang: "അവൻ കുട്ടിക്ക് ഒരു സമ്മാനം കൊടുക്കുന്നു."
+      prompt_phonetics: "avan kutti-kku oru sammanam kodukkunnu."
+
+      answer: "He gives a gift to the child."
+      answer_targetLang: "അവൻ കുട്ടിക്ക് ഒരു സമ്മാനം കൊടുക്കുന്നു."
+      answer_phonetics: "avan kutti-kku oru sammanam kodukkunnu."
+
       distractors:
-          choices:
-              - "He give a gift to the child."
-              - "He gave a gift every day."
-              - "They gives a gift to the child."
-          translations:
-              - "അവൻ കുട്ടിക്ക് ഒരു സമ്മാനം കൊടുക്കുന്നു."
-              - "അവൻ ഓരോ ദിവസവും ഒരു സമ്മാനം കൊടുത്തു."
+          en:
+              - "He gave a gift to the child yesterday."
+              - "He will give a gift to the child tomorrow."
+              - "They give a gift to the child."
+
+          targetLang:
+              - "അവൻ ഇന്നലെ കുട്ടിക്ക് ഒരു സമ്മാനം കൊടുത്തു."
+              - "അവൻ നാളെ കുട്ടിക്ക് ഒരു സമ്മാനം കൊടുക്കും."
               - "അവർ കുട്ടിക്ക് ഒരു സമ്മാനം കൊടുക്കുന്നു."
-          transliterations:
-              - "avan kutti-kku oru sammanam kodukkunnu."
-              - "avan oro divasavum oru sammanam koduthu."
+
+          phonetics:
+              - "avan innale kutti-kku oru sammanam koduthu."
+              - "avan nale kutti-kku oru sammanam kodukkum."
               - "avar kutti-kku oru sammanam kodukkunnu."
+
       learningHint: "He/She/It takes 'gives'."
-      meta:
-          subject: "he"
-          tense: "present simple"
 
-    - question: "think"
-      english: "They think about the problem."
-      targetLang: "അവർ പ്രശ്നത്തെക്കുറിച്ച് ചിന്തിക്കുന്നു."
-      phonetics: "avar prashnam kurich chinthikkunnu."
+    - prompt_en: "They think about the problem."
+      prompt_targetLang: "അവർ പ്രശ്നത്തെക്കുറിച്ച് ചിന്തിക്കുന്നു."
+      prompt_phonetics: "avar prashnathekurich chinthikkunnu."
+
+      answer: "They think about the problem."
+      answer_targetLang: "അവർ പ്രശ്നത്തെക്കുറിച്ച് ചിന്തിക്കുന്നു."
+      answer_phonetics: "avar prashnathekurich chinthikkunnu."
+
       distractors:
-          choices:
-              - "They thinks about the problem."
-              - "They is think about the problem."
-              - "He think about the problem."
-          translations:
-              - "അവർ പ്രശ്നത്തെക്കുറിച്ച് ചിന്തിക്കുന്നു."
-              - "അവർ പ്രശ്നത്തെക്കുറിച്ച് ചിന്തിക്കുന്നു."
+          en:
+              - "They thought about the problem yesterday."
+              - "They will think about the problem tomorrow."
+              - "He thinks about the problem."
+
+          targetLang:
+              - "അവർ ഇന്നലെ പ്രശ്നത്തെക്കുറിച്ച് ചിന്തിച്ചു."
+              - "അവർ നാളെ പ്രശ്നത്തെക്കുറിച്ച് ചിന്തിക്കും."
               - "അവൻ പ്രശ്നത്തെക്കുറിച്ച് ചിന്തിക്കുന്നു."
-          transliterations:
-              - "avar prashnam kurich chinthikkunnu."
-              - "avar prashnam kurich chinthikkunnu."
-              - "avan prashnam kurich chinthikkunnu."
+
+          phonetics:
+              - "avar innale prashnathekurich chinthichu."
+              - "avar nale prashnathekurich chinthikkum."
+              - "avan prashnathekurich chinthikkunnu."
+
       learningHint: "Plural subjects use 'think'."
-      meta:
-          subject: "they"
-          tense: "present simple"
 
-    - question: "work"
-      english: "She worked at the hospital."
-      targetLang: "അവൾ ആശുപത്രിയിൽ ജോലി ചെയ്തു."
-      phonetics: "aval aashupathriyil joli cheythu."
+    - prompt_en: "She worked at the hospital."
+      prompt_targetLang: "അവൾ ആശുപത്രിയിൽ ജോലി ചെയ്തു."
+      prompt_phonetics: "aval aashupathriyil joli cheythu."
+
+      answer: "She worked at the hospital."
+      answer_targetLang: "അവൾ ആശുപത്രിയിൽ ജോലി ചെയ്തു."
+      answer_phonetics: "aval aashupathriyil joli cheythu."
+
       distractors:
-          choices:
-              - "She work at the hospital yesterday."
-              - "She works at the hospital yesterday."
+          en:
+              - "She works at the hospital."
+              - "She will work at the hospital next year."
               - "They worked at the hospital."
-          translations:
-              - "അവൾ ഇന്നലെ ആശുപത്രിയിൽ ജോലി ചെയ്യുന്നു."
-              - "അവൾ ഇന്നലെ ആശുപത്രിയിൽ ജോലി ചെയ്യുന്നു."
+
+          targetLang:
+              - "അവൾ ആശുപത്രിയിൽ ജോലി ചെയ്യുന്നു."
+              - "അവൾ അടുത്ത വർഷം ആശുപത്രിയിൽ ജോലി ചെയ്യും."
               - "അവർ ആശുപത്രിയിൽ ജോലി ചെയ്തു."
-          transliterations:
-              - "aval innale aashupathriyil joli cheyyunnu."
-              - "aval innale aashupathriyil joli cheyyunnu."
+
+          phonetics:
+              - "aval aashupathriyil joli cheyyunnu."
+              - "aval adutha varsham aashupathriyil joli cheyyum."
               - "avar aashupathriyil joli cheythu."
+
       learningHint: "Past of 'work' is 'worked'."
-      meta:
-          subject: "she"
-          tense: "simple past"
 
-    - question: "see"
-      english: "I see the result clearly."
-      targetLang: "ഞാൻ ഫലം വ്യക്തമായി കാണുന്നു."
-      phonetics: "njaan phalam vyakthamaayi kaanunnu."
+    - prompt_en: "I see the result clearly."
+      prompt_targetLang: "ഞാൻ ഫലം വ്യക്തമായി കാണുന്നു."
+      prompt_phonetics: "njaan phalam vyakthamaayi kaanunnu."
+
+      answer: "I see the result clearly."
+      answer_targetLang: "ഞാൻ ഫലം വ്യക്തമായി കാണുന്നു."
+      answer_phonetics: "njaan phalam vyakthamaayi kaanunnu."
+
       distractors:
-          choices:
-              - "I sees the result clearly."
-              - "I am see the result clearly."
-              - "He see the result clearly."
-          translations:
-              - "ഞാൻ ഫലം വ്യക്തമായി കാണുന്നു."
-              - "ഞാൻ ഫലം വ്യക്തമായി കാണുന്നു."
+          en:
+              - "I saw the result clearly yesterday."
+              - "I will see the result tomorrow."
+              - "He sees the result clearly."
+
+          targetLang:
+              - "ഞാൻ ഇന്നലെ ഫലം വ്യക്തമായി കണ്ടു."
+              - "ഞാൻ നാളെ ഫലം കാണും."
               - "അവൻ ഫലം വ്യക്തമായി കാണുന്നു."
-          transliterations:
-              - "njaan phalam vyakthamaayi kaanunnu."
-              - "njaan phalam vyakthamaayi kaanunnu."
+
+          phonetics:
+              - "njaan innale phalam vyakthamaayi kandu."
+              - "njaan nale phalam kaanum."
               - "avan phalam vyakthamaayi kaanunnu."
+
       learningHint: "'I' uses base verb 'see'."
-      meta:
-          subject: "I"
-          tense: "present simple"
 
-    - question: "give"
-      english: "They gave the book to me."
-      targetLang: "അവർ എനിക്ക് പുസ്തകം കൊടുത്തു."
-      phonetics: "avar enikku pusthakam koduthu."
+    - prompt_en: "They gave the book to me."
+      prompt_targetLang: "അവർ എനിക്ക് പുസ്തകം കൊടുത്തു."
+      prompt_phonetics: "avar enikku pusthakam koduthu."
+
+      answer: "They gave the book to me."
+      answer_targetLang: "അവർ എനിക്ക് പുസ്തകം കൊടുത്തു."
+      answer_phonetics: "avar enikku pusthakam koduthu."
+
       distractors:
-          choices:
-              - "They give the book to me yesterday."
-              - "They gives the book to me yesterday."
+          en:
+              - "They give the book to me every day."
+              - "They will give the book to me tomorrow."
               - "He gave the book to me."
-          translations:
-              - "അവർ ഇന്നലെ എനിക്ക് പുസ്തകം കൊടുക്കുന്നു."
-              - "അവർ ഇന്നലെ എനിക്ക് പുസ്തകം കൊടുക്കുന്നു."
-              - "അവൻ എനിക്ക് പുസ്തകം കൊടുത്തു."
-          transliterations:
-              - "avar innale enikku pusthakam kodukkunnu."
-              - "avar innale enikku pusthakam kodukkunnu."
-              - "avan enikku pusthakam koduthu."
-      learningHint: "Past of 'give' is 'gave'."
-      meta:
-          subject: "they"
-          tense: "simple past"
 
-    - question: "think"
-      english: "He thought about the idea."
-      targetLang: "അവൻ ആശയം കുറിച്ച് ചിന്തിച്ചു."
-      phonetics: "avan aashayam kurich chinthichu."
+          targetLang:
+              - "അവർ എല്ലാ ദിവസവും എനിക്ക് പുസ്തകം കൊടുക്കുന്നു."
+              - "അവർ നാളെ എനിക്ക് പുസ്തകം കൊടുക്കും."
+              - "അവൻ എനിക്ക് പുസ്തകം കൊടുത്തു."
+
+          phonetics:
+              - "avar ellaa divasavum enikku pusthakam kodukkunnu."
+              - "avar nale enikku pusthakam kodukkum."
+              - "avan enikku pusthakam koduthu."
+
+      learningHint: "Past of 'give' is 'gave'."
+
+    - prompt_en: "He thought about the idea."
+      prompt_targetLang: "അവൻ ആശയത്തെക്കുറിച്ച് ചിന്തിച്ചു."
+      prompt_phonetics: "avan aashayathekurich chinthichu."
+
+      answer: "He thought about the idea."
+      answer_targetLang: "അവൻ ആശയത്തെക്കുറിച്ച് ചിന്തിച്ചു."
+      answer_phonetics: "avan aashayathekurich chinthichu."
+
       distractors:
-          choices:
-              - "He think about the idea yesterday."
-              - "He thinks about the idea yesterday."
+          en:
+              - "He thinks about the idea."
+              - "He will think about the idea tomorrow."
               - "They thought about the idea."
-          translations:
-              - "അവൻ ഇന്നലെ ആശയം കുറിച്ച് ചിന്തിക്കുന്നു."
-              - "അവൻ ഇന്നലെ ആശയം കുറിച്ച് ചിന്തിക്കുന്നു."
-              - "അവർ ആശയം കുറിച്ച് ചിന്തിച്ചു."
-          transliterations:
-              - "avan innale aashayam kurich chinthikkunnu."
-              - "avan innale aashayam kurich chinthikkunnu."
-              - "avar aashayam kurich chinthichu."
+
+          targetLang:
+              - "അവൻ ആശയത്തെക്കുറിച്ച് ചിന്തിക്കുന്നു."
+              - "അവൻ നാളെ ആശയത്തെക്കുറിച്ച് ചിന്തിക്കും."
+              - "അവർ ആശയത്തെക്കുറിച്ച് ചിന്തിച്ചു."
+
+          phonetics:
+              - "avan aashayathekurich chinthikkunnu."
+              - "avan nale aashayathekurich chinthikkum."
+              - "avar aashayathekurich chinthichu."
+
       learningHint: "Past of 'think' is 'thought'."
-      meta:
-          subject: "he"
-          tense: "simple past"
