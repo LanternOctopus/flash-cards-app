@@ -34,7 +34,6 @@ export class FlashCardModel extends ActivityModel<FlashCardItem> {
         scorechangeCallback: (score: number) => void,
     ) {
         super(raw, scorechangeCallback);
-        console.log("raw", raw);
     }
 
     protected isValidItem(

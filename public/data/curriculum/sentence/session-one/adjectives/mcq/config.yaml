@@ -3,6 +3,9 @@ fields:
     prompt_targetLang: { type: text }
     prompt_phonetics: { type: text }
     learningHint: { type: text }
+    answer: { type: text }
+    answer_targetLang: { type: text }
+    answer_phonetics: { type: text }
 
 frontDefault:
     - prompt_targetLang
@@ -12,8 +15,8 @@ choicesDefault:
     - choices
 
 backDefault:
-    - answer
-    - learningHint
+    - answer_targetLang
+    - answer_phonetics
 
 choice_categories:
     - choices

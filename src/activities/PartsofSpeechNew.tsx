@@ -17,7 +17,6 @@ import {
 import { PartOfSpeechMagicalGirl } from "../components/decorative/PartofSpeechMagicalGirl";
 import { useSwipeable } from "react-swipeable";
 import SwipeIndicator from "../utils/SwipeIndicator";
-import haptics from "../utils/haptics";
 import { useScore } from "../providers/ScoreProvider";
 export function PartsOfSpeechScreen() {
     return (
@@ -98,7 +97,7 @@ export function PartsOfSpeechNew() {
     const [showBack, setShowBack] = useState(false);
     const [correct, setCorrect] = useState<boolean>();
     const [latestWord, setLatestWord] = useState<string>();
-    const { updateScore, showMood } = useScore();
+    const { updateScore } = useScore();
     useEffect(() => {
         if (!item?.text) return;
 
@@ -132,10 +131,8 @@ export function PartsOfSpeechNew() {
         const result = checkCorrectness(word.toLowerCase());
 
         if (result.correct) {
-            haptics.effects.success();
             updateScore(1);
         } else {
-            haptics.effects.wrong();
             updateScore(-1);
         }
 

@@ -7,6 +7,8 @@ import { ParentScreen } from "../ParentScreen";
 import { FlashCardItem } from "./FlashCardModel";
 import { useLanguage } from "../languageswitcher/LanguageProvider";
 import { useScore } from "../../providers/ScoreProvider";
+import { useSwipeable } from "react-swipeable";
+import SwipeIndicator from "../../utils/SwipeIndicator";
 export function FlashCardScreen() {
     const { locale } = useLanguage();
     return (
@@ -22,6 +24,13 @@ export function FlashCardScreen() {
 }
 
 export function FlashCardView() {
+    const handlers = useSwipeable({
+        onSwipedRight: () => {
+            if (showBack && handleNext) handleNext();
+        },
+        delta: 50, // minimum swipe distance in px before it registers
+        preventScrollOnSwipe: true,
+    });
     const item = { ...useQuestion<FlashCardItem>() };
     const builder = useVisibilityGate();
     const { checkCorrectness, handleNext } = useAnswer();
@@ -32,7 +41,7 @@ export function FlashCardView() {
     );
     const [numChoices, setNumChoices] = useState<number>(4);
     const [options, setOptions] = useState<string[]>([]);
-    const { updateScore, showMood } = useScore();
+    const { updateScore } = useScore();
 
     useEffect(() => {
         if (!item?.id) return;
@@ -85,22 +94,13 @@ export function FlashCardView() {
 
     const phonetics = builder.showSlot("prompt_phonetics", {
         front: item.prompt_phonetics ? (
-            <div className="transliteration">
+            <h4 className="transliteration">
                 {item.prompt_phonetics}
-            </div>
+            </h4>
         ) : null,
         back: item.prompt_phonetics ? (
-            <div>{item.prompt_phonetics}</div>
+            <h4>{item.prompt_phonetics}</h4>
         ) : null,
-    });
-
-    const learningHint = builder.showSlot("learningHint", {
-        front: null,
-        back: (
-            <p className="learning-hint">
-                {item.learningHint}
-            </p>
-        ),
     });
     const answer = builder.showSlot("answer", {
         front: <></>,
@@ -110,6 +110,26 @@ export function FlashCardView() {
             </>
         ),
     });
+    const answerPhonetics = builder.showSlot(
+        "answer_phonetics",
+        {
+            front: <></>,
+            back: item.answer_phonetics ? (
+                <h4 className="transliteration">
+                    {item.answer_phonetics}
+                </h4>
+            ) : null,
+        },
+    );
+    const answerTargetLang = builder.showSlot(
+        "answer_targetLang",
+        {
+            front: <></>,
+            back: item.answer_targetLang ? (
+                <h4>{item.answer_targetLang}</h4>
+            ) : null,
+        },
+    );
 
     const handleSelect = (option: string) => {
         if (selected) return;
@@ -129,11 +149,10 @@ export function FlashCardView() {
     };
 
     return (
-        <article>
+        <article {...handlers}>
             {!showBack && (
                 <>
                     <section aria-labelledby="question-label">
-                        {english.front}
                         {targetLang.front}
                         {phonetics.front}
                     </section>
@@ -182,24 +201,33 @@ export function FlashCardView() {
                     </div>
                 </>
             )}
-
+            {showBack && <SwipeIndicator />}
             {showBack && (
-                <div>
-                    {targetLang.back}
-                    {phonetics.back}
-                    {learningHint.back}
-                    {answer.back}
-                    <div>
-                        {selected === item.answer ||
-                        selected === item.answer_targetLang
-                            ? "Correct!"
-                            : "Not quite."}
-                    </div>
-
+                <>
+                    {answerTargetLang.back}
+                    {answerPhonetics.back}
+                    <form>
+                        <fieldset>
+                            {options.map((option, i) => {
+                                return (
+                                    <button
+                                        type="button"
+                                        className={`answer-button answer-button--${option === item.answer ? "correct" : "incorrect"}`}
+                                        key={`${item.id}-choice-${i}`}
+                                        onClick={(e) =>
+                                            e.preventDefault()
+                                        }
+                                    >
+                                        {option}
+                                    </button>
+                                );
+                            })}
+                        </fieldset>
+                    </form>
                     <button onClick={handleNext}>
                         Next
                     </button>
-                </div>
+                </>
             )}
         </article>
     );

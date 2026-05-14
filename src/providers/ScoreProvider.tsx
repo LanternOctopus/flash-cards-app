@@ -5,7 +5,7 @@ import React, {
     useMemo,
     useState,
 } from "react";
-
+import haptics from "../utils/haptics";
 type Mood = "happy" | "sad";
 
 type ScoreContextType = {
@@ -42,8 +42,10 @@ export function ScoreProvider({ children }: Props) {
         (delta: number) => {
             if (delta === 1) {
                 showMood("happy");
+                haptics.effects.success();
             } else {
                 showMood("sad");
+                haptics.effects.wrong();
             }
             setScore((prev) =>
                 Math.max(0, Math.min(prev + delta, total)),
