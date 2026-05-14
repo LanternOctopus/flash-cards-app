@@ -9,6 +9,8 @@ export type GabbilamItem = {
     question: string;
     wrongAnswers: string[];
     learningHint: string;
+    answer: string;
+    passage: string;
 };
 
 export class GabbilamModel extends FlashCardModel<GabbilamItem> {

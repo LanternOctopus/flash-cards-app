@@ -24,7 +24,7 @@ export default function TinyFooter() {
                 <img
                     style={{ height: "2em", width: "2em" }}
                     src={`${process.env.PUBLIC_URL}/images/homebutton.svg`}
-                    alt="HomePage"
+                    alt="Go to HomePage"
                 />
             </Link>
         </footer>

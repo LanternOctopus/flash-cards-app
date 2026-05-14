@@ -1,7 +1,6 @@
 // App.js
 import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
-import Conversations from "./dalit-history-month/conversation/View";
 import Scrambler from "./components/Scrambler";
 import {
     PictureMatch,
@@ -36,6 +35,7 @@ import {
 import "./ananda-english.scss";
 import { session1Steps } from "./curriculum/sentencesession1";
 import TinyFooter from "./components/TinyFooter";
+import { ThemeWrapper } from "./components/ThemeWrappers";
 const App: React.FC = () => {
     return (
         <SessionProvider steps={session1Steps}>
@@ -273,22 +273,24 @@ const App: React.FC = () => {
                                 key={step.path}
                                 path={step.path}
                                 element={
-                                    <ParentScreen
-                                        itemPath={
-                                            step.itemPath
-                                        }
-                                        configPath={
-                                            step.configPath
-                                        }
-                                        modelClass={
-                                            step.modelClass
-                                        }
-                                        storageKey={
-                                            step.storageKey
-                                        }
-                                    >
-                                        {step.children}
-                                    </ParentScreen>
+                                    <ThemeWrapper theme="magic">
+                                        <ParentScreen
+                                            itemPath={
+                                                step.itemPath
+                                            }
+                                            configPath={
+                                                step.configPath
+                                            }
+                                            modelClass={
+                                                step.modelClass
+                                            }
+                                            storageKey={
+                                                step.storageKey
+                                            }
+                                        >
+                                            {step.children}
+                                        </ParentScreen>
+                                    </ThemeWrapper>
                                 }
                             />
                         ))}
