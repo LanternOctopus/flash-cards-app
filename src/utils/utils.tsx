@@ -24,12 +24,11 @@ export function stripPunctuation(word: string) {
 }
 
 export function tokenize(text: string): string[] {
-    return text
-        .split(/\b/)
-        .map((t) => t.trim())
-        .filter(Boolean);
+    const regex =
+        /[a-zA-Z0-9]+(?:['’][a-zA-Z0-9]+)*[.,!?;:]?/g;
+    console.log("tokenize", text, text.match(regex));
+    return text.match(regex) || [];
 }
-
 export const globalGetimageURL = (image: string) => {
     return `${process.env.PUBLIC_URL}/images/${image}`;
 };

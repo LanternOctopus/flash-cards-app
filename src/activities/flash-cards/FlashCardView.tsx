@@ -1,19 +1,22 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { FlashCardModel } from "./FlashCardModel";
 import { useQuestion } from "../../providers/QuestionContext";
-import { useVisibilityGate } from "../../components/VisibilityGateContext";
+import { useLanguage } from "../../providers/LanguageProvider";
+import { useVisibilityGate } from "../../providers/VisibilityGateContext";
 import { useAnswer } from "../../providers/AnswerProvider";
 import { ParentScreen } from "../ParentScreen";
 import { FlashCardItem } from "./FlashCardModel";
-import { useLanguage } from "../../providers/LanguageProvider";
+import { useScore } from "../../providers/ScoreProvider";
+import { useSwipeable } from "react-swipeable";
+import SwipeIndicator from "../../utils/SwipeIndicator";
 export function FlashCardScreen() {
     const { locale } = useLanguage();
     return (
         <ParentScreen
             itemPath={`verbs/tenses/flashcards_${locale}.yaml`}
             configPath="config/flashcardsconfig.yaml"
-            storageKey="flashCards"
             modelClass={FlashCardModel}
+            storageKey="flashCards"
         >
             <FlashCardView />
         </ParentScreen>
@@ -21,6 +24,13 @@ export function FlashCardScreen() {
 }
 
 export function FlashCardView() {
+    const handlers = useSwipeable({
+        onSwipedRight: () => {
+            if (showBack && handleNext) handleNext();
+        },
+        delta: 50, // minimum swipe distance in px before it registers
+        preventScrollOnSwipe: true,
+    });
     const item = { ...useQuestion<FlashCardItem>() };
     const builder = useVisibilityGate();
     const { checkCorrectness, handleNext } = useAnswer();
@@ -31,18 +41,19 @@ export function FlashCardView() {
     );
     const [numChoices, setNumChoices] = useState<number>(4);
     const [options, setOptions] = useState<string[]>([]);
+    const { updateScore } = useScore();
 
     useEffect(() => {
         if (!item?.id) return;
 
-        const wrongs = [...item.wrongAnswers];
+        const wrongs = [...item.distractors.en];
         for (let i = wrongs.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [wrongs[i], wrongs[j]] = [wrongs[j], wrongs[i]];
         }
 
         const shuffledChoices = [
-            item.english,
+            item.answer,
             ...wrongs.slice(0, numChoices - 1),
         ].sort(() => Math.random() - 0.5);
 
@@ -51,96 +62,74 @@ export function FlashCardView() {
         setShowBack(false);
     }, [
         item.id,
-        item.english,
-        item.wrongAnswers,
+        item.prompt_en,
+        item.distractors.en,
         numChoices,
     ]);
 
     if (!item) return <div>No question</div>;
 
-    const question = builder.showSlot("question", {
-        front: (
-            <>
-                <h2
-                    id="question-label"
-                    className="question"
-                >
-                    What is the correct English sentence for
+    const targetLang = builder.showSlot(
+        "prompt_targetLang",
+        {
+            front: (
+                <>
+                    <h2 className="translation">
+                        {item.prompt_targetLang}
+                    </h2>
+                </>
+            ),
+            back: (
+                <h2 className="translation">
+                    {item.prompt_targetLang}
                 </h2>
-                <h2>
-                    <b>{item.question}</b>
-                </h2>
-                <h2>?</h2>
-            </>
-        ),
-        back: (
-            <>
-                <h2
-                    id="question-label"
-                    className="question"
-                >
-                    The answer was for
-                </h2>
-                <h2>
-                    <b>{item.question}</b>
-                </h2>
-            </>
-        ),
+            ),
+        },
+    );
+
+    const english = builder.showSlot("prompt_en", {
+        front: <h2 className="ans">{item.prompt_en}</h2>,
+        back: <h2 className="ans">{item.prompt_en}</h2>,
     });
 
-    const targetLang = builder.showSlot("targetLang", {
-        front: (
-            <h2 className="translation">
-                {item.targetLang}
-            </h2>
-        ),
-        back: (
-            <h2 className="translation">
-                {item.targetLang}
-            </h2>
-        ),
-    });
-
-    const english = builder.showSlot("english", {
-        front: null,
-        back: <h2 className="ans">{item.english}</h2>,
-    });
-
-    const phonetics = builder.showSlot("phonetics", {
-        front: item.phonetics ? (
-            <div className="transliteration">
-                {item.phonetics}
-            </div>
+    const phonetics = builder.showSlot("prompt_phonetics", {
+        front: item.prompt_phonetics ? (
+            <h4 className="transliteration">
+                {item.prompt_phonetics}
+            </h4>
         ) : null,
-        back: item.phonetics ? (
-            <div>{item.phonetics}</div>
+        back: item.prompt_phonetics ? (
+            <h4>{item.prompt_phonetics}</h4>
         ) : null,
     });
-
-    const subject = builder.showSlot("subject", {
-        front: (
-            <div className="subject">
-                {item.meta.subject}
-            </div>
-        ),
-        back: <div>{item.meta.subject}</div>,
-    });
-
-    const tense = builder.showSlot("tense", {
-        front: (
-            <div className="tense">{item.meta.tense}</div>
-        ),
-        back: <div>{item.meta.tense}</div>,
-    });
-
-    const learningHint = builder.showSlot("learningHint", {
-        front: null,
+    const answer = builder.showSlot("answer", {
+        front: <></>,
         back: (
-            <p className="learning-hint">
-                {item.learningHint}
-            </p>
+            <>
+                <h2>{item.answer}</h2>
+            </>
         ),
     });
+    const answerPhonetics = builder.showSlot(
+        "answer_phonetics",
+        {
+            front: <></>,
+            back: item.answer_phonetics ? (
+                <h4 className="transliteration">
+                    {item.answer_phonetics}
+                </h4>
+            ) : null,
+        },
+    );
+    const answerTargetLang = builder.showSlot(
+        "answer_targetLang",
+        {
+            front: <></>,
+            back: item.answer_targetLang ? (
+                <h4>{item.answer_targetLang}</h4>
+            ) : null,
+        },
+    );
 
     const handleSelect = (option: string) => {
         if (selected) return;
@@ -148,21 +137,24 @@ export function FlashCardView() {
         setSelected(option);
 
         const result = checkCorrectness(option);
+        console.log("Selected:", option, "Result:", result);
+        if (result.correct) {
+            updateScore(1);
+        } else {
+            updateScore(-1);
+        }
         setShowBack(true);
 
         return result;
     };
 
     return (
-        <article>
+        <article {...handlers}>
             {!showBack && (
                 <>
                     <section aria-labelledby="question-label">
-                        {question.front}
                         {targetLang.front}
                         {phonetics.front}
-                        {tense.front}
-                        {subject.front}
                     </section>
 
                     <form>
@@ -209,27 +201,33 @@ export function FlashCardView() {
                     </div>
                 </>
             )}
-
+            {showBack && <SwipeIndicator />}
             {showBack && (
-                <div>
-                    {question.back}
-                    {english.back}
-                    {targetLang.back}
-                    {phonetics.back}
-                    {tense.back}
-                    {subject.back}
-                    {learningHint.back}
-
-                    <div>
-                        {selected === item.english
-                            ? "Correct!"
-                            : "Not quite."}
-                    </div>
-
+                <>
+                    {answerTargetLang.back}
+                    {answerPhonetics.back}
+                    <form>
+                        <fieldset>
+                            {options.map((option, i) => {
+                                return (
+                                    <button
+                                        type="button"
+                                        className={`answer-button answer-button--${option === item.answer ? "correct" : "incorrect"}`}
+                                        key={`${item.id}-choice-${i}`}
+                                        onClick={(e) =>
+                                            e.preventDefault()
+                                        }
+                                    >
+                                        {option}
+                                    </button>
+                                );
+                            })}
+                        </fieldset>
+                    </form>
                     <button onClick={handleNext}>
                         Next
                     </button>
-                </div>
+                </>
             )}
         </article>
     );

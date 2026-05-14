@@ -1,0 +1,577 @@
+verb:
+    - text: "I go to the office every morning."
+      tokens:
+          i:
+              partOfSpeech: "pronoun"
+
+          go:
+              partOfSpeech: "verb"
+
+          to:
+              partOfSpeech: "preposition"
+
+          the:
+              partOfSpeech: "article"
+
+          office:
+              partOfSpeech: "noun"
+
+          every:
+              partOfSpeech: "determiner"
+
+          morning:
+              partOfSpeech: "noun"
+
+      answer:
+          - go
+
+    - text: "The student goes to school by bus."
+      tokens:
+          the:
+              partOfSpeech: "article"
+
+          student:
+              partOfSpeech: "noun"
+
+          goes:
+              partOfSpeech: "verb"
+
+          to:
+              partOfSpeech: "preposition"
+
+          school:
+              partOfSpeech: "noun"
+
+          by:
+              partOfSpeech: "preposition"
+
+          bus:
+              partOfSpeech: "noun"
+
+      answer:
+          - goes
+
+    - text: "They go to a new place every year."
+      tokens:
+          they:
+              partOfSpeech: "pronoun"
+
+          go:
+              partOfSpeech: "verb"
+
+          to:
+              partOfSpeech: "preposition"
+
+          a:
+              partOfSpeech: "article"
+
+          new:
+              partOfSpeech: "adjective"
+
+          place:
+              partOfSpeech: "noun"
+
+          every:
+              partOfSpeech: "determiner"
+
+          year:
+              partOfSpeech: "noun"
+
+      answer:
+          - go
+
+    - text: "We went to the party last night."
+      tokens:
+          we:
+              partOfSpeech: "pronoun"
+
+          went:
+              partOfSpeech: "verb"
+
+          to:
+              partOfSpeech: "preposition"
+
+          the:
+              partOfSpeech: "article"
+
+          party:
+              partOfSpeech: "noun"
+
+          last:
+              partOfSpeech: "adjective"
+
+          night:
+              partOfSpeech: "noun"
+
+      answer:
+          - went
+
+    - text: "Perhaps the family will go to the city tomorrow."
+      tokens:
+          perhaps:
+              partOfSpeech: "adverb"
+
+          the:
+              partOfSpeech: "article"
+
+          family:
+              partOfSpeech: "noun"
+
+          will:
+              partOfSpeech: "auxiliary"
+
+          go:
+              partOfSpeech: "verb"
+
+          to:
+              partOfSpeech: "preposition"
+
+          city:
+              partOfSpeech: "noun"
+
+          tomorrow:
+              partOfSpeech: "noun"
+
+      answer:
+          - will
+          - go
+
+    - text: "This TV will work for a long time."
+      tokens:
+          this:
+              partOfSpeech: "determiner"
+
+          tv:
+              partOfSpeech: "noun"
+
+          will:
+              partOfSpeech: "auxiliary"
+
+          work:
+              partOfSpeech: "verb"
+
+          for:
+              partOfSpeech: "preposition"
+
+          a:
+              partOfSpeech: "article"
+
+          long:
+              partOfSpeech: "adjective"
+
+          time:
+              partOfSpeech: "noun"
+
+      answer:
+          - will
+          - work
+
+    - text: "My mother works at the hospital."
+      tokens:
+          my:
+              partOfSpeech: "determiner"
+
+          mother:
+              partOfSpeech: "noun"
+
+          works:
+              partOfSpeech: "verb"
+
+          at:
+              partOfSpeech: "preposition"
+
+          the:
+              partOfSpeech: "article"
+
+          hospital:
+              partOfSpeech: "noun"
+
+      answer:
+          - works
+
+    - text: "The men work hard on the farm."
+      tokens:
+          the:
+              partOfSpeech: "article"
+
+          men:
+              partOfSpeech: "noun"
+
+          work:
+              partOfSpeech: "verb"
+
+          hard:
+              partOfSpeech: "adverb"
+
+          on:
+              partOfSpeech: "preposition"
+
+          farm:
+              partOfSpeech: "noun"
+
+      answer:
+          - work
+
+    - text: "He worked at the company for ten years."
+      tokens:
+          he:
+              partOfSpeech: "pronoun"
+
+          worked:
+              partOfSpeech: "verb"
+
+          at:
+              partOfSpeech: "preposition"
+
+          the:
+              partOfSpeech: "article"
+
+          company:
+              partOfSpeech: "noun"
+
+          for:
+              partOfSpeech: "preposition"
+
+          ten:
+              partOfSpeech: "number"
+
+          years:
+              partOfSpeech: "noun"
+
+      answer:
+          - worked
+
+    - text: "The father gives a small gift to the child."
+      tokens:
+          the:
+              partOfSpeech: "article"
+
+          father:
+              partOfSpeech: "noun"
+
+          gives:
+              partOfSpeech: "verb"
+
+          a:
+              partOfSpeech: "article"
+
+          small:
+              partOfSpeech: "adjective"
+
+          gift:
+              partOfSpeech: "noun"
+
+          to:
+              partOfSpeech: "preposition"
+
+          child:
+              partOfSpeech: "noun"
+
+      answer:
+          - gives
+
+    - text: "I give the money to the person at the door."
+      tokens:
+          i:
+              partOfSpeech: "pronoun"
+
+          give:
+              partOfSpeech: "verb"
+
+          the:
+              partOfSpeech: "article"
+
+          money:
+              partOfSpeech: "noun"
+
+          to:
+              partOfSpeech: "preposition"
+
+          person:
+              partOfSpeech: "noun"
+
+          at:
+              partOfSpeech: "preposition"
+
+          door:
+              partOfSpeech: "noun"
+
+      answer:
+          - give
+
+    - text: "She gave an important reason for the problem."
+      tokens:
+          she:
+              partOfSpeech: "pronoun"
+
+          gave:
+              partOfSpeech: "verb"
+
+          an:
+              partOfSpeech: "article"
+
+          important:
+              partOfSpeech: "adjective"
+
+          reason:
+              partOfSpeech: "noun"
+
+          for:
+              partOfSpeech: "preposition"
+
+          the:
+              partOfSpeech: "article"
+
+          problem:
+              partOfSpeech: "noun"
+
+      answer:
+          - gave
+
+    - text: "The teacher will give the result next week."
+      tokens:
+          the:
+              partOfSpeech: "article"
+
+          teacher:
+              partOfSpeech: "noun"
+
+          will:
+              partOfSpeech: "auxiliary"
+
+          give:
+              partOfSpeech: "verb"
+
+          result:
+              partOfSpeech: "noun"
+
+          next:
+              partOfSpeech: "adjective"
+
+          week:
+              partOfSpeech: "noun"
+
+      answer:
+          - will
+          - give
+
+    - text: "Sachu often thinks about the future."
+      tokens:
+          sachu:
+              partOfSpeech: "noun"
+
+          often:
+              partOfSpeech: "adverb"
+
+          thinks:
+              partOfSpeech: "verb"
+
+          about:
+              partOfSpeech: "preposition"
+
+          the:
+              partOfSpeech: "article"
+
+          future:
+              partOfSpeech: "noun"
+
+      answer:
+          - thinks
+
+    - text: "I think the new job is very good."
+      tokens:
+          i:
+              partOfSpeech: "pronoun"
+
+          think:
+              partOfSpeech: "verb"
+
+          the:
+              partOfSpeech: "article"
+
+          new:
+              partOfSpeech: "adjective"
+
+          job:
+              partOfSpeech: "noun"
+
+          is:
+              partOfSpeech: "verb"
+
+          very:
+              partOfSpeech: "adverb"
+
+          good:
+              partOfSpeech: "adjective"
+
+      answer:
+          - think
+          - is
+
+    - text: "We thought the story was easy to understand."
+      tokens:
+          we:
+              partOfSpeech: "pronoun"
+
+          thought:
+              partOfSpeech: "verb"
+
+          the:
+              partOfSpeech: "article"
+
+          story:
+              partOfSpeech: "noun"
+
+          was:
+              partOfSpeech: "verb"
+
+          easy:
+              partOfSpeech: "adjective"
+
+          to:
+              partOfSpeech: "preposition"
+
+          understand:
+              partOfSpeech: "verb"
+
+      answer:
+          - thought
+          - was
+
+    - text: "They will think about the idea again."
+      tokens:
+          they:
+              partOfSpeech: "pronoun"
+
+          will:
+              partOfSpeech: "auxiliary"
+
+          think:
+              partOfSpeech: "verb"
+
+          about:
+              partOfSpeech: "preposition"
+
+          the:
+              partOfSpeech: "article"
+
+          idea:
+              partOfSpeech: "noun"
+
+          again:
+              partOfSpeech: "adverb"
+
+      answer:
+          - will
+          - think
+
+    - text: "I see the man at the place every day."
+      tokens:
+          i:
+              partOfSpeech: "pronoun"
+
+          see:
+              partOfSpeech: "verb"
+
+          the:
+              partOfSpeech: "article"
+
+          man:
+              partOfSpeech: "noun"
+
+          at:
+              partOfSpeech: "preposition"
+
+          place:
+              partOfSpeech: "noun"
+
+          every:
+              partOfSpeech: "determiner"
+
+          day:
+              partOfSpeech: "noun"
+
+      answer:
+          - see
+
+    - text: "The girl sees a big thing under the table."
+      tokens:
+          the:
+              partOfSpeech: "article"
+
+          girl:
+              partOfSpeech: "noun"
+
+          sees:
+              partOfSpeech: "verb"
+
+          a:
+              partOfSpeech: "article"
+
+          big:
+              partOfSpeech: "adjective"
+
+          thing:
+              partOfSpeech: "noun"
+
+          under:
+              partOfSpeech: "preposition"
+
+          table:
+              partOfSpeech: "noun"
+
+      answer:
+          - sees
+
+    - text: "Suddenly, we saw the car on the road."
+      tokens:
+          suddenly:
+              partOfSpeech: "adverb"
+
+          we:
+              partOfSpeech: "pronoun"
+
+          saw:
+              partOfSpeech: "verb"
+
+          the:
+              partOfSpeech: "article"
+
+          car:
+              partOfSpeech: "noun"
+
+          on:
+              partOfSpeech: "preposition"
+
+          road:
+              partOfSpeech: "noun"
+
+      answer:
+          - saw
+
+    - text: "You will see the information in the book."
+      tokens:
+          you:
+              partOfSpeech: "pronoun"
+
+          will:
+              partOfSpeech: "auxiliary"
+
+          see:
+              partOfSpeech: "verb"
+
+          the:
+              partOfSpeech: "article"
+
+          information:
+              partOfSpeech: "noun"
+
+          in:
+              partOfSpeech: "preposition"
+
+          book:
+              partOfSpeech: "noun"
+
+      answer:
+          - will
+          - see

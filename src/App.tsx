@@ -1,281 +1,302 @@
 // App.js
 import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
-import Home from "./components/Home";
 import Conversations from "./dalit-history-month/conversation/View";
 import Scrambler from "./components/Scrambler";
-import { PictureMatchingGameScreen } from "./activities/PictureMatchingGame";
-import { ReadOutLoudScreen } from "./activities/ReadOutLoudView";
-import { PartsOfSpeechScreen } from "./activities/PartsofSpeechNew";
+import {
+    PictureMatch,
+    PictureMatchingGameScreen,
+} from "./activities/PictureMatchingGame";
+import { ReadOutLoudScreen } from "./activities/readoutloud/ReadOutLoudView";
+import {
+    PartsOfSpeechNew,
+    PartsOfSpeechScreen,
+} from "./activities/PartsofSpeechNew";
 import { SentenceActivitiesIndex } from "./pages/SentenceActivitiesIndex";
 import { ParentScreen } from "./activities/ParentScreen";
-import { ReadOutLoudModel } from "./activities/ReadOutLoudModel";
-import { ReadOutLoud } from "./activities/ReadOutLoudView";
+import { ReadOutLoudModel } from "./activities/readoutloud/ReadOutLoudModel";
+import { ReadOutLoud } from "./activities/readoutloud/ReadOutLoudView";
 import HindiExample from "./pages/HindiExample";
-import { FlashCardScreen } from "./activities/flash-cards/FlashCardView";
+import {
+    FlashCardScreen,
+    FlashCardView,
+} from "./activities/flash-cards/FlashCardView";
 import { LanguageSwitcher } from "./activities/languageswitcher/LanguageSwitcher";
 import { LanguageProvider } from "./providers/LanguageProvider";
 import { HandwritingScreen } from "./activities/writing/WritingView";
-import GabbilamEntryPoint from "./dalit-history-month/GabbilamEntryPoint";
-import ConversationEntryPoint from "./dalit-history-month/conversation/ConversationEntryPoint";
-import RegularSite from "./components/regularsite/RegularSite";
-import { AudioProvider } from "./providers/AudioProvider";
-import { PlayAudio } from "./components/PlayAudio";
+import { FlashCardModel } from "./activities/flash-cards/FlashCardModel";
+import { PartsofSpeechModel } from "./activities/PartsofSpeechModel";
+import { SentenceSessions } from "./pages/SentenceSessions";
+import { PictureMatchingGameModel } from "./activities/PictureMatchingGameModel";
+import { Track } from "./components/Track";
+import {
+    SessionProvider,
+    Step,
+} from "./providers/SessionProvider";
+import "./ananda-english.scss";
+import { session1Steps } from "./curriculum/sentencesession1";
+import TinyFooter from "./components/TinyFooter";
 const App: React.FC = () => {
     return (
-        <LanguageProvider>
-            <Routes>
-                <Route
-                    path="/"
-                    element={
-                        <RegularSite>
-                            {" "}
-                            <Home />{" "}
-                        </RegularSite>
-                    }
-                />
+        <SessionProvider steps={session1Steps}>
+            <LanguageProvider>
+                <header
+                    style={{
+                        padding: "0 1rem",
+                        background:
+                            "var(--pico-background-color)",
+                    }}
+                >
+                    <nav>
+                        <ul
+                            style={{
+                                display: "flex",
+                                justifyContent:
+                                    "space-between",
+                                width: "100%",
+                            }}
+                        >
+                            <li>
+                                <Link
+                                    to="/"
+                                    style={{
+                                        fontWeight: "bold",
+                                        fontSize: "1.5rem",
+                                        color: "#333",
+                                        textDecoration:
+                                            "none",
+                                    }}
+                                >
+                                    🌟 Ananda English
+                                </Link>
+                            </li>
+                            <li className="languageSwitcher">
+                                <LanguageSwitcher />
+                            </li>
+                        </ul>
+                    </nav>
+                </header>
+                <Routes>
+                    <Route
+                        path="/track"
+                        element={<Track />}
+                    />
 
-                <Route
-                    path="/partsofspeech"
-                    element={
-                        <RegularSite>
-                            <PartsOfSpeechScreen />
-                        </RegularSite>
-                    }
-                />
+                    <Route
+                        path="/partsofspeech"
+                        element={<PartsOfSpeechScreen />}
+                    />
 
-                <Route
-                    path="/scrambler"
-                    element={
-                        <RegularSite>
-                            <Scrambler />
-                        </RegularSite>
-                    }
-                />
+                    <Route
+                        path="/scrambler"
+                        element={<Scrambler />}
+                    />
 
-                <Route
-                    path="/picturematchinggame"
-                    element={
-                        <RegularSite>
+                    <Route
+                        path="/picturematchinggame"
+                        element={
                             <PictureMatchingGameScreen />
-                        </RegularSite>
-                    }
-                />
-                <Route
-                    path="/readoutloud"
-                    element={
-                        <RegularSite>
-                            <ReadOutLoudScreen />
-                        </RegularSite>
-                    }
-                />
-                <Route
-                    path="/sentenceactivities"
-                    element={
-                        <RegularSite>
+                        }
+                    />
+                    <Route
+                        path="/readoutloud"
+                        element={<ReadOutLoudScreen />}
+                    />
+                    <Route
+                        path="/sentenceactivities"
+                        element={
                             <SentenceActivitiesIndex />
-                        </RegularSite>
-                    }
-                />
-                <Route
-                    path="/readoutloud/whimsicalcontractions"
-                    element={
-                        <RegularSite>
+                        }
+                    />
+                    <Route
+                        path="/sentencesessions"
+                        element={<SentenceSessions />}
+                    />
+                    <Route
+                        path="/readoutloud/whimsicalcontractions"
+                        element={
                             <ParentScreen
                                 itemPath="verbs/identification/whimsicalcontractions.yaml"
                                 configPath="config/ReadOutLoudConfig.yaml"
-                                storageKey="readOutLoud"
                                 modelClass={
                                     ReadOutLoudModel
                                 }
+                                storageKey="readOutLoud"
                             >
                                 <ReadOutLoud />
                             </ParentScreen>
-                        </RegularSite>
-                    }
-                />
-                <Route
-                    path="/readoutloud/adognamedchai"
-                    element={
-                        <RegularSite>
+                        }
+                    />
+                    <Route
+                        path="/readoutloud/adognamedchai"
+                        element={
                             <ParentScreen
                                 itemPath="reading/intermediate/adognamedchai.yaml"
                                 configPath="config/ReadOutLoudConfig.yaml"
-                                storageKey="readOutLoud"
                                 modelClass={
                                     ReadOutLoudModel
                                 }
+                                storageKey="readOutLoud"
                             >
                                 <ReadOutLoud />
                             </ParentScreen>
-                        </RegularSite>
-                    }
-                />
-                <Route
-                    path="/readoutloud/learningcanchangeus"
-                    element={
-                        <RegularSite>
+                        }
+                    />
+                    <Route
+                        path="/readoutloud/learningcanchangeus"
+                        element={
                             <ParentScreen
                                 itemPath="verbs/identification/learningcanchangeus.yaml"
                                 configPath="config/ReadOutLoudConfig.yaml"
-                                storageKey="readOutLoud"
                                 modelClass={
                                     ReadOutLoudModel
                                 }
+                                storageKey="readOutLoud"
                             >
                                 <ReadOutLoud />
                             </ParentScreen>
-                        </RegularSite>
-                    }
-                />
-                <Route
-                    path="/readoutloud/thebusydayoflittlesteps"
-                    element={
-                        <RegularSite>
+                        }
+                    />
+                    <Route
+                        path="/readoutloud/thebusydayoflittlesteps"
+                        element={
                             <ParentScreen
                                 itemPath="verbs/identification/thebusydayoflittlesteps.yaml"
                                 configPath="config/ReadOutLoudConfig.yaml"
-                                storageKey="readOutLoud"
                                 modelClass={
                                     ReadOutLoudModel
                                 }
+                                storageKey="readOutLoud"
                             >
                                 <ReadOutLoud />
                             </ParentScreen>
-                        </RegularSite>
-                    }
-                />
-                <Route
-                    path="/readoutloud/wordsthattravel"
-                    element={
-                        <RegularSite>
+                        }
+                    />
+                    <Route
+                        path="/readoutloud/wordsthattravel"
+                        element={
                             <ParentScreen
                                 itemPath="verbs/identification/wordsthattravel.yaml"
                                 configPath="config/ReadOutLoudConfig.yaml"
-                                storageKey="readOutLoud"
                                 modelClass={
                                     ReadOutLoudModel
                                 }
+                                storageKey="readOutLoud"
                             >
                                 <ReadOutLoud />
                             </ParentScreen>
-                        </RegularSite>
-                    }
-                />
-                <Route
-                    path="/readoutloud/wordsyoucandoatyourdesk"
-                    element={
-                        <RegularSite>
+                        }
+                    />
+                    <Route
+                        path="/readoutloud/wordsyoucandoatyourdesk"
+                        element={
                             <ParentScreen
                                 itemPath="verbs/identification/wordsyoucandoatyourdesk.yaml"
                                 configPath="config/ReadOutLoudConfig.yaml"
-                                storageKey="readOutLoud"
                                 modelClass={
                                     ReadOutLoudModel
                                 }
+                                storageKey="readOutLoud"
                             >
                                 <ReadOutLoud />
                             </ParentScreen>
-                        </RegularSite>
-                    }
-                />
-                <Route
-                    path="/readoutloud/whatmybodycando"
-                    element={
-                        <RegularSite>
+                        }
+                    />
+                    <Route
+                        path="/readoutloud/whatmybodycando"
+                        element={
                             <ParentScreen
                                 itemPath="verbs/identification/whatmybodycando.yaml"
                                 configPath="config/ReadOutLoudConfig.yaml"
-                                storageKey="readOutLoud"
                                 modelClass={
                                     ReadOutLoudModel
                                 }
+                                storageKey="readOutLoud"
                             >
                                 <ReadOutLoud />
                             </ParentScreen>
-                        </RegularSite>
-                    }
-                />
-                <Route
-                    path="/hindi"
-                    element={
-                        <RegularSite>
-                            <HindiExample />
-                        </RegularSite>
-                    }
-                />
-                <Route
-                    path="/flashcards"
-                    element={
-                        <RegularSite>
-                            <FlashCardScreen />
-                        </RegularSite>
-                    }
-                />
-                <Route
-                    path="/letter/alphabet"
-                    element={
-                        <RegularSite>
-                            <AudioProvider>
-                                <ParentScreen
-                                    itemPath="letter/learnthealphabet.yaml"
-                                    configPath="config/alphabet.yaml"
-                                    storageKey="alphabetMatching"
-                                    modelClass={
-                                        ReadOutLoudModel
-                                    }
-                                >
-                                    <PlayAudio />
-                                    <ReadOutLoud />
-                                </ParentScreen>
-                            </AudioProvider>
-                        </RegularSite>
-                    }
-                />
-                <Route
-                    path="/letter/alphabetmatching"
-                    element={
-                        <RegularSite>
-                            {" "}
+                        }
+                    />
+                    <Route
+                        path="/hindi"
+                        element={<HindiExample />}
+                    />
+                    <Route
+                        path="/flashcards"
+                        element={<FlashCardScreen />}
+                    />
+                    <Route
+                        path="/letter/alphabet"
+                        element={
+                            <ParentScreen
+                                itemPath="letter/learnthealphabet.yaml"
+                                configPath="config/alphabet.yaml"
+                                modelClass={
+                                    ReadOutLoudModel
+                                }
+                                storageKey="alphabetMatching"
+                            >
+                                <ReadOutLoud />
+                            </ParentScreen>
+                        }
+                    />
+                    <Route
+                        path="/letter/alphabetmatching"
+                        element={
                             <ParentScreen
                                 itemPath="letter/mcq.yaml"
                                 configPath="config/alphabetmatching.yaml"
-                                storageKey="alphabetMatching"
                                 modelClass={
                                     ReadOutLoudModel
                                 }
+                                storageKey="alphabetMatching"
                             >
                                 <ReadOutLoud />
                             </ParentScreen>
-                        </RegularSite>
-                    }
-                />
-                <Route
-                    path="/handwriting"
-                    element={
-                        <RegularSite>
-                            <HandwritingScreen />
-                        </RegularSite>
-                    }
-                />
-                <Route
-                    path="/dalit-history-month/gabbilamu"
-                    element={
-                        <div className="Dalit-history-month">
-                            <GabbilamEntryPoint />
-                        </div>
-                    }
-                />
-                <Route
-                    path="/dalit-history-month/leather"
-                    element={
-                        <div className="Dalit-history-month">
-                            <ConversationEntryPoint />
-                        </div>
-                    }
-                />
-            </Routes>
-        </LanguageProvider>
+                        }
+                    />
+                    <Route
+                        path="/handwriting"
+                        element={<HandwritingScreen />}
+                    />
+                    {session1Steps
+                        .filter(
+                            (
+                                step,
+                            ): step is Extract<
+                                Step,
+                                { type: "activity" }
+                            > => step.type === "activity",
+                        )
+                        .map((step) => (
+                            <Route
+                                key={step.path}
+                                path={step.path}
+                                element={
+                                    <ParentScreen
+                                        itemPath={
+                                            step.itemPath
+                                        }
+                                        configPath={
+                                            step.configPath
+                                        }
+                                        modelClass={
+                                            step.modelClass
+                                        }
+                                        storageKey={
+                                            step.storageKey
+                                        }
+                                    >
+                                        {step.children}
+                                    </ParentScreen>
+                                }
+                            />
+                        ))}
+                </Routes>
+
+                <TinyFooter />
+            </LanguageProvider>
+        </SessionProvider>
     );
 };
 

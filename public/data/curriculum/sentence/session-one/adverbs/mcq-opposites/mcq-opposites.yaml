@@ -1,0 +1,141 @@
+adverbs:
+    - prompt_en: "Pick the opposite of: I always go to the park."
+      prompt_targetLang: "ഇതിന്റെ വിപരീതം തിരഞ്ഞെടുക്കുക: ഞാൻ എല്ലായ്പ്പോഴും പാർക്കിലേക്ക് പോകുന്നു."
+      prompt_phonetics: "ithinte vipareetham thiranjedukkuka: njan ellayppozhum parkilekku pokunnu."
+
+      answer: "I never go to the park."
+      answer_targetLang: "ഞാൻ ഒരിക്കലും പാർക്കിലേക്ക് പോകുന്നില്ല."
+      answer_phonetics: "njan orikkalum parkilekku pokunnilla."
+
+      distractors:
+          en:
+              - "I suddenly go to the park."
+              - "I go to the big park."
+              - "I always went to the park."
+
+          targetLang:
+              - "ഞാൻ പെട്ടെന്ന് പാർക്കിലേക്ക് പോകുന്നു."
+              - "ഞാൻ വലിയ പാർക്കിലേക്ക് പോകുന്നു."
+              - "ഞാൻ എല്ലായ്പ്പോഴും പാർക്കിലേക്ക് പോയി."
+
+          phonetics:
+              - "njan pettennu parkilekku pokunnu."
+              - "njan valiya parkilekku pokunnu."
+              - "njan ellayppozhum parkilekku poyi."
+
+      learningHint: "‘Always’ means something happens every time."
+
+    - prompt_en: "Pick the opposite of: I never eat at that place."
+      prompt_targetLang: "ഇതിന്റെ വിപരീതം തിരഞ്ഞെടുക്കുക: ഞാൻ ഒരിക്കലും ആ സ്ഥലത്ത് ഭക്ഷണം കഴിക്കുന്നില്ല."
+      prompt_phonetics: "ithinte vipareetham thiranjedukkuka: njan orikkalum aa sthalath bhakshanam kazhikkunnilla."
+
+      answer: "I always eat at that place."
+      answer_targetLang: "ഞാൻ എല്ലായ്പ്പോഴും ആ സ്ഥലത്ത് ഭക്ഷണം കഴിക്കുന്നു."
+      answer_phonetics: "njan ellayppozhum aa sthalath bhakshanam kazhikkunnu."
+
+      distractors:
+          en:
+              - "I suddenly eat at that place."
+              - "I eat at the new place."
+
+          targetLang:
+              - "ഞാൻ പെട്ടെന്ന് ആ സ്ഥലത്ത് ഭക്ഷണം കഴിക്കുന്നു."
+              - "ഞാൻ പുതിയ സ്ഥലത്ത് ഭക്ഷണം കഴിക്കുന്നു."
+
+          phonetics:
+              - "njan pettennu aa sthalath bhakshanam kazhikkunnu."
+              - "njan puthiya sthalath bhakshanam kazhikkunnu."
+
+      learningHint: "‘Never’ means something does not happen at all."
+
+    - prompt_en: "Pick the opposite of: I ran fast to the park."
+      prompt_targetLang: "ഇതിന്റെ വിപരീതം തിരഞ്ഞെടുക്കുക: ഞാൻ വേഗത്തിൽ പാർക്കിലേക്ക് ഓടി."
+      prompt_phonetics: "ithinte vipareetham thiranjedukkuka: njan vegathil parkilekku odi."
+
+      answer: "I ran slowly to the park."
+      answer_targetLang: "ഞാൻ മന്ദഗതിയിൽ പാർക്കിലേക്ക് ഓടി."
+      answer_phonetics: "njan mandagathiyil parkilekku odi."
+
+      distractors:
+          en:
+              - "I always ran to the park."
+              - "I ran to the big park."
+
+          targetLang:
+              - "ഞാൻ എല്ലായ്പ്പോഴും പാർക്കിലേക്ക് ഓടി."
+              - "ഞാൻ വലിയ പാർക്കിലേക്ക് ഓടി."
+
+          phonetics:
+              - "njan ellayppozhum parkilekku odi."
+              - "njan valiya parkilekku odi."
+
+      learningHint: "‘Fast’ describes speed."
+
+    - prompt_en: "Pick the opposite of: I walked slowly to the house."
+      prompt_targetLang: "ഇതിന്റെ വിപരീതം തിരഞ്ഞെടുക്കുക: ഞാൻ മന്ദഗതിയിൽ വീട്ടിലേക്ക് നടന്നു."
+      prompt_phonetics: "ithinte vipareetham thiranjedukkuka: njan mandagathiyil veetilekku nadannu."
+
+      answer: "I walked fast to the house."
+      answer_targetLang: "ഞാൻ വേഗത്തിൽ വീട്ടിലേക്ക് നടന്നു."
+      answer_phonetics: "njan vegathil veetilekku nadannu."
+
+      distractors:
+          en:
+              - "I always walked to the house."
+              - "I walked to the new house."
+
+          targetLang:
+              - "ഞാൻ എല്ലായ്പ്പോഴും വീട്ടിലേക്ക് നടന്നു."
+              - "ഞാൻ പുതിയ വീട്ടിലേക്ക് നടന്നു."
+
+          phonetics:
+              - "njan ellayppozhum veetilekku nadannu."
+              - "njan puthiya veetilekku nadannu."
+
+      learningHint: "Adverbs describe how an action happens."
+
+    - prompt_en: "Pick the opposite of: This is very good."
+      prompt_targetLang: "ഇതിന്റെ വിപരീതം തിരഞ്ഞെടുക്കുക: ഇത് വളരെ നല്ലതാണ്."
+      prompt_phonetics: "ithinte vipareetham thiranjedukkuka: ithu valare nallathanu."
+
+      answer: "This is not very good."
+      answer_targetLang: "ഇത് അത്ര നല്ലതല്ല."
+      answer_phonetics: "ithu athra nallathalla."
+
+      distractors:
+          en:
+              - "This is always good."
+              - "This is suddenly good."
+
+          targetLang:
+              - "ഇത് എല്ലായ്പ്പോഴും നല്ലതാണ്."
+              - "ഇത് പെട്ടെന്ന് നല്ലതാണ്."
+
+          phonetics:
+              - "ithu ellayppozhum nallathanu."
+              - "ithu pettennu nallathanu."
+
+      learningHint: "‘Very’ increases intensity."
+
+    - prompt_en: "Pick the opposite of: This is not very easy."
+      prompt_targetLang: "ഇതിന്റെ വിപരീതം തിരഞ്ഞെടുക്കുക: ഇത് അത്ര എളുപ്പമല്ല."
+      prompt_phonetics: "ithinte vipareetham thiranjedukkuka: ithu athra eluppamalla."
+
+      answer: "This is very easy."
+      answer_targetLang: "ഇത് വളരെ എളുപ്പമാണ്."
+      answer_phonetics: "ithu valare eluppamanu."
+
+      distractors:
+          en:
+              - "This is always easy."
+              - "This is suddenly easy."
+
+          targetLang:
+              - "ഇത് എല്ലായ്പ്പോഴും എളുപ്പമാണ്."
+              - "ഇത് പെട്ടെന്ന് എളുപ്പമാണ്."
+
+          phonetics:
+              - "ithu ellayppozhum eluppamanu."
+              - "ithu pettennu eluppamanu."
+
+      learningHint: "‘Not very’ weakens meaning."

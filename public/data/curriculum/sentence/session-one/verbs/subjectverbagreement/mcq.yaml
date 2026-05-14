@@ -1,0 +1,260 @@
+verbs:
+    - prompt_en: "He went to the market."
+      prompt_targetLang: "അവൻ മാർക്കറ്റിൽ പോയി."
+      prompt_phonetics: "avan markettil poyi."
+
+      answer: "He went to the market."
+      answer_targetLang: "അവൻ മാർക്കറ്റിൽ പോയി."
+      answer_phonetics: "avan markettil poyi."
+
+      distractors:
+          en:
+              - "He goes to the market."
+              - "He will go to the market tomorrow."
+              - "They went to the market."
+
+          targetLang:
+              - "അവൻ മാർക്കറ്റിൽ പോകുന്നു."
+              - "അവൻ നാളെ മാർക്കറ്റിൽ പോകും."
+              - "അവർ മാർക്കറ്റിൽ പോയി."
+
+          phonetics:
+              - "avan markettil pokunnu."
+              - "avan nale markettil pokum."
+              - "avar markettil poyi."
+
+      learningHint: "Past of 'go' is 'went' for all subjects."
+
+    - prompt_en: "They go to school every day."
+      prompt_targetLang: "അവർ എല്ലാ ദിവസവും സ്കൂളിൽ പോകുന്നു."
+      prompt_phonetics: "avar ellaa divasavum schoolil pokunnu."
+
+      answer: "They go to school every day."
+      answer_targetLang: "അവർ എല്ലാ ദിവസവും സ്കൂളിൽ പോകുന്നു."
+      answer_phonetics: "avar ellaa divasavum schoolil pokunnu."
+
+      distractors:
+          en:
+              - "They went to school yesterday."
+              - "They will go to school tomorrow."
+              - "He goes to school every day."
+
+          targetLang:
+              - "അവർ ഇന്നലെ സ്കൂളിൽ പോയി."
+              - "അവർ നാളെ സ്കൂളിൽ പോകും."
+              - "അവൻ എല്ലാ ദിവസവും സ്കൂളിൽ പോകുന്നു."
+
+          phonetics:
+              - "avar innale schoolil poyi."
+              - "avar nale schoolil pokum."
+              - "avan ellaa divasavum schoolil pokunnu."
+
+      learningHint: "Plural subjects use base verb 'go'."
+
+    - prompt_en: "She sees the teacher in the hall."
+      prompt_targetLang: "അവൾ ഹാളിൽ ടീച്ചറെ കാണുന്നു."
+      prompt_phonetics: "aval haalil teacher-e kaanunnu."
+
+      answer: "She sees the teacher in the hall."
+      answer_targetLang: "അവൾ ഹാളിൽ ടീച്ചറെ കാണുന്നു."
+      answer_phonetics: "aval haalil teacher-e kaanunnu."
+
+      distractors:
+          en:
+              - "She saw the teacher in the hall."
+              - "She will see the teacher in the hall."
+              - "They see the teacher in the hall."
+
+          targetLang:
+              - "അവൾ ഹാളിൽ ടീച്ചറെ കണ്ടു."
+              - "അവൾ ഹാളിൽ ടീച്ചറെ കാണും."
+              - "അവർ ഹാളിൽ ടീച്ചറെ കാണുന്നു."
+
+          phonetics:
+              - "aval haalil teacher-e kandu."
+              - "aval haalil teacher-e kaanum."
+              - "avar haalil teacher-e kaanunnu."
+
+      learningHint: "He/She/It takes 'sees' in present simple."
+
+    - prompt_en: "We work in the office."
+      prompt_targetLang: "ഞങ്ങൾ ഓഫീസിൽ ജോലി ചെയ്യുന്നു."
+      prompt_phonetics: "njangal officeil joli cheyyunnu."
+
+      answer: "We work in the office."
+      answer_targetLang: "ഞങ്ങൾ ഓഫീസിൽ ജോലി ചെയ്യുന്നു."
+      answer_phonetics: "njangal officeil joli cheyyunnu."
+
+      distractors:
+          en:
+              - "We worked in the office yesterday."
+              - "We will work in the office tomorrow."
+              - "She works in the office."
+
+          targetLang:
+              - "ഞങ്ങൾ ഇന്നലെ ഓഫീസിൽ ജോലി ചെയ്തു."
+              - "ഞങ്ങൾ നാളെ ഓഫീസിൽ ജോലി ചെയ്യും."
+              - "അവൾ ഓഫീസിൽ ജോലി ചെയ്യുന്നു."
+
+          phonetics:
+              - "njangal innale officeil joli cheythu."
+              - "njangal nale officeil joli cheyyum."
+              - "aval officeil joli cheyyunnu."
+
+      learningHint: "'We' uses base verb 'work'."
+
+    - prompt_en: "He gives a gift to the child."
+      prompt_targetLang: "അവൻ കുട്ടിക്ക് ഒരു സമ്മാനം കൊടുക്കുന്നു."
+      prompt_phonetics: "avan kutti-kku oru sammanam kodukkunnu."
+
+      answer: "He gives a gift to the child."
+      answer_targetLang: "അവൻ കുട്ടിക്ക് ഒരു സമ്മാനം കൊടുക്കുന്നു."
+      answer_phonetics: "avan kutti-kku oru sammanam kodukkunnu."
+
+      distractors:
+          en:
+              - "He gave a gift to the child yesterday."
+              - "He will give a gift to the child tomorrow."
+              - "They give a gift to the child."
+
+          targetLang:
+              - "അവൻ ഇന്നലെ കുട്ടിക്ക് ഒരു സമ്മാനം കൊടുത്തു."
+              - "അവൻ നാളെ കുട്ടിക്ക് ഒരു സമ്മാനം കൊടുക്കും."
+              - "അവർ കുട്ടിക്ക് ഒരു സമ്മാനം കൊടുക്കുന്നു."
+
+          phonetics:
+              - "avan innale kutti-kku oru sammanam koduthu."
+              - "avan nale kutti-kku oru sammanam kodukkum."
+              - "avar kutti-kku oru sammanam kodukkunnu."
+
+      learningHint: "He/She/It takes 'gives'."
+
+    - prompt_en: "They think about the problem."
+      prompt_targetLang: "അവർ പ്രശ്നത്തെക്കുറിച്ച് ചിന്തിക്കുന്നു."
+      prompt_phonetics: "avar prashnathekurich chinthikkunnu."
+
+      answer: "They think about the problem."
+      answer_targetLang: "അവർ പ്രശ്നത്തെക്കുറിച്ച് ചിന്തിക്കുന്നു."
+      answer_phonetics: "avar prashnathekurich chinthikkunnu."
+
+      distractors:
+          en:
+              - "They thought about the problem yesterday."
+              - "They will think about the problem tomorrow."
+              - "He thinks about the problem."
+
+          targetLang:
+              - "അവർ ഇന്നലെ പ്രശ്നത്തെക്കുറിച്ച് ചിന്തിച്ചു."
+              - "അവർ നാളെ പ്രശ്നത്തെക്കുറിച്ച് ചിന്തിക്കും."
+              - "അവൻ പ്രശ്നത്തെക്കുറിച്ച് ചിന്തിക്കുന്നു."
+
+          phonetics:
+              - "avar innale prashnathekurich chinthichu."
+              - "avar nale prashnathekurich chinthikkum."
+              - "avan prashnathekurich chinthikkunnu."
+
+      learningHint: "Plural subjects use 'think'."
+
+    - prompt_en: "She worked at the hospital."
+      prompt_targetLang: "അവൾ ആശുപത്രിയിൽ ജോലി ചെയ്തു."
+      prompt_phonetics: "aval aashupathriyil joli cheythu."
+
+      answer: "She worked at the hospital."
+      answer_targetLang: "അവൾ ആശുപത്രിയിൽ ജോലി ചെയ്തു."
+      answer_phonetics: "aval aashupathriyil joli cheythu."
+
+      distractors:
+          en:
+              - "She works at the hospital."
+              - "She will work at the hospital next year."
+              - "They worked at the hospital."
+
+          targetLang:
+              - "അവൾ ആശുപത്രിയിൽ ജോലി ചെയ്യുന്നു."
+              - "അവൾ അടുത്ത വർഷം ആശുപത്രിയിൽ ജോലി ചെയ്യും."
+              - "അവർ ആശുപത്രിയിൽ ജോലി ചെയ്തു."
+
+          phonetics:
+              - "aval aashupathriyil joli cheyyunnu."
+              - "aval adutha varsham aashupathriyil joli cheyyum."
+              - "avar aashupathriyil joli cheythu."
+
+      learningHint: "Past of 'work' is 'worked'."
+
+    - prompt_en: "I see the result clearly."
+      prompt_targetLang: "ഞാൻ ഫലം വ്യക്തമായി കാണുന്നു."
+      prompt_phonetics: "njaan phalam vyakthamaayi kaanunnu."
+
+      answer: "I see the result clearly."
+      answer_targetLang: "ഞാൻ ഫലം വ്യക്തമായി കാണുന്നു."
+      answer_phonetics: "njaan phalam vyakthamaayi kaanunnu."
+
+      distractors:
+          en:
+              - "I saw the result clearly yesterday."
+              - "I will see the result tomorrow."
+              - "He sees the result clearly."
+
+          targetLang:
+              - "ഞാൻ ഇന്നലെ ഫലം വ്യക്തമായി കണ്ടു."
+              - "ഞാൻ നാളെ ഫലം കാണും."
+              - "അവൻ ഫലം വ്യക്തമായി കാണുന്നു."
+
+          phonetics:
+              - "njaan innale phalam vyakthamaayi kandu."
+              - "njaan nale phalam kaanum."
+              - "avan phalam vyakthamaayi kaanunnu."
+
+      learningHint: "'I' uses base verb 'see'."
+
+    - prompt_en: "They gave the book to me."
+      prompt_targetLang: "അവർ എനിക്ക് പുസ്തകം കൊടുത്തു."
+      prompt_phonetics: "avar enikku pusthakam koduthu."
+
+      answer: "They gave the book to me."
+      answer_targetLang: "അവർ എനിക്ക് പുസ്തകം കൊടുത്തു."
+      answer_phonetics: "avar enikku pusthakam koduthu."
+
+      distractors:
+          en:
+              - "They give the book to me every day."
+              - "They will give the book to me tomorrow."
+              - "He gave the book to me."
+
+          targetLang:
+              - "അവർ എല്ലാ ദിവസവും എനിക്ക് പുസ്തകം കൊടുക്കുന്നു."
+              - "അവർ നാളെ എനിക്ക് പുസ്തകം കൊടുക്കും."
+              - "അവൻ എനിക്ക് പുസ്തകം കൊടുത്തു."
+
+          phonetics:
+              - "avar ellaa divasavum enikku pusthakam kodukkunnu."
+              - "avar nale enikku pusthakam kodukkum."
+              - "avan enikku pusthakam koduthu."
+
+      learningHint: "Past of 'give' is 'gave'."
+
+    - prompt_en: "He thought about the idea."
+      prompt_targetLang: "അവൻ ആശയത്തെക്കുറിച്ച് ചിന്തിച്ചു."
+      prompt_phonetics: "avan aashayathekurich chinthichu."
+
+      answer: "He thought about the idea."
+      answer_targetLang: "അവൻ ആശയത്തെക്കുറിച്ച് ചിന്തിച്ചു."
+      answer_phonetics: "avan aashayathekurich chinthichu."
+
+      distractors:
+          en:
+              - "He thinks about the idea."
+              - "He will think about the idea tomorrow."
+              - "They thought about the idea."
+
+          targetLang:
+              - "അവൻ ആശയത്തെക്കുറിച്ച് ചിന്തിക്കുന്നു."
+              - "അവൻ നാളെ ആശയത്തെക്കുറിച്ച് ചിന്തിക്കും."
+              - "അവർ ആശയത്തെക്കുറിച്ച് ചിന്തിച്ചു."
+
+          phonetics:
+              - "avan aashayathekurich chinthikkunnu."
+              - "avan nale aashayathekurich chinthikkum."
+              - "avar aashayathekurich chinthichu."
+
+      learningHint: "Past of 'think' is 'thought'."

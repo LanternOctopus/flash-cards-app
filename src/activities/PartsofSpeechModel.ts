@@ -1,11 +1,12 @@
 import { ActivityModel, CheckResult } from "./Models";
 import expandContractions from "../utils/expandContractions";
 import { stripPunctuation } from "../utils/utils";
-type PartsofSpeechItemNew = {
+export type PartsofSpeechItemNew = {
     id: string;
     text: string;
     answer: string[];
     words: string[];
+    tokens: Record<string, { partOfSpeech: string }>;
 };
 export class PartsofSpeechModel extends ActivityModel<PartsofSpeechItemNew> {
     protected remainingAnswers: string[];
@@ -17,6 +18,7 @@ export class PartsofSpeechModel extends ActivityModel<PartsofSpeechItemNew> {
         raw: unknown,
         scorechangeCallback: (score: number) => void,
     ) {
+        console.log("raw", raw);
         super(raw, scorechangeCallback);
         this.remainingAnswers = [];
         this.wrongAnswerCount = 0;

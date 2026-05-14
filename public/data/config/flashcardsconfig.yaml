@@ -1,16 +1,14 @@
 fields:
-    question: { type: text }
-    english: { type: text }
-    targetLang: { type: text }
-    phonetics: { type: text }
+    prompt_en: { type: text }
+    prompt_targetLang: { type: text }
+    prompt_phonetics: { type: text }
     "meta.subject": { type: text }
     "meta.tense": { type: text }
     learningHint: { type: text }
 
 frontDefault:
-    - question
-    - targetLang
-    - phonetics
+    - prompt_targetLang
+    - prompt_phonetics
     - meta.tense
     - meta.subject
 
@@ -18,9 +16,9 @@ choicesDefault:
     - choices
 
 backDefault:
-    - english
-    - targetLang
-    - phonetics
+    - prompt_en
+    - prompt_targetLang
+    - prompt_phonetics
     - meta.tense
     - meta.subject
     - learningHint

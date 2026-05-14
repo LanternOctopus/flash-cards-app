@@ -1,0 +1,234 @@
+adverbs:
+    - prompt_en: "I always go to the park."
+      prompt_targetLang: "ഞാൻ എല്ലായ്പ്പോഴും പാർക്കിലേക്ക് പോകുന്നു."
+      prompt_phonetics: "njan ellayppozhum parkilekku pokunnu."
+
+      answer: "I always go to the park."
+      answer_targetLang: "ഞാൻ എല്ലായ്പ്പോഴും പാർക്കിലേക്ക് പോകുന്നു."
+      answer_phonetics: "njan ellayppozhum parkilekku pokunnu."
+
+      distractors:
+          en:
+              - "I never go to the park."
+              - "I suddenly go to the park."
+              - "I go to the big park."
+
+          targetLang:
+              - "ഞാൻ ഒരിക്കലും പാർക്കിലേക്ക് പോകുന്നില്ല."
+              - "ഞാൻ പെട്ടെന്ന് പാർക്കിലേക്ക് പോകുന്നു."
+              - "ഞാൻ വലിയ പാർക്കിലേക്ക് പോകുന്നു."
+
+          phonetics:
+              - "njan orikkalum parkilekku pokunnilla."
+              - "njan pettennu parkilekku pokunnu."
+              - "njan valiya parkilekku pokunnu."
+
+      learningHint: "‘Always’ means every time."
+
+    - prompt_en: "I sometimes read this book."
+      prompt_targetLang: "ഞാൻ ചിലപ്പോൾ ഈ പുസ്തകം വായിക്കുന്നു."
+      prompt_phonetics: "njan chilappol ee pusthakam vayikkunnu."
+
+      answer: "I sometimes read this book."
+      answer_targetLang: "ഞാൻ ചിലപ്പോൾ ഈ പുസ്തകം വായിക്കുന്നു."
+      answer_phonetics: "njan chilappol ee pusthakam vayikkunnu."
+
+      distractors:
+          en:
+              - "I never read this book."
+              - "I suddenly read this book."
+              - "I read this big book."
+
+          targetLang:
+              - "ഞാൻ ഒരിക്കലും ഈ പുസ്തകം വായിക്കുന്നില്ല."
+              - "ഞാൻ പെട്ടെന്ന് ഈ പുസ്തകം വായിക്കുന്നു."
+              - "ഞാൻ വലിയ ഈ പുസ്തകം വായിക്കുന്നു."
+
+          phonetics:
+              - "njan orikkalum ee pusthakam vayikkunnilla."
+              - "njan pettennu ee pusthakam vayikkunnu."
+              - "njan valiya ee pusthakam vayikkunnu."
+
+      learningHint: "‘Sometimes’ means not always, but occasionally."
+
+    - prompt_en: "I never eat at that place."
+      prompt_targetLang: "ഞാൻ ഒരിക്കലും ആ സ്ഥലത്ത് ഭക്ഷണം കഴിക്കുന്നില്ല."
+      prompt_phonetics: "njan orikkalum aa sthalath bhakshanam kazhikkunnilla."
+
+      answer: "I never eat at that place."
+      answer_targetLang: "ഞാൻ ഒരിക്കലും ആ സ്ഥലത്ത് ഭക്ഷണം കഴിക്കുന്നില്ല."
+      answer_phonetics: "njan orikkalum aa sthalath bhakshanam kazhikkunnilla."
+
+      distractors:
+          en:
+              - "I always eat at that place."
+              - "I suddenly eat at that place."
+              - "I eat at that big place."
+
+          targetLang:
+              - "ഞാൻ എല്ലായ്പ്പോഴും ആ സ്ഥലത്ത് ഭക്ഷണം കഴിക്കുന്നു."
+              - "ഞാൻ പെട്ടെന്ന് ആ സ്ഥലത്ത് ഭക്ഷണം കഴിക്കുന്നു."
+              - "ഞാൻ വലിയ ആ സ്ഥലത്ത് ഭക്ഷണം കഴിക്കുന്നു."
+
+          phonetics:
+              - "njan ellayppozhum aa sthalath bhakshanam kazhikkunnu."
+              - "njan pettennu aa sthalath bhakshanam kazhikkunnu."
+              - "njan valiya aa sthalath bhakshanam kazhikkunnu."
+
+      learningHint: "‘Never’ means not at any time."
+
+    - prompt_en: "I suddenly opened the door."
+      prompt_targetLang: "ഞാൻ പെട്ടെന്ന് വാതിൽ തുറന്നു."
+      prompt_phonetics: "njan pettennu vaathil thurannu."
+
+      answer: "I suddenly opened the door."
+      answer_targetLang: "ഞാൻ പെട്ടെന്ന് വാതിൽ തുറന്നു."
+      answer_phonetics: "njan pettennu vaathil thurannu."
+
+      distractors:
+          en:
+              - "I slowly opened the door."
+              - "I always opened the door."
+              - "I opened the big door."
+
+          targetLang:
+              - "ഞാൻ മന്ദഗതിയിൽ വാതിൽ തുറന്നു."
+              - "ഞാൻ എല്ലായ്പ്പോഴും വാതിൽ തുറന്നു."
+              - "ഞാൻ വലിയ വാതിൽ തുറന്നു."
+
+          phonetics:
+              - "njan mandagathiyil vaathil thurannu."
+              - "njan ellayppozhum vaathil thurannu."
+              - "njan valiya vaathil thurannu."
+
+      learningHint: "‘Suddenly’ means quickly and unexpectedly."
+
+    - prompt_en: "I ran fast to the park."
+      prompt_targetLang: "ഞാൻ വേഗത്തിൽ പാർക്കിലേക്ക് ഓടി."
+      prompt_phonetics: "njan vegathil parkilekku odi."
+
+      answer: "I ran fast to the park."
+      answer_targetLang: "ഞാൻ വേഗത്തിൽ പാർക്കിലേക്ക് ഓടി."
+      answer_phonetics: "njan vegathil parkilekku odi."
+
+      distractors:
+          en:
+              - "I ran slowly to the park."
+              - "I always ran to the park."
+              - "I ran to the new park."
+
+          targetLang:
+              - "ഞാൻ മന്ദഗതിയിൽ പാർക്കിലേക്ക് ഓടി."
+              - "ഞാൻ എല്ലായ്പ്പോഴും പാർക്കിലേക്ക് ഓടി."
+              - "ഞാൻ പുതിയ പാർക്കിലേക്ക് ഓടി."
+
+          phonetics:
+              - "njan mandagathiyil parkilekku odi."
+              - "njan ellayppozhum parkilekku odi."
+              - "njan puthiya parkilekku odi."
+
+      learningHint: "‘Fast’ describes speed. ‘Fastly’ is incorrect."
+
+    - prompt_en: "I walked slowly to the house."
+      prompt_targetLang: "ഞാൻ മന്ദഗതിയിൽ വീട്ടിലേക്ക് നടന്നു."
+      prompt_phonetics: "njan mandagathiyil veetilekku nadannu."
+
+      answer: "I walked slowly to the house."
+      answer_targetLang: "ഞാൻ മന്ദഗതിയിൽ വീട്ടിലേക്ക് നടന്നു."
+      answer_phonetics: "njan mandagathiyil veetilekku nadannu."
+
+      distractors:
+          en:
+              - "I walked fast to the house."
+              - "I always walked to the house."
+              - "I walked to the big house."
+
+          targetLang:
+              - "ഞാൻ വേഗത്തിൽ വീട്ടിലേക്ക് നടന്നു."
+              - "ഞാൻ എല്ലായ്പ്പോഴും വീട്ടിലേക്ക് നടന്നു."
+              - "ഞാൻ വലിയ വീട്ടിലേക്ക് നടന്നു."
+
+          phonetics:
+              - "njan vegathil veetilekku nadannu."
+              - "njan ellayppozhum veetilekku nadannu."
+              - "njan valiya veetilekku nadannu."
+
+      learningHint: "‘Slowly’ describes how an action happens."
+
+    - prompt_en: "I will try again tomorrow."
+      prompt_targetLang: "ഞാൻ നാളെ വീണ്ടും ശ്രമിക്കും."
+      prompt_phonetics: "njan nale veendum sramikkum."
+
+      answer: "I will try again tomorrow."
+      answer_targetLang: "ഞാൻ നാളെ വീണ്ടും ശ്രമിക്കും."
+      answer_phonetics: "njan nale veendum sramikkum."
+
+      distractors:
+          en:
+              - "I will not try again tomorrow."
+              - "I always try tomorrow."
+              - "I will try tomorrow."
+
+          targetLang:
+              - "ഞാൻ നാളെ വീണ്ടും ശ്രമിക്കില്ല."
+              - "ഞാൻ എല്ലായ്പ്പോഴും നാളെ ശ്രമിക്കുന്നു."
+              - "ഞാൻ നാളെ ശ്രമിക്കും."
+
+          phonetics:
+              - "njan nale veendum sramikkilla."
+              - "njan ellayppozhum nale sramikkunnu."
+              - "njan nale sramikkum."
+
+      learningHint: "‘Again’ means one more time."
+
+    - prompt_en: "This is very good."
+      prompt_targetLang: "ഇത് വളരെ നല്ലതാണ്."
+      prompt_phonetics: "ithu valare nallathanu."
+
+      answer: "This is very good."
+      answer_targetLang: "ഇത് വളരെ നല്ലതാണ്."
+      answer_phonetics: "ithu valare nallathanu."
+
+      distractors:
+          en:
+              - "This is not very good."
+              - "This is always good."
+              - "This is suddenly good."
+
+          targetLang:
+              - "ഇത് അത്ര നല്ലതല്ല."
+              - "ഇത് എല്ലായ്പ്പോഴും നല്ലതാണ്."
+              - "ഇത് പെട്ടെന്ന് നല്ലതാണ്."
+
+          phonetics:
+              - "ithu athra nallathalla."
+              - "ithu ellayppozhum nallathanu."
+              - "ithu pettennu nallathanu."
+
+      learningHint: "‘Very’ increases intensity."
+
+    - prompt_en: "This is not very easy."
+      prompt_targetLang: "ഇത് അത്ര എളുപ്പമുള്ളതല്ല."
+      prompt_phonetics: "ithu athra eluppamullathalla."
+
+      answer: "This is not very easy."
+      answer_targetLang: "ഇത് അത്ര എളുപ്പമുള്ളതല്ല."
+      answer_phonetics: "ithu athra eluppamullathalla."
+
+      distractors:
+          en:
+              - "This is very easy."
+              - "This is always easy."
+              - "This is suddenly easy."
+
+          targetLang:
+              - "ഇത് വളരെ എളുപ്പമാണ്."
+              - "ഇത് എല്ലായ്പ്പോഴും എളുപ്പമാണ്."
+              - "ഇത് പെട്ടെന്ന് എളുപ്പമാണ്."
+
+          phonetics:
+              - "ithu valare eluppamanu."
+              - "ithu ellayppozhum eluppamanu."
+              - "ithu pettennu eluppamanu."
+
+      learningHint: "‘Not very’ softens a negative meaning."

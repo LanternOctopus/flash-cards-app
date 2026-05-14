@@ -1,0 +1,76 @@
+Subject-Verb Agreement:
+
+  - text: The team goes to practice early. They go together every day.
+    answers:
+      - goes
+      - go
+
+  - text: We see the teacher at school. The student sees her in the hall.
+    answers:
+      - see
+      - sees
+
+  - text: The group thinks about the problem. They think about it together.
+    answers:
+      - thinks
+      - think
+
+  - text: My family gives food to guests. We give help to visitors.
+    answers:
+      - gives
+      - give
+
+  - text: The class works on the project. The students work in groups.
+    answers:
+      - works
+      - work
+
+  - text: They go to the park after school. He goes alone in the evening.
+    answers:
+      - go
+      - goes
+
+  - text: She sees a bird in the tree. I see it too.
+    answers:
+      - sees
+      - see
+
+  - text: Rahul works at the office. They work in the city.
+    answers:
+      - works
+      - work
+
+  - text: The committee gives a report. We give our opinions.
+    answers:
+      - gives
+      - give
+
+  - text: The crowd thinks the game is exciting. She thinks it is easy.
+    answers:
+      - think
+      - thinks
+
+  - text: I go home early. The team goes after training.
+    answers:
+      - go
+      - goes
+
+  - text: They give money to charity. The mother gives help to the child.
+    answers:
+      - give
+      - gives
+
+  - text: We see the results clearly. The teacher sees the mistake.
+    answers:
+      - see
+      - sees
+
+  - text: The group works late at night. My friends work together.
+    answers:
+      - works
+      - work
+
+  - text: He thinks about the idea carefully. They think it is good.
+    answers:
+      - thinks
+      - think
